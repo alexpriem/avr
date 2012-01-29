@@ -17,8 +17,9 @@ uint8_t b_leds[NUM_LEDS];
 
 
 
+// 1 led op willekeurige poort
 
-void init_led(uint8_t led, uint8_t portbit)
+void led_setup(uint8_t led, uint8_t portbit)
 
 {
  uint8_t l;
@@ -32,7 +33,10 @@ void init_led(uint8_t led, uint8_t portbit)
  if (l==P_PORTD) {p_leds[led]=&PORTD;}
 }
 
-void init_leds (uint8_t leds)
+
+// 8 leds op een poort
+
+void leds_setup (uint8_t leds)
 
 {
  uint8_t l,led;

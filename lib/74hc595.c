@@ -26,7 +26,7 @@ unsigned char  hc595_copy_data[NUM_74HC595];
 
 
 
-void init_74hc595(uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
+void s595_setup (uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
 
 { uint8_t bclk, bcs, bdata;
 

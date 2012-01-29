@@ -27,7 +27,7 @@ uint8_t mcp3204_b_clk[NUM_mcp3204];
 // cs, clk: standaard SPI. 
 
 
-void init_mcp3204(uint8_t chip, uint8_t cs, uint8_t clk,  uint8_t dout, uint8_t din)
+void mcp3204_setup(uint8_t chip, uint8_t cs, uint8_t clk,  uint8_t dout, uint8_t din)
 
 {
  uint8_t bclk, bcs, bdout, bdin;

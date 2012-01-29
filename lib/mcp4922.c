@@ -26,7 +26,7 @@ uint8_t mcp4922_b_ldac[NUM_mcp4922];
 
 
 
-void init_mcp4922(uint8_t chip, uint8_t cs, uint8_t clk,  uint8_t data, uint8_t ldac )
+void mcp4922_setup(uint8_t chip, uint8_t cs, uint8_t clk,  uint8_t data, uint8_t ldac )
 
 {
  uint8_t bclk, bcs, bdata, bldac;
@@ -74,7 +74,7 @@ void init_mcp4922(uint8_t chip, uint8_t cs, uint8_t clk,  uint8_t data, uint8_t 
  bit_set(*mcp4922_p_ldac[chip], mcp4922_b_ldac[chip]); 
 }
 
-void init_mcp4922_spi(uint8_t chip, uint8_t cs,  uint8_t ldac )
+void setup_mcp4922_spi(uint8_t chip, uint8_t cs,  uint8_t ldac )
 
 {
  uint8_t bcs, bldac;
