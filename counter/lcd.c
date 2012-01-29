@@ -64,12 +64,6 @@ uint8_t lcd_b_db3;
 #define lcd_e_delay()   __asm__ __volatile__( "rjmp 1f\n 1:" );
 
 
-#if LCD_LINES==1
-#define LCD_FUNCTION_DEFAULT    LCD_FUNCTION_4BIT_1LINE 
-#else
-#define LCD_FUNCTION_DEFAULT    LCD_FUNCTION_4BIT_2LINES 
-#endif 
-
 #define LCD_FUNCTION_DEFAULT  LCD_FUNCTION_4BIT_2LINES
 
 
@@ -102,10 +96,10 @@ the number of loops is calculated at compile-time from MCU clock frequency
 static void lcd_e_toggle(void)
 {
     bit_set (*lcd_p_enable, lcd_b_enable);
-    bit_set (*lcd_p_backlight, lcd_b_backlight);
+    //bit_set (*lcd_p_backlight, lcd_b_backlight);
 	lcd_e_delay();
     bit_clr (*lcd_p_enable, lcd_b_enable);
-	bit_clr (*lcd_p_backlight, lcd_b_backlight);
+	//bit_clr (*lcd_p_backlight, lcd_b_backlight);
 }
 
 
@@ -188,7 +182,7 @@ static uint8_t lcd_read(uint8_t rs)
                 
 	/* read high nibble first */
 	bit_set (*lcd_p_enable, lcd_b_enable);
-	bit_set (*lcd_p_backlight, lcd_b_backlight);
+	//bit_set (*lcd_p_backlight, lcd_b_backlight);
 	lcd_e_delay();        
 	data = 0;
 	if ( bit_get(*lcd_pin_db0, lcd_b_db0) ) data |= 0x10;
@@ -197,19 +191,19 @@ static uint8_t lcd_read(uint8_t rs)
 	if ( bit_get(*lcd_pin_db3, lcd_b_db3) ) data |= 0x80;		
 
 	bit_clr (*lcd_p_enable, lcd_b_enable);
-	bit_clr (*lcd_p_backlight, lcd_b_backlight);
+	//bit_clr (*lcd_p_backlight, lcd_b_backlight);
 	lcd_e_delay();                       /* Enable 500ns low       */
 
 	/* read low nibble */    
 	bit_set (*lcd_p_enable, lcd_b_enable);
-	bit_set (*lcd_p_backlight, lcd_b_backlight);
+//	bit_set (*lcd_p_backlight, lcd_b_backlight);
 	lcd_e_delay();
 	if ( bit_get(*lcd_pin_db0, lcd_b_db0) ) data |= 0x01;
 	if ( bit_get(*lcd_pin_db1, lcd_b_db1) ) data |= 0x02;
 	if ( bit_get(*lcd_pin_db2, lcd_b_db2) ) data |= 0x04;
 	if ( bit_get(*lcd_pin_db3, lcd_b_db3) ) data |= 0x08;		
 	bit_clr (*lcd_p_enable, lcd_b_enable);
-    bit_clr (*lcd_p_backlight, lcd_b_backlight);
+    //bit_clr (*lcd_p_backlight, lcd_b_backlight);
     return data;
 }
 
@@ -544,13 +538,13 @@ void lcd_setup (uint8_t rs, uint8_t rw, uint8_t enable, uint8_t backlight,
 
 void lcd_init (uint8_t dispAttr) 
 {
-    delay(50000); 
-	bit_clr (*lcd_p_db0, lcd_b_db0);
+    delay(50000);   // 40 ms wait
+	bit_set (*lcd_p_db0, lcd_b_db0);
 	bit_set (*lcd_p_db1, lcd_b_db1);
     bit_clr (*lcd_p_db2, lcd_b_db2);
 	bit_clr (*lcd_p_db3, lcd_b_db3);
     lcd_e_toggle();
-    delay(4992);         /* delay, busy flag can't be checked here */
+    delay(5000);         /* 5 msdelay, busy flag can't be checked here */
    
     /* repeat last command */ 
     lcd_e_toggle();      
@@ -569,8 +563,7 @@ void lcd_init (uint8_t dispAttr)
 	lcd_command (LCD_DISP_ON_CURSOR_BLINK);	
 	
     lcd_command (LCD_FUNCTION_DEFAULT);      /* function set: display lines  */    
-    lcd_clrscr ();                           /* display clear                */ 
+	lcd_command (1<<LCD_CLR);				/* display clear                */ 
     lcd_command (LCD_MODE_DEFAULT);          /* set entry mode               */
-	lcd_backlight_on ();
 	lcd_command (dispAttr);
 }

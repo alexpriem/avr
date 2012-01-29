@@ -20,6 +20,7 @@
 #include "leds.h"
 #include "keypad.h"
 #include "lcd.h"
+#include "hc595.h"
 
 #define TRUE 1
 #define FALSE 0
@@ -30,9 +31,9 @@
 //                       11, 9, 6, 3,
 //					    0, 8, 5, 2,
 //					   10, 7, 4, 1, 255};
-uint8_t mapping[17]={1,2,15,3,4,5,14,6,7,8,13,9,10,0,12,11, 255};
-   
-   
+//uint8_t mapping[17]={1,2,15,3,4,5,14,6,7,8,13,9,10,0,12,11, 255};
+  uint8_t mapping[17]={12,13,15,14,  11,9,7,6,   0,8,2,5,   10,7,1,4, 255};
+          //keycode:   0 1 2  3      4 5 6  7    8 9 10 11  12 13 14 15  16
    
 int get_number(uint8_t disp) 
 
@@ -49,7 +50,7 @@ int get_number(uint8_t disp)
  num=0;
  cat4016_put_unumber (disp, num);
  while (c!=0x10) {
-	c=getc_4x4_keypad ();  // wachten tot alle toetsen vrij zijn.
+	c=keypad_4x4_getc ();  // wachten tot alle toetsen vrij zijn.
 	cat4016_put_snumber (0, -c);
 	}
 	
@@ -57,7 +58,7 @@ int get_number(uint8_t disp)
  for (;;) {
 	while (c==0x10)				// wacht tot toets ingedrukt is
 		{
-		c=getc_4x4_keypad();  
+		c=keypad_4x4_getc();  
 		digit=mapping[c];
 		cat4016_put_unumber (0, digit);
 		}
@@ -82,7 +83,7 @@ int get_number(uint8_t disp)
 	num=d3*1000+d2*100+d1*10+d0;
 	cat4016_put_unumber (disp, num);
 	while (c!=0x10) {
-		c=getc_4x4_keypad ();  // wachten tot alle toetsen vrij zijn.
+		c=keypad_4x4_getc ();  // wachten tot alle toetsen vrij zijn.
 		digit=mapping[c];
 		cat4016_put_snumber (0, -digit);
 	}
@@ -129,7 +130,8 @@ int main(void)
 	int j,c, num;	
 	uint8_t dir, filling, winding;
 	int turns=0, fills=0;
-	int layers[8];
+	int count,prevc;
+	//int layers[8];
 	
 	
 	uart_init();
@@ -155,25 +157,51 @@ int main(void)
 	
 	
 	lcd_init (LCD_DISP_ON_CURSOR_BLINK);
-	//lcd_gotoxy (0,0);	
-	lcd_puts ("txsttekst");
+	lcd_gotoxy (0,0);	
+	lcd_puts ("nog een testtekst");
 	
 	
 	
   // init_cat4016(uint8_t chip, uint8_t clk, uint8_t latch, uint8_t data, uint8_t blank)
-	init_cat4016 (0, P_PD6, P_PD0,  P_PD4, PD2);	
-	init_cat4016 (1, P_PD7, P_PD1,  P_PD5, PD3);
-	init_cat4016 (2, P_PC6, P_PC0,  P_PC4, PC2);
-	init_cat4016 (3, P_PC7, P_PC1,  P_PC5, PC3);
+	init_cat4016 (1, P_PC6, P_PC0,  P_PC4, PC2);
+	init_cat4016 (2, P_PD7, P_PD1,  P_PD5, PD3);
+	init_cat4016 (3, P_PD6, P_PD0,  P_PD4, PD2);	
 	
-	init_4x4_keypad (P_PA0, P_PA1, P_PA2, P_PA3,
+	
+	//hc595_setup(uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
+	hc595_setup(0, P_PE7, P_PE6, P_PE5);
+	
+	
+	keypad_4x4_setup (P_PA0, P_PA1, P_PA2, P_PA3,
 	                 P_PA4, P_PA5, P_PA6, P_PA7);					 
 	
 	
+	
 	j=0;
-	PORTA=0xbf;
+	//PORTA=0x00;
+	
+	cat4016_put_unumber (1,1111);
+	cat4016_put_unumber (2,2222);
+	cat4016_put_unumber (0,3333);
+	uart_printf ("inits done\r\n");
+	
+	for (;;) {
+		c=keypad_4x4_getc();
+		num=mapping[c];		
+		if (c!=prevc) {
+			uart_printf (":%d reps omitted\r\n", count);
+			uart_printf ("%d %d", c, num);
+			prevc=c;
+			count=0;
+			} 
+		else {
+		  count++;
+		  }
+		}
+	
+	
 	for (;;)  {
-		c=getc_4x4_keypad();
+		c=keypad_4x4_getc();
 		num=mapping[c];		
 		if (num==15) {
 			cat4016_put_txt (3,"fill" );
