@@ -1,7 +1,7 @@
 /******************************************************************************
  Title:    Tuberelayswitch
  Author:   Alex Priem
- Date:     October 2008
+ Date:     January 2012
  Software: AVR-GCC 3.3 
  Hardware: ATMega32
            
@@ -35,7 +35,7 @@ uint8_t getc_3x4_keypad (void)
  return c;
 }
 
-void init_4x4_keypad (  uint8_t in1, uint8_t in2, uint8_t in3, uint8_t in4, 
+void keypad_4x4_setup (  uint8_t in1, uint8_t in2, uint8_t in3, uint8_t in4, 
 						uint8_t out1, uint8_t out2, uint8_t out3, uint8_t out4 ) 
 {
 
@@ -124,7 +124,7 @@ volatile uint8_t *pout;
 
 
 
-uint8_t getc_4x4_keypad (void) 
+uint8_t keypad_4x4_getc (void) 
 
 { uint8_t bout, bin, key,i,j;
   volatile uint8_t *pout, *pin;

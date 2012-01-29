@@ -52,7 +52,7 @@ PRJSRC=main.c keypad.c cat4016.c lcd.c
 INC=-Ie:\avr\include
 
 # libraries to link in (e.g. -lmylib)
-LIBS=-Le:\avr\lib  -ldelay -luart 
+LIBS=-Le:\avr\lib   -luart -lhc595 -ldelay
 
 # Optimization level, 
 # use s (size opt), 1, 2, 3 or 0 (off)
