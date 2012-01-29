@@ -1,0 +1,724 @@
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 1
+
+
+   1               		.file	"scpi.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               		.text
+  10               	.global	scpi_apply_unit
+  11               		.type	scpi_apply_unit, @function
+  12               	scpi_apply_unit:
+  13               	/* prologue: frame size=0 */
+  14               	/* prologue end (size=0) */
+  15 0000 4115      		cp r20,__zero_reg__
+  16 0002 5105      		cpc r21,__zero_reg__
+  17 0004 01F0      		breq .L2
+  18 0006 2FEF      		ldi r18,hi8(-3)
+  19 0008 4D3F      		cpi r20,lo8(-3)
+  20 000a 5207      		cpc r21,r18
+  21 000c 01F4      		brne .L4
+  22 000e 28EE      		ldi r18,lo8(1000)
+  23 0010 33E0      		ldi r19,hi8(1000)
+  24 0012 40E0      		ldi r20,hlo8(1000)
+  25 0014 50E0      		ldi r21,hhi8(1000)
+  26 0016 00C0      		rjmp .L12
+  27               	.L4:
+  28 0018 2FEF      		ldi r18,hi8(-6)
+  29 001a 4A3F      		cpi r20,lo8(-6)
+  30 001c 5207      		cpc r21,r18
+  31 001e 01F4      		brne .L6
+  32 0020 20E4      		ldi r18,lo8(1000000)
+  33 0022 32E4      		ldi r19,hi8(1000000)
+  34 0024 4FE0      		ldi r20,hlo8(1000000)
+  35 0026 50E0      		ldi r21,hhi8(1000000)
+  36               	.L12:
+  37 0028 0E94 0000 		call __divmodsi4
+  38 002c CA01      		movw r24,r20
+  39 002e B901      		movw r22,r18
+  40 0030 0895      		ret
+  41               	.L6:
+  42 0032 4330      		cpi r20,3
+  43 0034 5105      		cpc r21,__zero_reg__
+  44 0036 01F4      		brne .L8
+  45 0038 28EE      		ldi r18,lo8(1000)
+  46 003a 33E0      		ldi r19,hi8(1000)
+  47 003c 40E0      		ldi r20,hlo8(1000)
+  48 003e 50E0      		ldi r21,hhi8(1000)
+  49 0040 0E94 0000 		call __mulsi3
+  50 0044 0895      		ret
+  51               	.L8:
+  52 0046 4630      		cpi r20,6
+  53 0048 5105      		cpc r21,__zero_reg__
+  54 004a 01F4      		brne .L2
+  55 004c 20E4      		ldi r18,lo8(1000000)
+  56 004e 32E4      		ldi r19,hi8(1000000)
+  57 0050 4FE0      		ldi r20,hlo8(1000000)
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 2
+
+
+  58 0052 50E0      		ldi r21,hhi8(1000000)
+  59 0054 0E94 0000 		call __mulsi3
+  60               	.L2:
+  61 0058 0895      		ret
+  62               	/* epilogue: frame size=0 */
+  63               	/* epilogue: noreturn */
+  64               	/* epilogue end (size=0) */
+  65               	/* function scpi_apply_unit size 45 (45) */
+  66               		.size	scpi_apply_unit, .-scpi_apply_unit
+  67               	.global	scpi_get_boolean
+  68               		.type	scpi_get_boolean, @function
+  69               	scpi_get_boolean:
+  70               	/* prologue: frame size=0 */
+  71               	/* prologue end (size=0) */
+  72 005a 80E0      		ldi r24,lo8(0)
+  73 005c 90E0      		ldi r25,hi8(0)
+  74               	/* epilogue: frame size=0 */
+  75 005e 0895      		ret
+  76               	/* epilogue end (size=1) */
+  77               	/* function scpi_get_boolean size 3 (2) */
+  78               		.size	scpi_get_boolean, .-scpi_get_boolean
+  79               	.global	ltostr
+  80               		.type	ltostr, @function
+  81               	ltostr:
+  82               	/* prologue: frame size=32 */
+  83 0060 A0E2      		ldi r26,lo8(32)
+  84 0062 B0E0      		ldi r27,hi8(32)
+  85 0064 E0E0      		ldi r30,pm_lo8(1f)
+  86 0066 F0E0      		ldi r31,pm_hi8(1f)
+  87 0068 0C94 0000 		jmp __prologue_saves__+8
+  88               	1:
+  89               	/* prologue end (size=6) */
+  90 006c 6B01      		movw r12,r22
+  91 006e 7C01      		movw r14,r24
+  92 0070 5A01      		movw r10,r20
+  93 0072 20E4      		ldi r18,lo8(1000000)
+  94 0074 32E4      		ldi r19,hi8(1000000)
+  95 0076 4FE0      		ldi r20,hlo8(1000000)
+  96 0078 50E0      		ldi r21,hhi8(1000000)
+  97 007a 0E94 0000 		call __divmodsi4
+  98 007e 3901      		movw r6,r18
+  99 0080 4A01      		movw r8,r20
+ 100 0082 2AE0      		ldi r18,lo8(10)
+ 101 0084 30E0      		ldi r19,hi8(10)
+ 102 0086 A501      		movw r20,r10
+ 103 0088 C401      		movw r24,r8
+ 104 008a B301      		movw r22,r6
+ 105 008c 0E94 0000 		call ltoa
+ 106 0090 D501      		movw r26,r10
+ 107 0092 FE01      		movw r30,r28
+ 108 0094 3196      		adiw r30,1
+ 109               	.L16:
+ 110 0096 8D91      		ld r24,X+
+ 111 0098 8193      		st Z+,r24
+ 112 009a 8823      		tst r24
+ 113 009c 01F4      		brne .L16
+ 114 009e 8EE2      		ldi r24,lo8(46)
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 3
+
+
+ 115 00a0 8293      		st -Z,r24
+ 116 00a2 3196      		adiw r30,1
+ 117 00a4 8F01      		movw r16,r30
+ 118 00a6 C401      		movw r24,r8
+ 119 00a8 B301      		movw r22,r6
+ 120 00aa 20E4      		ldi r18,lo8(1000000)
+ 121 00ac 32E4      		ldi r19,hi8(1000000)
+ 122 00ae 4FE0      		ldi r20,hlo8(1000000)
+ 123 00b0 50E0      		ldi r21,hhi8(1000000)
+ 124 00b2 0E94 0000 		call __mulsi3
+ 125 00b6 C61A      		sub r12,r22
+ 126 00b8 D70A      		sbc r13,r23
+ 127 00ba E80A      		sbc r14,r24
+ 128 00bc F90A      		sbc r15,r25
+ 129 00be 2AE0      		ldi r18,lo8(10)
+ 130 00c0 30E0      		ldi r19,hi8(10)
+ 131 00c2 A501      		movw r20,r10
+ 132 00c4 C701      		movw r24,r14
+ 133 00c6 B601      		movw r22,r12
+ 134 00c8 0E94 0000 		call ltoa
+ 135 00cc F501      		movw r30,r10
+ 136 00ce 0190      		ld __tmp_reg__,Z+
+ 137 00d0 0020      		tst __tmp_reg__
+ 138 00d2 01F4      		brne .-6
+ 139 00d4 3197      		sbiw r30,1
+ 140 00d6 EA19      		sub r30,r10
+ 141 00d8 FB09      		sbc r31,r11
+ 142 00da E01B      		sub r30,r16
+ 143 00dc 00C0      		rjmp .L18
+ 144               	.L19:
+ 145 00de 80E3      		ldi r24,lo8(48)
+ 146 00e0 D801      		movw r26,r16
+ 147 00e2 8D93      		st X+,r24
+ 148 00e4 8D01      		movw r16,r26
+ 149               	.L18:
+ 150 00e6 8E2F      		mov r24,r30
+ 151 00e8 800F      		add r24,r16
+ 152 00ea 8630      		cpi r24,lo8(6)
+ 153 00ec 00F0      		brlo .L19
+ 154 00ee F501      		movw r30,r10
+ 155               	.L21:
+ 156 00f0 8191      		ld r24,Z+
+ 157 00f2 D801      		movw r26,r16
+ 158 00f4 8D93      		st X+,r24
+ 159 00f6 8D01      		movw r16,r26
+ 160 00f8 8823      		tst r24
+ 161 00fa 01F4      		brne .L21
+ 162 00fc 1C92      		st X,__zero_reg__
+ 163 00fe BE01      		movw r22,r28
+ 164 0100 6F5F      		subi r22,lo8(-(1))
+ 165 0102 7F4F      		sbci r23,hi8(-(1))
+ 166 0104 C501      		movw r24,r10
+ 167 0106 0E94 0000 		call strcpy
+ 168 010a C501      		movw r24,r10
+ 169               	/* epilogue: frame size=32 */
+ 170 010c EEE0      		ldi r30,14
+ 171 010e A096      		adiw r28,32
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 4
+
+
+ 172 0110 0C94 0000 		jmp __epilogue_restores__+8
+ 173               	/* epilogue end (size=4) */
+ 174               	/* function ltostr size 90 (80) */
+ 175               		.size	ltostr, .-ltostr
+ 176               	.global	scpi_parse_unit
+ 177               		.type	scpi_parse_unit, @function
+ 178               	scpi_parse_unit:
+ 179               	/* prologue: frame size=0 */
+ 180 0114 A0E0      		ldi r26,lo8(0)
+ 181 0116 B0E0      		ldi r27,hi8(0)
+ 182 0118 E0E0      		ldi r30,pm_lo8(1f)
+ 183 011a F0E0      		ldi r31,pm_hi8(1f)
+ 184 011c 0C94 0000 		jmp __prologue_saves__+14
+ 185               	1:
+ 186               	/* prologue end (size=6) */
+ 187 0120 962E      		mov r9,r22
+ 188 0122 5A01      		movw r10,r20
+ 189 0124 7C01      		movw r14,r24
+ 190 0126 00C0      		rjmp .L29
+ 191               	.L30:
+ 192 0128 0894      		sec
+ 193 012a E11C      		adc r14,__zero_reg__
+ 194 012c F11C      		adc r15,__zero_reg__
+ 195               	.L29:
+ 196 012e F701      		movw r30,r14
+ 197 0130 8081      		ld r24,Z
+ 198 0132 8032      		cpi r24,lo8(32)
+ 199 0134 01F0      		breq .L30
+ 200 0136 CC24      		clr r12
+ 201 0138 DD24      		clr r13
+ 202 013a 00C0      		rjmp .L32
+ 203               	.L33:
+ 204 013c 0894      		sec
+ 205 013e C11C      		adc r12,__zero_reg__
+ 206 0140 D11C      		adc r13,__zero_reg__
+ 207               	.L32:
+ 208 0142 86E0      		ldi r24,lo8(6)
+ 209 0144 C89E      		mul r12,r24
+ 210 0146 E001      		movw r28,r0
+ 211 0148 1124      		clr r1
+ 212 014a C050      		subi r28,lo8(-(units))
+ 213 014c D040      		sbci r29,hi8(-(units))
+ 214 014e FE01      		movw r30,r28
+ 215 0150 0190      		ld __tmp_reg__,Z+
+ 216 0152 0020      		tst __tmp_reg__
+ 217 0154 01F4      		brne .-6
+ 218 0156 3197      		sbiw r30,1
+ 219 0158 EC1B      		sub r30,r28
+ 220 015a FD0B      		sbc r31,r29
+ 221 015c 8C81      		ldd r24,Y+4
+ 222 015e 8430      		cpi r24,lo8(4)
+ 223 0160 01F4      		brne .L34
+ 224 0162 F501      		movw r30,r10
+ 225 0164 1182      		std Z+1,__zero_reg__
+ 226 0166 1082      		st Z,__zero_reg__
+ 227 0168 80E0      		ldi r24,lo8(0)
+ 228 016a 90E0      		ldi r25,hi8(0)
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 5
+
+
+ 229 016c 00C0      		rjmp .L36
+ 230               	.L34:
+ 231 016e 8915      		cp r24,r9
+ 232 0170 01F4      		brne .L33
+ 233 0172 0E2F      		mov r16,r30
+ 234 0174 10E0      		ldi r17,lo8(0)
+ 235 0176 A801      		movw r20,r16
+ 236 0178 B701      		movw r22,r14
+ 237 017a CE01      		movw r24,r28
+ 238 017c 0E94 0000 		call strncasecmp
+ 239 0180 892B      		or r24,r25
+ 240 0182 01F4      		brne .L33
+ 241 0184 0E0D      		add r16,r14
+ 242 0186 1F1D      		adc r17,r15
+ 243 0188 F501      		movw r30,r10
+ 244 018a 1183      		std Z+1,r17
+ 245 018c 0083      		st Z,r16
+ 246 018e 8D81      		ldd r24,Y+5
+ 247 0190 9927      		clr r25
+ 248 0192 87FD      		sbrc r24,7
+ 249 0194 9095      		com r25
+ 250               	.L36:
+ 251               	/* epilogue: frame size=0 */
+ 252 0196 EBE0      		ldi r30,11
+ 253 0198 CDB7      		in r28,__SP_L__
+ 254 019a DEB7      		in r29,__SP_H__
+ 255 019c 0C94 0000 		jmp __epilogue_restores__+14
+ 256               	/* epilogue end (size=5) */
+ 257               	/* function scpi_parse_unit size 70 (59) */
+ 258               		.size	scpi_parse_unit, .-scpi_parse_unit
+ 259               	.global	scpi_get_long_unit
+ 260               		.type	scpi_get_long_unit, @function
+ 261               	scpi_get_long_unit:
+ 262               	/* prologue: frame size=6 */
+ 263 01a0 6F92      		push r6
+ 264 01a2 7F92      		push r7
+ 265 01a4 8F92      		push r8
+ 266 01a6 9F92      		push r9
+ 267 01a8 AF92      		push r10
+ 268 01aa BF92      		push r11
+ 269 01ac DF92      		push r13
+ 270 01ae EF92      		push r14
+ 271 01b0 FF92      		push r15
+ 272 01b2 0F93      		push r16
+ 273 01b4 1F93      		push r17
+ 274 01b6 CF93      		push r28
+ 275 01b8 DF93      		push r29
+ 276 01ba CDB7      		in r28,__SP_L__
+ 277 01bc DEB7      		in r29,__SP_H__
+ 278 01be 2697      		sbiw r28,6
+ 279 01c0 0FB6      		in __tmp_reg__,__SREG__
+ 280 01c2 F894      		cli
+ 281 01c4 DEBF      		out __SP_H__,r29
+ 282 01c6 0FBE      		out __SREG__,__tmp_reg__
+ 283 01c8 CDBF      		out __SP_L__,r28
+ 284               	/* prologue end (size=21) */
+ 285 01ca 3B01      		movw r6,r22
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 6
+
+
+ 286 01cc 40E0      		ldi r20,lo8(0)
+ 287 01ce 50E0      		ldi r21,hi8(0)
+ 288 01d0 BE01      		movw r22,r28
+ 289 01d2 6F5F      		subi r22,lo8(-(1))
+ 290 01d4 7F4F      		sbci r23,hi8(-(1))
+ 291 01d6 0E94 0000 		call strtol
+ 292 01da 20E4      		ldi r18,lo8(1000000)
+ 293 01dc 32E4      		ldi r19,hi8(1000000)
+ 294 01de 4FE0      		ldi r20,hlo8(1000000)
+ 295 01e0 50E0      		ldi r21,hhi8(1000000)
+ 296 01e2 0E94 0000 		call __mulsi3
+ 297 01e6 4B01      		movw r8,r22
+ 298 01e8 5C01      		movw r10,r24
+ 299 01ea E981      		ldd r30,Y+1
+ 300 01ec FA81      		ldd r31,Y+2
+ 301 01ee FC83      		std Y+4,r31
+ 302 01f0 EB83      		std Y+3,r30
+ 303 01f2 8191      		ld r24,Z+
+ 304 01f4 FA83      		std Y+2,r31
+ 305 01f6 E983      		std Y+1,r30
+ 306 01f8 8E32      		cpi r24,lo8(46)
+ 307 01fa 01F0      		breq .+2
+ 308 01fc 00C0      		rjmp .L41
+ 309 01fe 40E0      		ldi r20,lo8(0)
+ 310 0200 50E0      		ldi r21,hi8(0)
+ 311 0202 BE01      		movw r22,r28
+ 312 0204 6D5F      		subi r22,lo8(-(3))
+ 313 0206 7F4F      		sbci r23,hi8(-(3))
+ 314 0208 CF01      		movw r24,r30
+ 315 020a 0E94 0000 		call strtol
+ 316 020e 7B01      		movw r14,r22
+ 317 0210 8C01      		movw r16,r24
+ 318 0212 DB80      		ldd r13,Y+3
+ 319 0214 8981      		ldd r24,Y+1
+ 320 0216 D81A      		sub r13,r24
+ 321 0218 85E0      		ldi r24,lo8(5)
+ 322 021a 8D15      		cp r24,r13
+ 323 021c 00F0      		brlo .L43
+ 324 021e 21E0      		ldi r18,lo8(1)
+ 325 0220 30E0      		ldi r19,hi8(1)
+ 326 0222 40E0      		ldi r20,hlo8(1)
+ 327 0224 50E0      		ldi r21,hhi8(1)
+ 328               	.L45:
+ 329 0226 D394      		inc r13
+ 330 0228 CA01      		movw r24,r20
+ 331 022a B901      		movw r22,r18
+ 332 022c 2AE0      		ldi r18,lo8(10)
+ 333 022e 30E0      		ldi r19,hi8(10)
+ 334 0230 40E0      		ldi r20,hlo8(10)
+ 335 0232 50E0      		ldi r21,hhi8(10)
+ 336 0234 0E94 0000 		call __mulsi3
+ 337 0238 9B01      		movw r18,r22
+ 338 023a AC01      		movw r20,r24
+ 339 023c E6E0      		ldi r30,lo8(6)
+ 340 023e DE16      		cp r13,r30
+ 341 0240 01F4      		brne .L45
+ 342 0242 C801      		movw r24,r16
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 7
+
+
+ 343 0244 B701      		movw r22,r14
+ 344 0246 0E94 0000 		call __mulsi3
+ 345 024a 7B01      		movw r14,r22
+ 346 024c 8C01      		movw r16,r24
+ 347 024e 00C0      		rjmp .L47
+ 348               	.L43:
+ 349 0250 F6E0      		ldi r31,lo8(6)
+ 350 0252 DF16      		cp r13,r31
+ 351 0254 01F0      		breq .L47
+ 352 0256 21E0      		ldi r18,lo8(1)
+ 353 0258 30E0      		ldi r19,hi8(1)
+ 354 025a 40E0      		ldi r20,hlo8(1)
+ 355 025c 50E0      		ldi r21,hhi8(1)
+ 356               	.L49:
+ 357 025e DA94      		dec r13
+ 358 0260 CA01      		movw r24,r20
+ 359 0262 B901      		movw r22,r18
+ 360 0264 2AE0      		ldi r18,lo8(10)
+ 361 0266 30E0      		ldi r19,hi8(10)
+ 362 0268 40E0      		ldi r20,hlo8(10)
+ 363 026a 50E0      		ldi r21,hhi8(10)
+ 364 026c 0E94 0000 		call __mulsi3
+ 365 0270 9B01      		movw r18,r22
+ 366 0272 AC01      		movw r20,r24
+ 367 0274 86E0      		ldi r24,lo8(6)
+ 368 0276 D816      		cp r13,r24
+ 369 0278 01F4      		brne .L49
+ 370 027a C801      		movw r24,r16
+ 371 027c B701      		movw r22,r14
+ 372 027e 0E94 0000 		call __divmodsi4
+ 373 0282 7901      		movw r14,r18
+ 374 0284 8A01      		movw r16,r20
+ 375               	.L47:
+ 376 0286 8E0C      		add r8,r14
+ 377 0288 9F1C      		adc r9,r15
+ 378 028a A01E      		adc r10,r16
+ 379 028c B11E      		adc r11,r17
+ 380               	.L41:
+ 381 028e AE01      		movw r20,r28
+ 382 0290 4B5F      		subi r20,lo8(-(5))
+ 383 0292 5F4F      		sbci r21,hi8(-(5))
+ 384 0294 61E0      		ldi r22,lo8(1)
+ 385 0296 8B81      		ldd r24,Y+3
+ 386 0298 9C81      		ldd r25,Y+4
+ 387 029a 0E94 0000 		call scpi_parse_unit
+ 388 029e AC01      		movw r20,r24
+ 389 02a0 C501      		movw r24,r10
+ 390 02a2 B401      		movw r22,r8
+ 391 02a4 0E94 0000 		call scpi_apply_unit
+ 392 02a8 F301      		movw r30,r6
+ 393 02aa 6083      		st Z,r22
+ 394 02ac 7183      		std Z+1,r23
+ 395 02ae 8283      		std Z+2,r24
+ 396 02b0 9383      		std Z+3,r25
+ 397 02b2 80E0      		ldi r24,lo8(0)
+ 398 02b4 90E0      		ldi r25,hi8(0)
+ 399               	/* epilogue: frame size=6 */
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 8
+
+
+ 400 02b6 2696      		adiw r28,6
+ 401 02b8 0FB6      		in __tmp_reg__,__SREG__
+ 402 02ba F894      		cli
+ 403 02bc DEBF      		out __SP_H__,r29
+ 404 02be 0FBE      		out __SREG__,__tmp_reg__
+ 405 02c0 CDBF      		out __SP_L__,r28
+ 406 02c2 DF91      		pop r29
+ 407 02c4 CF91      		pop r28
+ 408 02c6 1F91      		pop r17
+ 409 02c8 0F91      		pop r16
+ 410 02ca FF90      		pop r15
+ 411 02cc EF90      		pop r14
+ 412 02ce DF90      		pop r13
+ 413 02d0 BF90      		pop r11
+ 414 02d2 AF90      		pop r10
+ 415 02d4 9F90      		pop r9
+ 416 02d6 8F90      		pop r8
+ 417 02d8 7F90      		pop r7
+ 418 02da 6F90      		pop r6
+ 419 02dc 0895      		ret
+ 420               	/* epilogue end (size=20) */
+ 421               	/* function scpi_get_long_unit size 159 (118) */
+ 422               		.size	scpi_get_long_unit, .-scpi_get_long_unit
+ 423               	.global	scpi_parse_command
+ 424               		.type	scpi_parse_command, @function
+ 425               	scpi_parse_command:
+ 426               	/* prologue: frame size=67 */
+ 427 02de A3E4      		ldi r26,lo8(67)
+ 428 02e0 B0E0      		ldi r27,hi8(67)
+ 429 02e2 E0E0      		ldi r30,pm_lo8(1f)
+ 430 02e4 F0E0      		ldi r31,pm_hi8(1f)
+ 431 02e6 0C94 0000 		jmp __prologue_saves__+0
+ 432               	1:
+ 433               	/* prologue end (size=6) */
+ 434 02ea 5C01      		movw r10,r24
+ 435 02ec 2496      		adiw r28,66-62
+ 436 02ee 7FAF      		std Y+63,r23
+ 437 02f0 6EAF      		std Y+62,r22
+ 438 02f2 2497      		sbiw r28,66-62
+ 439 02f4 E0E0      		ldi r30,lo8(keywords)
+ 440 02f6 F0E0      		ldi r31,hi8(keywords)
+ 441               	/* #APP */
+ 442 02f8 6591      		lpm r22, Z+
+ 443 02fa 7491      		lpm r23, Z
+ 444               		
+ 445               	/* #NOAPP */
+ 446 02fc 4424      		clr r4
+ 447 02fe 5524      		clr r5
+ 448 0300 3E01      		movw r6,r28
+ 449 0302 0894      		sec
+ 450 0304 611C      		adc r6,__zero_reg__
+ 451 0306 711C      		adc r7,__zero_reg__
+ 452 0308 91E2      		ldi r25,lo8(33)
+ 453 030a 292E      		mov r2,r25
+ 454 030c 312C      		mov r3,__zero_reg__
+ 455 030e 2C0E      		add r2,r28
+ 456 0310 3D1E      		adc r3,r29
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 9
+
+
+ 457 0312 00C0      		rjmp .L57
+ 458               	.L58:
+ 459 0314 C301      		movw r24,r6
+ 460 0316 0E94 0000 		call strcpy_P
+ 461 031a F301      		movw r30,r6
+ 462 031c 0190      		ld __tmp_reg__,Z+
+ 463 031e 0020      		tst __tmp_reg__
+ 464 0320 01F4      		brne .-6
+ 465 0322 3197      		sbiw r30,1
+ 466 0324 E619      		sub r30,r6
+ 467 0326 8301      		movw r16,r6
+ 468 0328 CC24      		clr r12
+ 469 032a EE2E      		mov r14,r30
+ 470 032c FF24      		clr r15
+ 471 032e 4701      		movw r8,r14
+ 472 0330 860C      		add r8,r6
+ 473 0332 971C      		adc r9,r7
+ 474 0334 00C0      		rjmp .L59
+ 475               	.L60:
+ 476 0336 F801      		movw r30,r16
+ 477 0338 D080      		ld r13,Z
+ 478 033a 8D2D      		mov r24,r13
+ 479 033c 90E0      		ldi r25,lo8(0)
+ 480 033e 0E94 0000 		call islower
+ 481 0342 892B      		or r24,r25
+ 482 0344 01F4      		brne .L61
+ 483 0346 F101      		movw r30,r2
+ 484 0348 EC0D      		add r30,r12
+ 485 034a F11D      		adc r31,__zero_reg__
+ 486 034c D082      		st Z,r13
+ 487 034e C394      		inc r12
+ 488               	.L61:
+ 489 0350 0F5F      		subi r16,lo8(-(1))
+ 490 0352 1F4F      		sbci r17,hi8(-(1))
+ 491               	.L59:
+ 492 0354 0815      		cp r16,r8
+ 493 0356 1905      		cpc r17,r9
+ 494 0358 01F4      		brne .L60
+ 495 035a 0C2D      		mov r16,r12
+ 496 035c 10E0      		ldi r17,lo8(0)
+ 497 035e F101      		movw r30,r2
+ 498 0360 E00F      		add r30,r16
+ 499 0362 F11F      		adc r31,r17
+ 500 0364 80E2      		ldi r24,lo8(32)
+ 501 0366 8083      		st Z,r24
+ 502 0368 E2E2      		ldi r30,lo8(34)
+ 503 036a F0E0      		ldi r31,hi8(34)
+ 504 036c EC0F      		add r30,r28
+ 505 036e FD1F      		adc r31,r29
+ 506 0370 E00F      		add r30,r16
+ 507 0372 F11F      		adc r31,r17
+ 508 0374 1082      		st Z,__zero_reg__
+ 509 0376 A701      		movw r20,r14
+ 510 0378 B501      		movw r22,r10
+ 511 037a C301      		movw r24,r6
+ 512 037c 0E94 0000 		call strncasecmp
+ 513 0380 892B      		or r24,r25
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 10
+
+
+ 514 0382 01F4      		brne .L64
+ 515 0384 EA0C      		add r14,r10
+ 516 0386 FB1C      		adc r15,r11
+ 517 0388 2496      		adiw r28,66-62
+ 518 038a EEAD      		ldd r30,Y+62
+ 519 038c FFAD      		ldd r31,Y+63
+ 520 038e 2497      		sbiw r28,66-62
+ 521 0390 F182      		std Z+1,r15
+ 522 0392 E082      		st Z,r14
+ 523 0394 00C0      		rjmp .L71
+ 524               	.L64:
+ 525 0396 0894      		sec
+ 526 0398 411C      		adc r4,__zero_reg__
+ 527 039a 511C      		adc r5,__zero_reg__
+ 528 039c A801      		movw r20,r16
+ 529 039e B501      		movw r22,r10
+ 530 03a0 C101      		movw r24,r2
+ 531 03a2 0E94 0000 		call strncasecmp
+ 532 03a6 892B      		or r24,r25
+ 533 03a8 01F4      		brne .L67
+ 534 03aa 0A0D      		add r16,r10
+ 535 03ac 1B1D      		adc r17,r11
+ 536 03ae 2496      		adiw r28,66-62
+ 537 03b0 EEAD      		ldd r30,Y+62
+ 538 03b2 FFAD      		ldd r31,Y+63
+ 539 03b4 2497      		sbiw r28,66-62
+ 540 03b6 1183      		std Z+1,r17
+ 541 03b8 0083      		st Z,r16
+ 542               	.L71:
+ 543 03ba 2296      		adiw r28,65-63
+ 544 03bc 8FAD      		ldd r24,Y+63
+ 545 03be 2297      		sbiw r28,65-63
+ 546 03c0 00C0      		rjmp .L66
+ 547               	.L67:
+ 548 03c2 E42D      		mov r30,r4
+ 549 03c4 F0E0      		ldi r31,lo8(0)
+ 550 03c6 EE0F      		lsl r30
+ 551 03c8 FF1F      		rol r31
+ 552 03ca E050      		subi r30,lo8(-(keywords))
+ 553 03cc F040      		sbci r31,hi8(-(keywords))
+ 554               	/* #APP */
+ 555 03ce 6591      		lpm r22, Z+
+ 556 03d0 7491      		lpm r23, Z
+ 557               		
+ 558               	/* #NOAPP */
+ 559               	.L57:
+ 560 03d2 2296      		adiw r28,65-63
+ 561 03d4 4FAE      		std Y+63,r4
+ 562 03d6 2297      		sbiw r28,65-63
+ 563 03d8 6115      		cp r22,__zero_reg__
+ 564 03da 7105      		cpc r23,__zero_reg__
+ 565 03dc 01F0      		breq .+2
+ 566 03de 00C0      		rjmp .L58
+ 567 03e0 8FEF      		ldi r24,lo8(-1)
+ 568               	.L66:
+ 569 03e2 90E0      		ldi r25,lo8(0)
+ 570               	/* epilogue: frame size=67 */
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 11
+
+
+ 571 03e4 E2E1      		ldi r30,18
+ 572 03e6 CD5B      		subi r28,lo8(-67)
+ 573 03e8 DF4F      		sbci r29,hi8(-67)
+ 574 03ea 0C94 0000 		jmp __epilogue_restores__+0
+ 575               	/* epilogue end (size=5) */
+ 576               	/* function scpi_parse_command size 144 (133) */
+ 577               		.size	scpi_parse_command, .-scpi_parse_command
+ 578               		.data
+ 579               	.LC0:
+ 580 0000 0A0D 636D 		.string	"\n\rcmd:"
+ 580      643A 00
+ 581               	.LC1:
+ 582 0007 5B00      		.string	"["
+ 583               		.text
+ 584               	.global	scpi_parse_line
+ 585               		.type	scpi_parse_line, @function
+ 586               	scpi_parse_line:
+ 587               	/* prologue: frame size=12 */
+ 588 03ee ACE0      		ldi r26,lo8(12)
+ 589 03f0 B0E0      		ldi r27,hi8(12)
+ 590 03f2 E0E0      		ldi r30,pm_lo8(1f)
+ 591 03f4 F0E0      		ldi r31,pm_hi8(1f)
+ 592 03f6 0C94 0000 		jmp __prologue_saves__+22
+ 593               	1:
+ 594               	/* prologue end (size=6) */
+ 595 03fa 1092 0000 		sts return_buf,__zero_reg__
+ 596 03fe BE01      		movw r22,r28
+ 597 0400 6F5F      		subi r22,lo8(-(1))
+ 598 0402 7F4F      		sbci r23,hi8(-(1))
+ 599 0404 0E94 0000 		call scpi_parse_command
+ 600 0408 7C01      		movw r14,r24
+ 601 040a 80E0      		ldi r24,lo8(.LC0)
+ 602 040c 90E0      		ldi r25,hi8(.LC0)
+ 603 040e 0E94 0000 		call uart_puts
+ 604 0412 8E01      		movw r16,r28
+ 605 0414 0D5F      		subi r16,lo8(-(3))
+ 606 0416 1F4F      		sbci r17,hi8(-(3))
+ 607 0418 4AE0      		ldi r20,lo8(10)
+ 608 041a 50E0      		ldi r21,hi8(10)
+ 609 041c B801      		movw r22,r16
+ 610 041e 8E2D      		mov r24,r14
+ 611 0420 90E0      		ldi r25,lo8(0)
+ 612 0422 0E94 0000 		call itoa
+ 613 0426 C801      		movw r24,r16
+ 614 0428 0E94 0000 		call uart_puts
+ 615 042c 80E0      		ldi r24,lo8(.LC1)
+ 616 042e 90E0      		ldi r25,hi8(.LC1)
+ 617 0430 0E94 0000 		call uart_puts
+ 618 0434 8981      		ldd r24,Y+1
+ 619 0436 9A81      		ldd r25,Y+2
+ 620 0438 0E94 0000 		call uart_puts
+ 621 043c 6981      		ldd r22,Y+1
+ 622 043e 7A81      		ldd r23,Y+2
+ 623 0440 8E2D      		mov r24,r14
+ 624 0442 0E94 0000 		call scpi_function
+ 625 0446 8C01      		movw r16,r24
+ 626 0448 8091 0000 		lds r24,return_buf
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 12
+
+
+ 627 044c 8823      		tst r24
+ 628 044e 01F0      		breq .L73
+ 629 0450 8AE0      		ldi r24,lo8(10)
+ 630 0452 0E94 0000 		call lcd_putc
+ 631 0456 80E0      		ldi r24,lo8(return_buf)
+ 632 0458 90E0      		ldi r25,hi8(return_buf)
+ 633 045a 0E94 0000 		call lcd_puts
+ 634 045e 80E0      		ldi r24,lo8(return_buf)
+ 635 0460 90E0      		ldi r25,hi8(return_buf)
+ 636 0462 0E94 0000 		call uart_puts
+ 637               	.L73:
+ 638 0466 802F      		mov r24,r16
+ 639 0468 90E0      		ldi r25,lo8(0)
+ 640               	/* epilogue: frame size=12 */
+ 641 046a E7E0      		ldi r30,7
+ 642 046c 2C96      		adiw r28,12
+ 643 046e 0C94 0000 		jmp __epilogue_restores__+22
+ 644               	/* epilogue end (size=4) */
+ 645               	/* function scpi_parse_line size 66 (56) */
+ 646               		.size	scpi_parse_line, .-scpi_parse_line
+ 647               		.comm return_buf,80,1
+ 648               	/* File "scpi.c": code  577 = 0x0241 ( 493), prologues  45, epilogues  39 */
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 scpi.c
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:2      *ABS*:0000003f __SREG__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:3      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:4      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:5      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:6      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:12     .text:00000000 scpi_apply_unit
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:69     .text:0000005a scpi_get_boolean
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:81     .text:00000060 ltostr
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:178    .text:00000114 scpi_parse_unit
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:261    .text:000001a0 scpi_get_long_unit
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:425    .text:000002de scpi_parse_command
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccOMlv34.s:586    .text:000003ee scpi_parse_line
+                            *COM*:00000050 return_buf
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__divmodsi4
+__mulsi3
+__prologue_saves__
+ltoa
+strcpy
+__epilogue_restores__
+units
+strncasecmp
+strtol
+keywords
+strcpy_P
+islower
+uart_puts
+itoa
+scpi_function
+lcd_putc
+lcd_puts

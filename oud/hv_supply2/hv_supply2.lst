@@ -1,0 +1,106 @@
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEzsNMa.s 			page 1
+
+
+   1               		.file	"hv_supply2.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               		.text
+  10               	.global	do_sweep
+  11               		.type	do_sweep, @function
+  12               	do_sweep:
+  13               	/* prologue: frame size=16 */
+  14 0000 EF92      		push r14
+  15 0002 FF92      		push r15
+  16 0004 0F93      		push r16
+  17 0006 1F93      		push r17
+  18 0008 CF93      		push r28
+  19 000a DF93      		push r29
+  20 000c CDB7      		in r28,__SP_L__
+  21 000e DEB7      		in r29,__SP_H__
+  22 0010 6097      		sbiw r28,16
+  23 0012 0FB6      		in __tmp_reg__,__SREG__
+  24 0014 F894      		cli
+  25 0016 DEBF      		out __SP_H__,r29
+  26 0018 0FBE      		out __SREG__,__tmp_reg__
+  27 001a CDBF      		out __SP_L__,r28
+  28               	/* prologue end (size=14) */
+  29 001c 8C01      		movw r16,r24
+  30 001e 0E94 0000 		call lcd_puts
+  31 0022 20E0      		ldi r18,lo8(0x0)
+  32 0024 30E0      		ldi r19,hi8(0x0)
+  33 0026 40E0      		ldi r20,hlo8(0x0)
+  34 0028 50E0      		ldi r21,hhi8(0x0)
+  35 002a F801      		movw r30,r16
+  36 002c 6585      		ldd r22,Z+13
+  37 002e 7685      		ldd r23,Z+14
+  38 0030 8785      		ldd r24,Z+15
+  39 0032 9089      		ldd r25,Z+16
+  40 0034 0E94 0000 		call __gtsf2
+  41 0038 1816      		cp __zero_reg__,r24
+  42 003a 04F4      		brge .L2
+  43 003c 7E01      		movw r14,r28
+  44 003e 0894      		sec
+  45 0040 E11C      		adc r14,__zero_reg__
+  46 0042 F11C      		adc r15,__zero_reg__
+  47               	.L6:
+  48 0044 8701      		movw r16,r14
+  49 0046 23E0      		ldi r18,lo8(3)
+  50 0048 46E0      		ldi r20,lo8(6)
+  51 004a 60E0      		ldi r22,lo8(0x0)
+  52 004c 70E0      		ldi r23,hi8(0x0)
+  53 004e 80E0      		ldi r24,hlo8(0x0)
+  54 0050 90E0      		ldi r25,hhi8(0x0)
+  55 0052 0E94 0000 		call dtostrf
+  56 0056 C701      		movw r24,r14
+  57 0058 0E94 0000 		call lcd_puts
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEzsNMa.s 			page 2
+
+
+  58 005c 8AE0      		ldi r24,lo8(10)
+  59 005e 0E94 0000 		call lcd_putc
+  60 0062 00C0      		rjmp .L6
+  61               	.L2:
+  62 0064 80E0      		ldi r24,lo8(0)
+  63 0066 90E0      		ldi r25,hi8(0)
+  64               	/* epilogue: frame size=16 */
+  65 0068 6096      		adiw r28,16
+  66 006a 0FB6      		in __tmp_reg__,__SREG__
+  67 006c F894      		cli
+  68 006e DEBF      		out __SP_H__,r29
+  69 0070 0FBE      		out __SREG__,__tmp_reg__
+  70 0072 CDBF      		out __SP_L__,r28
+  71 0074 DF91      		pop r29
+  72 0076 CF91      		pop r28
+  73 0078 1F91      		pop r17
+  74 007a 0F91      		pop r16
+  75 007c FF90      		pop r15
+  76 007e EF90      		pop r14
+  77 0080 0895      		ret
+  78               	/* epilogue end (size=13) */
+  79               	/* function do_sweep size 66 (39) */
+  80               		.size	do_sweep, .-do_sweep
+  81               	/* File "hv_supply2.c": code   66 = 0x0042 (  39), prologues  14, epilogues  13 */
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEzsNMa.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 hv_supply2.c
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEzsNMa.s:2      *ABS*:0000003f __SREG__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEzsNMa.s:3      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEzsNMa.s:4      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEzsNMa.s:5      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEzsNMa.s:6      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEzsNMa.s:12     .text:00000000 do_sweep
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+lcd_puts
+__gtsf2
+dtostrf
+lcd_putc

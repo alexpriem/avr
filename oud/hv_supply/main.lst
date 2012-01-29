@@ -1,0 +1,333 @@
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s 			page 1
+
+
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               		.text
+  10               	.global	wait_until_key_pressed
+  11               		.type	wait_until_key_pressed, @function
+  12               	wait_until_key_pressed:
+  13               	/* prologue: frame size=0 */
+  14               	/* prologue end (size=0) */
+  15               	.L3:
+  16 0000 90B3      		in r25,48-0x20
+  17 0002 80B3      		in r24,48-0x20
+  18 0004 8923      		and r24,r25
+  19 0006 87FD      		sbrc r24,7
+  20 0008 00C0      		rjmp .L3
+  21               	.L7:
+  22 000a 879B      		sbis 48-0x20,7
+  23 000c 00C0      		rjmp .L7
+  24               	/* epilogue: frame size=0 */
+  25 000e 0895      		ret
+  26               	/* epilogue end (size=1) */
+  27               	/* function wait_until_key_pressed size 8 (7) */
+  28               		.size	wait_until_key_pressed, .-wait_until_key_pressed
+  29               		.data
+  30               	.LC0:
+  31 0000 2575 2025 		.string	"%u %u\r\n"
+  31      750D 0A00 
+  32               		.text
+  33               	.global	main
+  34               		.type	main, @function
+  35               	main:
+  36               	/* prologue: frame size=0 */
+  37 0010 EF92      		push r14
+  38 0012 FF92      		push r15
+  39 0014 0F93      		push r16
+  40 0016 1F93      		push r17
+  41 0018 CF93      		push r28
+  42 001a DF93      		push r29
+  43               	/* prologue end (size=6) */
+  44 001c 8F98      		cbi 49-0x20,7
+  45 001e 979A      		sbi 50-0x20,7
+  46 0020 8FEF      		ldi r24,lo8(-1)
+  47 0022 8ABB      		out 58-0x20,r24
+  48 0024 8BBB      		out 59-0x20,r24
+  49 0026 8CE0      		ldi r24,lo8(12)
+  50 0028 0E94 0000 		call lcd_init
+  51 002c 0E94 0000 		call lcd_clrscr
+  52 0030 81E0      		ldi r24,lo8(1)
+  53 0032 0E94 0000 		call lcd_backlight
+  54 0036 0E94 0000 		call uart_init
+  55 003a 41E0      		ldi r20,lo8(1)
+  56 003c 60E0      		ldi r22,lo8(0)
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s 			page 2
+
+
+  57 003e 80E0      		ldi r24,lo8(0)
+  58 0040 0E94 0000 		call init_encoder
+  59 0044 43E0      		ldi r20,lo8(3)
+  60 0046 62E0      		ldi r22,lo8(2)
+  61 0048 81E0      		ldi r24,lo8(1)
+  62 004a 0E94 0000 		call init_encoder
+  63 004e 02E0      		ldi r16,lo8(2)
+  64 0050 21E0      		ldi r18,lo8(1)
+  65 0052 40E0      		ldi r20,lo8(0)
+  66 0054 61E0      		ldi r22,lo8(1)
+  67 0056 80E0      		ldi r24,lo8(0)
+  68 0058 0E94 0000 		call init_tda1543
+  69 005c 21E0      		ldi r18,lo8(1)
+  70 005e 43E0      		ldi r20,lo8(3)
+  71 0060 63E0      		ldi r22,lo8(3)
+  72 0062 82E0      		ldi r24,lo8(2)
+  73 0064 0E94 0000 		call init_tda1543
+  74 0068 00E0      		ldi r16,lo8(0)
+  75 006a 10E0      		ldi r17,hi8(0)
+  76 006c C0E0      		ldi r28,lo8(0)
+  77 006e D0E0      		ldi r29,hi8(0)
+  78 0070 40E0      		ldi r20,lo8(.LC0)
+  79 0072 E42E      		mov r14,r20
+  80 0074 40E0      		ldi r20,hi8(.LC0)
+  81 0076 F42E      		mov r15,r20
+  82               	.L12:
+  83 0078 80E0      		ldi r24,lo8(0)
+  84 007a 0E94 0000 		call get_encoder
+  85 007e 9927      		clr r25
+  86 0080 87FD      		sbrc r24,7
+  87 0082 9095      		com r25
+  88 0084 982F      		mov r25,r24
+  89 0086 8827      		clr r24
+  90 0088 081B      		sub r16,r24
+  91 008a 190B      		sbc r17,r25
+  92 008c 81E0      		ldi r24,lo8(1)
+  93 008e 0E94 0000 		call get_encoder
+  94 0092 9927      		clr r25
+  95 0094 87FD      		sbrc r24,7
+  96 0096 9095      		com r25
+  97 0098 982F      		mov r25,r24
+  98 009a 8827      		clr r24
+  99 009c C81B      		sub r28,r24
+ 100 009e D90B      		sbc r29,r25
+ 101 00a0 DF93      		push r29
+ 102 00a2 CF93      		push r28
+ 103 00a4 1F93      		push r17
+ 104 00a6 0F93      		push r16
+ 105 00a8 FF92      		push r15
+ 106 00aa EF92      		push r14
+ 107 00ac 0E94 0000 		call uart_printf
+ 108 00b0 DF93      		push r29
+ 109 00b2 CF93      		push r28
+ 110 00b4 1F93      		push r17
+ 111 00b6 0F93      		push r16
+ 112 00b8 FF92      		push r15
+ 113 00ba EF92      		push r14
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s 			page 3
+
+
+ 114 00bc 0E94 0000 		call lcd_printf
+ 115 00c0 9E01      		movw r18,r28
+ 116 00c2 41E0      		ldi r20,lo8(1)
+ 117 00c4 BE01      		movw r22,r28
+ 118 00c6 80E0      		ldi r24,lo8(0)
+ 119 00c8 0E94 0000 		call set_tda1543_2
+ 120 00cc 8DB7      		in r24,__SP_L__
+ 121 00ce 9EB7      		in r25,__SP_H__
+ 122 00d0 0C96      		adiw r24,12
+ 123 00d2 0FB6      		in __tmp_reg__,__SREG__
+ 124 00d4 F894      		cli
+ 125 00d6 9EBF      		out __SP_H__,r25
+ 126 00d8 0FBE      		out __SREG__,__tmp_reg__
+ 127 00da 8DBF      		out __SP_L__,r24
+ 128 00dc 00C0      		rjmp .L12
+ 129               	/* epilogue: frame size=0 */
+ 130               	/* epilogue: noreturn */
+ 131               	/* epilogue end (size=0) */
+ 132               	/* function main size 103 (97) */
+ 133               		.size	main, .-main
+ 134               		.data
+ 135               	.LC1:
+ 136 0008 766F 6C74 		.string	"volt 20.1 V"
+ 136      2032 302E 
+ 136      3120 5600 
+ 137               	.LC2:
+ 138 0014 766F 6C74 		.string	"volt?"
+ 138      3F00 
+ 139               	.LC3:
+ 140 001a 7377 6565 		.string	"sweep:start 0.5"
+ 140      703A 7374 
+ 140      6172 7420 
+ 140      302E 3500 
+ 141               	.LC4:
+ 142 002a 7377 6565 		.string	"sweep:start?"
+ 142      703A 7374 
+ 142      6172 743F 
+ 142      00
+ 143               	.LC5:
+ 144 0037 7377 6565 		.string	"sweep:stop 20"
+ 144      703A 7374 
+ 144      6F70 2032 
+ 144      3000 
+ 145               	.LC6:
+ 146 0045 7377 6565 		.string	"sweep:stop?"
+ 146      703A 7374 
+ 146      6F70 3F00 
+ 147               	.LC7:
+ 148 0051 7377 6565 		.string	"sweep:step 0.5"
+ 148      703A 7374 
+ 148      6570 2030 
+ 148      2E35 00
+ 149               	.LC8:
+ 150 0060 7377 6565 		.string	"sweep:step?"
+ 150      703A 7374 
+ 150      6570 3F00 
+ 151               	.LC9:
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s 			page 4
+
+
+ 152 006c 7377 6565 		.string	"sweep:go"
+ 152      703A 676F 
+ 152      00
+ 153               		.text
+ 154               	.global	command_loop
+ 155               		.type	command_loop, @function
+ 156               	command_loop:
+ 157               	/* prologue: frame size=32 */
+ 158 00de A0E2      		ldi r26,lo8(32)
+ 159 00e0 B0E0      		ldi r27,hi8(32)
+ 160 00e2 E0E0      		ldi r30,pm_lo8(1f)
+ 161 00e4 F0E0      		ldi r31,pm_hi8(1f)
+ 162 00e6 0C94 0000 		jmp __prologue_saves__+24
+ 163               	1:
+ 164               	/* prologue end (size=6) */
+ 165 00ea 0E94 0000 		call lcd_clrscr
+ 166 00ee 60E0      		ldi r22,lo8(.LC1)
+ 167 00f0 70E0      		ldi r23,hi8(.LC1)
+ 168 00f2 8E01      		movw r16,r28
+ 169 00f4 0F5F      		subi r16,lo8(-(1))
+ 170 00f6 1F4F      		sbci r17,hi8(-(1))
+ 171 00f8 C801      		movw r24,r16
+ 172 00fa 0E94 0000 		call strcpy
+ 173 00fe C801      		movw r24,r16
+ 174 0100 0E94 0000 		call scpi_parse_line
+ 175 0104 60E0      		ldi r22,lo8(.LC2)
+ 176 0106 70E0      		ldi r23,hi8(.LC2)
+ 177 0108 C801      		movw r24,r16
+ 178 010a 0E94 0000 		call strcpy
+ 179 010e C801      		movw r24,r16
+ 180 0110 0E94 0000 		call scpi_parse_line
+ 181 0114 60E0      		ldi r22,lo8(.LC3)
+ 182 0116 70E0      		ldi r23,hi8(.LC3)
+ 183 0118 C801      		movw r24,r16
+ 184 011a 0E94 0000 		call strcpy
+ 185 011e C801      		movw r24,r16
+ 186 0120 0E94 0000 		call scpi_parse_line
+ 187 0124 60E0      		ldi r22,lo8(.LC4)
+ 188 0126 70E0      		ldi r23,hi8(.LC4)
+ 189 0128 C801      		movw r24,r16
+ 190 012a 0E94 0000 		call strcpy
+ 191 012e C801      		movw r24,r16
+ 192 0130 0E94 0000 		call scpi_parse_line
+ 193 0134 60E0      		ldi r22,lo8(.LC5)
+ 194 0136 70E0      		ldi r23,hi8(.LC5)
+ 195 0138 C801      		movw r24,r16
+ 196 013a 0E94 0000 		call strcpy
+ 197 013e C801      		movw r24,r16
+ 198 0140 0E94 0000 		call scpi_parse_line
+ 199 0144 60E0      		ldi r22,lo8(.LC6)
+ 200 0146 70E0      		ldi r23,hi8(.LC6)
+ 201 0148 C801      		movw r24,r16
+ 202 014a 0E94 0000 		call strcpy
+ 203 014e C801      		movw r24,r16
+ 204 0150 0E94 0000 		call scpi_parse_line
+ 205 0154 60E0      		ldi r22,lo8(.LC7)
+ 206 0156 70E0      		ldi r23,hi8(.LC7)
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s 			page 5
+
+
+ 207 0158 C801      		movw r24,r16
+ 208 015a 0E94 0000 		call strcpy
+ 209 015e C801      		movw r24,r16
+ 210 0160 0E94 0000 		call scpi_parse_line
+ 211 0164 60E0      		ldi r22,lo8(.LC8)
+ 212 0166 70E0      		ldi r23,hi8(.LC8)
+ 213 0168 C801      		movw r24,r16
+ 214 016a 0E94 0000 		call strcpy
+ 215 016e C801      		movw r24,r16
+ 216 0170 0E94 0000 		call scpi_parse_line
+ 217 0174 60E0      		ldi r22,lo8(.LC9)
+ 218 0176 70E0      		ldi r23,hi8(.LC9)
+ 219 0178 C801      		movw r24,r16
+ 220 017a 0E94 0000 		call strcpy
+ 221 017e C801      		movw r24,r16
+ 222 0180 0E94 0000 		call scpi_parse_line
+ 223 0184 50E0      		ldi r21,lo8(sem_uart)
+ 224 0186 E52E      		mov r14,r21
+ 225 0188 50E0      		ldi r21,hi8(sem_uart)
+ 226 018a F52E      		mov r15,r21
+ 227               	.L24:
+ 228 018c 8091 0000 		lds r24,uart_done
+ 229 0190 8823      		tst r24
+ 230 0192 01F0      		breq .L24
+ 231 0194 8AE2      		ldi r24,lo8(42)
+ 232 0196 0E94 0000 		call lcd_putc
+ 233 019a C701      		movw r24,r14
+ 234 019c 0E94 0000 		call lock
+ 235 01a0 01E0      		ldi r16,lo8(1)
+ 236 01a2 00C0      		rjmp .L17
+ 237               	.L18:
+ 238 01a4 E02F      		mov r30,r16
+ 239 01a6 F0E0      		ldi r31,lo8(0)
+ 240 01a8 E050      		subi r30,lo8(-(uartbuf))
+ 241 01aa F040      		sbci r31,hi8(-(uartbuf))
+ 242 01ac 8081      		ld r24,Z
+ 243 01ae 0E94 0000 		call lcd_putc
+ 244 01b2 0F5F      		subi r16,lo8(-(1))
+ 245               	.L17:
+ 246 01b4 8091 0000 		lds r24,uart_len
+ 247 01b8 0817      		cp r16,r24
+ 248 01ba 00F0      		brlo .L18
+ 249 01bc 1092 0000 		sts uart_len,__zero_reg__
+ 250 01c0 1092 0000 		sts uart_done,__zero_reg__
+ 251 01c4 C701      		movw r24,r14
+ 252 01c6 0E94 0000 		call unlock
+ 253 01ca 00C0      		rjmp .L24
+ 254               	/* epilogue: frame size=32 */
+ 255               	/* epilogue: noreturn */
+ 256               	/* epilogue end (size=0) */
+ 257               	/* function command_loop size 119 (113) */
+ 258               		.size	command_loop, .-command_loop
+ 259               	/* File "main.c": code  230 = 0x00e6 ( 217), prologues  12, epilogues   1 */
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s:2      *ABS*:0000003f __SREG__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s:3      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s:4      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s:5      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s:6      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s:12     .text:00000000 wait_until_key_pressed
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s:35     .text:00000010 main
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccz2gY7r.s:156    .text:000000de command_loop
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+lcd_init
+lcd_clrscr
+lcd_backlight
+uart_init
+init_encoder
+init_tda1543
+get_encoder
+uart_printf
+lcd_printf
+set_tda1543_2
+__prologue_saves__
+strcpy
+scpi_parse_line
+sem_uart
+uart_done
+lcd_putc
+lock
+uartbuf
+uart_len
+unlock

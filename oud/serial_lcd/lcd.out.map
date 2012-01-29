@@ -1,0 +1,473 @@
+Archive member included because of file (symbol)
+
+e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_exit.o)
+                              e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o (exit)
+e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_copy_data.o)
+                              lcd.o (__do_copy_data)
+e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_clear_bss.o)
+                              lcd.o (__do_clear_bss)
+e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(itoa.o)
+                              lcd.o (itoa)
+e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(utoa.o)
+                              lcd.o (utoa)
+e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(strrev.o)
+                              e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(itoa.o) (strrev)
+e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_udivmodhi4.o)
+                              e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(itoa.o) (__udivmodhi4)
+
+Allocating common symbols
+Common symbol       size              file
+
+bit1                0x4               encoder.o
+encoder             0x4               encoder.o
+uartbuf             0x100             uart.o
+uart_len            0x1               uart.o
+uart_empty          0x1               uart.o
+bit2                0x4               encoder.o
+port                0x4               encoder.o
+uart_done           0x1               uart.o
+sem_uart            0x1               uart.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o
+LOAD e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libm.a
+LOAD lcd.o
+LOAD main.o
+LOAD uart.o
+LOAD encoder.o
+LOAD e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a
+LOAD e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a
+LOAD e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x77e
+ *(.vectors)
+ .vectors       0x00000000       0x26 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000026                . = ALIGN (0x2)
+                0x00000026                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000026        0x0 linker stubs
+ *(.trampolines*)
+                0x00000026                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000026                __ctors_start = .
+ *(.ctors)
+                0x00000026                __ctors_end = .
+                0x00000026                __dtors_start = .
+ *(.dtors)
+                0x00000026                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000026        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o
+                0x00000026                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000026        0xc e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000032       0x16 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_copy_data.o)
+                0x00000032                __do_copy_data
+ .init4         0x00000048       0x10 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_clear_bss.o)
+                0x00000048                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000058        0x4 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o
+ *(.init9)
+ *(.text)
+ .text          0x0000005c        0x2 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o
+                0x0000005c                __vector_1
+                0x0000005c                __vector_12
+                0x0000005c                __bad_interrupt
+                0x0000005c                __vector_6
+                0x0000005c                __vector_3
+                0x0000005c                __vector_13
+                0x0000005c                __vector_17
+                0x0000005c                __vector_7
+                0x0000005c                __vector_5
+                0x0000005c                __vector_4
+                0x0000005c                __vector_9
+                0x0000005c                __vector_2
+                0x0000005c                __vector_15
+                0x0000005c                __vector_8
+                0x0000005c                __vector_14
+                0x0000005c                __vector_10
+                0x0000005c                __vector_16
+                0x0000005c                __vector_18
+ .text          0x0000005e      0x2a6 lcd.o
+                0x00000142                lcd_data
+                0x000001c6                lcd_printf
+                0x00000152                lcd_gotoxy
+                0x00000172                lcd_putc
+                0x0000016c                lcd_home
+                0x00000166                lcd_clrscr
+                0x00000160                lcd_getxy
+                0x00000196                lcd_puts
+                0x000001ac                lcd_puts_p
+                0x000002a0                lcd_init
+                0x00000132                lcd_command
+                0x00000126                lcd_backlight
+ .text          0x00000304      0x1b4 main.o
+                0x00000304                main
+ .text          0x000004b8      0x15c uart.o
+                0x000004dc                uart_puts
+                0x000004ee                __vector_11
+                0x000004b8                uart_init
+                0x000004d4                uart_putc
+                0x0000052c                uart_printf
+ .text          0x00000614       0xba encoder.o
+                0x00000682                get_encoder
+                0x00000614                init_encoder
+ .text          0x000006ce        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_exit.o)
+ .text          0x000006ce        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_copy_data.o)
+ .text          0x000006ce        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_clear_bss.o)
+ .text          0x000006ce       0x3e e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(itoa.o)
+                0x000006ce                itoa
+ .text          0x0000070c       0x28 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(utoa.o)
+                0x0000070c                utoa
+ .text          0x00000734       0x20 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(strrev.o)
+                0x00000734                strrev
+ .text          0x00000754        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_udivmodhi4.o)
+                0x00000754                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00000754        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x00000754        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000754        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000754       0x28 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_udivmodhi4.o)
+                0x00000754                __udivmodhi4
+                0x0000077c                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000077c        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_exit.o)
+                0x0000077c                exit
+                0x0000077c                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000077c        0x2 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000077e                _etext = .
+
+.data           0x00800060       0x3a load address 0x0000077e
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o
+ .data          0x00800060        0x0 lcd.o
+ .data          0x00800060       0x29 main.o
+ .data          0x00800089        0x0 uart.o
+ .data          0x00800089       0x10 encoder.o
+                0x00800089                encoder_states
+ .data          0x00800099        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_exit.o)
+ .data          0x00800099        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_copy_data.o)
+ .data          0x00800099        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_clear_bss.o)
+ .data          0x00800099        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(itoa.o)
+ .data          0x00800099        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(utoa.o)
+ .data          0x00800099        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(strrev.o)
+ .data          0x00800099        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_udivmodhi4.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080009a                . = ALIGN (0x2)
+ *fill*         0x00800099        0x1 00
+                0x0080009a                _edata = .
+                0x0080009a                PROVIDE (__data_end, .)
+
+.bss            0x0080009a      0x114 load address 0x000007b8
+                0x0080009a                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080009a        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x0080009a        0x0 lcd.o
+ .bss           0x0080009a        0x0 main.o
+ .bss           0x0080009a        0x0 uart.o
+ .bss           0x0080009a        0x0 encoder.o
+ .bss           0x0080009a        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_exit.o)
+ .bss           0x0080009a        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_copy_data.o)
+ .bss           0x0080009a        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_clear_bss.o)
+ .bss           0x0080009a        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(itoa.o)
+ .bss           0x0080009a        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(utoa.o)
+ .bss           0x0080009a        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4\libc.a(strrev.o)
+ .bss           0x0080009a        0x0 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr4\libgcc.a(_udivmodhi4.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0080009a      0x104 uart.o
+                0x0080009a                uartbuf
+                0x0080019a                uart_len
+                0x0080019b                uart_empty
+                0x0080019c                uart_done
+                0x0080019d                sem_uart
+ COMMON         0x0080019e       0x10 encoder.o
+                0x0080019e                bit1
+                0x008001a2                encoder
+                0x008001a6                bit2
+                0x008001aa                port
+                0x008001ae                PROVIDE (__bss_end, .)
+                0x0000077e                __data_load_start = LOADADDR (.data)
+                0x000007b8                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008001ae        0x0
+                0x008001ae                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008001ae                PROVIDE (__noinit_end, .)
+                0x008001ae                _end = .
+                0x008001ae                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000      0x378
+ *(.stab)
+ .stab          0x00000000      0x378 e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o
+
+.stabstr        0x00000000       0x5f
+ *(.stabstr)
+ .stabstr       0x00000000       0x5f e:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr4/crtm8.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x80
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 lcd.o
+ .debug_aranges
+                0x00000020       0x20 main.o
+ .debug_aranges
+                0x00000040       0x20 uart.o
+ .debug_aranges
+                0x00000060       0x20 encoder.o
+
+.debug_pubnames
+                0x00000000      0x1e6
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0xbf lcd.o
+ .debug_pubnames
+                0x000000bf       0x1b main.o
+ .debug_pubnames
+                0x000000da       0x9f uart.o
+ .debug_pubnames
+                0x00000179       0x6d encoder.o
+
+.debug_info     0x00000000      0xa55
+ *(.debug_info)
+ .debug_info    0x00000000      0x4ed lcd.o
+ .debug_info    0x000004ed      0x158 main.o
+ .debug_info    0x00000645      0x28e uart.o
+ .debug_info    0x000008d3      0x182 encoder.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x508
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x253 lcd.o
+ .debug_abbrev  0x00000253       0xb4 main.o
+ .debug_abbrev  0x00000307      0x132 uart.o
+ .debug_abbrev  0x00000439       0xcf encoder.o
+
+.debug_line     0x00000000      0xa6c
+ *(.debug_line)
+ .debug_line    0x00000000      0x53c lcd.o
+ .debug_line    0x0000053c      0x219 main.o
+ .debug_line    0x00000755      0x1ff uart.o
+ .debug_line    0x00000954      0x118 encoder.o
+
+.debug_frame    0x00000000      0x1c0
+ *(.debug_frame)
+ .debug_frame   0x00000000      0x110 lcd.o
+ .debug_frame   0x00000110       0x20 main.o
+ .debug_frame   0x00000130       0x60 uart.o
+ .debug_frame   0x00000190       0x30 encoder.o
+
+.debug_str      0x00000000      0x2aa
+ *(.debug_str)
+ .debug_str     0x00000000      0x1b2 lcd.o
+                                0x1f8 (size before relaxing)
+ .debug_str     0x000001b2       0x4e main.o
+                                 0xff (size before relaxing)
+ .debug_str     0x00000200       0x50 uart.o
+                                0x14d (size before relaxing)
+ .debug_str     0x00000250       0x5a encoder.o
+                                0x108 (size before relaxing)
+
+.debug_loc      0x00000000      0x3cd
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x293 lcd.o
+ .debug_loc     0x00000293       0xb0 uart.o
+ .debug_loc     0x00000343       0x8a encoder.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(lcd.out elf32-avr)
+LOAD linker stubs

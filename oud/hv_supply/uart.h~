@@ -1,0 +1,12 @@
+#ifndef UART_H
+#define UART_H
+
+
+
+extern void InitUART (void);
+extern void getchar(void);
+
+extern void lock (uint8_t *sem);
+extern void lock (uint8_t *sem);
+
+#endif

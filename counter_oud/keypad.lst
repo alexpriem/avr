@@ -1,0 +1,429 @@
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc99ltrp.s 			page 1
+
+
+   1               		.file	"keypad.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               	.global	getc_3x4_keypad
+  17               		.type	getc_3x4_keypad, @function
+  18               	getc_3x4_keypad:
+  19               	.LFB2:
+  20               	.LM1:
+  21 0000 DF93      		push r29
+  22 0002 CF93      		push r28
+  23 0004 0F92      		push __tmp_reg__
+  24 0006 CDB7      		in r28,__SP_L__
+  25 0008 DEB7      		in r29,__SP_H__
+  26               	/* prologue: function */
+  27               	/* frame size = 1 */
+  28               	.LM2:
+  29 000a 82E1      		ldi r24,lo8(18)
+  30 000c 8983      		std Y+1,r24
+  31               	.LM3:
+  32 000e E6E3      		ldi r30,lo8(54)
+  33 0010 F0E0      		ldi r31,hi8(54)
+  34 0012 8081      		ld r24,Z
+  35 0014 8983      		std Y+1,r24
+  36               	.LM4:
+  37 0016 8981      		ldd r24,Y+1
+  38               	/* epilogue start */
+  39               	.LM5:
+  40 0018 0F90      		pop __tmp_reg__
+  41 001a CF91      		pop r28
+  42 001c DF91      		pop r29
+  43 001e 0895      		ret
+  44               	.LFE2:
+  45               		.size	getc_3x4_keypad, .-getc_3x4_keypad
+  46               		.section	.debug_frame,"",@progbits
+  47               	.Lframe0:
+  48 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+  49               	.LSCIE0:
+  50 0004 FFFF FFFF 		.long	0xffffffff
+  51 0008 01        		.byte	0x1
+  52 0009 00        		.string	""
+  53 000a 01        		.uleb128 0x1
+  54 000b 7F        		.sleb128 -1
+  55 000c 24        		.byte	0x24
+  56 000d 0C        		.byte	0xc
+  57 000e 20        		.uleb128 0x20
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc99ltrp.s 			page 2
+
+
+  58 000f 00        		.uleb128 0x0
+  59               		.p2align	2
+  60               	.LECIE0:
+  61               	.LSFDE0:
+  62 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+  63               	.LASFDE0:
+  64 0014 0000 0000 		.long	.Lframe0
+  65 0018 0000 0000 		.long	.LFB2
+  66 001c 2000 0000 		.long	.LFE2-.LFB2
+  67               		.p2align	2
+  68               	.LEFDE0:
+  69               		.text
+  70               	.Letext0:
+  71               		.section	.debug_info
+  72 0000 8A00 0000 		.long	0x8a
+  73 0004 0200      		.word	0x2
+  74 0006 0000 0000 		.long	.Ldebug_abbrev0
+  75 000a 04        		.byte	0x4
+  76 000b 01        		.uleb128 0x1
+  77 000c 0000 0000 		.long	.LASF7
+  78 0010 01        		.byte	0x1
+  79 0011 0000 0000 		.long	.LASF8
+  80 0015 0000 0000 		.long	.LASF9
+  81 0019 0000 0000 		.long	.Ltext0
+  82 001d 0000 0000 		.long	.Letext0
+  83 0021 0000 0000 		.long	.Ldebug_line0
+  84 0025 02        		.uleb128 0x2
+  85 0026 01        		.byte	0x1
+  86 0027 06        		.byte	0x6
+  87 0028 0000 0000 		.long	.LASF0
+  88 002c 03        		.uleb128 0x3
+  89 002d 0000 0000 		.long	.LASF10
+  90 0031 02        		.byte	0x2
+  91 0032 7A        		.byte	0x7a
+  92 0033 3700 0000 		.long	0x37
+  93 0037 02        		.uleb128 0x2
+  94 0038 01        		.byte	0x1
+  95 0039 08        		.byte	0x8
+  96 003a 0000 0000 		.long	.LASF1
+  97 003e 04        		.uleb128 0x4
+  98 003f 02        		.byte	0x2
+  99 0040 05        		.byte	0x5
+ 100 0041 696E 7400 		.string	"int"
+ 101 0045 02        		.uleb128 0x2
+ 102 0046 02        		.byte	0x2
+ 103 0047 07        		.byte	0x7
+ 104 0048 0000 0000 		.long	.LASF2
+ 105 004c 02        		.uleb128 0x2
+ 106 004d 04        		.byte	0x4
+ 107 004e 05        		.byte	0x5
+ 108 004f 0000 0000 		.long	.LASF3
+ 109 0053 02        		.uleb128 0x2
+ 110 0054 04        		.byte	0x4
+ 111 0055 07        		.byte	0x7
+ 112 0056 0000 0000 		.long	.LASF4
+ 113 005a 02        		.uleb128 0x2
+ 114 005b 08        		.byte	0x8
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc99ltrp.s 			page 3
+
+
+ 115 005c 05        		.byte	0x5
+ 116 005d 0000 0000 		.long	.LASF5
+ 117 0061 02        		.uleb128 0x2
+ 118 0062 08        		.byte	0x8
+ 119 0063 07        		.byte	0x7
+ 120 0064 0000 0000 		.long	.LASF6
+ 121 0068 05        		.uleb128 0x5
+ 122 0069 01        		.byte	0x1
+ 123 006a 0000 0000 		.long	.LASF11
+ 124 006e 01        		.byte	0x1
+ 125 006f 17        		.byte	0x17
+ 126 0070 01        		.byte	0x1
+ 127 0071 2C00 0000 		.long	0x2c
+ 128 0075 0000 0000 		.long	.LFB2
+ 129 0079 0000 0000 		.long	.LFE2
+ 130 007d 02        		.byte	0x2
+ 131 007e 90        		.byte	0x90
+ 132 007f 20        		.uleb128 0x20
+ 133 0080 06        		.uleb128 0x6
+ 134 0081 6300      		.string	"c"
+ 135 0083 01        		.byte	0x1
+ 136 0084 18        		.byte	0x18
+ 137 0085 2C00 0000 		.long	0x2c
+ 138 0089 02        		.byte	0x2
+ 139 008a 8C        		.byte	0x8c
+ 140 008b 01        		.sleb128 1
+ 141 008c 00        		.byte	0x0
+ 142 008d 00        		.byte	0x0
+ 143               		.section	.debug_abbrev
+ 144 0000 01        		.uleb128 0x1
+ 145 0001 11        		.uleb128 0x11
+ 146 0002 01        		.byte	0x1
+ 147 0003 25        		.uleb128 0x25
+ 148 0004 0E        		.uleb128 0xe
+ 149 0005 13        		.uleb128 0x13
+ 150 0006 0B        		.uleb128 0xb
+ 151 0007 03        		.uleb128 0x3
+ 152 0008 0E        		.uleb128 0xe
+ 153 0009 1B        		.uleb128 0x1b
+ 154 000a 0E        		.uleb128 0xe
+ 155 000b 11        		.uleb128 0x11
+ 156 000c 01        		.uleb128 0x1
+ 157 000d 12        		.uleb128 0x12
+ 158 000e 01        		.uleb128 0x1
+ 159 000f 10        		.uleb128 0x10
+ 160 0010 06        		.uleb128 0x6
+ 161 0011 00        		.byte	0x0
+ 162 0012 00        		.byte	0x0
+ 163 0013 02        		.uleb128 0x2
+ 164 0014 24        		.uleb128 0x24
+ 165 0015 00        		.byte	0x0
+ 166 0016 0B        		.uleb128 0xb
+ 167 0017 0B        		.uleb128 0xb
+ 168 0018 3E        		.uleb128 0x3e
+ 169 0019 0B        		.uleb128 0xb
+ 170 001a 03        		.uleb128 0x3
+ 171 001b 0E        		.uleb128 0xe
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc99ltrp.s 			page 4
+
+
+ 172 001c 00        		.byte	0x0
+ 173 001d 00        		.byte	0x0
+ 174 001e 03        		.uleb128 0x3
+ 175 001f 16        		.uleb128 0x16
+ 176 0020 00        		.byte	0x0
+ 177 0021 03        		.uleb128 0x3
+ 178 0022 0E        		.uleb128 0xe
+ 179 0023 3A        		.uleb128 0x3a
+ 180 0024 0B        		.uleb128 0xb
+ 181 0025 3B        		.uleb128 0x3b
+ 182 0026 0B        		.uleb128 0xb
+ 183 0027 49        		.uleb128 0x49
+ 184 0028 13        		.uleb128 0x13
+ 185 0029 00        		.byte	0x0
+ 186 002a 00        		.byte	0x0
+ 187 002b 04        		.uleb128 0x4
+ 188 002c 24        		.uleb128 0x24
+ 189 002d 00        		.byte	0x0
+ 190 002e 0B        		.uleb128 0xb
+ 191 002f 0B        		.uleb128 0xb
+ 192 0030 3E        		.uleb128 0x3e
+ 193 0031 0B        		.uleb128 0xb
+ 194 0032 03        		.uleb128 0x3
+ 195 0033 08        		.uleb128 0x8
+ 196 0034 00        		.byte	0x0
+ 197 0035 00        		.byte	0x0
+ 198 0036 05        		.uleb128 0x5
+ 199 0037 2E        		.uleb128 0x2e
+ 200 0038 01        		.byte	0x1
+ 201 0039 3F        		.uleb128 0x3f
+ 202 003a 0C        		.uleb128 0xc
+ 203 003b 03        		.uleb128 0x3
+ 204 003c 0E        		.uleb128 0xe
+ 205 003d 3A        		.uleb128 0x3a
+ 206 003e 0B        		.uleb128 0xb
+ 207 003f 3B        		.uleb128 0x3b
+ 208 0040 0B        		.uleb128 0xb
+ 209 0041 27        		.uleb128 0x27
+ 210 0042 0C        		.uleb128 0xc
+ 211 0043 49        		.uleb128 0x49
+ 212 0044 13        		.uleb128 0x13
+ 213 0045 11        		.uleb128 0x11
+ 214 0046 01        		.uleb128 0x1
+ 215 0047 12        		.uleb128 0x12
+ 216 0048 01        		.uleb128 0x1
+ 217 0049 40        		.uleb128 0x40
+ 218 004a 0A        		.uleb128 0xa
+ 219 004b 00        		.byte	0x0
+ 220 004c 00        		.byte	0x0
+ 221 004d 06        		.uleb128 0x6
+ 222 004e 34        		.uleb128 0x34
+ 223 004f 00        		.byte	0x0
+ 224 0050 03        		.uleb128 0x3
+ 225 0051 08        		.uleb128 0x8
+ 226 0052 3A        		.uleb128 0x3a
+ 227 0053 0B        		.uleb128 0xb
+ 228 0054 3B        		.uleb128 0x3b
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc99ltrp.s 			page 5
+
+
+ 229 0055 0B        		.uleb128 0xb
+ 230 0056 49        		.uleb128 0x49
+ 231 0057 13        		.uleb128 0x13
+ 232 0058 02        		.uleb128 0x2
+ 233 0059 0A        		.uleb128 0xa
+ 234 005a 00        		.byte	0x0
+ 235 005b 00        		.byte	0x0
+ 236 005c 00        		.byte	0x0
+ 237               		.section	.debug_pubnames,"",@progbits
+ 238 0000 2200 0000 		.long	0x22
+ 239 0004 0200      		.word	0x2
+ 240 0006 0000 0000 		.long	.Ldebug_info0
+ 241 000a 8E00 0000 		.long	0x8e
+ 242 000e 6800 0000 		.long	0x68
+ 243 0012 6765 7463 		.string	"getc_3x4_keypad"
+ 243      5F33 7834 
+ 243      5F6B 6579 
+ 243      7061 6400 
+ 244 0022 0000 0000 		.long	0x0
+ 245               		.section	.debug_aranges,"",@progbits
+ 246 0000 1C00 0000 		.long	0x1c
+ 247 0004 0200      		.word	0x2
+ 248 0006 0000 0000 		.long	.Ldebug_info0
+ 249 000a 04        		.byte	0x4
+ 250 000b 00        		.byte	0x0
+ 251 000c 0000      		.word	0x0
+ 252 000e 0000      		.word	0x0
+ 253 0010 0000 0000 		.long	.Ltext0
+ 254 0014 2000 0000 		.long	.Letext0-.Ltext0
+ 255 0018 0000 0000 		.long	0x0
+ 256 001c 0000 0000 		.long	0x0
+ 257               		.section	.debug_line
+ 258 0000 8D00 0000 		.long	.LELT0-.LSLT0
+ 259               	.LSLT0:
+ 260 0004 0200      		.word	0x2
+ 261 0006 5500 0000 		.long	.LELTP0-.LASLTP0
+ 262               	.LASLTP0:
+ 263 000a 01        		.byte	0x1
+ 264 000b 01        		.byte	0x1
+ 265 000c F6        		.byte	0xf6
+ 266 000d F5        		.byte	0xf5
+ 267 000e 0A        		.byte	0xa
+ 268 000f 00        		.byte	0x0
+ 269 0010 01        		.byte	0x1
+ 270 0011 01        		.byte	0x1
+ 271 0012 01        		.byte	0x1
+ 272 0013 01        		.byte	0x1
+ 273 0014 00        		.byte	0x0
+ 274 0015 00        		.byte	0x0
+ 275 0016 00        		.byte	0x0
+ 276 0017 01        		.byte	0x1
+ 277 0018 633A 2F77 		.ascii	"c:/winavr-20100110/lib/gcc/../../avr/include"
+ 277      696E 6176 
+ 277      722D 3230 
+ 277      3130 3031 
+ 277      3130 2F6C 
+ 278 0044 00        		.byte	0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc99ltrp.s 			page 6
+
+
+ 279 0045 00        		.byte	0x0
+ 280 0046 6B65 7970 		.string	"keypad.c"
+ 280      6164 2E63 
+ 280      00
+ 281 004f 00        		.uleb128 0x0
+ 282 0050 00        		.uleb128 0x0
+ 283 0051 00        		.uleb128 0x0
+ 284 0052 7374 6469 		.string	"stdint.h"
+ 284      6E74 2E68 
+ 284      00
+ 285 005b 01        		.uleb128 0x1
+ 286 005c 00        		.uleb128 0x0
+ 287 005d 00        		.uleb128 0x0
+ 288 005e 00        		.byte	0x0
+ 289               	.LELTP0:
+ 290 005f 00        		.byte	0x0
+ 291 0060 05        		.uleb128 0x5
+ 292 0061 02        		.byte	0x2
+ 293 0062 0000 0000 		.long	.LM1
+ 294 0066 2A        		.byte	0x2a
+ 295 0067 00        		.byte	0x0
+ 296 0068 05        		.uleb128 0x5
+ 297 0069 02        		.byte	0x2
+ 298 006a 0000 0000 		.long	.LM2
+ 299 006e 15        		.byte	0x15
+ 300 006f 00        		.byte	0x0
+ 301 0070 05        		.uleb128 0x5
+ 302 0071 02        		.byte	0x2
+ 303 0072 0000 0000 		.long	.LM3
+ 304 0076 16        		.byte	0x16
+ 305 0077 00        		.byte	0x0
+ 306 0078 05        		.uleb128 0x5
+ 307 0079 02        		.byte	0x2
+ 308 007a 0000 0000 		.long	.LM4
+ 309 007e 15        		.byte	0x15
+ 310 007f 00        		.byte	0x0
+ 311 0080 05        		.uleb128 0x5
+ 312 0081 02        		.byte	0x2
+ 313 0082 0000 0000 		.long	.LM5
+ 314 0086 15        		.byte	0x15
+ 315 0087 00        		.byte	0x0
+ 316 0088 05        		.uleb128 0x5
+ 317 0089 02        		.byte	0x2
+ 318 008a 0000 0000 		.long	.Letext0
+ 319 008e 00        		.byte	0x0
+ 320 008f 01        		.uleb128 0x1
+ 321 0090 01        		.byte	0x1
+ 322               	.LELT0:
+ 323 0091 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 323      0200 1000 
+ 323      0000 0101 
+ 323      FB0E 0A00 
+ 323      0101 0101 
+ 324               	.LASF2:
+ 325 0000 756E 7369 		.string	"unsigned int"
+ 325      676E 6564 
+ 325      2069 6E74 
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc99ltrp.s 			page 7
+
+
+ 325      00
+ 326               	.LASF10:
+ 327 000d 7569 6E74 		.string	"uint8_t"
+ 327      385F 7400 
+ 328               	.LASF11:
+ 329 0015 6765 7463 		.string	"getc_3x4_keypad"
+ 329      5F33 7834 
+ 329      5F6B 6579 
+ 329      7061 6400 
+ 330               	.LASF7:
+ 331 0025 474E 5520 		.string	"GNU C 4.3.3"
+ 331      4320 342E 
+ 331      332E 3300 
+ 332               	.LASF0:
+ 333 0031 7369 676E 		.string	"signed char"
+ 333      6564 2063 
+ 333      6861 7200 
+ 334               	.LASF8:
+ 335 003d 6B65 7970 		.string	"keypad.c"
+ 335      6164 2E63 
+ 335      00
+ 336               	.LASF6:
+ 337 0046 6C6F 6E67 		.string	"long long unsigned int"
+ 337      206C 6F6E 
+ 337      6720 756E 
+ 337      7369 676E 
+ 337      6564 2069 
+ 338               	.LASF9:
+ 339 005d 453A 5C61 		.string	"E:\\avr\\counter"
+ 339      7672 5C63 
+ 339      6F75 6E74 
+ 339      6572 00
+ 340               	.LASF1:
+ 341 006c 756E 7369 		.string	"unsigned char"
+ 341      676E 6564 
+ 341      2063 6861 
+ 341      7200 
+ 342               	.LASF3:
+ 343 007a 6C6F 6E67 		.string	"long int"
+ 343      2069 6E74 
+ 343      00
+ 344               	.LASF4:
+ 345 0083 6C6F 6E67 		.string	"long unsigned int"
+ 345      2075 6E73 
+ 345      6967 6E65 
+ 345      6420 696E 
+ 345      7400 
+ 346               	.LASF5:
+ 347 0095 6C6F 6E67 		.string	"long long int"
+ 347      206C 6F6E 
+ 347      6720 696E 
+ 347      7400 
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc99ltrp.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 keypad.c
+C:\Users\alex\AppData\Local\Temp/cc99ltrp.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/cc99ltrp.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/cc99ltrp.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/cc99ltrp.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/cc99ltrp.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/cc99ltrp.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/cc99ltrp.s:18     .text:00000000 getc_3x4_keypad
+
+NO UNDEFINED SYMBOLS

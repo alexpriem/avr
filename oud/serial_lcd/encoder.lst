@@ -1,0 +1,1038 @@
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 1
+
+
+   1               		.file	"encoder.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               		.section	.debug_abbrev,"",@progbits
+  10               	.Ldebug_abbrev0:
+  11               		.section	.debug_info,"",@progbits
+  12               	.Ldebug_info0:
+  13               		.section	.debug_line,"",@progbits
+  14               	.Ldebug_line0:
+  15               		.text
+  16               	.Ltext0:
+  17               	.global	init_encoder
+  18               		.type	init_encoder, @function
+  19               	init_encoder:
+  20               	.LFB2:
+  21               	.LM1:
+  22               	/* prologue: frame size=0 */
+  23 0000 CF93      		push r28
+  24 0002 DF93      		push r29
+  25               	/* prologue end (size=2) */
+  26               	.LVL0:
+  27               	.LM2:
+  28 0004 A82F      		mov r26,r24
+  29 0006 B0E0      		ldi r27,lo8(0)
+  30 0008 ED01      		movw r28,r26
+  31 000a C050      		subi r28,lo8(-(encoder))
+  32 000c D040      		sbci r29,hi8(-(encoder))
+  33 000e 1882      		st Y,__zero_reg__
+  34               	.LM3:
+  35 0010 81E0      		ldi r24,lo8(1)
+  36 0012 90E0      		ldi r25,hi8(1)
+  37               	.LVL1:
+  38 0014 9C01      		movw r18,r24
+  39 0016 00C0      		rjmp 2f
+  40 0018 220F      	1:	lsl r18
+  41 001a 331F      		rol r19
+  42 001c 6A95      	2:	dec r22
+  43 001e 02F4      		brpl 1b
+  44 0020 B901      		movw r22,r18
+  45               	.LVL2:
+  46 0022 322F      		mov r19,r18
+  47               	.LVL3:
+  48               	.LM4:
+  49 0024 00C0      		rjmp 2f
+  50 0026 880F      	1:	lsl r24
+  51 0028 991F      		rol r25
+  52 002a 4A95      	2:	dec r20
+  53 002c 02F4      		brpl 1b
+  54 002e 482F      		mov r20,r24
+  55               	.LVL4:
+  56               	.LM5:
+  57 0030 FD01      		movw r30,r26
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 2
+
+
+  58 0032 E050      		subi r30,lo8(-(bit1))
+  59 0034 F040      		sbci r31,hi8(-(bit1))
+  60 0036 6083      		st Z,r22
+  61               	.LM6:
+  62 0038 A050      		subi r26,lo8(-(bit2))
+  63 003a B040      		sbci r27,hi8(-(bit2))
+  64 003c 8C93      		st X,r24
+  65               	.LM7:
+  66 003e 21B3      		in r18,49-0x20
+  67 0040 982F      		mov r25,r24
+  68 0042 932B      		or r25,r19
+  69 0044 892F      		mov r24,r25
+  70 0046 8095      		com r24
+  71 0048 8223      		and r24,r18
+  72 004a 81BB      		out 49-0x20,r24
+  73               	.LM8:
+  74 004c 82B3      		in r24,50-0x20
+  75 004e 982B      		or r25,r24
+  76 0050 92BB      		out 50-0x20,r25
+  77               	.LM9:
+  78 0052 80B3      		in r24,48-0x20
+  79 0054 3823      		and r19,r24
+  80 0056 01F0      		breq .L2
+  81               	.LM10:
+  82 0058 81E0      		ldi r24,lo8(1)
+  83 005a 8883      		st Y,r24
+  84               	.L2:
+  85               	.LM11:
+  86 005c 80B3      		in r24,48-0x20
+  87 005e 4823      		and r20,r24
+  88 0060 01F0      		breq .L6
+  89 0062 8881      		ld r24,Y
+  90 0064 8260      		ori r24,lo8(2)
+  91 0066 8883      		st Y,r24
+  92               	.L6:
+  93               	/* epilogue: frame size=0 */
+  94 0068 DF91      		pop r29
+  95 006a CF91      		pop r28
+  96 006c 0895      		ret
+  97               	/* epilogue end (size=3) */
+  98               	/* function init_encoder size 59 (54) */
+  99               	.LFE2:
+ 100               		.size	init_encoder, .-init_encoder
+ 101               	.global	get_encoder
+ 102               		.type	get_encoder, @function
+ 103               	get_encoder:
+ 104               	.LFB3:
+ 105               	.LM12:
+ 106               	/* prologue: frame size=0 */
+ 107 006e CF93      		push r28
+ 108 0070 DF93      		push r29
+ 109               	/* prologue end (size=2) */
+ 110               	.LVL5:
+ 111               	.LM13:
+ 112 0072 A82F      		mov r26,r24
+ 113 0074 B0E0      		ldi r27,lo8(0)
+ 114 0076 ED01      		movw r28,r26
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 3
+
+
+ 115 0078 C050      		subi r28,lo8(-(encoder))
+ 116 007a D040      		sbci r29,hi8(-(encoder))
+ 117 007c 2881      		ld r18,Y
+ 118               	.LVL6:
+ 119 007e 220F      		lsl r18
+ 120 0080 220F      		lsl r18
+ 121               	.LM14:
+ 122 0082 80B3      		in r24,48-0x20
+ 123               	.LVL7:
+ 124 0084 FD01      		movw r30,r26
+ 125 0086 E050      		subi r30,lo8(-(bit1))
+ 126 0088 F040      		sbci r31,hi8(-(bit1))
+ 127 008a 9081      		ld r25,Z
+ 128 008c 8923      		and r24,r25
+ 129 008e 01F0      		breq .L8
+ 130               	.LM15:
+ 131 0090 2160      		ori r18,lo8(1)
+ 132               	.L8:
+ 133               	.LM16:
+ 134 0092 80B3      		in r24,48-0x20
+ 135 0094 A050      		subi r26,lo8(-(bit2))
+ 136 0096 B040      		sbci r27,hi8(-(bit2))
+ 137 0098 9C91      		ld r25,X
+ 138 009a 8923      		and r24,r25
+ 139 009c 01F0      		breq .L10
+ 140 009e 2260      		ori r18,lo8(2)
+ 141               	.L10:
+ 142               	.LM17:
+ 143 00a0 E22F      		mov r30,r18
+ 144 00a2 F0E0      		ldi r31,lo8(0)
+ 145               	.LVL8:
+ 146 00a4 E050      		subi r30,lo8(-(encoder_states))
+ 147 00a6 F040      		sbci r31,hi8(-(encoder_states))
+ 148               	.LVL9:
+ 149 00a8 8081      		ld r24,Z
+ 150               	.LVL10:
+ 151               	.LM18:
+ 152 00aa 2370      		andi r18,lo8(3)
+ 153               	.LVL11:
+ 154 00ac 2883      		st Y,r18
+ 155               	.LM19:
+ 156 00ae 9927      		clr r25
+ 157 00b0 87FD      		sbrc r24,7
+ 158 00b2 9095      		com r25
+ 159               	.LVL12:
+ 160               	/* epilogue: frame size=0 */
+ 161 00b4 DF91      		pop r29
+ 162 00b6 CF91      		pop r28
+ 163 00b8 0895      		ret
+ 164               	/* epilogue end (size=3) */
+ 165               	/* function get_encoder size 40 (35) */
+ 166               	.LFE3:
+ 167               		.size	get_encoder, .-get_encoder
+ 168               	.global	encoder_states
+ 169               		.data
+ 170               		.type	encoder_states, @object
+ 171               		.size	encoder_states, 16
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 4
+
+
+ 172               	encoder_states:
+ 173 0000 00        		.byte	0
+ 174 0001 FF        		.byte	-1
+ 175 0002 01        		.byte	1
+ 176 0003 00        		.byte	0
+ 177 0004 01        		.byte	1
+ 178 0005 00        		.byte	0
+ 179 0006 00        		.byte	0
+ 180 0007 FF        		.byte	-1
+ 181 0008 FF        		.byte	-1
+ 182 0009 00        		.byte	0
+ 183 000a 00        		.byte	0
+ 184 000b 01        		.byte	1
+ 185 000c 00        		.byte	0
+ 186 000d 01        		.byte	1
+ 187 000e FF        		.byte	-1
+ 188 000f 00        		.byte	0
+ 189               		.comm bit1,4,1
+ 190               		.comm bit2,4,1
+ 191               		.comm port,4,1
+ 192               		.comm encoder,4,1
+ 193               		.section	.debug_frame,"",@progbits
+ 194               	.Lframe0:
+ 195 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 196               	.LSCIE0:
+ 197 0004 FFFF FFFF 		.long	0xffffffff
+ 198 0008 01        		.byte	0x1
+ 199 0009 00        		.string	""
+ 200 000a 01        		.uleb128 0x1
+ 201 000b 7F        		.sleb128 -1
+ 202 000c 24        		.byte	0x24
+ 203 000d 0C        		.byte	0xc
+ 204 000e 20        		.uleb128 0x20
+ 205 000f 00        		.uleb128 0x0
+ 206               		.p2align	2
+ 207               	.LECIE0:
+ 208               	.LSFDE0:
+ 209 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 210               	.LASFDE0:
+ 211 0014 0000 0000 		.long	.Lframe0
+ 212 0018 0000 0000 		.long	.LFB2
+ 213 001c 6E00 0000 		.long	.LFE2-.LFB2
+ 214               		.p2align	2
+ 215               	.LEFDE0:
+ 216               	.LSFDE2:
+ 217 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 218               	.LASFDE2:
+ 219 0024 0000 0000 		.long	.Lframe0
+ 220 0028 0000 0000 		.long	.LFB3
+ 221 002c 4C00 0000 		.long	.LFE3-.LFB3
+ 222               		.p2align	2
+ 223               	.LEFDE2:
+ 224               		.text
+ 225               	.Letext0:
+ 226               		.section	.debug_loc,"",@progbits
+ 227               	.Ldebug_loc0:
+ 228               	.LLST1:
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 5
+
+
+ 229 0000 0400 0000 		.long	.LVL0-.Ltext0
+ 230 0004 1400 0000 		.long	.LVL1-.Ltext0
+ 231 0008 0100      		.word	0x1
+ 232 000a 68        		.byte	0x68
+ 233 000b 0000 0000 		.long	0x0
+ 234 000f 0000 0000 		.long	0x0
+ 235               	.LLST2:
+ 236 0013 0400 0000 		.long	.LVL0-.Ltext0
+ 237 0017 2200 0000 		.long	.LVL2-.Ltext0
+ 238 001b 0100      		.word	0x1
+ 239 001d 66        		.byte	0x66
+ 240 001e 2400 0000 		.long	.LVL3-.Ltext0
+ 241 0022 6E00 0000 		.long	.LFE2-.Ltext0
+ 242 0026 0100      		.word	0x1
+ 243 0028 63        		.byte	0x63
+ 244 0029 0000 0000 		.long	0x0
+ 245 002d 0000 0000 		.long	0x0
+ 246               	.LLST4:
+ 247 0031 7200 0000 		.long	.LVL5-.Ltext0
+ 248 0035 8400 0000 		.long	.LVL7-.Ltext0
+ 249 0039 0100      		.word	0x1
+ 250 003b 68        		.byte	0x68
+ 251 003c 0000 0000 		.long	0x0
+ 252 0040 0000 0000 		.long	0x0
+ 253               	.LLST5:
+ 254 0044 7E00 0000 		.long	.LVL6-.Ltext0
+ 255 0048 A400 0000 		.long	.LVL8-.Ltext0
+ 256 004c 0100      		.word	0x1
+ 257 004e 62        		.byte	0x62
+ 258 004f A400 0000 		.long	.LVL8-.Ltext0
+ 259 0053 AC00 0000 		.long	.LVL11-.Ltext0
+ 260 0057 0600      		.word	0x6
+ 261 0059 6E        		.byte	0x6e
+ 262 005a 93        		.byte	0x93
+ 263 005b 01        		.uleb128 0x1
+ 264 005c 6F        		.byte	0x6f
+ 265 005d 93        		.byte	0x93
+ 266 005e 01        		.uleb128 0x1
+ 267 005f AC00 0000 		.long	.LVL11-.Ltext0
+ 268 0063 BA00 0000 		.long	.LFE3-.Ltext0
+ 269 0067 0600      		.word	0x6
+ 270 0069 62        		.byte	0x62
+ 271 006a 93        		.byte	0x93
+ 272 006b 01        		.uleb128 0x1
+ 273 006c 6F        		.byte	0x6f
+ 274 006d 93        		.byte	0x93
+ 275 006e 01        		.uleb128 0x1
+ 276 006f 0000 0000 		.long	0x0
+ 277 0073 0000 0000 		.long	0x0
+ 278               	.LLST6:
+ 279 0077 AA00 0000 		.long	.LVL10-.Ltext0
+ 280 007b B400 0000 		.long	.LVL12-.Ltext0
+ 281 007f 0100      		.word	0x1
+ 282 0081 68        		.byte	0x68
+ 283 0082 0000 0000 		.long	0x0
+ 284 0086 0000 0000 		.long	0x0
+ 285               		.section	.debug_info
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 6
+
+
+ 286 0000 7E01 0000 		.long	0x17e
+ 287 0004 0200      		.word	0x2
+ 288 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 289 000a 04        		.byte	0x4
+ 290 000b 01        		.uleb128 0x1
+ 291 000c 0000 0000 		.long	.LASF18
+ 292 0010 01        		.byte	0x1
+ 293 0011 0000 0000 		.long	.LASF19
+ 294 0015 0000 0000 		.long	.LASF20
+ 295 0019 0000 0000 		.long	.Ltext0
+ 296 001d 0000 0000 		.long	.Letext0
+ 297 0021 0000 0000 		.long	.Ldebug_line0
+ 298 0025 02        		.uleb128 0x2
+ 299 0026 0000 0000 		.long	.LASF0
+ 300 002a 02        		.byte	0x2
+ 301 002b 79        		.byte	0x79
+ 302 002c 3000 0000 		.long	0x30
+ 303 0030 03        		.uleb128 0x3
+ 304 0031 01        		.byte	0x1
+ 305 0032 06        		.byte	0x6
+ 306 0033 0000 0000 		.long	.LASF2
+ 307 0037 02        		.uleb128 0x2
+ 308 0038 0000 0000 		.long	.LASF1
+ 309 003c 02        		.byte	0x2
+ 310 003d 7A        		.byte	0x7a
+ 311 003e 4200 0000 		.long	0x42
+ 312 0042 03        		.uleb128 0x3
+ 313 0043 01        		.byte	0x1
+ 314 0044 08        		.byte	0x8
+ 315 0045 0000 0000 		.long	.LASF3
+ 316 0049 04        		.uleb128 0x4
+ 317 004a 02        		.byte	0x2
+ 318 004b 05        		.byte	0x5
+ 319 004c 696E 7400 		.string	"int"
+ 320 0050 03        		.uleb128 0x3
+ 321 0051 02        		.byte	0x2
+ 322 0052 07        		.byte	0x7
+ 323 0053 0000 0000 		.long	.LASF4
+ 324 0057 03        		.uleb128 0x3
+ 325 0058 04        		.byte	0x4
+ 326 0059 05        		.byte	0x5
+ 327 005a 0000 0000 		.long	.LASF5
+ 328 005e 03        		.uleb128 0x3
+ 329 005f 04        		.byte	0x4
+ 330 0060 07        		.byte	0x7
+ 331 0061 0000 0000 		.long	.LASF6
+ 332 0065 03        		.uleb128 0x3
+ 333 0066 08        		.byte	0x8
+ 334 0067 05        		.byte	0x5
+ 335 0068 0000 0000 		.long	.LASF7
+ 336 006c 03        		.uleb128 0x3
+ 337 006d 08        		.byte	0x8
+ 338 006e 07        		.byte	0x7
+ 339 006f 0000 0000 		.long	.LASF8
+ 340 0073 05        		.uleb128 0x5
+ 341 0074 01        		.byte	0x1
+ 342 0075 08        		.byte	0x8
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 7
+
+
+ 343 0076 06        		.uleb128 0x6
+ 344 0077 01        		.byte	0x1
+ 345 0078 0000 0000 		.long	.LASF21
+ 346 007c 01        		.byte	0x1
+ 347 007d 23        		.byte	0x23
+ 348 007e 01        		.byte	0x1
+ 349 007f 0000 0000 		.long	.LFB2
+ 350 0083 0000 0000 		.long	.LFE2
+ 351 0087 02        		.byte	0x2
+ 352 0088 90        		.byte	0x90
+ 353 0089 20        		.uleb128 0x20
+ 354 008a BA00 0000 		.long	0xba
+ 355 008e 07        		.uleb128 0x7
+ 356 008f 656E 6300 		.string	"enc"
+ 357 0093 01        		.byte	0x1
+ 358 0094 21        		.byte	0x21
+ 359 0095 3700 0000 		.long	0x37
+ 360 0099 0000 0000 		.long	.LLST1
+ 361 009d 08        		.uleb128 0x8
+ 362 009e 0000 0000 		.long	.LASF9
+ 363 00a2 01        		.byte	0x1
+ 364 00a3 21        		.byte	0x21
+ 365 00a4 3700 0000 		.long	0x37
+ 366 00a8 0000 0000 		.long	.LLST2
+ 367 00ac 09        		.uleb128 0x9
+ 368 00ad 0000 0000 		.long	.LASF10
+ 369 00b1 01        		.byte	0x1
+ 370 00b2 21        		.byte	0x21
+ 371 00b3 3700 0000 		.long	0x37
+ 372 00b7 01        		.byte	0x1
+ 373 00b8 64        		.byte	0x64
+ 374 00b9 00        		.byte	0x0
+ 375 00ba 0A        		.uleb128 0xa
+ 376 00bb 01        		.byte	0x1
+ 377 00bc 0000 0000 		.long	.LASF22
+ 378 00c0 01        		.byte	0x1
+ 379 00c1 31        		.byte	0x31
+ 380 00c2 01        		.byte	0x1
+ 381 00c3 2500 0000 		.long	0x25
+ 382 00c7 0000 0000 		.long	.LFB3
+ 383 00cb 0000 0000 		.long	.LFE3
+ 384 00cf 02        		.byte	0x2
+ 385 00d0 90        		.byte	0x90
+ 386 00d1 20        		.uleb128 0x20
+ 387 00d2 0401 0000 		.long	0x104
+ 388 00d6 07        		.uleb128 0x7
+ 389 00d7 656E 6300 		.string	"enc"
+ 390 00db 01        		.byte	0x1
+ 391 00dc 30        		.byte	0x30
+ 392 00dd 3700 0000 		.long	0x37
+ 393 00e1 0000 0000 		.long	.LLST4
+ 394 00e5 0B        		.uleb128 0xb
+ 395 00e6 0000 0000 		.long	.LASF11
+ 396 00ea 01        		.byte	0x1
+ 397 00eb 32        		.byte	0x32
+ 398 00ec 3700 0000 		.long	0x37
+ 399 00f0 0000 0000 		.long	.LLST5
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 8
+
+
+ 400 00f4 0B        		.uleb128 0xb
+ 401 00f5 0000 0000 		.long	.LASF12
+ 402 00f9 01        		.byte	0x1
+ 403 00fa 32        		.byte	0x32
+ 404 00fb 3700 0000 		.long	0x37
+ 405 00ff 0000 0000 		.long	.LLST6
+ 406 0103 00        		.byte	0x0
+ 407 0104 0C        		.uleb128 0xc
+ 408 0105 3700 0000 		.long	0x37
+ 409 0109 1401 0000 		.long	0x114
+ 410 010d 0D        		.uleb128 0xd
+ 411 010e 1401 0000 		.long	0x114
+ 412 0112 03        		.byte	0x3
+ 413 0113 00        		.byte	0x0
+ 414 0114 05        		.uleb128 0x5
+ 415 0115 02        		.byte	0x2
+ 416 0116 07        		.byte	0x7
+ 417 0117 0E        		.uleb128 0xe
+ 418 0118 0000 0000 		.long	.LASF13
+ 419 011c 01        		.byte	0x1
+ 420 011d 15        		.byte	0x15
+ 421 011e 0401 0000 		.long	0x104
+ 422 0122 01        		.byte	0x1
+ 423 0123 05        		.byte	0x5
+ 424 0124 03        		.byte	0x3
+ 425 0125 0000 0000 		.long	bit1
+ 426 0129 0E        		.uleb128 0xe
+ 427 012a 0000 0000 		.long	.LASF14
+ 428 012e 01        		.byte	0x1
+ 429 012f 16        		.byte	0x16
+ 430 0130 0401 0000 		.long	0x104
+ 431 0134 01        		.byte	0x1
+ 432 0135 05        		.byte	0x5
+ 433 0136 03        		.byte	0x3
+ 434 0137 0000 0000 		.long	bit2
+ 435 013b 0E        		.uleb128 0xe
+ 436 013c 0000 0000 		.long	.LASF15
+ 437 0140 01        		.byte	0x1
+ 438 0141 17        		.byte	0x17
+ 439 0142 0401 0000 		.long	0x104
+ 440 0146 01        		.byte	0x1
+ 441 0147 05        		.byte	0x5
+ 442 0148 03        		.byte	0x3
+ 443 0149 0000 0000 		.long	port
+ 444 014d 0C        		.uleb128 0xc
+ 445 014e 3700 0000 		.long	0x37
+ 446 0152 5D01 0000 		.long	0x15d
+ 447 0156 0D        		.uleb128 0xd
+ 448 0157 1401 0000 		.long	0x114
+ 449 015b 0F        		.byte	0xf
+ 450 015c 00        		.byte	0x0
+ 451 015d 0E        		.uleb128 0xe
+ 452 015e 0000 0000 		.long	.LASF16
+ 453 0162 01        		.byte	0x1
+ 454 0163 19        		.byte	0x19
+ 455 0164 4D01 0000 		.long	0x14d
+ 456 0168 01        		.byte	0x1
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 9
+
+
+ 457 0169 05        		.byte	0x5
+ 458 016a 03        		.byte	0x3
+ 459 016b 0000 0000 		.long	encoder_states
+ 460 016f 0E        		.uleb128 0xe
+ 461 0170 0000 0000 		.long	.LASF17
+ 462 0174 01        		.byte	0x1
+ 463 0175 1F        		.byte	0x1f
+ 464 0176 0401 0000 		.long	0x104
+ 465 017a 01        		.byte	0x1
+ 466 017b 05        		.byte	0x5
+ 467 017c 03        		.byte	0x3
+ 468 017d 0000 0000 		.long	encoder
+ 469 0181 00        		.byte	0x0
+ 470               		.section	.debug_abbrev
+ 471 0000 01        		.uleb128 0x1
+ 472 0001 11        		.uleb128 0x11
+ 473 0002 01        		.byte	0x1
+ 474 0003 25        		.uleb128 0x25
+ 475 0004 0E        		.uleb128 0xe
+ 476 0005 13        		.uleb128 0x13
+ 477 0006 0B        		.uleb128 0xb
+ 478 0007 03        		.uleb128 0x3
+ 479 0008 0E        		.uleb128 0xe
+ 480 0009 1B        		.uleb128 0x1b
+ 481 000a 0E        		.uleb128 0xe
+ 482 000b 11        		.uleb128 0x11
+ 483 000c 01        		.uleb128 0x1
+ 484 000d 12        		.uleb128 0x12
+ 485 000e 01        		.uleb128 0x1
+ 486 000f 10        		.uleb128 0x10
+ 487 0010 06        		.uleb128 0x6
+ 488 0011 00        		.byte	0x0
+ 489 0012 00        		.byte	0x0
+ 490 0013 02        		.uleb128 0x2
+ 491 0014 16        		.uleb128 0x16
+ 492 0015 00        		.byte	0x0
+ 493 0016 03        		.uleb128 0x3
+ 494 0017 0E        		.uleb128 0xe
+ 495 0018 3A        		.uleb128 0x3a
+ 496 0019 0B        		.uleb128 0xb
+ 497 001a 3B        		.uleb128 0x3b
+ 498 001b 0B        		.uleb128 0xb
+ 499 001c 49        		.uleb128 0x49
+ 500 001d 13        		.uleb128 0x13
+ 501 001e 00        		.byte	0x0
+ 502 001f 00        		.byte	0x0
+ 503 0020 03        		.uleb128 0x3
+ 504 0021 24        		.uleb128 0x24
+ 505 0022 00        		.byte	0x0
+ 506 0023 0B        		.uleb128 0xb
+ 507 0024 0B        		.uleb128 0xb
+ 508 0025 3E        		.uleb128 0x3e
+ 509 0026 0B        		.uleb128 0xb
+ 510 0027 03        		.uleb128 0x3
+ 511 0028 0E        		.uleb128 0xe
+ 512 0029 00        		.byte	0x0
+ 513 002a 00        		.byte	0x0
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 10
+
+
+ 514 002b 04        		.uleb128 0x4
+ 515 002c 24        		.uleb128 0x24
+ 516 002d 00        		.byte	0x0
+ 517 002e 0B        		.uleb128 0xb
+ 518 002f 0B        		.uleb128 0xb
+ 519 0030 3E        		.uleb128 0x3e
+ 520 0031 0B        		.uleb128 0xb
+ 521 0032 03        		.uleb128 0x3
+ 522 0033 08        		.uleb128 0x8
+ 523 0034 00        		.byte	0x0
+ 524 0035 00        		.byte	0x0
+ 525 0036 05        		.uleb128 0x5
+ 526 0037 24        		.uleb128 0x24
+ 527 0038 00        		.byte	0x0
+ 528 0039 0B        		.uleb128 0xb
+ 529 003a 0B        		.uleb128 0xb
+ 530 003b 3E        		.uleb128 0x3e
+ 531 003c 0B        		.uleb128 0xb
+ 532 003d 00        		.byte	0x0
+ 533 003e 00        		.byte	0x0
+ 534 003f 06        		.uleb128 0x6
+ 535 0040 2E        		.uleb128 0x2e
+ 536 0041 01        		.byte	0x1
+ 537 0042 3F        		.uleb128 0x3f
+ 538 0043 0C        		.uleb128 0xc
+ 539 0044 03        		.uleb128 0x3
+ 540 0045 0E        		.uleb128 0xe
+ 541 0046 3A        		.uleb128 0x3a
+ 542 0047 0B        		.uleb128 0xb
+ 543 0048 3B        		.uleb128 0x3b
+ 544 0049 0B        		.uleb128 0xb
+ 545 004a 27        		.uleb128 0x27
+ 546 004b 0C        		.uleb128 0xc
+ 547 004c 11        		.uleb128 0x11
+ 548 004d 01        		.uleb128 0x1
+ 549 004e 12        		.uleb128 0x12
+ 550 004f 01        		.uleb128 0x1
+ 551 0050 40        		.uleb128 0x40
+ 552 0051 0A        		.uleb128 0xa
+ 553 0052 01        		.uleb128 0x1
+ 554 0053 13        		.uleb128 0x13
+ 555 0054 00        		.byte	0x0
+ 556 0055 00        		.byte	0x0
+ 557 0056 07        		.uleb128 0x7
+ 558 0057 05        		.uleb128 0x5
+ 559 0058 00        		.byte	0x0
+ 560 0059 03        		.uleb128 0x3
+ 561 005a 08        		.uleb128 0x8
+ 562 005b 3A        		.uleb128 0x3a
+ 563 005c 0B        		.uleb128 0xb
+ 564 005d 3B        		.uleb128 0x3b
+ 565 005e 0B        		.uleb128 0xb
+ 566 005f 49        		.uleb128 0x49
+ 567 0060 13        		.uleb128 0x13
+ 568 0061 02        		.uleb128 0x2
+ 569 0062 06        		.uleb128 0x6
+ 570 0063 00        		.byte	0x0
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 11
+
+
+ 571 0064 00        		.byte	0x0
+ 572 0065 08        		.uleb128 0x8
+ 573 0066 05        		.uleb128 0x5
+ 574 0067 00        		.byte	0x0
+ 575 0068 03        		.uleb128 0x3
+ 576 0069 0E        		.uleb128 0xe
+ 577 006a 3A        		.uleb128 0x3a
+ 578 006b 0B        		.uleb128 0xb
+ 579 006c 3B        		.uleb128 0x3b
+ 580 006d 0B        		.uleb128 0xb
+ 581 006e 49        		.uleb128 0x49
+ 582 006f 13        		.uleb128 0x13
+ 583 0070 02        		.uleb128 0x2
+ 584 0071 06        		.uleb128 0x6
+ 585 0072 00        		.byte	0x0
+ 586 0073 00        		.byte	0x0
+ 587 0074 09        		.uleb128 0x9
+ 588 0075 05        		.uleb128 0x5
+ 589 0076 00        		.byte	0x0
+ 590 0077 03        		.uleb128 0x3
+ 591 0078 0E        		.uleb128 0xe
+ 592 0079 3A        		.uleb128 0x3a
+ 593 007a 0B        		.uleb128 0xb
+ 594 007b 3B        		.uleb128 0x3b
+ 595 007c 0B        		.uleb128 0xb
+ 596 007d 49        		.uleb128 0x49
+ 597 007e 13        		.uleb128 0x13
+ 598 007f 02        		.uleb128 0x2
+ 599 0080 0A        		.uleb128 0xa
+ 600 0081 00        		.byte	0x0
+ 601 0082 00        		.byte	0x0
+ 602 0083 0A        		.uleb128 0xa
+ 603 0084 2E        		.uleb128 0x2e
+ 604 0085 01        		.byte	0x1
+ 605 0086 3F        		.uleb128 0x3f
+ 606 0087 0C        		.uleb128 0xc
+ 607 0088 03        		.uleb128 0x3
+ 608 0089 0E        		.uleb128 0xe
+ 609 008a 3A        		.uleb128 0x3a
+ 610 008b 0B        		.uleb128 0xb
+ 611 008c 3B        		.uleb128 0x3b
+ 612 008d 0B        		.uleb128 0xb
+ 613 008e 27        		.uleb128 0x27
+ 614 008f 0C        		.uleb128 0xc
+ 615 0090 49        		.uleb128 0x49
+ 616 0091 13        		.uleb128 0x13
+ 617 0092 11        		.uleb128 0x11
+ 618 0093 01        		.uleb128 0x1
+ 619 0094 12        		.uleb128 0x12
+ 620 0095 01        		.uleb128 0x1
+ 621 0096 40        		.uleb128 0x40
+ 622 0097 0A        		.uleb128 0xa
+ 623 0098 01        		.uleb128 0x1
+ 624 0099 13        		.uleb128 0x13
+ 625 009a 00        		.byte	0x0
+ 626 009b 00        		.byte	0x0
+ 627 009c 0B        		.uleb128 0xb
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 12
+
+
+ 628 009d 34        		.uleb128 0x34
+ 629 009e 00        		.byte	0x0
+ 630 009f 03        		.uleb128 0x3
+ 631 00a0 0E        		.uleb128 0xe
+ 632 00a1 3A        		.uleb128 0x3a
+ 633 00a2 0B        		.uleb128 0xb
+ 634 00a3 3B        		.uleb128 0x3b
+ 635 00a4 0B        		.uleb128 0xb
+ 636 00a5 49        		.uleb128 0x49
+ 637 00a6 13        		.uleb128 0x13
+ 638 00a7 02        		.uleb128 0x2
+ 639 00a8 06        		.uleb128 0x6
+ 640 00a9 00        		.byte	0x0
+ 641 00aa 00        		.byte	0x0
+ 642 00ab 0C        		.uleb128 0xc
+ 643 00ac 01        		.uleb128 0x1
+ 644 00ad 01        		.byte	0x1
+ 645 00ae 49        		.uleb128 0x49
+ 646 00af 13        		.uleb128 0x13
+ 647 00b0 01        		.uleb128 0x1
+ 648 00b1 13        		.uleb128 0x13
+ 649 00b2 00        		.byte	0x0
+ 650 00b3 00        		.byte	0x0
+ 651 00b4 0D        		.uleb128 0xd
+ 652 00b5 21        		.uleb128 0x21
+ 653 00b6 00        		.byte	0x0
+ 654 00b7 49        		.uleb128 0x49
+ 655 00b8 13        		.uleb128 0x13
+ 656 00b9 2F        		.uleb128 0x2f
+ 657 00ba 0B        		.uleb128 0xb
+ 658 00bb 00        		.byte	0x0
+ 659 00bc 00        		.byte	0x0
+ 660 00bd 0E        		.uleb128 0xe
+ 661 00be 34        		.uleb128 0x34
+ 662 00bf 00        		.byte	0x0
+ 663 00c0 03        		.uleb128 0x3
+ 664 00c1 0E        		.uleb128 0xe
+ 665 00c2 3A        		.uleb128 0x3a
+ 666 00c3 0B        		.uleb128 0xb
+ 667 00c4 3B        		.uleb128 0x3b
+ 668 00c5 0B        		.uleb128 0xb
+ 669 00c6 49        		.uleb128 0x49
+ 670 00c7 13        		.uleb128 0x13
+ 671 00c8 3F        		.uleb128 0x3f
+ 672 00c9 0C        		.uleb128 0xc
+ 673 00ca 02        		.uleb128 0x2
+ 674 00cb 0A        		.uleb128 0xa
+ 675 00cc 00        		.byte	0x0
+ 676 00cd 00        		.byte	0x0
+ 677 00ce 00        		.byte	0x0
+ 678               		.section	.debug_pubnames,"",@progbits
+ 679 0000 6900 0000 		.long	0x69
+ 680 0004 0200      		.word	0x2
+ 681 0006 0000 0000 		.long	.Ldebug_info0
+ 682 000a 8201 0000 		.long	0x182
+ 683 000e 7600 0000 		.long	0x76
+ 684 0012 696E 6974 		.string	"init_encoder"
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 13
+
+
+ 684      5F65 6E63 
+ 684      6F64 6572 
+ 684      00
+ 685 001f BA00 0000 		.long	0xba
+ 686 0023 6765 745F 		.string	"get_encoder"
+ 686      656E 636F 
+ 686      6465 7200 
+ 687 002f 1701 0000 		.long	0x117
+ 688 0033 6269 7431 		.string	"bit1"
+ 688      00
+ 689 0038 2901 0000 		.long	0x129
+ 690 003c 6269 7432 		.string	"bit2"
+ 690      00
+ 691 0041 3B01 0000 		.long	0x13b
+ 692 0045 706F 7274 		.string	"port"
+ 692      00
+ 693 004a 5D01 0000 		.long	0x15d
+ 694 004e 656E 636F 		.string	"encoder_states"
+ 694      6465 725F 
+ 694      7374 6174 
+ 694      6573 00
+ 695 005d 6F01 0000 		.long	0x16f
+ 696 0061 656E 636F 		.string	"encoder"
+ 696      6465 7200 
+ 697 0069 0000 0000 		.long	0x0
+ 698               		.section	.debug_aranges,"",@progbits
+ 699 0000 1C00 0000 		.long	0x1c
+ 700 0004 0200      		.word	0x2
+ 701 0006 0000 0000 		.long	.Ldebug_info0
+ 702 000a 04        		.byte	0x4
+ 703 000b 00        		.byte	0x0
+ 704 000c 0000      		.word	0x0
+ 705 000e 0000      		.word	0x0
+ 706 0010 0000 0000 		.long	.Ltext0
+ 707 0014 BA00 0000 		.long	.Letext0-.Ltext0
+ 708 0018 0000 0000 		.long	0x0
+ 709 001c 0000 0000 		.long	0x0
+ 710               		.section	.debug_line
+ 711 0000 F700 0000 		.long	.LELT0-.LSLT0
+ 712               	.LSLT0:
+ 713 0004 0200      		.word	0x2
+ 714 0006 4F00 0000 		.long	.LELTP0-.LASLTP0
+ 715               	.LASLTP0:
+ 716 000a 01        		.byte	0x1
+ 717 000b 01        		.byte	0x1
+ 718 000c F6        		.byte	0xf6
+ 719 000d F5        		.byte	0xf5
+ 720 000e 0A        		.byte	0xa
+ 721 000f 00        		.byte	0x0
+ 722 0010 01        		.byte	0x1
+ 723 0011 01        		.byte	0x1
+ 724 0012 01        		.byte	0x1
+ 725 0013 01        		.byte	0x1
+ 726 0014 00        		.byte	0x0
+ 727 0015 00        		.byte	0x0
+ 728 0016 00        		.byte	0x0
+ 729 0017 01        		.byte	0x1
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 14
+
+
+ 730 0018 653A 2F77 		.ascii	"e:/winavr-20071221/bin/../avr/include"
+ 730      696E 6176 
+ 730      722D 3230 
+ 730      3037 3132 
+ 730      3231 2F62 
+ 731 003d 00        		.byte	0
+ 732 003e 00        		.byte	0x0
+ 733 003f 656E 636F 		.string	"encoder.c"
+ 733      6465 722E 
+ 733      6300 
+ 734 0049 00        		.uleb128 0x0
+ 735 004a 00        		.uleb128 0x0
+ 736 004b 00        		.uleb128 0x0
+ 737 004c 7374 6469 		.string	"stdint.h"
+ 737      6E74 2E68 
+ 737      00
+ 738 0055 01        		.uleb128 0x1
+ 739 0056 00        		.uleb128 0x0
+ 740 0057 00        		.uleb128 0x0
+ 741 0058 00        		.byte	0x0
+ 742               	.LELTP0:
+ 743 0059 00        		.byte	0x0
+ 744 005a 05        		.uleb128 0x5
+ 745 005b 02        		.byte	0x2
+ 746 005c 0000 0000 		.long	.LM1
+ 747 0060 36        		.byte	0x36
+ 748 0061 00        		.byte	0x0
+ 749 0062 05        		.uleb128 0x5
+ 750 0063 02        		.byte	0x2
+ 751 0064 0000 0000 		.long	.LM2
+ 752 0068 15        		.byte	0x15
+ 753 0069 00        		.byte	0x0
+ 754 006a 05        		.uleb128 0x5
+ 755 006b 02        		.byte	0x2
+ 756 006c 0000 0000 		.long	.LM3
+ 757 0070 15        		.byte	0x15
+ 758 0071 00        		.byte	0x0
+ 759 0072 05        		.uleb128 0x5
+ 760 0073 02        		.byte	0x2
+ 761 0074 0000 0000 		.long	.LM4
+ 762 0078 15        		.byte	0x15
+ 763 0079 00        		.byte	0x0
+ 764 007a 05        		.uleb128 0x5
+ 765 007b 02        		.byte	0x2
+ 766 007c 0000 0000 		.long	.LM5
+ 767 0080 15        		.byte	0x15
+ 768 0081 00        		.byte	0x0
+ 769 0082 05        		.uleb128 0x5
+ 770 0083 02        		.byte	0x2
+ 771 0084 0000 0000 		.long	.LM6
+ 772 0088 15        		.byte	0x15
+ 773 0089 00        		.byte	0x0
+ 774 008a 05        		.uleb128 0x5
+ 775 008b 02        		.byte	0x2
+ 776 008c 0000 0000 		.long	.LM7
+ 777 0090 15        		.byte	0x15
+ 778 0091 00        		.byte	0x0
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 15
+
+
+ 779 0092 05        		.uleb128 0x5
+ 780 0093 02        		.byte	0x2
+ 781 0094 0000 0000 		.long	.LM8
+ 782 0098 15        		.byte	0x15
+ 783 0099 00        		.byte	0x0
+ 784 009a 05        		.uleb128 0x5
+ 785 009b 02        		.byte	0x2
+ 786 009c 0000 0000 		.long	.LM9
+ 787 00a0 15        		.byte	0x15
+ 788 00a1 00        		.byte	0x0
+ 789 00a2 05        		.uleb128 0x5
+ 790 00a3 02        		.byte	0x2
+ 791 00a4 0000 0000 		.long	.LM10
+ 792 00a8 01        		.byte	0x1
+ 793 00a9 00        		.byte	0x0
+ 794 00aa 05        		.uleb128 0x5
+ 795 00ab 02        		.byte	0x2
+ 796 00ac 0000 0000 		.long	.LM11
+ 797 00b0 15        		.byte	0x15
+ 798 00b1 00        		.byte	0x0
+ 799 00b2 05        		.uleb128 0x5
+ 800 00b3 02        		.byte	0x2
+ 801 00b4 0000 0000 		.long	.LM12
+ 802 00b8 19        		.byte	0x19
+ 803 00b9 00        		.byte	0x0
+ 804 00ba 05        		.uleb128 0x5
+ 805 00bb 02        		.byte	0x2
+ 806 00bc 0000 0000 		.long	.LM13
+ 807 00c0 17        		.byte	0x17
+ 808 00c1 00        		.byte	0x0
+ 809 00c2 05        		.uleb128 0x5
+ 810 00c3 02        		.byte	0x2
+ 811 00c4 0000 0000 		.long	.LM14
+ 812 00c8 16        		.byte	0x16
+ 813 00c9 00        		.byte	0x0
+ 814 00ca 05        		.uleb128 0x5
+ 815 00cb 02        		.byte	0x2
+ 816 00cc 0000 0000 		.long	.LM15
+ 817 00d0 01        		.byte	0x1
+ 818 00d1 00        		.byte	0x0
+ 819 00d2 05        		.uleb128 0x5
+ 820 00d3 02        		.byte	0x2
+ 821 00d4 0000 0000 		.long	.LM16
+ 822 00d8 15        		.byte	0x15
+ 823 00d9 00        		.byte	0x0
+ 824 00da 05        		.uleb128 0x5
+ 825 00db 02        		.byte	0x2
+ 826 00dc 0000 0000 		.long	.LM17
+ 827 00e0 15        		.byte	0x15
+ 828 00e1 00        		.byte	0x0
+ 829 00e2 05        		.uleb128 0x5
+ 830 00e3 02        		.byte	0x2
+ 831 00e4 0000 0000 		.long	.LM18
+ 832 00e8 15        		.byte	0x15
+ 833 00e9 00        		.byte	0x0
+ 834 00ea 05        		.uleb128 0x5
+ 835 00eb 02        		.byte	0x2
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 16
+
+
+ 836 00ec 0000 0000 		.long	.LM19
+ 837 00f0 16        		.byte	0x16
+ 838 00f1 00        		.byte	0x0
+ 839 00f2 05        		.uleb128 0x5
+ 840 00f3 02        		.byte	0x2
+ 841 00f4 0000 0000 		.long	.Letext0
+ 842 00f8 00        		.byte	0x0
+ 843 00f9 01        		.uleb128 0x1
+ 844 00fa 01        		.byte	0x1
+ 845               	.LELT0:
+ 846 00fb 1900 0000 		.section	.debug_str,"MS",@progbits,1
+ 846      0200 1300 
+ 846      0000 0101 
+ 846      FB0E 0D00 
+ 846      0101 0101 
+ 847               	.LASF12:
+ 848 0000 7374 6174 		.string	"state"
+ 848      6500 
+ 849               	.LASF16:
+ 850 0006 656E 636F 		.string	"encoder_states"
+ 850      6465 725F 
+ 850      7374 6174 
+ 850      6573 00
+ 851               	.LASF1:
+ 852 0015 7569 6E74 		.string	"uint8_t"
+ 852      385F 7400 
+ 853               	.LASF0:
+ 854 001d 696E 7438 		.string	"int8_t"
+ 854      5F74 00
+ 855               	.LASF13:
+ 856 0024 6269 7431 		.string	"bit1"
+ 856      00
+ 857               	.LASF14:
+ 858 0029 6269 7432 		.string	"bit2"
+ 858      00
+ 859               	.LASF19:
+ 860 002e 656E 636F 		.string	"encoder.c"
+ 860      6465 722E 
+ 860      6300 
+ 861               	.LASF3:
+ 862 0038 756E 7369 		.string	"unsigned char"
+ 862      676E 6564 
+ 862      2063 6861 
+ 862      7200 
+ 863               	.LASF6:
+ 864 0046 6C6F 6E67 		.string	"long unsigned int"
+ 864      2075 6E73 
+ 864      6967 6E65 
+ 864      6420 696E 
+ 864      7400 
+ 865               	.LASF17:
+ 866 0058 656E 636F 		.string	"encoder"
+ 866      6465 7200 
+ 867               	.LASF21:
+ 868 0060 696E 6974 		.string	"init_encoder"
+ 868      5F65 6E63 
+ 868      6F64 6572 
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 17
+
+
+ 868      00
+ 869               	.LASF4:
+ 870 006d 756E 7369 		.string	"unsigned int"
+ 870      676E 6564 
+ 870      2069 6E74 
+ 870      00
+ 871               	.LASF11:
+ 872 007a 6C6F 6F6B 		.string	"lookup"
+ 872      7570 00
+ 873               	.LASF8:
+ 874 0081 6C6F 6E67 		.string	"long long unsigned int"
+ 874      206C 6F6E 
+ 874      6720 756E 
+ 874      7369 676E 
+ 874      6564 2069 
+ 875               	.LASF18:
+ 876 0098 474E 5520 		.string	"GNU C 4.2.2 (WinAVR 20071221)"
+ 876      4320 342E 
+ 876      322E 3220 
+ 876      2857 696E 
+ 876      4156 5220 
+ 877               	.LASF20:
+ 878 00b6 453A 5C61 		.string	"E:\\avr\\serial_lcd"
+ 878      7672 5C73 
+ 878      6572 6961 
+ 878      6C5F 6C63 
+ 878      6400 
+ 879               	.LASF22:
+ 880 00c8 6765 745F 		.string	"get_encoder"
+ 880      656E 636F 
+ 880      6465 7200 
+ 881               	.LASF7:
+ 882 00d4 6C6F 6E67 		.string	"long long int"
+ 882      206C 6F6E 
+ 882      6720 696E 
+ 882      7400 
+ 883               	.LASF15:
+ 884 00e2 706F 7274 		.string	"port"
+ 884      00
+ 885               	.LASF9:
+ 886 00e7 6269 745F 		.string	"bit_1"
+ 886      3100 
+ 887               	.LASF10:
+ 888 00ed 6269 745F 		.string	"bit_2"
+ 888      3200 
+ 889               	.LASF5:
+ 890 00f3 6C6F 6E67 		.string	"long int"
+ 890      2069 6E74 
+ 890      00
+ 891               	.LASF2:
+ 892 00fc 7369 676E 		.string	"signed char"
+ 892      6564 2063 
+ 892      6861 7200 
+ 893               	/* File "encoder.c": code   99 = 0x0063 (  89), prologues   4, epilogues   6 */
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s 			page 18
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 encoder.c
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s:2      *ABS*:0000003f __SREG__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s:3      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s:4      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s:5      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s:6      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s:19     .text:00000000 init_encoder
+                            *COM*:00000004 encoder
+                            *COM*:00000004 bit1
+                            *COM*:00000004 bit2
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s:103    .text:0000006e get_encoder
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccEAQ3RA.s:172    .data:00000000 encoder_states
+                            *COM*:00000004 port
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

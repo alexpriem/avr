@@ -1,0 +1,169 @@
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s 			page 1
+
+
+   1               		.file	"encoder.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               		.text
+  10               	.global	init_encoder
+  11               		.type	init_encoder, @function
+  12               	init_encoder:
+  13               	/* prologue: frame size=0 */
+  14 0000 CF93      		push r28
+  15 0002 DF93      		push r29
+  16               	/* prologue end (size=2) */
+  17 0004 A82F      		mov r26,r24
+  18 0006 B0E0      		ldi r27,lo8(0)
+  19 0008 ED01      		movw r28,r26
+  20 000a C050      		subi r28,lo8(-(encoder))
+  21 000c D040      		sbci r29,hi8(-(encoder))
+  22 000e 1882      		st Y,__zero_reg__
+  23 0010 81E0      		ldi r24,lo8(1)
+  24 0012 90E0      		ldi r25,hi8(1)
+  25 0014 9C01      		movw r18,r24
+  26 0016 00C0      		rjmp 2f
+  27 0018 220F      	1:	lsl r18
+  28 001a 331F      		rol r19
+  29 001c 6A95      	2:	dec r22
+  30 001e 02F4      		brpl 1b
+  31 0020 B901      		movw r22,r18
+  32 0022 FD01      		movw r30,r26
+  33 0024 E050      		subi r30,lo8(-(bit1))
+  34 0026 F040      		sbci r31,hi8(-(bit1))
+  35 0028 2083      		st Z,r18
+  36 002a 00C0      		rjmp 2f
+  37 002c 880F      	1:	lsl r24
+  38 002e 991F      		rol r25
+  39 0030 4A95      	2:	dec r20
+  40 0032 02F4      		brpl 1b
+  41 0034 282F      		mov r18,r24
+  42 0036 A050      		subi r26,lo8(-(bit2))
+  43 0038 B040      		sbci r27,hi8(-(bit2))
+  44 003a 8C93      		st X,r24
+  45 003c 86B3      		in r24,54-0x20
+  46 003e 8623      		and r24,r22
+  47 0040 01F0      		breq .L2
+  48 0042 81E0      		ldi r24,lo8(1)
+  49 0044 8883      		st Y,r24
+  50               	.L2:
+  51 0046 86B3      		in r24,54-0x20
+  52 0048 2823      		and r18,r24
+  53 004a 01F0      		breq .L6
+  54 004c 8881      		ld r24,Y
+  55 004e 8260      		ori r24,lo8(2)
+  56 0050 8883      		st Y,r24
+  57               	.L6:
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s 			page 2
+
+
+  58               	/* epilogue: frame size=0 */
+  59 0052 DF91      		pop r29
+  60 0054 CF91      		pop r28
+  61 0056 0895      		ret
+  62               	/* epilogue end (size=3) */
+  63               	/* function init_encoder size 48 (43) */
+  64               		.size	init_encoder, .-init_encoder
+  65               	.global	get_encoder
+  66               		.type	get_encoder, @function
+  67               	get_encoder:
+  68               	/* prologue: frame size=0 */
+  69 0058 CF93      		push r28
+  70 005a DF93      		push r29
+  71               	/* prologue end (size=2) */
+  72 005c A82F      		mov r26,r24
+  73 005e B0E0      		ldi r27,lo8(0)
+  74 0060 ED01      		movw r28,r26
+  75 0062 C050      		subi r28,lo8(-(encoder))
+  76 0064 D040      		sbci r29,hi8(-(encoder))
+  77 0066 2881      		ld r18,Y
+  78 0068 220F      		lsl r18
+  79 006a 220F      		lsl r18
+  80 006c 86B3      		in r24,54-0x20
+  81 006e FD01      		movw r30,r26
+  82 0070 E050      		subi r30,lo8(-(bit1))
+  83 0072 F040      		sbci r31,hi8(-(bit1))
+  84 0074 9081      		ld r25,Z
+  85 0076 8923      		and r24,r25
+  86 0078 01F0      		breq .L8
+  87 007a 2160      		ori r18,lo8(1)
+  88               	.L8:
+  89 007c 86B3      		in r24,54-0x20
+  90 007e A050      		subi r26,lo8(-(bit2))
+  91 0080 B040      		sbci r27,hi8(-(bit2))
+  92 0082 9C91      		ld r25,X
+  93 0084 8923      		and r24,r25
+  94 0086 01F0      		breq .L10
+  95 0088 2260      		ori r18,lo8(2)
+  96               	.L10:
+  97 008a E22F      		mov r30,r18
+  98 008c F0E0      		ldi r31,lo8(0)
+  99 008e E050      		subi r30,lo8(-(encoder_states))
+ 100 0090 F040      		sbci r31,hi8(-(encoder_states))
+ 101 0092 8081      		ld r24,Z
+ 102 0094 2370      		andi r18,lo8(3)
+ 103 0096 2883      		st Y,r18
+ 104 0098 9927      		clr r25
+ 105 009a 87FD      		sbrc r24,7
+ 106 009c 9095      		com r25
+ 107               	/* epilogue: frame size=0 */
+ 108 009e DF91      		pop r29
+ 109 00a0 CF91      		pop r28
+ 110 00a2 0895      		ret
+ 111               	/* epilogue end (size=3) */
+ 112               	/* function get_encoder size 40 (35) */
+ 113               		.size	get_encoder, .-get_encoder
+ 114               	.global	encoder_states
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s 			page 3
+
+
+ 115               		.data
+ 116               		.type	encoder_states, @object
+ 117               		.size	encoder_states, 16
+ 118               	encoder_states:
+ 119 0000 00        		.byte	0
+ 120 0001 FF        		.byte	-1
+ 121 0002 01        		.byte	1
+ 122 0003 00        		.byte	0
+ 123 0004 01        		.byte	1
+ 124 0005 00        		.byte	0
+ 125 0006 00        		.byte	0
+ 126 0007 FF        		.byte	-1
+ 127 0008 FF        		.byte	-1
+ 128 0009 00        		.byte	0
+ 129 000a 00        		.byte	0
+ 130 000b 01        		.byte	1
+ 131 000c 00        		.byte	0
+ 132 000d 01        		.byte	1
+ 133 000e FF        		.byte	-1
+ 134 000f 00        		.byte	0
+ 135               		.comm bit1,4,1
+ 136               		.comm bit2,4,1
+ 137               		.comm port,4,1
+ 138               		.comm encoder,4,1
+ 139               	/* File "encoder.c": code   88 = 0x0058 (  78), prologues   4, epilogues   6 */
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 encoder.c
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s:2      *ABS*:0000003f __SREG__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s:3      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s:4      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s:5      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s:6      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s:12     .text:00000000 init_encoder
+                            *COM*:00000004 encoder
+                            *COM*:00000004 bit1
+                            *COM*:00000004 bit2
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s:67     .text:00000058 get_encoder
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccyyW87T.s:118    .data:00000000 encoder_states
+                            *COM*:00000004 port
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

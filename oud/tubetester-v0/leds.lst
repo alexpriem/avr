@@ -1,0 +1,1140 @@
+GAS LISTING d:\tmp/ccARZF0L.s 			page 1
+
+
+   1               		.file	"leds.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               		.section	.debug_abbrev,"",@progbits
+  10               	.Ldebug_abbrev0:
+  11               		.section	.debug_info,"",@progbits
+  12               	.Ldebug_info0:
+  13               		.section	.debug_line,"",@progbits
+  14               	.Ldebug_line0:
+  15               		.text
+  16               	.Ltext0:
+  17               	.global	init_led
+  18               		.type	init_led, @function
+  19               	init_led:
+  20               	.LFB2:
+  21               	.LM1:
+  22               	/* prologue: frame size=0 */
+  23               	/* prologue end (size=0) */
+  24               	.LVL0:
+  25               	.LM2:
+  26 0000 A82F      		mov r26,r24
+  27 0002 B0E0      		ldi r27,lo8(0)
+  28 0004 FD01      		movw r30,r26
+  29 0006 E050      		subi r30,lo8(-(b_leds))
+  30 0008 F040      		sbci r31,hi8(-(b_leds))
+  31 000a 262F      		mov r18,r22
+  32 000c 2770      		andi r18,lo8(7)
+  33 000e 81E0      		ldi r24,lo8(1)
+  34 0010 90E0      		ldi r25,hi8(1)
+  35               	.LVL1:
+  36 0012 00C0      		rjmp 2f
+  37 0014 880F      	1:	lsl r24
+  38 0016 991F      		rol r25
+  39 0018 2A95      	2:	dec r18
+  40 001a 02F4      		brpl 1b
+  41 001c 8083      		st Z,r24
+  42               	.LM3:
+  43 001e 607F      		andi r22,lo8(-16)
+  44               	.LVL2:
+  45               	.LM4:
+  46 0020 01F4      		brne .L2
+  47               	.LM5:
+  48 0022 AA0F      		lsl r26
+  49 0024 BB1F      		rol r27
+  50 0026 A050      		subi r26,lo8(-(p_leds))
+  51 0028 B040      		sbci r27,hi8(-(p_leds))
+  52 002a 8BE3      		ldi r24,lo8(59)
+  53 002c 90E0      		ldi r25,hi8(59)
+  54 002e 00C0      		rjmp .L11
+  55               	.L2:
+  56               	.LM6:
+  57 0030 6031      		cpi r22,lo8(16)
+GAS LISTING d:\tmp/ccARZF0L.s 			page 2
+
+
+  58 0032 01F4      		brne .L5
+  59 0034 AA0F      		lsl r26
+  60 0036 BB1F      		rol r27
+  61 0038 A050      		subi r26,lo8(-(p_leds))
+  62 003a B040      		sbci r27,hi8(-(p_leds))
+  63 003c 88E3      		ldi r24,lo8(56)
+  64 003e 90E0      		ldi r25,hi8(56)
+  65 0040 00C0      		rjmp .L11
+  66               	.L5:
+  67               	.LM7:
+  68 0042 6032      		cpi r22,lo8(32)
+  69 0044 01F4      		brne .L7
+  70 0046 AA0F      		lsl r26
+  71 0048 BB1F      		rol r27
+  72 004a A050      		subi r26,lo8(-(p_leds))
+  73 004c B040      		sbci r27,hi8(-(p_leds))
+  74 004e 85E3      		ldi r24,lo8(53)
+  75 0050 90E0      		ldi r25,hi8(53)
+  76               	.L11:
+  77 0052 8D93      		st X+,r24
+  78 0054 9C93      		st X,r25
+  79 0056 0895      		ret
+  80               	.L7:
+  81               	.LM8:
+  82 0058 6033      		cpi r22,lo8(48)
+  83 005a 01F4      		brne .L10
+  84 005c AA0F      		lsl r26
+  85 005e BB1F      		rol r27
+  86 0060 A050      		subi r26,lo8(-(p_leds))
+  87 0062 B040      		sbci r27,hi8(-(p_leds))
+  88 0064 82E3      		ldi r24,lo8(50)
+  89 0066 90E0      		ldi r25,hi8(50)
+  90 0068 8D93      		st X+,r24
+  91 006a 9C93      		st X,r25
+  92               	.L10:
+  93 006c 0895      		ret
+  94               	/* epilogue: frame size=0 */
+  95               	/* epilogue: noreturn */
+  96               	/* epilogue end (size=0) */
+  97               	/* function init_led size 57 (57) */
+  98               	.LFE2:
+  99               		.size	init_led, .-init_led
+ 100               	.global	init_leds
+ 101               		.type	init_leds, @function
+ 102               	init_leds:
+ 103               	.LFB3:
+ 104               	.LM9:
+ 105               	/* prologue: frame size=0 */
+ 106               	/* prologue end (size=0) */
+ 107               	.LVL3:
+ 108               	.LM10:
+ 109 006e 482F      		mov r20,r24
+ 110               	.LVL4:
+ 111 0070 407F      		andi r20,lo8(-16)
+ 112 0072 A0E0      		ldi r26,lo8(p_leds)
+ 113 0074 B0E0      		ldi r27,hi8(p_leds)
+ 114 0076 20E0      		ldi r18,lo8(0)
+GAS LISTING d:\tmp/ccARZF0L.s 			page 3
+
+
+ 115 0078 30E0      		ldi r19,hi8(0)
+ 116               	.L13:
+ 117               	.LM11:
+ 118 007a F901      		movw r30,r18
+ 119 007c E050      		subi r30,lo8(-(b_leds))
+ 120 007e F040      		sbci r31,hi8(-(b_leds))
+ 121 0080 81E0      		ldi r24,lo8(1)
+ 122 0082 90E0      		ldi r25,hi8(1)
+ 123               	.LVL5:
+ 124 0084 022E      		mov r0,r18
+ 125 0086 00C0      		rjmp 2f
+ 126 0088 880F      	1:	lsl r24
+ 127 008a 991F      		rol r25
+ 128 008c 0A94      	2:	dec r0
+ 129 008e 02F4      		brpl 1b
+ 130 0090 8083      		st Z,r24
+ 131               	.LM12:
+ 132 0092 4423      		tst r20
+ 133 0094 01F4      		brne .L14
+ 134 0096 8BE3      		ldi r24,lo8(59)
+ 135 0098 90E0      		ldi r25,hi8(59)
+ 136 009a 00C0      		rjmp .L26
+ 137               	.L14:
+ 138               	.LM13:
+ 139 009c 4031      		cpi r20,lo8(16)
+ 140 009e 01F4      		brne .L17
+ 141 00a0 88E3      		ldi r24,lo8(56)
+ 142 00a2 90E0      		ldi r25,hi8(56)
+ 143 00a4 00C0      		rjmp .L26
+ 144               	.L17:
+ 145               	.LM14:
+ 146 00a6 4032      		cpi r20,lo8(32)
+ 147 00a8 01F4      		brne .L19
+ 148 00aa 85E3      		ldi r24,lo8(53)
+ 149 00ac 90E0      		ldi r25,hi8(53)
+ 150 00ae 00C0      		rjmp .L26
+ 151               	.L19:
+ 152               	.LM15:
+ 153 00b0 4033      		cpi r20,lo8(48)
+ 154 00b2 01F4      		brne .L16
+ 155 00b4 82E3      		ldi r24,lo8(50)
+ 156 00b6 90E0      		ldi r25,hi8(50)
+ 157               	.L26:
+ 158 00b8 1196      		adiw r26,1
+ 159 00ba 9C93      		st X,r25
+ 160 00bc 8E93      		st -X,r24
+ 161               	.L16:
+ 162 00be 2F5F      		subi r18,lo8(-(1))
+ 163 00c0 3F4F      		sbci r19,hi8(-(1))
+ 164 00c2 1296      		adiw r26,2
+ 165               	.LM16:
+ 166 00c4 2830      		cpi r18,8
+ 167 00c6 3105      		cpc r19,__zero_reg__
+ 168 00c8 01F4      		brne .L13
+ 169               	/* epilogue: frame size=0 */
+ 170 00ca 0895      		ret
+ 171               	/* epilogue end (size=1) */
+GAS LISTING d:\tmp/ccARZF0L.s 			page 4
+
+
+ 172               	/* function init_leds size 47 (46) */
+ 173               	.LFE3:
+ 174               		.size	init_leds, .-init_leds
+ 175               	.global	set_led
+ 176               		.type	set_led, @function
+ 177               	set_led:
+ 178               	.LFB4:
+ 179               	.LM17:
+ 180               	/* prologue: frame size=0 */
+ 181               	/* prologue end (size=0) */
+ 182               	.LVL6:
+ 183               	.LM18:
+ 184 00cc A82F      		mov r26,r24
+ 185 00ce B0E0      		ldi r27,lo8(0)
+ 186 00d0 FD01      		movw r30,r26
+ 187 00d2 EE0F      		lsl r30
+ 188 00d4 FF1F      		rol r31
+ 189 00d6 E050      		subi r30,lo8(-(p_leds))
+ 190 00d8 F040      		sbci r31,hi8(-(p_leds))
+ 191 00da 0190      		ld __tmp_reg__,Z+
+ 192 00dc F081      		ld r31,Z
+ 193 00de E02D      		mov r30,__tmp_reg__
+ 194               	.LVL7:
+ 195               	.LM19:
+ 196 00e0 A050      		subi r26,lo8(-(b_leds))
+ 197 00e2 B040      		sbci r27,hi8(-(b_leds))
+ 198 00e4 8081      		ld r24,Z
+ 199               	.LVL8:
+ 200 00e6 9C91      		ld r25,X
+ 201 00e8 892B      		or r24,r25
+ 202 00ea 8083      		st Z,r24
+ 203               	/* epilogue: frame size=0 */
+ 204 00ec 0895      		ret
+ 205               	/* epilogue end (size=1) */
+ 206               	/* function set_led size 17 (16) */
+ 207               	.LFE4:
+ 208               		.size	set_led, .-set_led
+ 209               	.global	clr_led
+ 210               		.type	clr_led, @function
+ 211               	clr_led:
+ 212               	.LFB5:
+ 213               	.LM20:
+ 214               	/* prologue: frame size=0 */
+ 215               	/* prologue end (size=0) */
+ 216               	.LVL9:
+ 217               	.LM21:
+ 218 00ee A82F      		mov r26,r24
+ 219 00f0 B0E0      		ldi r27,lo8(0)
+ 220 00f2 FD01      		movw r30,r26
+ 221 00f4 EE0F      		lsl r30
+ 222 00f6 FF1F      		rol r31
+ 223 00f8 E050      		subi r30,lo8(-(p_leds))
+ 224 00fa F040      		sbci r31,hi8(-(p_leds))
+ 225 00fc 0190      		ld __tmp_reg__,Z+
+ 226 00fe F081      		ld r31,Z
+ 227 0100 E02D      		mov r30,__tmp_reg__
+ 228               	.LVL10:
+GAS LISTING d:\tmp/ccARZF0L.s 			page 5
+
+
+ 229               	.LM22:
+ 230 0102 A050      		subi r26,lo8(-(b_leds))
+ 231 0104 B040      		sbci r27,hi8(-(b_leds))
+ 232 0106 9C91      		ld r25,X
+ 233 0108 9095      		com r25
+ 234 010a 8081      		ld r24,Z
+ 235               	.LVL11:
+ 236 010c 8923      		and r24,r25
+ 237 010e 8083      		st Z,r24
+ 238               	/* epilogue: frame size=0 */
+ 239 0110 0895      		ret
+ 240               	/* epilogue end (size=1) */
+ 241               	/* function clr_led size 18 (17) */
+ 242               	.LFE5:
+ 243               		.size	clr_led, .-clr_led
+ 244               		.comm p_leds,32,1
+ 245               		.comm b_leds,16,1
+ 246               		.section	.debug_frame,"",@progbits
+ 247               	.Lframe0:
+ 248 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 249               	.LSCIE0:
+ 250 0004 FFFF FFFF 		.long	0xffffffff
+ 251 0008 01        		.byte	0x1
+ 252 0009 00        		.string	""
+ 253 000a 01        		.uleb128 0x1
+ 254 000b 7F        		.sleb128 -1
+ 255 000c 24        		.byte	0x24
+ 256 000d 0C        		.byte	0xc
+ 257 000e 20        		.uleb128 0x20
+ 258 000f 00        		.uleb128 0x0
+ 259               		.p2align	2
+ 260               	.LECIE0:
+ 261               	.LSFDE0:
+ 262 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 263               	.LASFDE0:
+ 264 0014 0000 0000 		.long	.Lframe0
+ 265 0018 0000 0000 		.long	.LFB2
+ 266 001c 6E00 0000 		.long	.LFE2-.LFB2
+ 267               		.p2align	2
+ 268               	.LEFDE0:
+ 269               	.LSFDE2:
+ 270 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 271               	.LASFDE2:
+ 272 0024 0000 0000 		.long	.Lframe0
+ 273 0028 0000 0000 		.long	.LFB3
+ 274 002c 5E00 0000 		.long	.LFE3-.LFB3
+ 275               		.p2align	2
+ 276               	.LEFDE2:
+ 277               	.LSFDE4:
+ 278 0030 0C00 0000 		.long	.LEFDE4-.LASFDE4
+ 279               	.LASFDE4:
+ 280 0034 0000 0000 		.long	.Lframe0
+ 281 0038 0000 0000 		.long	.LFB4
+ 282 003c 2200 0000 		.long	.LFE4-.LFB4
+ 283               		.p2align	2
+ 284               	.LEFDE4:
+ 285               	.LSFDE6:
+GAS LISTING d:\tmp/ccARZF0L.s 			page 6
+
+
+ 286 0040 0C00 0000 		.long	.LEFDE6-.LASFDE6
+ 287               	.LASFDE6:
+ 288 0044 0000 0000 		.long	.Lframe0
+ 289 0048 0000 0000 		.long	.LFB5
+ 290 004c 2400 0000 		.long	.LFE5-.LFB5
+ 291               		.p2align	2
+ 292               	.LEFDE6:
+ 293               		.text
+ 294               	.Letext0:
+ 295               		.section	.debug_loc,"",@progbits
+ 296               	.Ldebug_loc0:
+ 297               	.LLST1:
+ 298 0000 0000 0000 		.long	.LVL0-.Ltext0
+ 299 0004 1200 0000 		.long	.LVL1-.Ltext0
+ 300 0008 0100      		.word	0x1
+ 301 000a 68        		.byte	0x68
+ 302 000b 0000 0000 		.long	0x0
+ 303 000f 0000 0000 		.long	0x0
+ 304               	.LLST2:
+ 305 0013 0000 0000 		.long	.LVL0-.Ltext0
+ 306 0017 2000 0000 		.long	.LVL2-.Ltext0
+ 307 001b 0100      		.word	0x1
+ 308 001d 66        		.byte	0x66
+ 309 001e 0000 0000 		.long	0x0
+ 310 0022 0000 0000 		.long	0x0
+ 311               	.LLST4:
+ 312 0026 6E00 0000 		.long	.LVL3-.Ltext0
+ 313 002a 8400 0000 		.long	.LVL5-.Ltext0
+ 314 002e 0100      		.word	0x1
+ 315 0030 68        		.byte	0x68
+ 316 0031 0000 0000 		.long	0x0
+ 317 0035 0000 0000 		.long	0x0
+ 318               	.LLST6:
+ 319 0039 CC00 0000 		.long	.LVL6-.Ltext0
+ 320 003d E600 0000 		.long	.LVL8-.Ltext0
+ 321 0041 0100      		.word	0x1
+ 322 0043 68        		.byte	0x68
+ 323 0044 0000 0000 		.long	0x0
+ 324 0048 0000 0000 		.long	0x0
+ 325               	.LLST8:
+ 326 004c EE00 0000 		.long	.LVL9-.Ltext0
+ 327 0050 0C01 0000 		.long	.LVL11-.Ltext0
+ 328 0054 0100      		.word	0x1
+ 329 0056 68        		.byte	0x68
+ 330 0057 0000 0000 		.long	0x0
+ 331 005b 0000 0000 		.long	0x0
+ 332               		.section	.debug_info
+ 333 0000 BF01 0000 		.long	0x1bf
+ 334 0004 0200      		.word	0x2
+ 335 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 336 000a 04        		.byte	0x4
+ 337 000b 01        		.uleb128 0x1
+ 338 000c 0000 0000 		.long	.LASF17
+ 339 0010 01        		.byte	0x1
+ 340 0011 0000 0000 		.long	.LASF18
+ 341 0015 0000 0000 		.long	.LASF19
+ 342 0019 0000 0000 		.long	.Ltext0
+GAS LISTING d:\tmp/ccARZF0L.s 			page 7
+
+
+ 343 001d 0000 0000 		.long	.Letext0
+ 344 0021 0000 0000 		.long	.Ldebug_line0
+ 345 0025 02        		.uleb128 0x2
+ 346 0026 01        		.byte	0x1
+ 347 0027 06        		.byte	0x6
+ 348 0028 0000 0000 		.long	.LASF0
+ 349 002c 03        		.uleb128 0x3
+ 350 002d 0000 0000 		.long	.LASF20
+ 351 0031 02        		.byte	0x2
+ 352 0032 7A        		.byte	0x7a
+ 353 0033 3700 0000 		.long	0x37
+ 354 0037 02        		.uleb128 0x2
+ 355 0038 01        		.byte	0x1
+ 356 0039 08        		.byte	0x8
+ 357 003a 0000 0000 		.long	.LASF1
+ 358 003e 04        		.uleb128 0x4
+ 359 003f 02        		.byte	0x2
+ 360 0040 05        		.byte	0x5
+ 361 0041 696E 7400 		.string	"int"
+ 362 0045 02        		.uleb128 0x2
+ 363 0046 02        		.byte	0x2
+ 364 0047 07        		.byte	0x7
+ 365 0048 0000 0000 		.long	.LASF2
+ 366 004c 02        		.uleb128 0x2
+ 367 004d 04        		.byte	0x4
+ 368 004e 05        		.byte	0x5
+ 369 004f 0000 0000 		.long	.LASF3
+ 370 0053 02        		.uleb128 0x2
+ 371 0054 04        		.byte	0x4
+ 372 0055 07        		.byte	0x7
+ 373 0056 0000 0000 		.long	.LASF4
+ 374 005a 02        		.uleb128 0x2
+ 375 005b 08        		.byte	0x8
+ 376 005c 05        		.byte	0x5
+ 377 005d 0000 0000 		.long	.LASF5
+ 378 0061 02        		.uleb128 0x2
+ 379 0062 08        		.byte	0x8
+ 380 0063 07        		.byte	0x7
+ 381 0064 0000 0000 		.long	.LASF6
+ 382 0068 05        		.uleb128 0x5
+ 383 0069 01        		.byte	0x1
+ 384 006a 08        		.byte	0x8
+ 385 006b 06        		.uleb128 0x6
+ 386 006c 01        		.byte	0x1
+ 387 006d 0000 0000 		.long	.LASF8
+ 388 0071 01        		.byte	0x1
+ 389 0072 18        		.byte	0x18
+ 390 0073 01        		.byte	0x1
+ 391 0074 0000 0000 		.long	.LFB2
+ 392 0078 0000 0000 		.long	.LFE2
+ 393 007c 02        		.byte	0x2
+ 394 007d 90        		.byte	0x90
+ 395 007e 20        		.uleb128 0x20
+ 396 007f AD00 0000 		.long	0xad
+ 397 0083 07        		.uleb128 0x7
+ 398 0084 6C65 6400 		.string	"led"
+ 399 0088 01        		.byte	0x1
+GAS LISTING d:\tmp/ccARZF0L.s 			page 8
+
+
+ 400 0089 16        		.byte	0x16
+ 401 008a 2C00 0000 		.long	0x2c
+ 402 008e 0000 0000 		.long	.LLST1
+ 403 0092 08        		.uleb128 0x8
+ 404 0093 0000 0000 		.long	.LASF7
+ 405 0097 01        		.byte	0x1
+ 406 0098 16        		.byte	0x16
+ 407 0099 2C00 0000 		.long	0x2c
+ 408 009d 0000 0000 		.long	.LLST2
+ 409 00a1 09        		.uleb128 0x9
+ 410 00a2 6C00      		.string	"l"
+ 411 00a4 01        		.byte	0x1
+ 412 00a5 19        		.byte	0x19
+ 413 00a6 2C00 0000 		.long	0x2c
+ 414 00aa 01        		.byte	0x1
+ 415 00ab 66        		.byte	0x66
+ 416 00ac 00        		.byte	0x0
+ 417 00ad 06        		.uleb128 0x6
+ 418 00ae 01        		.byte	0x1
+ 419 00af 0000 0000 		.long	.LASF9
+ 420 00b3 01        		.byte	0x1
+ 421 00b4 26        		.byte	0x26
+ 422 00b5 01        		.byte	0x1
+ 423 00b6 0000 0000 		.long	.LFB3
+ 424 00ba 0000 0000 		.long	.LFE3
+ 425 00be 02        		.byte	0x2
+ 426 00bf 90        		.byte	0x90
+ 427 00c0 20        		.uleb128 0x20
+ 428 00c1 EB00 0000 		.long	0xeb
+ 429 00c5 08        		.uleb128 0x8
+ 430 00c6 0000 0000 		.long	.LASF10
+ 431 00ca 01        		.byte	0x1
+ 432 00cb 24        		.byte	0x24
+ 433 00cc 2C00 0000 		.long	0x2c
+ 434 00d0 0000 0000 		.long	.LLST4
+ 435 00d4 09        		.uleb128 0x9
+ 436 00d5 6C00      		.string	"l"
+ 437 00d7 01        		.byte	0x1
+ 438 00d8 27        		.byte	0x27
+ 439 00d9 2C00 0000 		.long	0x2c
+ 440 00dd 01        		.byte	0x1
+ 441 00de 64        		.byte	0x64
+ 442 00df 0A        		.uleb128 0xa
+ 443 00e0 6C65 6400 		.string	"led"
+ 444 00e4 01        		.byte	0x1
+ 445 00e5 27        		.byte	0x27
+ 446 00e6 2C00 0000 		.long	0x2c
+ 447 00ea 00        		.byte	0x0
+ 448 00eb 06        		.uleb128 0x6
+ 449 00ec 01        		.byte	0x1
+ 450 00ed 0000 0000 		.long	.LASF11
+ 451 00f1 01        		.byte	0x1
+ 452 00f2 38        		.byte	0x38
+ 453 00f3 01        		.byte	0x1
+ 454 00f4 0000 0000 		.long	.LFB4
+ 455 00f8 0000 0000 		.long	.LFE4
+ 456 00fc 02        		.byte	0x2
+GAS LISTING d:\tmp/ccARZF0L.s 			page 9
+
+
+ 457 00fd 90        		.byte	0x90
+ 458 00fe 20        		.uleb128 0x20
+ 459 00ff 3001 0000 		.long	0x130
+ 460 0103 07        		.uleb128 0x7
+ 461 0104 6C65 6400 		.string	"led"
+ 462 0108 01        		.byte	0x1
+ 463 0109 35        		.byte	0x35
+ 464 010a 2C00 0000 		.long	0x2c
+ 465 010e 0000 0000 		.long	.LLST6
+ 466 0112 0B        		.uleb128 0xb
+ 467 0113 0000 0000 		.long	.LASF12
+ 468 0117 01        		.byte	0x1
+ 469 0118 39        		.byte	0x39
+ 470 0119 3001 0000 		.long	0x130
+ 471 011d 06        		.byte	0x6
+ 472 011e 6E        		.byte	0x6e
+ 473 011f 93        		.byte	0x93
+ 474 0120 01        		.uleb128 0x1
+ 475 0121 6F        		.byte	0x6f
+ 476 0122 93        		.byte	0x93
+ 477 0123 01        		.uleb128 0x1
+ 478 0124 0C        		.uleb128 0xc
+ 479 0125 0000 0000 		.long	.LASF13
+ 480 0129 01        		.byte	0x1
+ 481 012a 3A        		.byte	0x3a
+ 482 012b 2C00 0000 		.long	0x2c
+ 483 012f 00        		.byte	0x0
+ 484 0130 0D        		.uleb128 0xd
+ 485 0131 02        		.byte	0x2
+ 486 0132 2C00 0000 		.long	0x2c
+ 487 0136 06        		.uleb128 0x6
+ 488 0137 01        		.byte	0x1
+ 489 0138 0000 0000 		.long	.LASF14
+ 490 013c 01        		.byte	0x1
+ 491 013d 46        		.byte	0x46
+ 492 013e 01        		.byte	0x1
+ 493 013f 0000 0000 		.long	.LFB5
+ 494 0143 0000 0000 		.long	.LFE5
+ 495 0147 02        		.byte	0x2
+ 496 0148 90        		.byte	0x90
+ 497 0149 20        		.uleb128 0x20
+ 498 014a 7B01 0000 		.long	0x17b
+ 499 014e 07        		.uleb128 0x7
+ 500 014f 6C65 6400 		.string	"led"
+ 501 0153 01        		.byte	0x1
+ 502 0154 43        		.byte	0x43
+ 503 0155 2C00 0000 		.long	0x2c
+ 504 0159 0000 0000 		.long	.LLST8
+ 505 015d 0B        		.uleb128 0xb
+ 506 015e 0000 0000 		.long	.LASF12
+ 507 0162 01        		.byte	0x1
+ 508 0163 47        		.byte	0x47
+ 509 0164 3001 0000 		.long	0x130
+ 510 0168 06        		.byte	0x6
+ 511 0169 6E        		.byte	0x6e
+ 512 016a 93        		.byte	0x93
+ 513 016b 01        		.uleb128 0x1
+GAS LISTING d:\tmp/ccARZF0L.s 			page 10
+
+
+ 514 016c 6F        		.byte	0x6f
+ 515 016d 93        		.byte	0x93
+ 516 016e 01        		.uleb128 0x1
+ 517 016f 0C        		.uleb128 0xc
+ 518 0170 0000 0000 		.long	.LASF13
+ 519 0174 01        		.byte	0x1
+ 520 0175 48        		.byte	0x48
+ 521 0176 2C00 0000 		.long	0x2c
+ 522 017a 00        		.byte	0x0
+ 523 017b 0E        		.uleb128 0xe
+ 524 017c 3001 0000 		.long	0x130
+ 525 0180 8B01 0000 		.long	0x18b
+ 526 0184 0F        		.uleb128 0xf
+ 527 0185 8B01 0000 		.long	0x18b
+ 528 0189 0F        		.byte	0xf
+ 529 018a 00        		.byte	0x0
+ 530 018b 05        		.uleb128 0x5
+ 531 018c 02        		.byte	0x2
+ 532 018d 07        		.byte	0x7
+ 533 018e 10        		.uleb128 0x10
+ 534 018f 0000 0000 		.long	.LASF15
+ 535 0193 01        		.byte	0x1
+ 536 0194 10        		.byte	0x10
+ 537 0195 7B01 0000 		.long	0x17b
+ 538 0199 01        		.byte	0x1
+ 539 019a 05        		.byte	0x5
+ 540 019b 03        		.byte	0x3
+ 541 019c 0000 0000 		.long	p_leds
+ 542 01a0 0E        		.uleb128 0xe
+ 543 01a1 2C00 0000 		.long	0x2c
+ 544 01a5 B001 0000 		.long	0x1b0
+ 545 01a9 0F        		.uleb128 0xf
+ 546 01aa 8B01 0000 		.long	0x18b
+ 547 01ae 0F        		.byte	0xf
+ 548 01af 00        		.byte	0x0
+ 549 01b0 10        		.uleb128 0x10
+ 550 01b1 0000 0000 		.long	.LASF16
+ 551 01b5 01        		.byte	0x1
+ 552 01b6 11        		.byte	0x11
+ 553 01b7 A001 0000 		.long	0x1a0
+ 554 01bb 01        		.byte	0x1
+ 555 01bc 05        		.byte	0x5
+ 556 01bd 03        		.byte	0x3
+ 557 01be 0000 0000 		.long	b_leds
+ 558 01c2 00        		.byte	0x0
+ 559               		.section	.debug_abbrev
+ 560 0000 01        		.uleb128 0x1
+ 561 0001 11        		.uleb128 0x11
+ 562 0002 01        		.byte	0x1
+ 563 0003 25        		.uleb128 0x25
+ 564 0004 0E        		.uleb128 0xe
+ 565 0005 13        		.uleb128 0x13
+ 566 0006 0B        		.uleb128 0xb
+ 567 0007 03        		.uleb128 0x3
+ 568 0008 0E        		.uleb128 0xe
+ 569 0009 1B        		.uleb128 0x1b
+ 570 000a 0E        		.uleb128 0xe
+GAS LISTING d:\tmp/ccARZF0L.s 			page 11
+
+
+ 571 000b 11        		.uleb128 0x11
+ 572 000c 01        		.uleb128 0x1
+ 573 000d 12        		.uleb128 0x12
+ 574 000e 01        		.uleb128 0x1
+ 575 000f 10        		.uleb128 0x10
+ 576 0010 06        		.uleb128 0x6
+ 577 0011 00        		.byte	0x0
+ 578 0012 00        		.byte	0x0
+ 579 0013 02        		.uleb128 0x2
+ 580 0014 24        		.uleb128 0x24
+ 581 0015 00        		.byte	0x0
+ 582 0016 0B        		.uleb128 0xb
+ 583 0017 0B        		.uleb128 0xb
+ 584 0018 3E        		.uleb128 0x3e
+ 585 0019 0B        		.uleb128 0xb
+ 586 001a 03        		.uleb128 0x3
+ 587 001b 0E        		.uleb128 0xe
+ 588 001c 00        		.byte	0x0
+ 589 001d 00        		.byte	0x0
+ 590 001e 03        		.uleb128 0x3
+ 591 001f 16        		.uleb128 0x16
+ 592 0020 00        		.byte	0x0
+ 593 0021 03        		.uleb128 0x3
+ 594 0022 0E        		.uleb128 0xe
+ 595 0023 3A        		.uleb128 0x3a
+ 596 0024 0B        		.uleb128 0xb
+ 597 0025 3B        		.uleb128 0x3b
+ 598 0026 0B        		.uleb128 0xb
+ 599 0027 49        		.uleb128 0x49
+ 600 0028 13        		.uleb128 0x13
+ 601 0029 00        		.byte	0x0
+ 602 002a 00        		.byte	0x0
+ 603 002b 04        		.uleb128 0x4
+ 604 002c 24        		.uleb128 0x24
+ 605 002d 00        		.byte	0x0
+ 606 002e 0B        		.uleb128 0xb
+ 607 002f 0B        		.uleb128 0xb
+ 608 0030 3E        		.uleb128 0x3e
+ 609 0031 0B        		.uleb128 0xb
+ 610 0032 03        		.uleb128 0x3
+ 611 0033 08        		.uleb128 0x8
+ 612 0034 00        		.byte	0x0
+ 613 0035 00        		.byte	0x0
+ 614 0036 05        		.uleb128 0x5
+ 615 0037 24        		.uleb128 0x24
+ 616 0038 00        		.byte	0x0
+ 617 0039 0B        		.uleb128 0xb
+ 618 003a 0B        		.uleb128 0xb
+ 619 003b 3E        		.uleb128 0x3e
+ 620 003c 0B        		.uleb128 0xb
+ 621 003d 00        		.byte	0x0
+ 622 003e 00        		.byte	0x0
+ 623 003f 06        		.uleb128 0x6
+ 624 0040 2E        		.uleb128 0x2e
+ 625 0041 01        		.byte	0x1
+ 626 0042 3F        		.uleb128 0x3f
+ 627 0043 0C        		.uleb128 0xc
+GAS LISTING d:\tmp/ccARZF0L.s 			page 12
+
+
+ 628 0044 03        		.uleb128 0x3
+ 629 0045 0E        		.uleb128 0xe
+ 630 0046 3A        		.uleb128 0x3a
+ 631 0047 0B        		.uleb128 0xb
+ 632 0048 3B        		.uleb128 0x3b
+ 633 0049 0B        		.uleb128 0xb
+ 634 004a 27        		.uleb128 0x27
+ 635 004b 0C        		.uleb128 0xc
+ 636 004c 11        		.uleb128 0x11
+ 637 004d 01        		.uleb128 0x1
+ 638 004e 12        		.uleb128 0x12
+ 639 004f 01        		.uleb128 0x1
+ 640 0050 40        		.uleb128 0x40
+ 641 0051 0A        		.uleb128 0xa
+ 642 0052 01        		.uleb128 0x1
+ 643 0053 13        		.uleb128 0x13
+ 644 0054 00        		.byte	0x0
+ 645 0055 00        		.byte	0x0
+ 646 0056 07        		.uleb128 0x7
+ 647 0057 05        		.uleb128 0x5
+ 648 0058 00        		.byte	0x0
+ 649 0059 03        		.uleb128 0x3
+ 650 005a 08        		.uleb128 0x8
+ 651 005b 3A        		.uleb128 0x3a
+ 652 005c 0B        		.uleb128 0xb
+ 653 005d 3B        		.uleb128 0x3b
+ 654 005e 0B        		.uleb128 0xb
+ 655 005f 49        		.uleb128 0x49
+ 656 0060 13        		.uleb128 0x13
+ 657 0061 02        		.uleb128 0x2
+ 658 0062 06        		.uleb128 0x6
+ 659 0063 00        		.byte	0x0
+ 660 0064 00        		.byte	0x0
+ 661 0065 08        		.uleb128 0x8
+ 662 0066 05        		.uleb128 0x5
+ 663 0067 00        		.byte	0x0
+ 664 0068 03        		.uleb128 0x3
+ 665 0069 0E        		.uleb128 0xe
+ 666 006a 3A        		.uleb128 0x3a
+ 667 006b 0B        		.uleb128 0xb
+ 668 006c 3B        		.uleb128 0x3b
+ 669 006d 0B        		.uleb128 0xb
+ 670 006e 49        		.uleb128 0x49
+ 671 006f 13        		.uleb128 0x13
+ 672 0070 02        		.uleb128 0x2
+ 673 0071 06        		.uleb128 0x6
+ 674 0072 00        		.byte	0x0
+ 675 0073 00        		.byte	0x0
+ 676 0074 09        		.uleb128 0x9
+ 677 0075 34        		.uleb128 0x34
+ 678 0076 00        		.byte	0x0
+ 679 0077 03        		.uleb128 0x3
+ 680 0078 08        		.uleb128 0x8
+ 681 0079 3A        		.uleb128 0x3a
+ 682 007a 0B        		.uleb128 0xb
+ 683 007b 3B        		.uleb128 0x3b
+ 684 007c 0B        		.uleb128 0xb
+GAS LISTING d:\tmp/ccARZF0L.s 			page 13
+
+
+ 685 007d 49        		.uleb128 0x49
+ 686 007e 13        		.uleb128 0x13
+ 687 007f 02        		.uleb128 0x2
+ 688 0080 0A        		.uleb128 0xa
+ 689 0081 00        		.byte	0x0
+ 690 0082 00        		.byte	0x0
+ 691 0083 0A        		.uleb128 0xa
+ 692 0084 34        		.uleb128 0x34
+ 693 0085 00        		.byte	0x0
+ 694 0086 03        		.uleb128 0x3
+ 695 0087 08        		.uleb128 0x8
+ 696 0088 3A        		.uleb128 0x3a
+ 697 0089 0B        		.uleb128 0xb
+ 698 008a 3B        		.uleb128 0x3b
+ 699 008b 0B        		.uleb128 0xb
+ 700 008c 49        		.uleb128 0x49
+ 701 008d 13        		.uleb128 0x13
+ 702 008e 00        		.byte	0x0
+ 703 008f 00        		.byte	0x0
+ 704 0090 0B        		.uleb128 0xb
+ 705 0091 34        		.uleb128 0x34
+ 706 0092 00        		.byte	0x0
+ 707 0093 03        		.uleb128 0x3
+ 708 0094 0E        		.uleb128 0xe
+ 709 0095 3A        		.uleb128 0x3a
+ 710 0096 0B        		.uleb128 0xb
+ 711 0097 3B        		.uleb128 0x3b
+ 712 0098 0B        		.uleb128 0xb
+ 713 0099 49        		.uleb128 0x49
+ 714 009a 13        		.uleb128 0x13
+ 715 009b 02        		.uleb128 0x2
+ 716 009c 0A        		.uleb128 0xa
+ 717 009d 00        		.byte	0x0
+ 718 009e 00        		.byte	0x0
+ 719 009f 0C        		.uleb128 0xc
+ 720 00a0 34        		.uleb128 0x34
+ 721 00a1 00        		.byte	0x0
+ 722 00a2 03        		.uleb128 0x3
+ 723 00a3 0E        		.uleb128 0xe
+ 724 00a4 3A        		.uleb128 0x3a
+ 725 00a5 0B        		.uleb128 0xb
+ 726 00a6 3B        		.uleb128 0x3b
+ 727 00a7 0B        		.uleb128 0xb
+ 728 00a8 49        		.uleb128 0x49
+ 729 00a9 13        		.uleb128 0x13
+ 730 00aa 00        		.byte	0x0
+ 731 00ab 00        		.byte	0x0
+ 732 00ac 0D        		.uleb128 0xd
+ 733 00ad 0F        		.uleb128 0xf
+ 734 00ae 00        		.byte	0x0
+ 735 00af 0B        		.uleb128 0xb
+ 736 00b0 0B        		.uleb128 0xb
+ 737 00b1 49        		.uleb128 0x49
+ 738 00b2 13        		.uleb128 0x13
+ 739 00b3 00        		.byte	0x0
+ 740 00b4 00        		.byte	0x0
+ 741 00b5 0E        		.uleb128 0xe
+GAS LISTING d:\tmp/ccARZF0L.s 			page 14
+
+
+ 742 00b6 01        		.uleb128 0x1
+ 743 00b7 01        		.byte	0x1
+ 744 00b8 49        		.uleb128 0x49
+ 745 00b9 13        		.uleb128 0x13
+ 746 00ba 01        		.uleb128 0x1
+ 747 00bb 13        		.uleb128 0x13
+ 748 00bc 00        		.byte	0x0
+ 749 00bd 00        		.byte	0x0
+ 750 00be 0F        		.uleb128 0xf
+ 751 00bf 21        		.uleb128 0x21
+ 752 00c0 00        		.byte	0x0
+ 753 00c1 49        		.uleb128 0x49
+ 754 00c2 13        		.uleb128 0x13
+ 755 00c3 2F        		.uleb128 0x2f
+ 756 00c4 0B        		.uleb128 0xb
+ 757 00c5 00        		.byte	0x0
+ 758 00c6 00        		.byte	0x0
+ 759 00c7 10        		.uleb128 0x10
+ 760 00c8 34        		.uleb128 0x34
+ 761 00c9 00        		.byte	0x0
+ 762 00ca 03        		.uleb128 0x3
+ 763 00cb 0E        		.uleb128 0xe
+ 764 00cc 3A        		.uleb128 0x3a
+ 765 00cd 0B        		.uleb128 0xb
+ 766 00ce 3B        		.uleb128 0x3b
+ 767 00cf 0B        		.uleb128 0xb
+ 768 00d0 49        		.uleb128 0x49
+ 769 00d1 13        		.uleb128 0x13
+ 770 00d2 3F        		.uleb128 0x3f
+ 771 00d3 0C        		.uleb128 0xc
+ 772 00d4 02        		.uleb128 0x2
+ 773 00d5 0A        		.uleb128 0xa
+ 774 00d6 00        		.byte	0x0
+ 775 00d7 00        		.byte	0x0
+ 776 00d8 00        		.byte	0x0
+ 777               		.section	.debug_pubnames,"",@progbits
+ 778 0000 5700 0000 		.long	0x57
+ 779 0004 0200      		.word	0x2
+ 780 0006 0000 0000 		.long	.Ldebug_info0
+ 781 000a C301 0000 		.long	0x1c3
+ 782 000e 6B00 0000 		.long	0x6b
+ 783 0012 696E 6974 		.string	"init_led"
+ 783      5F6C 6564 
+ 783      00
+ 784 001b AD00 0000 		.long	0xad
+ 785 001f 696E 6974 		.string	"init_leds"
+ 785      5F6C 6564 
+ 785      7300 
+ 786 0029 EB00 0000 		.long	0xeb
+ 787 002d 7365 745F 		.string	"set_led"
+ 787      6C65 6400 
+ 788 0035 3601 0000 		.long	0x136
+ 789 0039 636C 725F 		.string	"clr_led"
+ 789      6C65 6400 
+ 790 0041 8E01 0000 		.long	0x18e
+ 791 0045 705F 6C65 		.string	"p_leds"
+ 791      6473 00
+GAS LISTING d:\tmp/ccARZF0L.s 			page 15
+
+
+ 792 004c B001 0000 		.long	0x1b0
+ 793 0050 625F 6C65 		.string	"b_leds"
+ 793      6473 00
+ 794 0057 0000 0000 		.long	0x0
+ 795               		.section	.debug_aranges,"",@progbits
+ 796 0000 1C00 0000 		.long	0x1c
+ 797 0004 0200      		.word	0x2
+ 798 0006 0000 0000 		.long	.Ldebug_info0
+ 799 000a 04        		.byte	0x4
+ 800 000b 00        		.byte	0x0
+ 801 000c 0000      		.word	0x0
+ 802 000e 0000      		.word	0x0
+ 803 0010 0000 0000 		.long	.Ltext0
+ 804 0014 1201 0000 		.long	.Letext0-.Ltext0
+ 805 0018 0000 0000 		.long	0x0
+ 806 001c 0000 0000 		.long	0x0
+ 807               		.section	.debug_line
+ 808 0000 0C01 0000 		.long	.LELT0-.LSLT0
+ 809               	.LSLT0:
+ 810 0004 0200      		.word	0x2
+ 811 0006 4C00 0000 		.long	.LELTP0-.LASLTP0
+ 812               	.LASLTP0:
+ 813 000a 01        		.byte	0x1
+ 814 000b 01        		.byte	0x1
+ 815 000c F6        		.byte	0xf6
+ 816 000d F5        		.byte	0xf5
+ 817 000e 0A        		.byte	0xa
+ 818 000f 00        		.byte	0x0
+ 819 0010 01        		.byte	0x1
+ 820 0011 01        		.byte	0x1
+ 821 0012 01        		.byte	0x1
+ 822 0013 01        		.byte	0x1
+ 823 0014 00        		.byte	0x0
+ 824 0015 00        		.byte	0x0
+ 825 0016 00        		.byte	0x0
+ 826 0017 01        		.byte	0x1
+ 827 0018 643A 2F77 		.ascii	"d:/winavr-20071221/bin/../avr/include"
+ 827      696E 6176 
+ 827      722D 3230 
+ 827      3037 3132 
+ 827      3231 2F62 
+ 828 003d 00        		.byte	0
+ 829 003e 00        		.byte	0x0
+ 830 003f 6C65 6473 		.string	"leds.c"
+ 830      2E63 00
+ 831 0046 00        		.uleb128 0x0
+ 832 0047 00        		.uleb128 0x0
+ 833 0048 00        		.uleb128 0x0
+ 834 0049 7374 6469 		.string	"stdint.h"
+ 834      6E74 2E68 
+ 834      00
+ 835 0052 01        		.uleb128 0x1
+ 836 0053 00        		.uleb128 0x0
+ 837 0054 00        		.uleb128 0x0
+ 838 0055 00        		.byte	0x0
+ 839               	.LELTP0:
+ 840 0056 00        		.byte	0x0
+GAS LISTING d:\tmp/ccARZF0L.s 			page 16
+
+
+ 841 0057 05        		.uleb128 0x5
+ 842 0058 02        		.byte	0x2
+ 843 0059 0000 0000 		.long	.LM1
+ 844 005d 2B        		.byte	0x2b
+ 845 005e 00        		.byte	0x0
+ 846 005f 05        		.uleb128 0x5
+ 847 0060 02        		.byte	0x2
+ 848 0061 0000 0000 		.long	.LM2
+ 849 0065 16        		.byte	0x16
+ 850 0066 00        		.byte	0x0
+ 851 0067 05        		.uleb128 0x5
+ 852 0068 02        		.byte	0x2
+ 853 0069 0000 0000 		.long	.LM3
+ 854 006d 17        		.byte	0x17
+ 855 006e 00        		.byte	0x0
+ 856 006f 05        		.uleb128 0x5
+ 857 0070 02        		.byte	0x2
+ 858 0071 0000 0000 		.long	.LM4
+ 859 0075 15        		.byte	0x15
+ 860 0076 00        		.byte	0x0
+ 861 0077 05        		.uleb128 0x5
+ 862 0078 02        		.byte	0x2
+ 863 0079 0000 0000 		.long	.LM5
+ 864 007d 01        		.byte	0x1
+ 865 007e 00        		.byte	0x0
+ 866 007f 05        		.uleb128 0x5
+ 867 0080 02        		.byte	0x2
+ 868 0081 0000 0000 		.long	.LM6
+ 869 0085 15        		.byte	0x15
+ 870 0086 00        		.byte	0x0
+ 871 0087 05        		.uleb128 0x5
+ 872 0088 02        		.byte	0x2
+ 873 0089 0000 0000 		.long	.LM7
+ 874 008d 15        		.byte	0x15
+ 875 008e 00        		.byte	0x0
+ 876 008f 05        		.uleb128 0x5
+ 877 0090 02        		.byte	0x2
+ 878 0091 0000 0000 		.long	.LM8
+ 879 0095 15        		.byte	0x15
+ 880 0096 00        		.byte	0x0
+ 881 0097 05        		.uleb128 0x5
+ 882 0098 02        		.byte	0x2
+ 883 0099 0000 0000 		.long	.LM9
+ 884 009d 19        		.byte	0x19
+ 885 009e 00        		.byte	0x0
+ 886 009f 05        		.uleb128 0x5
+ 887 00a0 02        		.byte	0x2
+ 888 00a1 0000 0000 		.long	.LM10
+ 889 00a5 17        		.byte	0x17
+ 890 00a6 00        		.byte	0x0
+ 891 00a7 05        		.uleb128 0x5
+ 892 00a8 02        		.byte	0x2
+ 893 00a9 0000 0000 		.long	.LM11
+ 894 00ad 16        		.byte	0x16
+ 895 00ae 00        		.byte	0x0
+ 896 00af 05        		.uleb128 0x5
+ 897 00b0 02        		.byte	0x2
+GAS LISTING d:\tmp/ccARZF0L.s 			page 17
+
+
+ 898 00b1 0000 0000 		.long	.LM12
+ 899 00b5 15        		.byte	0x15
+ 900 00b6 00        		.byte	0x0
+ 901 00b7 05        		.uleb128 0x5
+ 902 00b8 02        		.byte	0x2
+ 903 00b9 0000 0000 		.long	.LM13
+ 904 00bd 15        		.byte	0x15
+ 905 00be 00        		.byte	0x0
+ 906 00bf 05        		.uleb128 0x5
+ 907 00c0 02        		.byte	0x2
+ 908 00c1 0000 0000 		.long	.LM14
+ 909 00c5 15        		.byte	0x15
+ 910 00c6 00        		.byte	0x0
+ 911 00c7 05        		.uleb128 0x5
+ 912 00c8 02        		.byte	0x2
+ 913 00c9 0000 0000 		.long	.LM15
+ 914 00cd 15        		.byte	0x15
+ 915 00ce 00        		.byte	0x0
+ 916 00cf 05        		.uleb128 0x5
+ 917 00d0 02        		.byte	0x2
+ 918 00d1 0000 0000 		.long	.LM16
+ 919 00d5 0F        		.byte	0xf
+ 920 00d6 00        		.byte	0x0
+ 921 00d7 05        		.uleb128 0x5
+ 922 00d8 02        		.byte	0x2
+ 923 00d9 0000 0000 		.long	.LM17
+ 924 00dd 22        		.byte	0x22
+ 925 00de 00        		.byte	0x0
+ 926 00df 05        		.uleb128 0x5
+ 927 00e0 02        		.byte	0x2
+ 928 00e1 0000 0000 		.long	.LM18
+ 929 00e5 18        		.byte	0x18
+ 930 00e6 00        		.byte	0x0
+ 931 00e7 05        		.uleb128 0x5
+ 932 00e8 02        		.byte	0x2
+ 933 00e9 0000 0000 		.long	.LM19
+ 934 00ed 17        		.byte	0x17
+ 935 00ee 00        		.byte	0x0
+ 936 00ef 05        		.uleb128 0x5
+ 937 00f0 02        		.byte	0x2
+ 938 00f1 0000 0000 		.long	.LM20
+ 939 00f5 1B        		.byte	0x1b
+ 940 00f6 00        		.byte	0x0
+ 941 00f7 05        		.uleb128 0x5
+ 942 00f8 02        		.byte	0x2
+ 943 00f9 0000 0000 		.long	.LM21
+ 944 00fd 18        		.byte	0x18
+ 945 00fe 00        		.byte	0x0
+ 946 00ff 05        		.uleb128 0x5
+ 947 0100 02        		.byte	0x2
+ 948 0101 0000 0000 		.long	.LM22
+ 949 0105 17        		.byte	0x17
+ 950 0106 00        		.byte	0x0
+ 951 0107 05        		.uleb128 0x5
+ 952 0108 02        		.byte	0x2
+ 953 0109 0000 0000 		.long	.Letext0
+ 954 010d 00        		.byte	0x0
+GAS LISTING d:\tmp/ccARZF0L.s 			page 18
+
+
+ 955 010e 01        		.uleb128 0x1
+ 956 010f 01        		.byte	0x1
+ 957               	.LELT0:
+ 958 0110 1900 0000 		.section	.debug_str,"MS",@progbits,1
+ 958      0200 1300 
+ 958      0000 0101 
+ 958      FB0E 0D00 
+ 958      0101 0101 
+ 959               	.LASF18:
+ 960 0000 6C65 6473 		.string	"leds.c"
+ 960      2E63 00
+ 961               	.LASF10:
+ 962 0007 6C65 6473 		.string	"leds"
+ 962      00
+ 963               	.LASF19:
+ 964 000c 473A 5C61 		.string	"G:\\avr\\tubetester"
+ 964      7672 5C74 
+ 964      7562 6574 
+ 964      6573 7465 
+ 964      7200 
+ 965               	.LASF20:
+ 966 001e 7569 6E74 		.string	"uint8_t"
+ 966      385F 7400 
+ 967               	.LASF11:
+ 968 0026 7365 745F 		.string	"set_led"
+ 968      6C65 6400 
+ 969               	.LASF9:
+ 970 002e 696E 6974 		.string	"init_leds"
+ 970      5F6C 6564 
+ 970      7300 
+ 971               	.LASF1:
+ 972 0038 756E 7369 		.string	"unsigned char"
+ 972      676E 6564 
+ 972      2063 6861 
+ 972      7200 
+ 973               	.LASF15:
+ 974 0046 705F 6C65 		.string	"p_leds"
+ 974      6473 00
+ 975               	.LASF4:
+ 976 004d 6C6F 6E67 		.string	"long unsigned int"
+ 976      2075 6E73 
+ 976      6967 6E65 
+ 976      6420 696E 
+ 976      7400 
+ 977               	.LASF8:
+ 978 005f 696E 6974 		.string	"init_led"
+ 978      5F6C 6564 
+ 978      00
+ 979               	.LASF14:
+ 980 0068 636C 725F 		.string	"clr_led"
+ 980      6C65 6400 
+ 981               	.LASF2:
+ 982 0070 756E 7369 		.string	"unsigned int"
+ 982      676E 6564 
+ 982      2069 6E74 
+ 982      00
+ 983               	.LASF6:
+GAS LISTING d:\tmp/ccARZF0L.s 			page 19
+
+
+ 984 007d 6C6F 6E67 		.string	"long long unsigned int"
+ 984      206C 6F6E 
+ 984      6720 756E 
+ 984      7369 676E 
+ 984      6564 2069 
+ 985               	.LASF17:
+ 986 0094 474E 5520 		.string	"GNU C 4.2.2 (WinAVR 20071221)"
+ 986      4320 342E 
+ 986      322E 3220 
+ 986      2857 696E 
+ 986      4156 5220 
+ 987               	.LASF5:
+ 988 00b2 6C6F 6E67 		.string	"long long int"
+ 988      206C 6F6E 
+ 988      6720 696E 
+ 988      7400 
+ 989               	.LASF12:
+ 990 00c0 706C 6564 		.string	"pled"
+ 990      00
+ 991               	.LASF13:
+ 992 00c5 626C 6564 		.string	"bled"
+ 992      00
+ 993               	.LASF7:
+ 994 00ca 706F 7274 		.string	"portbit"
+ 994      6269 7400 
+ 995               	.LASF16:
+ 996 00d2 625F 6C65 		.string	"b_leds"
+ 996      6473 00
+ 997               	.LASF3:
+ 998 00d9 6C6F 6E67 		.string	"long int"
+ 998      2069 6E74 
+ 998      00
+ 999               	.LASF0:
+ 1000 00e2 7369 676E 		.string	"signed char"
+ 1000      6564 2063 
+ 1000      6861 7200 
+ 1001               	/* File "leds.c": code  139 = 0x008b ( 136), prologues   0, epilogues   3 */
+GAS LISTING d:\tmp/ccARZF0L.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 leds.c
+   d:\tmp/ccARZF0L.s:2      *ABS*:0000003f __SREG__
+   d:\tmp/ccARZF0L.s:3      *ABS*:0000003e __SP_H__
+   d:\tmp/ccARZF0L.s:4      *ABS*:0000003d __SP_L__
+   d:\tmp/ccARZF0L.s:5      *ABS*:00000000 __tmp_reg__
+   d:\tmp/ccARZF0L.s:6      *ABS*:00000001 __zero_reg__
+   d:\tmp/ccARZF0L.s:19     .text:00000000 init_led
+                            *COM*:00000010 b_leds
+                            *COM*:00000020 p_leds
+   d:\tmp/ccARZF0L.s:102    .text:0000006e init_leds
+   d:\tmp/ccARZF0L.s:177    .text:000000cc set_led
+   d:\tmp/ccARZF0L.s:211    .text:000000ee clr_led
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

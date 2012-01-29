@@ -1,0 +1,1208 @@
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 1
+
+
+   1               		.file	"leds.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               	.global	init_led
+  17               		.type	init_led, @function
+  18               	init_led:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LM2:
+  25 0000 A82F      		mov r26,r24
+  26 0002 B0E0      		ldi r27,lo8(0)
+  27 0004 FD01      		movw r30,r26
+  28 0006 E050      		subi r30,lo8(-(b_leds))
+  29 0008 F040      		sbci r31,hi8(-(b_leds))
+  30 000a 262F      		mov r18,r22
+  31 000c 2770      		andi r18,lo8(7)
+  32 000e 81E0      		ldi r24,lo8(1)
+  33 0010 90E0      		ldi r25,hi8(1)
+  34               	.LVL1:
+  35 0012 00C0      		rjmp 2f
+  36 0014 880F      	1:	lsl r24
+  37 0016 991F      		rol r25
+  38 0018 2A95      	2:	dec r18
+  39 001a 02F4      		brpl 1b
+  40 001c 8083      		st Z,r24
+  41               	.LM3:
+  42 001e 607F      		andi r22,lo8(-16)
+  43               	.LVL2:
+  44               	.LM4:
+  45 0020 01F4      		brne .L2
+  46 0022 AA0F      		lsl r26
+  47 0024 BB1F      		rol r27
+  48 0026 A050      		subi r26,lo8(-(p_leds))
+  49 0028 B040      		sbci r27,hi8(-(p_leds))
+  50 002a 8BE3      		ldi r24,lo8(59)
+  51 002c 90E0      		ldi r25,hi8(59)
+  52 002e 00C0      		rjmp .L7
+  53               	.L2:
+  54               	.LM5:
+  55 0030 6031      		cpi r22,lo8(16)
+  56 0032 01F4      		brne .L4
+  57 0034 AA0F      		lsl r26
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 2
+
+
+  58 0036 BB1F      		rol r27
+  59 0038 A050      		subi r26,lo8(-(p_leds))
+  60 003a B040      		sbci r27,hi8(-(p_leds))
+  61 003c 88E3      		ldi r24,lo8(56)
+  62 003e 90E0      		ldi r25,hi8(56)
+  63 0040 00C0      		rjmp .L7
+  64               	.L4:
+  65               	.LM6:
+  66 0042 6032      		cpi r22,lo8(32)
+  67 0044 01F4      		brne .L5
+  68 0046 AA0F      		lsl r26
+  69 0048 BB1F      		rol r27
+  70 004a A050      		subi r26,lo8(-(p_leds))
+  71 004c B040      		sbci r27,hi8(-(p_leds))
+  72 004e 85E3      		ldi r24,lo8(53)
+  73 0050 90E0      		ldi r25,hi8(53)
+  74               	.L7:
+  75 0052 8D93      		st X+,r24
+  76 0054 9C93      		st X,r25
+  77 0056 0895      		ret
+  78               	.L5:
+  79               	.LM7:
+  80 0058 6033      		cpi r22,lo8(48)
+  81 005a 01F4      		brne .L6
+  82 005c AA0F      		lsl r26
+  83 005e BB1F      		rol r27
+  84 0060 A050      		subi r26,lo8(-(p_leds))
+  85 0062 B040      		sbci r27,hi8(-(p_leds))
+  86 0064 82E3      		ldi r24,lo8(50)
+  87 0066 90E0      		ldi r25,hi8(50)
+  88 0068 8D93      		st X+,r24
+  89 006a 9C93      		st X,r25
+  90               	.L6:
+  91 006c 0895      		ret
+  92               	.LFE2:
+  93               		.size	init_led, .-init_led
+  94               	.global	init_leds
+  95               		.type	init_leds, @function
+  96               	init_leds:
+  97               	.LFB3:
+  98               	.LM8:
+  99               	.LVL3:
+ 100 006e CF92      		push r12
+ 101 0070 DF92      		push r13
+ 102 0072 EF92      		push r14
+ 103 0074 FF92      		push r15
+ 104 0076 0F93      		push r16
+ 105 0078 1F93      		push r17
+ 106 007a CF93      		push r28
+ 107 007c DF93      		push r29
+ 108               	/* prologue: function */
+ 109               	/* frame size = 0 */
+ 110               	.LM9:
+ 111 007e 482F      		mov r20,r24
+ 112               	.LVL4:
+ 113 0080 407F      		andi r20,lo8(-16)
+ 114 0082 A0E0      		ldi r26,lo8(p_leds)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 3
+
+
+ 115 0084 B0E0      		ldi r27,hi8(p_leds)
+ 116 0086 20E0      		ldi r18,lo8(0)
+ 117 0088 30E0      		ldi r19,hi8(0)
+ 118               	.LM10:
+ 119 008a 61E0      		ldi r22,lo8(1)
+ 120 008c C62E      		mov r12,r22
+ 121 008e D12C      		mov r13,__zero_reg__
+ 122               	.LM11:
+ 123 0090 52E3      		ldi r21,lo8(50)
+ 124 0092 E52E      		mov r14,r21
+ 125 0094 F12C      		mov r15,__zero_reg__
+ 126               	.LM12:
+ 127 0096 05E3      		ldi r16,lo8(53)
+ 128 0098 10E0      		ldi r17,hi8(53)
+ 129               	.LM13:
+ 130 009a C8E3      		ldi r28,lo8(56)
+ 131 009c D0E0      		ldi r29,hi8(56)
+ 132               	.LM14:
+ 133 009e 6BE3      		ldi r22,lo8(59)
+ 134 00a0 70E0      		ldi r23,hi8(59)
+ 135               	.L13:
+ 136               	.LM15:
+ 137 00a2 F901      		movw r30,r18
+ 138 00a4 E050      		subi r30,lo8(-(b_leds))
+ 139 00a6 F040      		sbci r31,hi8(-(b_leds))
+ 140 00a8 C601      		movw r24,r12
+ 141               	.LVL5:
+ 142 00aa 022E      		mov r0,r18
+ 143 00ac 00C0      		rjmp 2f
+ 144 00ae 880F      	1:	lsl r24
+ 145 00b0 991F      		rol r25
+ 146 00b2 0A94      	2:	dec r0
+ 147 00b4 02F4      		brpl 1b
+ 148 00b6 8083      		st Z,r24
+ 149               	.LM16:
+ 150 00b8 4423      		tst r20
+ 151 00ba 01F4      		brne .L9
+ 152 00bc 1196      		adiw r26,1
+ 153 00be 7C93      		st X,r23
+ 154 00c0 6E93      		st -X,r22
+ 155 00c2 00C0      		rjmp .L10
+ 156               	.L9:
+ 157               	.LM17:
+ 158 00c4 4031      		cpi r20,lo8(16)
+ 159 00c6 01F4      		brne .L11
+ 160 00c8 1196      		adiw r26,1
+ 161 00ca DC93      		st X,r29
+ 162 00cc CE93      		st -X,r28
+ 163 00ce 00C0      		rjmp .L10
+ 164               	.L11:
+ 165               	.LM18:
+ 166 00d0 4032      		cpi r20,lo8(32)
+ 167 00d2 01F4      		brne .L12
+ 168 00d4 1196      		adiw r26,1
+ 169 00d6 1C93      		st X,r17
+ 170 00d8 0E93      		st -X,r16
+ 171 00da 00C0      		rjmp .L10
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 4
+
+
+ 172               	.L12:
+ 173               	.LM19:
+ 174 00dc 4033      		cpi r20,lo8(48)
+ 175 00de 01F4      		brne .L10
+ 176 00e0 1196      		adiw r26,1
+ 177 00e2 FC92      		st X,r15
+ 178 00e4 EE92      		st -X,r14
+ 179               	.L10:
+ 180 00e6 2F5F      		subi r18,lo8(-(1))
+ 181 00e8 3F4F      		sbci r19,hi8(-(1))
+ 182 00ea 1296      		adiw r26,2
+ 183               	.LM20:
+ 184 00ec 2830      		cpi r18,8
+ 185 00ee 3105      		cpc r19,__zero_reg__
+ 186 00f0 01F4      		brne .L13
+ 187               	/* epilogue start */
+ 188               	.LM21:
+ 189 00f2 DF91      		pop r29
+ 190 00f4 CF91      		pop r28
+ 191 00f6 1F91      		pop r17
+ 192 00f8 0F91      		pop r16
+ 193 00fa FF90      		pop r15
+ 194 00fc EF90      		pop r14
+ 195 00fe DF90      		pop r13
+ 196 0100 CF90      		pop r12
+ 197 0102 0895      		ret
+ 198               	.LFE3:
+ 199               		.size	init_leds, .-init_leds
+ 200               	.global	set_led
+ 201               		.type	set_led, @function
+ 202               	set_led:
+ 203               	.LFB4:
+ 204               	.LM22:
+ 205               	.LVL6:
+ 206               	/* prologue: function */
+ 207               	/* frame size = 0 */
+ 208               	.LM23:
+ 209 0104 A82F      		mov r26,r24
+ 210 0106 B0E0      		ldi r27,lo8(0)
+ 211 0108 FD01      		movw r30,r26
+ 212 010a EE0F      		lsl r30
+ 213 010c FF1F      		rol r31
+ 214 010e E050      		subi r30,lo8(-(p_leds))
+ 215 0110 F040      		sbci r31,hi8(-(p_leds))
+ 216 0112 0190      		ld __tmp_reg__,Z+
+ 217 0114 F081      		ld r31,Z
+ 218 0116 E02D      		mov r30,__tmp_reg__
+ 219               	.LVL7:
+ 220               	.LM24:
+ 221 0118 8081      		ld r24,Z
+ 222               	.LVL8:
+ 223 011a A050      		subi r26,lo8(-(b_leds))
+ 224 011c B040      		sbci r27,hi8(-(b_leds))
+ 225 011e 9C91      		ld r25,X
+ 226 0120 892B      		or r24,r25
+ 227 0122 8083      		st Z,r24
+ 228               	/* epilogue start */
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 5
+
+
+ 229               	.LM25:
+ 230 0124 0895      		ret
+ 231               	.LFE4:
+ 232               		.size	set_led, .-set_led
+ 233               	.global	clr_led
+ 234               		.type	clr_led, @function
+ 235               	clr_led:
+ 236               	.LFB5:
+ 237               	.LM26:
+ 238               	.LVL9:
+ 239               	/* prologue: function */
+ 240               	/* frame size = 0 */
+ 241               	.LM27:
+ 242 0126 A82F      		mov r26,r24
+ 243 0128 B0E0      		ldi r27,lo8(0)
+ 244 012a FD01      		movw r30,r26
+ 245 012c EE0F      		lsl r30
+ 246 012e FF1F      		rol r31
+ 247               	.LVL10:
+ 248 0130 E050      		subi r30,lo8(-(p_leds))
+ 249 0132 F040      		sbci r31,hi8(-(p_leds))
+ 250 0134 0190      		ld __tmp_reg__,Z+
+ 251 0136 F081      		ld r31,Z
+ 252 0138 E02D      		mov r30,__tmp_reg__
+ 253               	.LVL11:
+ 254               	.LM28:
+ 255 013a 9081      		ld r25,Z
+ 256 013c A050      		subi r26,lo8(-(b_leds))
+ 257 013e B040      		sbci r27,hi8(-(b_leds))
+ 258 0140 8C91      		ld r24,X
+ 259 0142 8095      		com r24
+ 260 0144 8923      		and r24,r25
+ 261 0146 8083      		st Z,r24
+ 262               	/* epilogue start */
+ 263               	.LM29:
+ 264 0148 0895      		ret
+ 265               	.LFE5:
+ 266               		.size	clr_led, .-clr_led
+ 267               		.comm p_leds,32,1
+ 268               		.comm b_leds,16,1
+ 269               		.section	.debug_frame,"",@progbits
+ 270               	.Lframe0:
+ 271 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 272               	.LSCIE0:
+ 273 0004 FFFF FFFF 		.long	0xffffffff
+ 274 0008 01        		.byte	0x1
+ 275 0009 00        		.string	""
+ 276 000a 01        		.uleb128 0x1
+ 277 000b 7F        		.sleb128 -1
+ 278 000c 24        		.byte	0x24
+ 279 000d 0C        		.byte	0xc
+ 280 000e 20        		.uleb128 0x20
+ 281 000f 00        		.uleb128 0x0
+ 282               		.p2align	2
+ 283               	.LECIE0:
+ 284               	.LSFDE0:
+ 285 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 6
+
+
+ 286               	.LASFDE0:
+ 287 0014 0000 0000 		.long	.Lframe0
+ 288 0018 0000 0000 		.long	.LFB2
+ 289 001c 6E00 0000 		.long	.LFE2-.LFB2
+ 290               		.p2align	2
+ 291               	.LEFDE0:
+ 292               	.LSFDE2:
+ 293 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 294               	.LASFDE2:
+ 295 0024 0000 0000 		.long	.Lframe0
+ 296 0028 0000 0000 		.long	.LFB3
+ 297 002c 9600 0000 		.long	.LFE3-.LFB3
+ 298               		.p2align	2
+ 299               	.LEFDE2:
+ 300               	.LSFDE4:
+ 301 0030 0C00 0000 		.long	.LEFDE4-.LASFDE4
+ 302               	.LASFDE4:
+ 303 0034 0000 0000 		.long	.Lframe0
+ 304 0038 0000 0000 		.long	.LFB4
+ 305 003c 2200 0000 		.long	.LFE4-.LFB4
+ 306               		.p2align	2
+ 307               	.LEFDE4:
+ 308               	.LSFDE6:
+ 309 0040 0C00 0000 		.long	.LEFDE6-.LASFDE6
+ 310               	.LASFDE6:
+ 311 0044 0000 0000 		.long	.Lframe0
+ 312 0048 0000 0000 		.long	.LFB5
+ 313 004c 2400 0000 		.long	.LFE5-.LFB5
+ 314               		.p2align	2
+ 315               	.LEFDE6:
+ 316               		.text
+ 317               	.Letext0:
+ 318               		.section	.debug_loc,"",@progbits
+ 319               	.Ldebug_loc0:
+ 320               	.LLST1:
+ 321 0000 0000 0000 		.long	.LVL0-.Ltext0
+ 322 0004 1200 0000 		.long	.LVL1-.Ltext0
+ 323 0008 0100      		.word	0x1
+ 324 000a 68        		.byte	0x68
+ 325 000b 0000 0000 		.long	0x0
+ 326 000f 0000 0000 		.long	0x0
+ 327               	.LLST2:
+ 328 0013 0000 0000 		.long	.LVL0-.Ltext0
+ 329 0017 2000 0000 		.long	.LVL2-.Ltext0
+ 330 001b 0100      		.word	0x1
+ 331 001d 66        		.byte	0x66
+ 332 001e 0000 0000 		.long	0x0
+ 333 0022 0000 0000 		.long	0x0
+ 334               	.LLST4:
+ 335 0026 6E00 0000 		.long	.LVL3-.Ltext0
+ 336 002a AA00 0000 		.long	.LVL5-.Ltext0
+ 337 002e 0100      		.word	0x1
+ 338 0030 68        		.byte	0x68
+ 339 0031 0000 0000 		.long	0x0
+ 340 0035 0000 0000 		.long	0x0
+ 341               	.LLST6:
+ 342 0039 0401 0000 		.long	.LVL6-.Ltext0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 7
+
+
+ 343 003d 1A01 0000 		.long	.LVL8-.Ltext0
+ 344 0041 0100      		.word	0x1
+ 345 0043 68        		.byte	0x68
+ 346 0044 0000 0000 		.long	0x0
+ 347 0048 0000 0000 		.long	0x0
+ 348               	.LLST8:
+ 349 004c 2601 0000 		.long	.LVL9-.Ltext0
+ 350 0050 3001 0000 		.long	.LVL10-.Ltext0
+ 351 0054 0100      		.word	0x1
+ 352 0056 68        		.byte	0x68
+ 353 0057 0000 0000 		.long	0x0
+ 354 005b 0000 0000 		.long	0x0
+ 355               		.section	.debug_info
+ 356 0000 C401 0000 		.long	0x1c4
+ 357 0004 0200      		.word	0x2
+ 358 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 359 000a 04        		.byte	0x4
+ 360 000b 01        		.uleb128 0x1
+ 361 000c 0000 0000 		.long	.LASF17
+ 362 0010 01        		.byte	0x1
+ 363 0011 0000 0000 		.long	.LASF18
+ 364 0015 0000 0000 		.long	.LASF19
+ 365 0019 0000 0000 		.long	.Ltext0
+ 366 001d 0000 0000 		.long	.Letext0
+ 367 0021 0000 0000 		.long	.Ldebug_line0
+ 368 0025 02        		.uleb128 0x2
+ 369 0026 01        		.byte	0x1
+ 370 0027 06        		.byte	0x6
+ 371 0028 0000 0000 		.long	.LASF0
+ 372 002c 03        		.uleb128 0x3
+ 373 002d 0000 0000 		.long	.LASF20
+ 374 0031 02        		.byte	0x2
+ 375 0032 7A        		.byte	0x7a
+ 376 0033 3700 0000 		.long	0x37
+ 377 0037 02        		.uleb128 0x2
+ 378 0038 01        		.byte	0x1
+ 379 0039 08        		.byte	0x8
+ 380 003a 0000 0000 		.long	.LASF1
+ 381 003e 04        		.uleb128 0x4
+ 382 003f 02        		.byte	0x2
+ 383 0040 05        		.byte	0x5
+ 384 0041 696E 7400 		.string	"int"
+ 385 0045 02        		.uleb128 0x2
+ 386 0046 02        		.byte	0x2
+ 387 0047 07        		.byte	0x7
+ 388 0048 0000 0000 		.long	.LASF2
+ 389 004c 02        		.uleb128 0x2
+ 390 004d 04        		.byte	0x4
+ 391 004e 05        		.byte	0x5
+ 392 004f 0000 0000 		.long	.LASF3
+ 393 0053 02        		.uleb128 0x2
+ 394 0054 04        		.byte	0x4
+ 395 0055 07        		.byte	0x7
+ 396 0056 0000 0000 		.long	.LASF4
+ 397 005a 02        		.uleb128 0x2
+ 398 005b 08        		.byte	0x8
+ 399 005c 05        		.byte	0x5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 8
+
+
+ 400 005d 0000 0000 		.long	.LASF5
+ 401 0061 02        		.uleb128 0x2
+ 402 0062 08        		.byte	0x8
+ 403 0063 07        		.byte	0x7
+ 404 0064 0000 0000 		.long	.LASF6
+ 405 0068 05        		.uleb128 0x5
+ 406 0069 01        		.byte	0x1
+ 407 006a 08        		.byte	0x8
+ 408 006b 06        		.uleb128 0x6
+ 409 006c 01        		.byte	0x1
+ 410 006d 0000 0000 		.long	.LASF8
+ 411 0071 01        		.byte	0x1
+ 412 0072 18        		.byte	0x18
+ 413 0073 01        		.byte	0x1
+ 414 0074 0000 0000 		.long	.LFB2
+ 415 0078 0000 0000 		.long	.LFE2
+ 416 007c 02        		.byte	0x2
+ 417 007d 90        		.byte	0x90
+ 418 007e 20        		.uleb128 0x20
+ 419 007f AD00 0000 		.long	0xad
+ 420 0083 07        		.uleb128 0x7
+ 421 0084 6C65 6400 		.string	"led"
+ 422 0088 01        		.byte	0x1
+ 423 0089 16        		.byte	0x16
+ 424 008a 2C00 0000 		.long	0x2c
+ 425 008e 0000 0000 		.long	.LLST1
+ 426 0092 08        		.uleb128 0x8
+ 427 0093 0000 0000 		.long	.LASF7
+ 428 0097 01        		.byte	0x1
+ 429 0098 16        		.byte	0x16
+ 430 0099 2C00 0000 		.long	0x2c
+ 431 009d 0000 0000 		.long	.LLST2
+ 432 00a1 09        		.uleb128 0x9
+ 433 00a2 6C00      		.string	"l"
+ 434 00a4 01        		.byte	0x1
+ 435 00a5 19        		.byte	0x19
+ 436 00a6 2C00 0000 		.long	0x2c
+ 437 00aa 01        		.byte	0x1
+ 438 00ab 66        		.byte	0x66
+ 439 00ac 00        		.byte	0x0
+ 440 00ad 06        		.uleb128 0x6
+ 441 00ae 01        		.byte	0x1
+ 442 00af 0000 0000 		.long	.LASF9
+ 443 00b3 01        		.byte	0x1
+ 444 00b4 26        		.byte	0x26
+ 445 00b5 01        		.byte	0x1
+ 446 00b6 0000 0000 		.long	.LFB3
+ 447 00ba 0000 0000 		.long	.LFE3
+ 448 00be 02        		.byte	0x2
+ 449 00bf 90        		.byte	0x90
+ 450 00c0 20        		.uleb128 0x20
+ 451 00c1 EB00 0000 		.long	0xeb
+ 452 00c5 08        		.uleb128 0x8
+ 453 00c6 0000 0000 		.long	.LASF10
+ 454 00ca 01        		.byte	0x1
+ 455 00cb 24        		.byte	0x24
+ 456 00cc 2C00 0000 		.long	0x2c
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 9
+
+
+ 457 00d0 0000 0000 		.long	.LLST4
+ 458 00d4 09        		.uleb128 0x9
+ 459 00d5 6C00      		.string	"l"
+ 460 00d7 01        		.byte	0x1
+ 461 00d8 27        		.byte	0x27
+ 462 00d9 2C00 0000 		.long	0x2c
+ 463 00dd 01        		.byte	0x1
+ 464 00de 64        		.byte	0x64
+ 465 00df 0A        		.uleb128 0xa
+ 466 00e0 6C65 6400 		.string	"led"
+ 467 00e4 01        		.byte	0x1
+ 468 00e5 27        		.byte	0x27
+ 469 00e6 2C00 0000 		.long	0x2c
+ 470 00ea 00        		.byte	0x0
+ 471 00eb 06        		.uleb128 0x6
+ 472 00ec 01        		.byte	0x1
+ 473 00ed 0000 0000 		.long	.LASF11
+ 474 00f1 01        		.byte	0x1
+ 475 00f2 38        		.byte	0x38
+ 476 00f3 01        		.byte	0x1
+ 477 00f4 0000 0000 		.long	.LFB4
+ 478 00f8 0000 0000 		.long	.LFE4
+ 479 00fc 02        		.byte	0x2
+ 480 00fd 90        		.byte	0x90
+ 481 00fe 20        		.uleb128 0x20
+ 482 00ff 3001 0000 		.long	0x130
+ 483 0103 07        		.uleb128 0x7
+ 484 0104 6C65 6400 		.string	"led"
+ 485 0108 01        		.byte	0x1
+ 486 0109 35        		.byte	0x35
+ 487 010a 2C00 0000 		.long	0x2c
+ 488 010e 0000 0000 		.long	.LLST6
+ 489 0112 0B        		.uleb128 0xb
+ 490 0113 0000 0000 		.long	.LASF12
+ 491 0117 01        		.byte	0x1
+ 492 0118 39        		.byte	0x39
+ 493 0119 3001 0000 		.long	0x130
+ 494 011d 06        		.byte	0x6
+ 495 011e 6E        		.byte	0x6e
+ 496 011f 93        		.byte	0x93
+ 497 0120 01        		.uleb128 0x1
+ 498 0121 6F        		.byte	0x6f
+ 499 0122 93        		.byte	0x93
+ 500 0123 01        		.uleb128 0x1
+ 501 0124 0C        		.uleb128 0xc
+ 502 0125 0000 0000 		.long	.LASF13
+ 503 0129 01        		.byte	0x1
+ 504 012a 3A        		.byte	0x3a
+ 505 012b 2C00 0000 		.long	0x2c
+ 506 012f 00        		.byte	0x0
+ 507 0130 0D        		.uleb128 0xd
+ 508 0131 02        		.byte	0x2
+ 509 0132 3601 0000 		.long	0x136
+ 510 0136 0E        		.uleb128 0xe
+ 511 0137 2C00 0000 		.long	0x2c
+ 512 013b 06        		.uleb128 0x6
+ 513 013c 01        		.byte	0x1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 10
+
+
+ 514 013d 0000 0000 		.long	.LASF14
+ 515 0141 01        		.byte	0x1
+ 516 0142 46        		.byte	0x46
+ 517 0143 01        		.byte	0x1
+ 518 0144 0000 0000 		.long	.LFB5
+ 519 0148 0000 0000 		.long	.LFE5
+ 520 014c 02        		.byte	0x2
+ 521 014d 90        		.byte	0x90
+ 522 014e 20        		.uleb128 0x20
+ 523 014f 8001 0000 		.long	0x180
+ 524 0153 07        		.uleb128 0x7
+ 525 0154 6C65 6400 		.string	"led"
+ 526 0158 01        		.byte	0x1
+ 527 0159 43        		.byte	0x43
+ 528 015a 2C00 0000 		.long	0x2c
+ 529 015e 0000 0000 		.long	.LLST8
+ 530 0162 0B        		.uleb128 0xb
+ 531 0163 0000 0000 		.long	.LASF12
+ 532 0167 01        		.byte	0x1
+ 533 0168 47        		.byte	0x47
+ 534 0169 3001 0000 		.long	0x130
+ 535 016d 06        		.byte	0x6
+ 536 016e 6E        		.byte	0x6e
+ 537 016f 93        		.byte	0x93
+ 538 0170 01        		.uleb128 0x1
+ 539 0171 6F        		.byte	0x6f
+ 540 0172 93        		.byte	0x93
+ 541 0173 01        		.uleb128 0x1
+ 542 0174 0C        		.uleb128 0xc
+ 543 0175 0000 0000 		.long	.LASF13
+ 544 0179 01        		.byte	0x1
+ 545 017a 48        		.byte	0x48
+ 546 017b 2C00 0000 		.long	0x2c
+ 547 017f 00        		.byte	0x0
+ 548 0180 0F        		.uleb128 0xf
+ 549 0181 3001 0000 		.long	0x130
+ 550 0185 9001 0000 		.long	0x190
+ 551 0189 10        		.uleb128 0x10
+ 552 018a 9001 0000 		.long	0x190
+ 553 018e 0F        		.byte	0xf
+ 554 018f 00        		.byte	0x0
+ 555 0190 05        		.uleb128 0x5
+ 556 0191 02        		.byte	0x2
+ 557 0192 07        		.byte	0x7
+ 558 0193 11        		.uleb128 0x11
+ 559 0194 0000 0000 		.long	.LASF15
+ 560 0198 01        		.byte	0x1
+ 561 0199 10        		.byte	0x10
+ 562 019a 8001 0000 		.long	0x180
+ 563 019e 01        		.byte	0x1
+ 564 019f 05        		.byte	0x5
+ 565 01a0 03        		.byte	0x3
+ 566 01a1 0000 0000 		.long	p_leds
+ 567 01a5 0F        		.uleb128 0xf
+ 568 01a6 2C00 0000 		.long	0x2c
+ 569 01aa B501 0000 		.long	0x1b5
+ 570 01ae 10        		.uleb128 0x10
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 11
+
+
+ 571 01af 9001 0000 		.long	0x190
+ 572 01b3 0F        		.byte	0xf
+ 573 01b4 00        		.byte	0x0
+ 574 01b5 11        		.uleb128 0x11
+ 575 01b6 0000 0000 		.long	.LASF16
+ 576 01ba 01        		.byte	0x1
+ 577 01bb 11        		.byte	0x11
+ 578 01bc A501 0000 		.long	0x1a5
+ 579 01c0 01        		.byte	0x1
+ 580 01c1 05        		.byte	0x5
+ 581 01c2 03        		.byte	0x3
+ 582 01c3 0000 0000 		.long	b_leds
+ 583 01c7 00        		.byte	0x0
+ 584               		.section	.debug_abbrev
+ 585 0000 01        		.uleb128 0x1
+ 586 0001 11        		.uleb128 0x11
+ 587 0002 01        		.byte	0x1
+ 588 0003 25        		.uleb128 0x25
+ 589 0004 0E        		.uleb128 0xe
+ 590 0005 13        		.uleb128 0x13
+ 591 0006 0B        		.uleb128 0xb
+ 592 0007 03        		.uleb128 0x3
+ 593 0008 0E        		.uleb128 0xe
+ 594 0009 1B        		.uleb128 0x1b
+ 595 000a 0E        		.uleb128 0xe
+ 596 000b 11        		.uleb128 0x11
+ 597 000c 01        		.uleb128 0x1
+ 598 000d 12        		.uleb128 0x12
+ 599 000e 01        		.uleb128 0x1
+ 600 000f 10        		.uleb128 0x10
+ 601 0010 06        		.uleb128 0x6
+ 602 0011 00        		.byte	0x0
+ 603 0012 00        		.byte	0x0
+ 604 0013 02        		.uleb128 0x2
+ 605 0014 24        		.uleb128 0x24
+ 606 0015 00        		.byte	0x0
+ 607 0016 0B        		.uleb128 0xb
+ 608 0017 0B        		.uleb128 0xb
+ 609 0018 3E        		.uleb128 0x3e
+ 610 0019 0B        		.uleb128 0xb
+ 611 001a 03        		.uleb128 0x3
+ 612 001b 0E        		.uleb128 0xe
+ 613 001c 00        		.byte	0x0
+ 614 001d 00        		.byte	0x0
+ 615 001e 03        		.uleb128 0x3
+ 616 001f 16        		.uleb128 0x16
+ 617 0020 00        		.byte	0x0
+ 618 0021 03        		.uleb128 0x3
+ 619 0022 0E        		.uleb128 0xe
+ 620 0023 3A        		.uleb128 0x3a
+ 621 0024 0B        		.uleb128 0xb
+ 622 0025 3B        		.uleb128 0x3b
+ 623 0026 0B        		.uleb128 0xb
+ 624 0027 49        		.uleb128 0x49
+ 625 0028 13        		.uleb128 0x13
+ 626 0029 00        		.byte	0x0
+ 627 002a 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 12
+
+
+ 628 002b 04        		.uleb128 0x4
+ 629 002c 24        		.uleb128 0x24
+ 630 002d 00        		.byte	0x0
+ 631 002e 0B        		.uleb128 0xb
+ 632 002f 0B        		.uleb128 0xb
+ 633 0030 3E        		.uleb128 0x3e
+ 634 0031 0B        		.uleb128 0xb
+ 635 0032 03        		.uleb128 0x3
+ 636 0033 08        		.uleb128 0x8
+ 637 0034 00        		.byte	0x0
+ 638 0035 00        		.byte	0x0
+ 639 0036 05        		.uleb128 0x5
+ 640 0037 24        		.uleb128 0x24
+ 641 0038 00        		.byte	0x0
+ 642 0039 0B        		.uleb128 0xb
+ 643 003a 0B        		.uleb128 0xb
+ 644 003b 3E        		.uleb128 0x3e
+ 645 003c 0B        		.uleb128 0xb
+ 646 003d 00        		.byte	0x0
+ 647 003e 00        		.byte	0x0
+ 648 003f 06        		.uleb128 0x6
+ 649 0040 2E        		.uleb128 0x2e
+ 650 0041 01        		.byte	0x1
+ 651 0042 3F        		.uleb128 0x3f
+ 652 0043 0C        		.uleb128 0xc
+ 653 0044 03        		.uleb128 0x3
+ 654 0045 0E        		.uleb128 0xe
+ 655 0046 3A        		.uleb128 0x3a
+ 656 0047 0B        		.uleb128 0xb
+ 657 0048 3B        		.uleb128 0x3b
+ 658 0049 0B        		.uleb128 0xb
+ 659 004a 27        		.uleb128 0x27
+ 660 004b 0C        		.uleb128 0xc
+ 661 004c 11        		.uleb128 0x11
+ 662 004d 01        		.uleb128 0x1
+ 663 004e 12        		.uleb128 0x12
+ 664 004f 01        		.uleb128 0x1
+ 665 0050 40        		.uleb128 0x40
+ 666 0051 0A        		.uleb128 0xa
+ 667 0052 01        		.uleb128 0x1
+ 668 0053 13        		.uleb128 0x13
+ 669 0054 00        		.byte	0x0
+ 670 0055 00        		.byte	0x0
+ 671 0056 07        		.uleb128 0x7
+ 672 0057 05        		.uleb128 0x5
+ 673 0058 00        		.byte	0x0
+ 674 0059 03        		.uleb128 0x3
+ 675 005a 08        		.uleb128 0x8
+ 676 005b 3A        		.uleb128 0x3a
+ 677 005c 0B        		.uleb128 0xb
+ 678 005d 3B        		.uleb128 0x3b
+ 679 005e 0B        		.uleb128 0xb
+ 680 005f 49        		.uleb128 0x49
+ 681 0060 13        		.uleb128 0x13
+ 682 0061 02        		.uleb128 0x2
+ 683 0062 06        		.uleb128 0x6
+ 684 0063 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 13
+
+
+ 685 0064 00        		.byte	0x0
+ 686 0065 08        		.uleb128 0x8
+ 687 0066 05        		.uleb128 0x5
+ 688 0067 00        		.byte	0x0
+ 689 0068 03        		.uleb128 0x3
+ 690 0069 0E        		.uleb128 0xe
+ 691 006a 3A        		.uleb128 0x3a
+ 692 006b 0B        		.uleb128 0xb
+ 693 006c 3B        		.uleb128 0x3b
+ 694 006d 0B        		.uleb128 0xb
+ 695 006e 49        		.uleb128 0x49
+ 696 006f 13        		.uleb128 0x13
+ 697 0070 02        		.uleb128 0x2
+ 698 0071 06        		.uleb128 0x6
+ 699 0072 00        		.byte	0x0
+ 700 0073 00        		.byte	0x0
+ 701 0074 09        		.uleb128 0x9
+ 702 0075 34        		.uleb128 0x34
+ 703 0076 00        		.byte	0x0
+ 704 0077 03        		.uleb128 0x3
+ 705 0078 08        		.uleb128 0x8
+ 706 0079 3A        		.uleb128 0x3a
+ 707 007a 0B        		.uleb128 0xb
+ 708 007b 3B        		.uleb128 0x3b
+ 709 007c 0B        		.uleb128 0xb
+ 710 007d 49        		.uleb128 0x49
+ 711 007e 13        		.uleb128 0x13
+ 712 007f 02        		.uleb128 0x2
+ 713 0080 0A        		.uleb128 0xa
+ 714 0081 00        		.byte	0x0
+ 715 0082 00        		.byte	0x0
+ 716 0083 0A        		.uleb128 0xa
+ 717 0084 34        		.uleb128 0x34
+ 718 0085 00        		.byte	0x0
+ 719 0086 03        		.uleb128 0x3
+ 720 0087 08        		.uleb128 0x8
+ 721 0088 3A        		.uleb128 0x3a
+ 722 0089 0B        		.uleb128 0xb
+ 723 008a 3B        		.uleb128 0x3b
+ 724 008b 0B        		.uleb128 0xb
+ 725 008c 49        		.uleb128 0x49
+ 726 008d 13        		.uleb128 0x13
+ 727 008e 00        		.byte	0x0
+ 728 008f 00        		.byte	0x0
+ 729 0090 0B        		.uleb128 0xb
+ 730 0091 34        		.uleb128 0x34
+ 731 0092 00        		.byte	0x0
+ 732 0093 03        		.uleb128 0x3
+ 733 0094 0E        		.uleb128 0xe
+ 734 0095 3A        		.uleb128 0x3a
+ 735 0096 0B        		.uleb128 0xb
+ 736 0097 3B        		.uleb128 0x3b
+ 737 0098 0B        		.uleb128 0xb
+ 738 0099 49        		.uleb128 0x49
+ 739 009a 13        		.uleb128 0x13
+ 740 009b 02        		.uleb128 0x2
+ 741 009c 0A        		.uleb128 0xa
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 14
+
+
+ 742 009d 00        		.byte	0x0
+ 743 009e 00        		.byte	0x0
+ 744 009f 0C        		.uleb128 0xc
+ 745 00a0 34        		.uleb128 0x34
+ 746 00a1 00        		.byte	0x0
+ 747 00a2 03        		.uleb128 0x3
+ 748 00a3 0E        		.uleb128 0xe
+ 749 00a4 3A        		.uleb128 0x3a
+ 750 00a5 0B        		.uleb128 0xb
+ 751 00a6 3B        		.uleb128 0x3b
+ 752 00a7 0B        		.uleb128 0xb
+ 753 00a8 49        		.uleb128 0x49
+ 754 00a9 13        		.uleb128 0x13
+ 755 00aa 00        		.byte	0x0
+ 756 00ab 00        		.byte	0x0
+ 757 00ac 0D        		.uleb128 0xd
+ 758 00ad 0F        		.uleb128 0xf
+ 759 00ae 00        		.byte	0x0
+ 760 00af 0B        		.uleb128 0xb
+ 761 00b0 0B        		.uleb128 0xb
+ 762 00b1 49        		.uleb128 0x49
+ 763 00b2 13        		.uleb128 0x13
+ 764 00b3 00        		.byte	0x0
+ 765 00b4 00        		.byte	0x0
+ 766 00b5 0E        		.uleb128 0xe
+ 767 00b6 35        		.uleb128 0x35
+ 768 00b7 00        		.byte	0x0
+ 769 00b8 49        		.uleb128 0x49
+ 770 00b9 13        		.uleb128 0x13
+ 771 00ba 00        		.byte	0x0
+ 772 00bb 00        		.byte	0x0
+ 773 00bc 0F        		.uleb128 0xf
+ 774 00bd 01        		.uleb128 0x1
+ 775 00be 01        		.byte	0x1
+ 776 00bf 49        		.uleb128 0x49
+ 777 00c0 13        		.uleb128 0x13
+ 778 00c1 01        		.uleb128 0x1
+ 779 00c2 13        		.uleb128 0x13
+ 780 00c3 00        		.byte	0x0
+ 781 00c4 00        		.byte	0x0
+ 782 00c5 10        		.uleb128 0x10
+ 783 00c6 21        		.uleb128 0x21
+ 784 00c7 00        		.byte	0x0
+ 785 00c8 49        		.uleb128 0x49
+ 786 00c9 13        		.uleb128 0x13
+ 787 00ca 2F        		.uleb128 0x2f
+ 788 00cb 0B        		.uleb128 0xb
+ 789 00cc 00        		.byte	0x0
+ 790 00cd 00        		.byte	0x0
+ 791 00ce 11        		.uleb128 0x11
+ 792 00cf 34        		.uleb128 0x34
+ 793 00d0 00        		.byte	0x0
+ 794 00d1 03        		.uleb128 0x3
+ 795 00d2 0E        		.uleb128 0xe
+ 796 00d3 3A        		.uleb128 0x3a
+ 797 00d4 0B        		.uleb128 0xb
+ 798 00d5 3B        		.uleb128 0x3b
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 15
+
+
+ 799 00d6 0B        		.uleb128 0xb
+ 800 00d7 49        		.uleb128 0x49
+ 801 00d8 13        		.uleb128 0x13
+ 802 00d9 3F        		.uleb128 0x3f
+ 803 00da 0C        		.uleb128 0xc
+ 804 00db 02        		.uleb128 0x2
+ 805 00dc 0A        		.uleb128 0xa
+ 806 00dd 00        		.byte	0x0
+ 807 00de 00        		.byte	0x0
+ 808 00df 00        		.byte	0x0
+ 809               		.section	.debug_pubnames,"",@progbits
+ 810 0000 5700 0000 		.long	0x57
+ 811 0004 0200      		.word	0x2
+ 812 0006 0000 0000 		.long	.Ldebug_info0
+ 813 000a C801 0000 		.long	0x1c8
+ 814 000e 6B00 0000 		.long	0x6b
+ 815 0012 696E 6974 		.string	"init_led"
+ 815      5F6C 6564 
+ 815      00
+ 816 001b AD00 0000 		.long	0xad
+ 817 001f 696E 6974 		.string	"init_leds"
+ 817      5F6C 6564 
+ 817      7300 
+ 818 0029 EB00 0000 		.long	0xeb
+ 819 002d 7365 745F 		.string	"set_led"
+ 819      6C65 6400 
+ 820 0035 3B01 0000 		.long	0x13b
+ 821 0039 636C 725F 		.string	"clr_led"
+ 821      6C65 6400 
+ 822 0041 9301 0000 		.long	0x193
+ 823 0045 705F 6C65 		.string	"p_leds"
+ 823      6473 00
+ 824 004c B501 0000 		.long	0x1b5
+ 825 0050 625F 6C65 		.string	"b_leds"
+ 825      6473 00
+ 826 0057 0000 0000 		.long	0x0
+ 827               		.section	.debug_aranges,"",@progbits
+ 828 0000 1C00 0000 		.long	0x1c
+ 829 0004 0200      		.word	0x2
+ 830 0006 0000 0000 		.long	.Ldebug_info0
+ 831 000a 04        		.byte	0x4
+ 832 000b 00        		.byte	0x0
+ 833 000c 0000      		.word	0x0
+ 834 000e 0000      		.word	0x0
+ 835 0010 0000 0000 		.long	.Ltext0
+ 836 0014 4A01 0000 		.long	.Letext0-.Ltext0
+ 837 0018 0000 0000 		.long	0x0
+ 838 001c 0000 0000 		.long	0x0
+ 839               		.section	.debug_line
+ 840 0000 4B01 0000 		.long	.LELT0-.LSLT0
+ 841               	.LSLT0:
+ 842 0004 0200      		.word	0x2
+ 843 0006 5300 0000 		.long	.LELTP0-.LASLTP0
+ 844               	.LASLTP0:
+ 845 000a 01        		.byte	0x1
+ 846 000b 01        		.byte	0x1
+ 847 000c F6        		.byte	0xf6
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 16
+
+
+ 848 000d F5        		.byte	0xf5
+ 849 000e 0A        		.byte	0xa
+ 850 000f 00        		.byte	0x0
+ 851 0010 01        		.byte	0x1
+ 852 0011 01        		.byte	0x1
+ 853 0012 01        		.byte	0x1
+ 854 0013 01        		.byte	0x1
+ 855 0014 00        		.byte	0x0
+ 856 0015 00        		.byte	0x0
+ 857 0016 00        		.byte	0x0
+ 858 0017 01        		.byte	0x1
+ 859 0018 643A 2F77 		.ascii	"d:/winavr-20100110/lib/gcc/../../avr/include"
+ 859      696E 6176 
+ 859      722D 3230 
+ 859      3130 3031 
+ 859      3130 2F6C 
+ 860 0044 00        		.byte	0
+ 861 0045 00        		.byte	0x0
+ 862 0046 6C65 6473 		.string	"leds.c"
+ 862      2E63 00
+ 863 004d 00        		.uleb128 0x0
+ 864 004e 00        		.uleb128 0x0
+ 865 004f 00        		.uleb128 0x0
+ 866 0050 7374 6469 		.string	"stdint.h"
+ 866      6E74 2E68 
+ 866      00
+ 867 0059 01        		.uleb128 0x1
+ 868 005a 00        		.uleb128 0x0
+ 869 005b 00        		.uleb128 0x0
+ 870 005c 00        		.byte	0x0
+ 871               	.LELTP0:
+ 872 005d 00        		.byte	0x0
+ 873 005e 05        		.uleb128 0x5
+ 874 005f 02        		.byte	0x2
+ 875 0060 0000 0000 		.long	.LM1
+ 876 0064 2B        		.byte	0x2b
+ 877 0065 00        		.byte	0x0
+ 878 0066 05        		.uleb128 0x5
+ 879 0067 02        		.byte	0x2
+ 880 0068 0000 0000 		.long	.LM2
+ 881 006c 16        		.byte	0x16
+ 882 006d 00        		.byte	0x0
+ 883 006e 05        		.uleb128 0x5
+ 884 006f 02        		.byte	0x2
+ 885 0070 0000 0000 		.long	.LM3
+ 886 0074 17        		.byte	0x17
+ 887 0075 00        		.byte	0x0
+ 888 0076 05        		.uleb128 0x5
+ 889 0077 02        		.byte	0x2
+ 890 0078 0000 0000 		.long	.LM4
+ 891 007c 15        		.byte	0x15
+ 892 007d 00        		.byte	0x0
+ 893 007e 05        		.uleb128 0x5
+ 894 007f 02        		.byte	0x2
+ 895 0080 0000 0000 		.long	.LM5
+ 896 0084 15        		.byte	0x15
+ 897 0085 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 17
+
+
+ 898 0086 05        		.uleb128 0x5
+ 899 0087 02        		.byte	0x2
+ 900 0088 0000 0000 		.long	.LM6
+ 901 008c 15        		.byte	0x15
+ 902 008d 00        		.byte	0x0
+ 903 008e 05        		.uleb128 0x5
+ 904 008f 02        		.byte	0x2
+ 905 0090 0000 0000 		.long	.LM7
+ 906 0094 15        		.byte	0x15
+ 907 0095 00        		.byte	0x0
+ 908 0096 05        		.uleb128 0x5
+ 909 0097 02        		.byte	0x2
+ 910 0098 0000 0000 		.long	.LM8
+ 911 009c 19        		.byte	0x19
+ 912 009d 00        		.byte	0x0
+ 913 009e 05        		.uleb128 0x5
+ 914 009f 02        		.byte	0x2
+ 915 00a0 0000 0000 		.long	.LM9
+ 916 00a4 17        		.byte	0x17
+ 917 00a5 00        		.byte	0x0
+ 918 00a6 05        		.uleb128 0x5
+ 919 00a7 02        		.byte	0x2
+ 920 00a8 0000 0000 		.long	.LM10
+ 921 00ac 16        		.byte	0x16
+ 922 00ad 00        		.byte	0x0
+ 923 00ae 05        		.uleb128 0x5
+ 924 00af 02        		.byte	0x2
+ 925 00b0 0000 0000 		.long	.LM11
+ 926 00b4 18        		.byte	0x18
+ 927 00b5 00        		.byte	0x0
+ 928 00b6 05        		.uleb128 0x5
+ 929 00b7 02        		.byte	0x2
+ 930 00b8 0000 0000 		.long	.LM12
+ 931 00bc 13        		.byte	0x13
+ 932 00bd 00        		.byte	0x0
+ 933 00be 05        		.uleb128 0x5
+ 934 00bf 02        		.byte	0x2
+ 935 00c0 0000 0000 		.long	.LM13
+ 936 00c4 13        		.byte	0x13
+ 937 00c5 00        		.byte	0x0
+ 938 00c6 05        		.uleb128 0x5
+ 939 00c7 02        		.byte	0x2
+ 940 00c8 0000 0000 		.long	.LM14
+ 941 00cc 13        		.byte	0x13
+ 942 00cd 00        		.byte	0x0
+ 943 00ce 05        		.uleb128 0x5
+ 944 00cf 02        		.byte	0x2
+ 945 00d0 0000 0000 		.long	.LM15
+ 946 00d4 13        		.byte	0x13
+ 947 00d5 00        		.byte	0x0
+ 948 00d6 05        		.uleb128 0x5
+ 949 00d7 02        		.byte	0x2
+ 950 00d8 0000 0000 		.long	.LM16
+ 951 00dc 15        		.byte	0x15
+ 952 00dd 00        		.byte	0x0
+ 953 00de 05        		.uleb128 0x5
+ 954 00df 02        		.byte	0x2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 18
+
+
+ 955 00e0 0000 0000 		.long	.LM17
+ 956 00e4 15        		.byte	0x15
+ 957 00e5 00        		.byte	0x0
+ 958 00e6 05        		.uleb128 0x5
+ 959 00e7 02        		.byte	0x2
+ 960 00e8 0000 0000 		.long	.LM18
+ 961 00ec 15        		.byte	0x15
+ 962 00ed 00        		.byte	0x0
+ 963 00ee 05        		.uleb128 0x5
+ 964 00ef 02        		.byte	0x2
+ 965 00f0 0000 0000 		.long	.LM19
+ 966 00f4 15        		.byte	0x15
+ 967 00f5 00        		.byte	0x0
+ 968 00f6 05        		.uleb128 0x5
+ 969 00f7 02        		.byte	0x2
+ 970 00f8 0000 0000 		.long	.LM20
+ 971 00fc 0F        		.byte	0xf
+ 972 00fd 00        		.byte	0x0
+ 973 00fe 05        		.uleb128 0x5
+ 974 00ff 02        		.byte	0x2
+ 975 0100 0000 0000 		.long	.LM21
+ 976 0104 1C        		.byte	0x1c
+ 977 0105 00        		.byte	0x0
+ 978 0106 05        		.uleb128 0x5
+ 979 0107 02        		.byte	0x2
+ 980 0108 0000 0000 		.long	.LM22
+ 981 010c 1A        		.byte	0x1a
+ 982 010d 00        		.byte	0x0
+ 983 010e 05        		.uleb128 0x5
+ 984 010f 02        		.byte	0x2
+ 985 0110 0000 0000 		.long	.LM23
+ 986 0114 18        		.byte	0x18
+ 987 0115 00        		.byte	0x0
+ 988 0116 05        		.uleb128 0x5
+ 989 0117 02        		.byte	0x2
+ 990 0118 0000 0000 		.long	.LM24
+ 991 011c 17        		.byte	0x17
+ 992 011d 00        		.byte	0x0
+ 993 011e 05        		.uleb128 0x5
+ 994 011f 02        		.byte	0x2
+ 995 0120 0000 0000 		.long	.LM25
+ 996 0124 15        		.byte	0x15
+ 997 0125 00        		.byte	0x0
+ 998 0126 05        		.uleb128 0x5
+ 999 0127 02        		.byte	0x2
+ 1000 0128 0000 0000 		.long	.LM26
+ 1001 012c 1A        		.byte	0x1a
+ 1002 012d 00        		.byte	0x0
+ 1003 012e 05        		.uleb128 0x5
+ 1004 012f 02        		.byte	0x2
+ 1005 0130 0000 0000 		.long	.LM27
+ 1006 0134 18        		.byte	0x18
+ 1007 0135 00        		.byte	0x0
+ 1008 0136 05        		.uleb128 0x5
+ 1009 0137 02        		.byte	0x2
+ 1010 0138 0000 0000 		.long	.LM28
+ 1011 013c 17        		.byte	0x17
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 19
+
+
+ 1012 013d 00        		.byte	0x0
+ 1013 013e 05        		.uleb128 0x5
+ 1014 013f 02        		.byte	0x2
+ 1015 0140 0000 0000 		.long	.LM29
+ 1016 0144 15        		.byte	0x15
+ 1017 0145 00        		.byte	0x0
+ 1018 0146 05        		.uleb128 0x5
+ 1019 0147 02        		.byte	0x2
+ 1020 0148 0000 0000 		.long	.Letext0
+ 1021 014c 00        		.byte	0x0
+ 1022 014d 01        		.uleb128 0x1
+ 1023 014e 01        		.byte	0x1
+ 1024               	.LELT0:
+ 1025 014f 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 1025      0200 1000 
+ 1025      0000 0101 
+ 1025      FB0E 0A00 
+ 1025      0101 0101 
+ 1026               	.LASF18:
+ 1027 0000 6C65 6473 		.string	"leds.c"
+ 1027      2E63 00
+ 1028               	.LASF10:
+ 1029 0007 6C65 6473 		.string	"leds"
+ 1029      00
+ 1030               	.LASF11:
+ 1031 000c 7365 745F 		.string	"set_led"
+ 1031      6C65 6400 
+ 1032               	.LASF9:
+ 1033 0014 696E 6974 		.string	"init_leds"
+ 1033      5F6C 6564 
+ 1033      7300 
+ 1034               	.LASF1:
+ 1035 001e 756E 7369 		.string	"unsigned char"
+ 1035      676E 6564 
+ 1035      2063 6861 
+ 1035      7200 
+ 1036               	.LASF15:
+ 1037 002c 705F 6C65 		.string	"p_leds"
+ 1037      6473 00
+ 1038               	.LASF4:
+ 1039 0033 6C6F 6E67 		.string	"long unsigned int"
+ 1039      2075 6E73 
+ 1039      6967 6E65 
+ 1039      6420 696E 
+ 1039      7400 
+ 1040               	.LASF17:
+ 1041 0045 474E 5520 		.string	"GNU C 4.3.3"
+ 1041      4320 342E 
+ 1041      332E 3300 
+ 1042               	.LASF8:
+ 1043 0051 696E 6974 		.string	"init_led"
+ 1043      5F6C 6564 
+ 1043      00
+ 1044               	.LASF14:
+ 1045 005a 636C 725F 		.string	"clr_led"
+ 1045      6C65 6400 
+ 1046               	.LASF2:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 20
+
+
+ 1047 0062 756E 7369 		.string	"unsigned int"
+ 1047      676E 6564 
+ 1047      2069 6E74 
+ 1047      00
+ 1048               	.LASF6:
+ 1049 006f 6C6F 6E67 		.string	"long long unsigned int"
+ 1049      206C 6F6E 
+ 1049      6720 756E 
+ 1049      7369 676E 
+ 1049      6564 2069 
+ 1050               	.LASF20:
+ 1051 0086 7569 6E74 		.string	"uint8_t"
+ 1051      385F 7400 
+ 1052               	.LASF5:
+ 1053 008e 6C6F 6E67 		.string	"long long int"
+ 1053      206C 6F6E 
+ 1053      6720 696E 
+ 1053      7400 
+ 1054               	.LASF19:
+ 1055 009c 453A 5C61 		.string	"E:\\avr\\adc_dac_uc2"
+ 1055      7672 5C61 
+ 1055      6463 5F64 
+ 1055      6163 5F75 
+ 1055      6332 00
+ 1056               	.LASF12:
+ 1057 00af 706C 6564 		.string	"pled"
+ 1057      00
+ 1058               	.LASF13:
+ 1059 00b4 626C 6564 		.string	"bled"
+ 1059      00
+ 1060               	.LASF7:
+ 1061 00b9 706F 7274 		.string	"portbit"
+ 1061      6269 7400 
+ 1062               	.LASF16:
+ 1063 00c1 625F 6C65 		.string	"b_leds"
+ 1063      6473 00
+ 1064               	.LASF3:
+ 1065 00c8 6C6F 6E67 		.string	"long int"
+ 1065      2069 6E74 
+ 1065      00
+ 1066               	.LASF0:
+ 1067 00d1 7369 676E 		.string	"signed char"
+ 1067      6564 2063 
+ 1067      6861 7200 
+ 1068               	.global __do_clear_bss
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cclryirg.s 			page 21
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 leds.c
+C:\Users\alex\AppData\Local\Temp/cclryirg.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/cclryirg.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/cclryirg.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/cclryirg.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/cclryirg.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/cclryirg.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/cclryirg.s:18     .text:00000000 init_led
+                            *COM*:00000010 b_leds
+                            *COM*:00000020 p_leds
+C:\Users\alex\AppData\Local\Temp/cclryirg.s:96     .text:0000006e init_leds
+C:\Users\alex\AppData\Local\Temp/cclryirg.s:202    .text:00000104 set_led
+C:\Users\alex\AppData\Local\Temp/cclryirg.s:235    .text:00000126 clr_led
+
+UNDEFINED SYMBOLS
+__do_clear_bss

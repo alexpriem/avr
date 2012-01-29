@@ -1,0 +1,707 @@
+Archive member included because of file (symbol)
+
+e:\avr\lib\libmcp3204.a(mcp3204.o)
+                              main.o (init_mcp3204)
+e:\avr\lib\libdelay.a(delay.o)
+                              e:\avr\lib\libmcp3204.a(mcp3204.o) (udelay)
+e:\avr\lib\libmcp4922.a(mcp4922.o)
+                              main.o (init_mcp4922)
+e:\avr\lib\libuart.a(uart.o)  main.o (uart_init)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                              scpi.o (__mulsi3)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                              scpi.o (__divmodsi4)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o (exit)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              main.o (__do_clear_bss)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                              d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o) (__udivmodsi4)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(isalpha.o)
+                              scpi.o (islower)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcpy_P.o)
+                              scpi.o (strcpy_P)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+                              scpi.o (strlen)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strncasecmp.o)
+                              scpi.o (strncasecmp)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+                              e:\avr\lib\libuart.a(uart.o) (itoa)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ltoa.o)
+                              e:\avr\lib\libuart.a(uart.o) (ltoa)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa.o)
+                              e:\avr\lib\libuart.a(uart.o) (ultoa)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(utoa.o)
+                              e:\avr\lib\libuart.a(uart.o) (utoa)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(cty_isfalse.o)
+                              d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(isalpha.o) (__ctype_isfalse)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+                              d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o) (strrev)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                              d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o) (__udivmodhi4)
+
+Allocating common symbols
+Common symbol       size              file
+
+mcp4922_p_clk       0x8               e:\avr\lib\libmcp4922.a(mcp4922.o)
+mcp4922_b_cs        0x4               e:\avr\lib\libmcp4922.a(mcp4922.o)
+mcp4922_b_clk       0x4               e:\avr\lib\libmcp4922.a(mcp4922.o)
+powersupply         0x80              hv_supply.o
+mcp3204_p_cs        0x8               e:\avr\lib\libmcp3204.a(mcp3204.o)
+mcp4922_b_ldac      0x4               e:\avr\lib\libmcp4922.a(mcp4922.o)
+mcp3204_b_dout      0x4               e:\avr\lib\libmcp3204.a(mcp3204.o)
+mcp3204_b_din       0x4               e:\avr\lib\libmcp3204.a(mcp3204.o)
+uart_buf            0x20              e:\avr\lib\libuart.a(uart.o)
+mcp3204_p_clk       0x8               e:\avr\lib\libmcp3204.a(mcp3204.o)
+mcp4922_p_data      0x8               e:\avr\lib\libmcp4922.a(mcp4922.o)
+mcp4922_b_data      0x4               e:\avr\lib\libmcp4922.a(mcp4922.o)
+mcp3204_b_clk       0x4               e:\avr\lib\libmcp3204.a(mcp3204.o)
+mcp4922_p_ldac      0x8               e:\avr\lib\libmcp4922.a(mcp4922.o)
+mcp4922_p_cs        0x8               e:\avr\lib\libmcp4922.a(mcp4922.o)
+bal                 0x2               main.o
+vol                 0x2               main.o
+mcp3204_b_cs        0x4               e:\avr\lib\libmcp3204.a(mcp3204.o)
+mcp3204_p_din       0x8               e:\avr\lib\libmcp3204.a(mcp3204.o)
+mcp3204_p_dout      0x8               e:\avr\lib\libmcp3204.a(mcp3204.o)
+uart_done           0x1               e:\avr\lib\libuart.a(uart.o)
+ch                  0x2               main.o
+uart_pos            0x1               e:\avr\lib\libuart.a(uart.o)
+return_buf          0x50              scpi.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+LOAD main.o
+LOAD scpi.o
+LOAD scpi_cmds.o
+LOAD hv_supply.o
+LOAD e:\avr\lib\libmcp3204.a
+LOAD e:\avr\lib\libdelay.a
+LOAD e:\avr\lib\libmcp4922.a
+LOAD e:\avr\lib\libuart.a
+LOAD d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x38c6
+ *(.vectors)
+ .vectors       0x00000000       0x54 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x00000054      0x101 scpi_cmds.o
+                0x000000ee                key15
+                0x00000085                key04
+                0x00000111                key18
+                0x0000011c                key19
+                0x0000006c                key02
+                0x000000ad                key09
+                0x000000fa                key16
+                0x00000105                key17
+                0x000000a6                key08
+                0x000000be                key11
+                0x0000007c                key03
+                0x00000054                key00
+                0x00000125                key20
+                0x000000e3                key14
+                0x00000129                keywords
+                0x000000b6                key10
+                0x000000d7                key13
+                0x0000008d                key05
+                0x0000009e                key07
+                0x0000005b                key01
+                0x000000cb                key12
+                0x00000096                key06
+                0x00000156                . = ALIGN (0x2)
+ *fill*         0x00000155        0x1 00
+                0x00000156                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000156        0x0 linker stubs
+ *(.trampolines*)
+                0x00000156                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000156                __ctors_start = .
+ *(.ctors)
+                0x00000156                __ctors_end = .
+                0x00000156                __dtors_start = .
+ *(.dtors)
+                0x00000156                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000156        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000156                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000156        0xc d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000162       0x16 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000162                __do_copy_data
+ .init4         0x00000178       0x10 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000178                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000188        0x8 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ *(.init9)
+ *(.text)
+ .text          0x00000190        0x4 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000190                __vector_1
+                0x00000190                __vector_12
+                0x00000190                __bad_interrupt
+                0x00000190                __vector_6
+                0x00000190                __vector_3
+                0x00000190                __vector_11
+                0x00000190                __vector_17
+                0x00000190                __vector_19
+                0x00000190                __vector_7
+                0x00000190                __vector_5
+                0x00000190                __vector_4
+                0x00000190                __vector_9
+                0x00000190                __vector_2
+                0x00000190                __vector_15
+                0x00000190                __vector_8
+                0x00000190                __vector_14
+                0x00000190                __vector_10
+                0x00000190                __vector_16
+                0x00000190                __vector_18
+                0x00000190                __vector_20
+ .text          0x00000194      0x23a main.o
+                0x00000194                command_loop
+                0x0000034e                main
+ .text          0x000003ce      0xa60 scpi.o
+                0x00000bae                scpi_get_longfrac
+                0x00000928                scpi_get_value
+                0x000003ce                scpi_parse_command
+                0x000008c0                scpi_check_buf_empty
+                0x0000080c                scpi_get_digit
+                0x00000b44                scpi_get_long
+                0x00000ad0                scpi_get_int
+                0x000005aa                scpi_parse_line
+ .text          0x00000e2e      0x174 scpi_cmds.o
+                0x00000e4a                scpi_function
+                0x00000e2e                scpi_dummy
+ .text          0x00000fa2      0xe4a hv_supply.o
+                0x00001484                set_voltage
+                0x00001d52                set_sweep_time
+                0x0000105c                print_dacval
+                0x00001a8c                device_reset
+                0x00001b50                get_sweep_start
+                0x000018f4                get_current
+                0x00001b9a                set_sweep_stop
+                0x00001c2c                get_sweep_stop
+                0x00001a20                get_ovp_voltage
+                0x0000152a                set_ovp_voltage
+                0x00000fa2                long2dacval
+                0x000018a4                get_voltage
+                0x00001c76                set_sweep_step
+                0x00001dd0                get_sweep_time
+                0x00001608                set_current
+                0x00001a70                get_standby
+                0x00001abe                set_sweep_start
+                0x0000137a                set_instrument_nsel
+                0x0000143e                get_instrument_nsel
+                0x000011fc                get_dacval
+                0x00001d08                get_sweep_step
+                0x000017b2                set_standby
+ .text          0x00001dec      0x886 e:\avr\lib\libmcp3204.a(mcp3204.o)
+                0x00001dec                init_mcp3204
+                0x000022d8                mcp3204_getw
+ .text          0x00002672      0x106 e:\avr\lib\libdelay.a(delay.o)
+                0x00002734                sleep
+                0x00002672                udelay
+                0x000026f0                delay
+ .text          0x00002778      0xa1c e:\avr\lib\libmcp4922.a(mcp4922.o)
+                0x00003074                mcp4922_spiw
+                0x00002778                init_mcp4922
+                0x00002c14                init_mcp4922_spi
+                0x00002e9a                mcp4922_putw
+ .text          0x00003194      0x4a6 e:\avr\lib\libuart.a(uart.o)
+                0x00003206                uart_puts
+                0x00003580                __vector_13
+                0x00003194                uart_init
+                0x0000361c                uart_getc
+                0x000031d8                uart_putc
+                0x00003254                uart_printf
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(isalpha.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcpy_P.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strncasecmp.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ltoa.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(utoa.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(cty_isfalse.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .text          0x0000363a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000363a                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x0000363a       0x3e d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x0000363a                __mulsi3
+ .text.libgcc   0x00003678       0x36 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                0x00003678                __divmodsi4
+ .text.libgcc   0x000036ae        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000036ae        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000036ae        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x000036ae       0x44 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x000036ae                __udivmodsi4
+ .text.avr-libc
+                0x000036f2       0x12 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(isalpha.o)
+                0x000036f8                islower
+                0x000036f2                isupper
+                0x000036f6                isalpha
+ .text.avr-libc
+                0x00003704        0xe d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcpy_P.o)
+                0x00003704                strcpy_P
+ .text.avr-libc
+                0x00003712       0x12 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+                0x00003712                strlen
+ .text.avr-libc
+                0x00003724       0x30 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strncasecmp.o)
+                0x00003724                strncasecmp
+ .text.avr-libc
+                0x00003754       0x42 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+                0x00003754                itoa
+ .text.avr-libc
+                0x00003796       0x68 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ltoa.o)
+                0x00003796                ltoa
+ .text.avr-libc
+                0x000037fe       0x4a d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa.o)
+                0x000037fe                ultoa
+ .text.avr-libc
+                0x00003848       0x2c d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(utoa.o)
+                0x00003848                utoa
+ .text.avr-libc
+                0x00003874        0x6 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(cty_isfalse.o)
+                0x00003878                __ctype_istrue
+                0x00003874                __ctype_isfalse
+ .text.avr-libc
+                0x0000387a       0x20 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x0000387a                strrev
+ .text.libgcc   0x0000389a       0x28 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000389a                __udivmodhi4
+                0x000038c2                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000038c2        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000038c2                exit
+                0x000038c2                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000038c2        0x4 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000038c6                _etext = .
+
+.data           0x00800060      0x2fc load address 0x000038c6
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .data          0x00800060       0x50 main.o
+                0x00800060                values
+ .data          0x008000b0      0x140 scpi.o
+ .data          0x008001f0       0x36 scpi_cmds.o
+                0x008001f0                units
+ .data          0x00800226      0x130 hv_supply.o
+ .data          0x00800356        0x0 e:\avr\lib\libmcp3204.a(mcp3204.o)
+ .data          0x00800356        0x0 e:\avr\lib\libdelay.a(delay.o)
+ .data          0x00800356        0x0 e:\avr\lib\libmcp4922.a(mcp4922.o)
+ .data          0x00800356        0x5 e:\avr\lib\libuart.a(uart.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(isalpha.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcpy_P.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strncasecmp.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ltoa.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(utoa.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(cty_isfalse.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .data          0x0080035b        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080035c                . = ALIGN (0x2)
+ *fill*         0x0080035b        0x1 00
+                0x0080035c                _edata = .
+                0x0080035c                PROVIDE (__data_end, .)
+
+.bss            0x0080035c      0x159
+                0x0080035c                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080035c        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x0080035c        0x0 main.o
+ .bss           0x0080035c        0x0 scpi.o
+ .bss           0x0080035c        0x0 scpi_cmds.o
+ .bss           0x0080035c        0x1 hv_supply.o
+                0x0080035c                dev
+ .bss           0x0080035d        0x0 e:\avr\lib\libmcp3204.a(mcp3204.o)
+ .bss           0x0080035d        0x0 e:\avr\lib\libdelay.a(delay.o)
+ .bss           0x0080035d        0x0 e:\avr\lib\libmcp4922.a(mcp4922.o)
+ .bss           0x0080035d        0x0 e:\avr\lib\libuart.a(uart.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(isalpha.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcpy_P.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strncasecmp.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ltoa.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(utoa.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(cty_isfalse.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .bss           0x0080035d        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0080035d        0x6 main.o
+                0x0080035d                bal
+                0x0080035f                vol
+                0x00800361                ch
+ COMMON         0x00800363       0x50 scpi.o
+                0x00800363                return_buf
+ COMMON         0x008003b3       0x80 hv_supply.o
+                0x008003b3                powersupply
+ COMMON         0x00800433       0x30 e:\avr\lib\libmcp3204.a(mcp3204.o)
+                0x00800433                mcp3204_p_cs
+                0x0080043b                mcp3204_b_dout
+                0x0080043f                mcp3204_b_din
+                0x00800443                mcp3204_p_clk
+                0x0080044b                mcp3204_b_clk
+                0x0080044f                mcp3204_b_cs
+                0x00800453                mcp3204_p_din
+                0x0080045b                mcp3204_p_dout
+ COMMON         0x00800463       0x30 e:\avr\lib\libmcp4922.a(mcp4922.o)
+                0x00800463                mcp4922_p_clk
+                0x0080046b                mcp4922_b_cs
+                0x0080046f                mcp4922_b_clk
+                0x00800473                mcp4922_b_ldac
+                0x00800477                mcp4922_p_data
+                0x0080047f                mcp4922_b_data
+                0x00800483                mcp4922_p_ldac
+                0x0080048b                mcp4922_p_cs
+ COMMON         0x00800493       0x22 e:\avr\lib\libuart.a(uart.o)
+                0x00800493                uart_buf
+                0x008004b3                uart_done
+                0x008004b4                uart_pos
+                0x008004b5                PROVIDE (__bss_end, .)
+                0x000038c6                __data_load_start = LOADADDR (.data)
+                0x00003bc2                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008004b5        0x0
+                0x008004b5                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008004b5                PROVIDE (__noinit_end, .)
+                0x008004b5                _end = .
+                0x008004b5                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x100
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 scpi.o
+ .debug_aranges
+                0x00000040       0x20 scpi_cmds.o
+ .debug_aranges
+                0x00000060       0x20 hv_supply.o
+ .debug_aranges
+                0x00000080       0x20 e:\avr\lib\libmcp3204.a(mcp3204.o)
+ .debug_aranges
+                0x000000a0       0x20 e:\avr\lib\libdelay.a(delay.o)
+ .debug_aranges
+                0x000000c0       0x20 e:\avr\lib\libmcp4922.a(mcp4922.o)
+ .debug_aranges
+                0x000000e0       0x20 e:\avr\lib\libuart.a(uart.o)
+
+.debug_pubnames
+                0x00000000      0x66d
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x4e main.o
+ .debug_pubnames
+                0x0000004e       0xc4 scpi.o
+ .debug_pubnames
+                0x00000112      0x11c scpi_cmds.o
+ .debug_pubnames
+                0x0000022e      0x1cc hv_supply.o
+ .debug_pubnames
+                0x000003fa       0xc4 e:\avr\lib\libmcp3204.a(mcp3204.o)
+ .debug_pubnames
+                0x000004be       0x31 e:\avr\lib\libdelay.a(delay.o)
+ .debug_pubnames
+                0x000004ef       0xec e:\avr\lib\libmcp4922.a(mcp4922.o)
+ .debug_pubnames
+                0x000005db       0x92 e:\avr\lib\libuart.a(uart.o)
+
+.debug_info     0x00000000     0x1a1c
+ *(.debug_info)
+ .debug_info    0x00000000      0x17c main.o
+ .debug_info    0x0000017c      0x48b scpi.o
+ .debug_info    0x00000607      0x405 scpi_cmds.o
+ .debug_info    0x00000a0c      0x6f7 hv_supply.o
+ .debug_info    0x00001103      0x291 e:\avr\lib\libmcp3204.a(mcp3204.o)
+ .debug_info    0x00001394      0x109 e:\avr\lib\libdelay.a(delay.o)
+ .debug_info    0x0000149d      0x363 e:\avr\lib\libmcp4922.a(mcp4922.o)
+ .debug_info    0x00001800      0x21c e:\avr\lib\libuart.a(uart.o)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x732
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xd3 main.o
+ .debug_abbrev  0x000000d3       0xf2 scpi.o
+ .debug_abbrev  0x000001c5       0xd5 scpi_cmds.o
+ .debug_abbrev  0x0000029a      0x162 hv_supply.o
+ .debug_abbrev  0x000003fc       0xdf e:\avr\lib\libmcp3204.a(mcp3204.o)
+ .debug_abbrev  0x000004db       0x98 e:\avr\lib\libdelay.a(delay.o)
+ .debug_abbrev  0x00000573       0xc6 e:\avr\lib\libmcp4922.a(mcp4922.o)
+ .debug_abbrev  0x00000639       0xf9 e:\avr\lib\libuart.a(uart.o)
+
+.debug_line     0x00000000     0x1752
+ *(.debug_line)
+ .debug_line    0x00000000      0x1c2 main.o
+ .debug_line    0x000001c2      0x455 scpi.o
+ .debug_line    0x00000617      0x170 scpi_cmds.o
+ .debug_line    0x00000787      0x515 hv_supply.o
+ .debug_line    0x00000c9c      0x35c e:\avr\lib\libmcp3204.a(mcp3204.o)
+ .debug_line    0x00000ff8       0xdb e:\avr\lib\libdelay.a(delay.o)
+ .debug_line    0x000010d3      0x39c e:\avr\lib\libmcp4922.a(mcp4922.o)
+ .debug_line    0x0000146f      0x2e3 e:\avr\lib\libuart.a(uart.o)
+
+.debug_frame    0x00000000      0x3a0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x30 main.o
+ .debug_frame   0x00000030       0x90 scpi.o
+ .debug_frame   0x000000c0       0x30 scpi_cmds.o
+ .debug_frame   0x000000f0      0x170 hv_supply.o
+ .debug_frame   0x00000260       0x30 e:\avr\lib\libmcp3204.a(mcp3204.o)
+ .debug_frame   0x00000290       0x50 e:\avr\lib\libdelay.a(delay.o)
+ .debug_frame   0x000002e0       0x50 e:\avr\lib\libmcp4922.a(mcp4922.o)
+ .debug_frame   0x00000330       0x70 e:\avr\lib\libuart.a(uart.o)
+
+.debug_str      0x00000000      0x64c
+ *(.debug_str)
+ .debug_str     0x00000000       0x9a main.o
+                                 0xd3 (size before relaxing)
+ .debug_str     0x0000009a      0x108 scpi.o
+                                0x1a7 (size before relaxing)
+ .debug_str     0x000001a2       0xc4 scpi_cmds.o
+                                0x189 (size before relaxing)
+ .debug_str     0x00000266      0x19d hv_supply.o
+                                0x284 (size before relaxing)
+ .debug_str     0x00000403       0xc9 e:\avr\lib\libmcp3204.a(mcp3204.o)
+                                0x14e (size before relaxing)
+ .debug_str     0x000004cc       0x2e e:\avr\lib\libdelay.a(delay.o)
+                                 0xb2 (size before relaxing)
+ .debug_str     0x000004fa       0xcc e:\avr\lib\libmcp4922.a(mcp4922.o)
+                                0x178 (size before relaxing)
+ .debug_str     0x000005c6       0x86 e:\avr\lib\libuart.a(uart.o)
+                                0x136 (size before relaxing)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(hv_et_lab_driver.out elf32-avr)
+LOAD linker stubs

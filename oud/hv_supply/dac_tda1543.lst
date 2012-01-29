@@ -1,0 +1,348 @@
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s 			page 1
+
+
+   1               		.file	"dac_tda1543.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               		.text
+  10               	.global	init_tda1543
+  11               		.type	init_tda1543, @function
+  12               	init_tda1543:
+  13               	/* prologue: frame size=0 */
+  14 0000 0F93      		push r16
+  15               	/* prologue end (size=1) */
+  16 0002 982F      		mov r25,r24
+  17 0004 722F      		mov r23,r18
+  18 0006 A091 0000 		lds r26,nrchips
+  19 000a B091 0000 		lds r27,(nrchips)+1
+  20 000e E82F      		mov r30,r24
+  21 0010 F0E0      		ldi r31,lo8(0)
+  22 0012 E050      		subi r30,lo8(-(chip))
+  23 0014 F040      		sbci r31,hi8(-(chip))
+  24 0016 A083      		st Z,r26
+  25 0018 E62F      		mov r30,r22
+  26 001a F0E0      		ldi r31,lo8(0)
+  27 001c E050      		subi r30,lo8(-(chip))
+  28 001e F040      		sbci r31,hi8(-(chip))
+  29 0020 A083      		st Z,r26
+  30 0022 6817      		cp r22,r24
+  31 0024 00F4      		brsh .L2
+  32 0026 862F      		mov r24,r22
+  33 0028 692F      		mov r22,r25
+  34 002a 982F      		mov r25,r24
+  35               	.L2:
+  36 002c FD01      		movw r30,r26
+  37 002e E050      		subi r30,lo8(-(chipdac1))
+  38 0030 F040      		sbci r31,hi8(-(chipdac1))
+  39 0032 9083      		st Z,r25
+  40 0034 FD01      		movw r30,r26
+  41 0036 E050      		subi r30,lo8(-(chipdac2))
+  42 0038 F040      		sbci r31,hi8(-(chipdac2))
+  43 003a 6083      		st Z,r22
+  44 003c 21E0      		ldi r18,lo8(1)
+  45 003e 30E0      		ldi r19,hi8(1)
+  46 0040 C901      		movw r24,r18
+  47 0042 00C0      		rjmp 2f
+  48 0044 880F      	1:	lsl r24
+  49 0046 991F      		rol r25
+  50 0048 4A95      	2:	dec r20
+  51 004a 02F4      		brpl 1b
+  52 004c AC01      		movw r20,r24
+  53 004e C901      		movw r24,r18
+  54 0050 00C0      		rjmp 2f
+  55 0052 880F      	1:	lsl r24
+  56 0054 991F      		rol r25
+  57 0056 7A95      	2:	dec r23
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s 			page 2
+
+
+  58 0058 02F4      		brpl 1b
+  59 005a BC01      		movw r22,r24
+  60 005c 00C0      		rjmp 2f
+  61 005e 220F      	1:	lsl r18
+  62 0060 331F      		rol r19
+  63 0062 0A95      	2:	dec r16
+  64 0064 02F4      		brpl 1b
+  65 0066 FD01      		movw r30,r26
+  66 0068 E050      		subi r30,lo8(-(chipws))
+  67 006a F040      		sbci r31,hi8(-(chipws))
+  68 006c 8083      		st Z,r24
+  69 006e FD01      		movw r30,r26
+  70 0070 E050      		subi r30,lo8(-(chipbck))
+  71 0072 F040      		sbci r31,hi8(-(chipbck))
+  72 0074 4083      		st Z,r20
+  73 0076 FD01      		movw r30,r26
+  74 0078 E050      		subi r30,lo8(-(chipdata))
+  75 007a F040      		sbci r31,hi8(-(chipdata))
+  76 007c 2083      		st Z,r18
+  77 007e 1196      		adiw r26,1
+  78 0080 B093 0000 		sts (nrchips)+1,r27
+  79 0084 A093 0000 		sts nrchips,r26
+  80 0088 8AB3      		in r24,58-0x20
+  81 008a 842B      		or r24,r20
+  82 008c 862B      		or r24,r22
+  83 008e 822B      		or r24,r18
+  84 0090 8ABB      		out 58-0x20,r24
+  85               	/* epilogue: frame size=0 */
+  86 0092 0F91      		pop r16
+  87 0094 0895      		ret
+  88               	/* epilogue end (size=2) */
+  89               	/* function init_tda1543 size 78 (75) */
+  90               		.size	init_tda1543, .-init_tda1543
+  91               	.global	set_tda1543_2
+  92               		.type	set_tda1543_2, @function
+  93               	set_tda1543_2:
+  94               	/* prologue: frame size=0 */
+  95 0096 A0E0      		ldi r26,lo8(0)
+  96 0098 B0E0      		ldi r27,hi8(0)
+  97 009a E0E0      		ldi r30,pm_lo8(1f)
+  98 009c F0E0      		ldi r31,pm_hi8(1f)
+  99 009e 0C94 0000 		jmp __prologue_saves__+18
+ 100               	1:
+ 101               	/* prologue end (size=6) */
+ 102 00a2 A82F      		mov r26,r24
+ 103 00a4 B0E0      		ldi r27,lo8(0)
+ 104 00a6 C42F      		mov r28,r20
+ 105 00a8 D0E0      		ldi r29,lo8(0)
+ 106 00aa FE01      		movw r30,r28
+ 107 00ac E050      		subi r30,lo8(-(chip))
+ 108 00ae F040      		sbci r31,hi8(-(chip))
+ 109 00b0 9081      		ld r25,Z
+ 110 00b2 FD01      		movw r30,r26
+ 111 00b4 E050      		subi r30,lo8(-(chip))
+ 112 00b6 F040      		sbci r31,hi8(-(chip))
+ 113 00b8 8081      		ld r24,Z
+ 114 00ba 9817      		cp r25,r24
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s 			page 3
+
+
+ 115 00bc 01F0      		breq .L6
+ 116 00be 8FEF      		ldi r24,lo8(-1)
+ 117 00c0 9FEF      		ldi r25,hi8(-1)
+ 118 00c2 00C0      		rjmp .L8
+ 119               	.L6:
+ 120 00c4 A050      		subi r26,lo8(-(dacval))
+ 121 00c6 B040      		sbci r27,hi8(-(dacval))
+ 122 00c8 6C93      		st X,r22
+ 123 00ca C050      		subi r28,lo8(-(dacval))
+ 124 00cc D040      		sbci r29,hi8(-(dacval))
+ 125 00ce 2883      		st Y,r18
+ 126 00d0 E92F      		mov r30,r25
+ 127 00d2 F0E0      		ldi r31,lo8(0)
+ 128 00d4 DF01      		movw r26,r30
+ 129 00d6 A050      		subi r26,lo8(-(chipws))
+ 130 00d8 B040      		sbci r27,hi8(-(chipws))
+ 131 00da FC90      		ld r15,X
+ 132 00dc DF01      		movw r26,r30
+ 133 00de A050      		subi r26,lo8(-(chipbck))
+ 134 00e0 B040      		sbci r27,hi8(-(chipbck))
+ 135 00e2 0C91      		ld r16,X
+ 136 00e4 E050      		subi r30,lo8(-(chipdata))
+ 137 00e6 F040      		sbci r31,hi8(-(chipdata))
+ 138 00e8 E080      		ld r14,Z
+ 139 00ea 8BB3      		in r24,59-0x20
+ 140 00ec CF2C      		mov r12,r15
+ 141 00ee C094      		com r12
+ 142 00f0 8C21      		and r24,r12
+ 143 00f2 8BBB      		out 59-0x20,r24
+ 144 00f4 8BB3      		in r24,59-0x20
+ 145 00f6 102F      		mov r17,r16
+ 146 00f8 1095      		com r17
+ 147 00fa 8123      		and r24,r17
+ 148 00fc 8BBB      		out 59-0x20,r24
+ 149 00fe EB01      		movw r28,r22
+ 150 0100 DD24      		clr r13
+ 151 0102 BE2C      		mov r11,r14
+ 152 0104 B094      		com r11
+ 153               	.L9:
+ 154 0106 D7FF      		sbrs r29,7
+ 155 0108 00C0      		rjmp .L10
+ 156 010a 8BB3      		in r24,59-0x20
+ 157 010c 8E29      		or r24,r14
+ 158 010e 00C0      		rjmp .L24
+ 159               	.L10:
+ 160 0110 8BB3      		in r24,59-0x20
+ 161 0112 8B21      		and r24,r11
+ 162               	.L24:
+ 163 0114 8BBB      		out 59-0x20,r24
+ 164 0116 CC0F      		lsl r28
+ 165 0118 DD1F      		rol r29
+ 166 011a 8BB3      		in r24,59-0x20
+ 167 011c 802B      		or r24,r16
+ 168 011e 8BBB      		out 59-0x20,r24
+ 169 0120 0E94 0000 		call delay
+ 170 0124 8BB3      		in r24,59-0x20
+ 171 0126 8123      		and r24,r17
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s 			page 4
+
+
+ 172 0128 8BBB      		out 59-0x20,r24
+ 173 012a 0E94 0000 		call delay
+ 174 012e D394      		inc r13
+ 175 0130 81E1      		ldi r24,lo8(17)
+ 176 0132 D816      		cp r13,r24
+ 177 0134 01F4      		brne .L9
+ 178 0136 8BB3      		in r24,59-0x20
+ 179 0138 F82A      		or r15,r24
+ 180 013a FBBA      		out 59-0x20,r15
+ 181 013c D7FF      		sbrs r29,7
+ 182 013e 00C0      		rjmp .L14
+ 183 0140 8BB3      		in r24,59-0x20
+ 184 0142 8E29      		or r24,r14
+ 185 0144 00C0      		rjmp .L25
+ 186               	.L14:
+ 187 0146 9BB3      		in r25,59-0x20
+ 188 0148 8E2D      		mov r24,r14
+ 189 014a 8095      		com r24
+ 190 014c 8923      		and r24,r25
+ 191               	.L25:
+ 192 014e 8BBB      		out 59-0x20,r24
+ 193 0150 8BB3      		in r24,59-0x20
+ 194 0152 802B      		or r24,r16
+ 195 0154 8BBB      		out 59-0x20,r24
+ 196 0156 0E94 0000 		call delay
+ 197 015a 8BB3      		in r24,59-0x20
+ 198 015c 8123      		and r24,r17
+ 199 015e 8BBB      		out 59-0x20,r24
+ 200 0160 0E94 0000 		call delay
+ 201 0164 FF24      		clr r15
+ 202 0166 E094      		com r14
+ 203               	.L17:
+ 204 0168 8BB3      		in r24,59-0x20
+ 205 016a 8E21      		and r24,r14
+ 206 016c 8BBB      		out 59-0x20,r24
+ 207 016e 8BB3      		in r24,59-0x20
+ 208 0170 802B      		or r24,r16
+ 209 0172 8BBB      		out 59-0x20,r24
+ 210 0174 0E94 0000 		call delay
+ 211 0178 8BB3      		in r24,59-0x20
+ 212 017a 8123      		and r24,r17
+ 213 017c 8BBB      		out 59-0x20,r24
+ 214 017e 0E94 0000 		call delay
+ 215 0182 F394      		inc r15
+ 216 0184 81E1      		ldi r24,lo8(17)
+ 217 0186 F816      		cp r15,r24
+ 218 0188 01F4      		brne .L17
+ 219 018a 8BB3      		in r24,59-0x20
+ 220 018c C822      		and r12,r24
+ 221 018e CBBA      		out 59-0x20,r12
+ 222 0190 8BB3      		in r24,59-0x20
+ 223 0192 082B      		or r16,r24
+ 224 0194 0BBB      		out 59-0x20,r16
+ 225 0196 0E94 0000 		call delay
+ 226 019a 8BB3      		in r24,59-0x20
+ 227 019c 1823      		and r17,r24
+ 228 019e 1BBB      		out 59-0x20,r17
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s 			page 5
+
+
+ 229 01a0 0E94 0000 		call delay
+ 230 01a4 80E0      		ldi r24,lo8(0)
+ 231 01a6 90E0      		ldi r25,hi8(0)
+ 232               	.L8:
+ 233               	/* epilogue: frame size=0 */
+ 234 01a8 E9E0      		ldi r30,9
+ 235 01aa CDB7      		in r28,__SP_L__
+ 236 01ac DEB7      		in r29,__SP_H__
+ 237 01ae 0C94 0000 		jmp __epilogue_restores__+18
+ 238               	/* epilogue end (size=5) */
+ 239               	/* function set_tda1543_2 size 142 (131) */
+ 240               		.size	set_tda1543_2, .-set_tda1543_2
+ 241               	.global	set_tda1543
+ 242               		.type	set_tda1543, @function
+ 243               	set_tda1543:
+ 244               	/* prologue: frame size=0 */
+ 245               	/* prologue end (size=0) */
+ 246 01b2 E82F      		mov r30,r24
+ 247 01b4 F0E0      		ldi r31,lo8(0)
+ 248 01b6 E050      		subi r30,lo8(-(chip))
+ 249 01b8 F040      		sbci r31,hi8(-(chip))
+ 250 01ba E081      		ld r30,Z
+ 251 01bc F0E0      		ldi r31,lo8(0)
+ 252 01be DF01      		movw r26,r30
+ 253 01c0 A050      		subi r26,lo8(-(chipdac1))
+ 254 01c2 B040      		sbci r27,hi8(-(chipdac1))
+ 255 01c4 AC91      		ld r26,X
+ 256 01c6 E050      		subi r30,lo8(-(chipdac2))
+ 257 01c8 F040      		sbci r31,hi8(-(chipdac2))
+ 258 01ca 4081      		ld r20,Z
+ 259 01cc EA2F      		mov r30,r26
+ 260 01ce F0E0      		ldi r31,lo8(0)
+ 261 01d0 E050      		subi r30,lo8(-(dacval))
+ 262 01d2 F040      		sbci r31,hi8(-(dacval))
+ 263 01d4 9081      		ld r25,Z
+ 264 01d6 E42F      		mov r30,r20
+ 265 01d8 F0E0      		ldi r31,lo8(0)
+ 266 01da E050      		subi r30,lo8(-(dacval))
+ 267 01dc F040      		sbci r31,hi8(-(dacval))
+ 268 01de 2081      		ld r18,Z
+ 269 01e0 A817      		cp r26,r24
+ 270 01e2 01F4      		brne .L27
+ 271 01e4 962F      		mov r25,r22
+ 272               	.L27:
+ 273 01e6 4817      		cp r20,r24
+ 274 01e8 01F4      		brne .L29
+ 275 01ea 262F      		mov r18,r22
+ 276               	.L29:
+ 277 01ec 30E0      		ldi r19,lo8(0)
+ 278 01ee 692F      		mov r22,r25
+ 279 01f0 70E0      		ldi r23,lo8(0)
+ 280 01f2 8A2F      		mov r24,r26
+ 281 01f4 0E94 0000 		call set_tda1543_2
+ 282               	/* epilogue: frame size=0 */
+ 283 01f8 0895      		ret
+ 284               	/* epilogue end (size=1) */
+ 285               	/* function set_tda1543 size 36 (35) */
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s 			page 6
+
+
+ 286               		.size	set_tda1543, .-set_tda1543
+ 287               	.global	dacval
+ 288               	.global	dacval
+ 289               		.section .bss
+ 290               		.type	dacval, @object
+ 291               		.size	dacval, 8
+ 292               	dacval:
+ 293 0000 0000 0000 		.skip 8,0
+ 293      0000 0000 
+ 294               		.lcomm nrchips,2
+ 295               		.comm chipws,4,1
+ 296               		.comm chipbck,4,1
+ 297               		.comm chipdata,4,1
+ 298               		.comm chip,8,1
+ 299               		.comm chipdac1,4,1
+ 300               		.comm chipdac2,4,1
+ 301               	/* File "dac_tda1543.c": code  256 = 0x0100 ( 241), prologues   7, epilogues   8 */
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 dac_tda1543.c
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s:2      *ABS*:0000003f __SREG__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s:3      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s:4      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s:5      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s:6      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s:12     .text:00000000 init_tda1543
+                             .bss:00000008 nrchips
+                            *COM*:00000008 chip
+                            *COM*:00000004 chipdac1
+                            *COM*:00000004 chipdac2
+                            *COM*:00000004 chipws
+                            *COM*:00000004 chipbck
+                            *COM*:00000004 chipdata
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s:93     .text:00000096 set_tda1543_2
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s:292    .bss:00000000 dacval
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccKyTDhY.s:243    .text:000001b2 set_tda1543
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__prologue_saves__
+delay
+__epilogue_restores__

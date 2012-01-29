@@ -1,0 +1,175 @@
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s 			page 1
+
+
+   1               		.file	"uart.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               		.text
+  10               	.global	uart_putc
+  11               		.type	uart_putc, @function
+  12               	uart_putc:
+  13               	/* prologue: frame size=0 */
+  14               	/* prologue end (size=0) */
+  15               	.L3:
+  16 0000 5D9B      		sbis 43-0x20,5
+  17 0002 00C0      		rjmp .L3
+  18 0004 8CB9      		out 44-0x20,r24
+  19               	/* epilogue: frame size=0 */
+  20 0006 0895      		ret
+  21               	/* epilogue end (size=1) */
+  22               	/* function uart_putc size 4 (3) */
+  23               		.size	uart_putc, .-uart_putc
+  24               	.global	lock
+  25               		.type	lock, @function
+  26               	lock:
+  27               	/* prologue: frame size=0 */
+  28               	/* prologue end (size=0) */
+  29 0008 FC01      		movw r30,r24
+  30 000a 81E0      		ldi r24,lo8(1)
+  31 000c 8083      		st Z,r24
+  32               	/* epilogue: frame size=0 */
+  33 000e 0895      		ret
+  34               	/* epilogue end (size=1) */
+  35               	/* function lock size 4 (3) */
+  36               		.size	lock, .-lock
+  37               	.global	unlock
+  38               		.type	unlock, @function
+  39               	unlock:
+  40               	/* prologue: frame size=0 */
+  41               	/* prologue end (size=0) */
+  42 0010 FC01      		movw r30,r24
+  43 0012 1082      		st Z,__zero_reg__
+  44               	/* epilogue: frame size=0 */
+  45 0014 0895      		ret
+  46               	/* epilogue end (size=1) */
+  47               	/* function unlock size 3 (2) */
+  48               		.size	unlock, .-unlock
+  49               	.global	uart_init
+  50               		.type	uart_init, @function
+  51               	uart_init:
+  52               	/* prologue: frame size=0 */
+  53               	/* prologue end (size=0) */
+  54 0016 10BC      		out 64-0x20,__zero_reg__
+  55 0018 83E3      		ldi r24,lo8(51)
+  56 001a 89B9      		out 41-0x20,r24
+  57 001c 88E1      		ldi r24,lo8(24)
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s 			page 2
+
+
+  58 001e 8AB9      		out 42-0x20,r24
+  59 0020 86E8      		ldi r24,lo8(-122)
+  60 0022 80BD      		out 64-0x20,r24
+  61 0024 1092 0000 		sts uart_len,__zero_reg__
+  62 0028 1092 0000 		sts uart_done,__zero_reg__
+  63 002c 1092 0000 		sts sem_uart,__zero_reg__
+  64 0030 579A      		sbi 42-0x20,7
+  65               	/* #APP */
+  66 0032 7894      		sei
+  67               	/* #NOAPP */
+  68               	/* epilogue: frame size=0 */
+  69 0034 0895      		ret
+  70               	/* epilogue end (size=1) */
+  71               	/* function uart_init size 17 (16) */
+  72               		.size	uart_init, .-uart_init
+  73               	.global	__vector_13
+  74               		.type	__vector_13, @function
+  75               	__vector_13:
+  76               	/* prologue: frame size=0 */
+  77 0036 1F92      		push __zero_reg__
+  78 0038 0F92      		push __tmp_reg__
+  79 003a 0FB6      		in __tmp_reg__,__SREG__
+  80 003c 0F92      		push __tmp_reg__
+  81 003e 1124      		clr __zero_reg__
+  82 0040 2F93      		push r18
+  83 0042 8F93      		push r24
+  84 0044 9F93      		push r25
+  85 0046 EF93      		push r30
+  86 0048 FF93      		push r31
+  87               	/* prologue end (size=10) */
+  88 004a 2CB1      		in r18,44-0x20
+  89 004c 8091 0000 		lds r24,uart_len
+  90 0050 9CB1      		in r25,44-0x20
+  91 0052 E82F      		mov r30,r24
+  92 0054 F0E0      		ldi r31,lo8(0)
+  93 0056 E050      		subi r30,lo8(-(uartbuf))
+  94 0058 F040      		sbci r31,hi8(-(uartbuf))
+  95 005a 9083      		st Z,r25
+  96 005c 8F5F      		subi r24,lo8(-(1))
+  97 005e 8093 0000 		sts uart_len,r24
+  98 0062 2A30      		cpi r18,lo8(10)
+  99 0064 01F4      		brne .L15
+ 100 0066 81E0      		ldi r24,lo8(1)
+ 101 0068 8093 0000 		sts uart_done,r24
+ 102               	.L15:
+ 103 006c 1092 0000 		sts sem_uart,__zero_reg__
+ 104               	/* epilogue: frame size=0 */
+ 105 0070 FF91      		pop r31
+ 106 0072 EF91      		pop r30
+ 107 0074 9F91      		pop r25
+ 108 0076 8F91      		pop r24
+ 109 0078 2F91      		pop r18
+ 110 007a 0F90      		pop __tmp_reg__
+ 111 007c 0FBE      		out __SREG__,__tmp_reg__
+ 112 007e 0F90      		pop __tmp_reg__
+ 113 0080 1F90      		pop __zero_reg__
+ 114 0082 1895      		reti
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s 			page 3
+
+
+ 115               	/* epilogue end (size=10) */
+ 116               	/* function __vector_13 size 39 (19) */
+ 117               		.size	__vector_13, .-__vector_13
+ 118               	.global	uart_puts
+ 119               		.type	uart_puts, @function
+ 120               	uart_puts:
+ 121               	/* prologue: frame size=0 */
+ 122               	/* prologue end (size=0) */
+ 123 0084 FC01      		movw r30,r24
+ 124 0086 00C0      		rjmp .L19
+ 125               	.L24:
+ 126 0088 5D9B      		sbis 43-0x20,5
+ 127 008a 00C0      		rjmp .L24
+ 128 008c 8CB9      		out 44-0x20,r24
+ 129               	.L19:
+ 130 008e 8191      		ld r24,Z+
+ 131 0090 8823      		tst r24
+ 132 0092 01F4      		brne .L24
+ 133               	/* epilogue: frame size=0 */
+ 134 0094 0895      		ret
+ 135               	/* epilogue end (size=1) */
+ 136               	/* function uart_puts size 9 (8) */
+ 137               		.size	uart_puts, .-uart_puts
+ 138               		.comm uart_len,1,1
+ 139               		.comm uart_done,1,1
+ 140               		.comm sem_uart,1,1
+ 141               		.comm uartbuf,32,1
+ 142               	/* File "uart.c": code   76 = 0x004c (  51), prologues  10, epilogues  15 */
+GAS LISTING D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 uart.c
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:2      *ABS*:0000003f __SREG__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:3      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:4      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:5      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:6      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:12     .text:00000000 uart_putc
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:26     .text:00000008 lock
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:39     .text:00000010 unlock
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:51     .text:00000016 uart_init
+                            *COM*:00000001 uart_len
+                            *COM*:00000001 uart_done
+                            *COM*:00000001 sem_uart
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:75     .text:00000036 __vector_13
+                            *COM*:00000020 uartbuf
+D:\DOCUME~1\alex\LOCALS~1\Temp/ccYvQ2CH.s:120    .text:00000084 uart_puts
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

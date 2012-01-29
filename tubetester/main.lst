@@ -1,0 +1,827 @@
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 1
+
+
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 7265 763A 		.string	"rev:%d\n"
+  18      2564 0A00 
+  19               	.LC1:
+  20 0008 6F6B 3A25 		.string	"ok:%d -- %d\r\n"
+  20      6420 2D2D 
+  20      2025 640D 
+  20      0A00 
+  21               		.text
+  22               	.global	main
+  23               		.type	main, @function
+  24               	main:
+  25               	.LFB2:
+  26               	.LM1:
+  27 0000 EF92      		push r14
+  28 0002 FF92      		push r15
+  29 0004 0F93      		push r16
+  30 0006 1F93      		push r17
+  31 0008 CF93      		push r28
+  32 000a DF93      		push r29
+  33               	/* prologue: function */
+  34               	/* frame size = 0 */
+  35               	.LM2:
+  36 000c 0E94 0000 		call uart_init
+  37               	.LM3:
+  38 0010 8FEF      		ldi r24,lo8(-1)
+  39 0012 84BB      		out 52-32,r24
+  40               	.LM4:
+  41 0014 8ABB      		out 58-32,r24
+  42               	.LM5:
+  43 0016 87BB      		out 55-32,r24
+  44               	.LM6:
+  45 0018 00D0      		rcall .
+  46 001a 00D0      		rcall .
+  47 001c 80E0      		ldi r24,lo8(.LC0)
+  48 001e 90E0      		ldi r25,hi8(.LC0)
+  49 0020 ADB7      		in r26,__SP_L__
+  50 0022 BEB7      		in r27,__SP_H__
+  51 0024 1296      		adiw r26,1+1
+  52 0026 9C93      		st X,r25
+  53 0028 8E93      		st -X,r24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 2
+
+
+  54 002a 1197      		sbiw r26,1
+  55 002c 81E0      		ldi r24,lo8(1)
+  56 002e 90E0      		ldi r25,hi8(1)
+  57 0030 1496      		adiw r26,3+1
+  58 0032 9C93      		st X,r25
+  59 0034 8E93      		st -X,r24
+  60 0036 1397      		sbiw r26,3
+  61 0038 0E94 0000 		call uart_printf
+  62               	.LM7:
+  63 003c 0F90      		pop __tmp_reg__
+  64 003e 0F90      		pop __tmp_reg__
+  65 0040 0F90      		pop __tmp_reg__
+  66 0042 0F90      		pop __tmp_reg__
+  67 0044 80E0      		ldi r24,lo8(0)
+  68 0046 60E2      		ldi r22,lo8(32)
+  69 0048 41E2      		ldi r20,lo8(33)
+  70 004a 21E0      		ldi r18,lo8(1)
+  71 004c 0E94 0000 		call init_74hc595
+  72               	.LM8:
+  73 0050 81E0      		ldi r24,lo8(1)
+  74 0052 60E2      		ldi r22,lo8(32)
+  75 0054 41E2      		ldi r20,lo8(33)
+  76 0056 20E0      		ldi r18,lo8(0)
+  77 0058 0E94 0000 		call init_74hc595
+  78               	.LM9:
+  79 005c 82E0      		ldi r24,lo8(2)
+  80 005e 60E2      		ldi r22,lo8(32)
+  81 0060 41E2      		ldi r20,lo8(33)
+  82 0062 20E1      		ldi r18,lo8(16)
+  83 0064 0E94 0000 		call init_74hc595
+  84 0068 00E0      		ldi r16,lo8(0)
+  85               	.LM10:
+  86 006a C0E0      		ldi r28,lo8(.LC1)
+  87 006c D0E0      		ldi r29,hi8(.LC1)
+  88               	.L3:
+  89               	.LM11:
+  90 006e E02E      		mov r14,r16
+  91 0070 FF24      		clr r15
+  92 0072 F701      		movw r30,r14
+  93 0074 EE0F      		lsl r30
+  94 0076 FF1F      		rol r31
+  95 0078 E050      		subi r30,lo8(-(values))
+  96 007a F040      		sbci r31,hi8(-(values))
+  97 007c 1081      		ld r17,Z
+  98               	.LM12:
+  99 007e 80E0      		ldi r24,lo8(0)
+ 100 0080 612F      		mov r22,r17
+ 101 0082 0E94 0000 		call s595_putc
+ 102               	.LM13:
+ 103 0086 00D0      		rcall .
+ 104 0088 00D0      		rcall .
+ 105 008a 00D0      		rcall .
+ 106 008c EDB7      		in r30,__SP_L__
+ 107 008e FEB7      		in r31,__SP_H__
+ 108 0090 3196      		adiw r30,1
+ 109 0092 ADB7      		in r26,__SP_L__
+ 110 0094 BEB7      		in r27,__SP_H__
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 3
+
+
+ 111 0096 1296      		adiw r26,1+1
+ 112 0098 DC93      		st X,r29
+ 113 009a CE93      		st -X,r28
+ 114 009c 1197      		sbiw r26,1
+ 115 009e F382      		std Z+3,r15
+ 116 00a0 E282      		std Z+2,r14
+ 117 00a2 1483      		std Z+4,r17
+ 118 00a4 1582      		std Z+5,__zero_reg__
+ 119 00a6 0E94 0000 		call uart_printf
+ 120               	.LM14:
+ 121 00aa EDB7      		in r30,__SP_L__
+ 122 00ac FEB7      		in r31,__SP_H__
+ 123 00ae 3696      		adiw r30,6
+ 124 00b0 0FB6      		in __tmp_reg__,__SREG__
+ 125 00b2 F894      		cli
+ 126 00b4 FEBF      		out __SP_H__,r31
+ 127 00b6 0FBE      		out __SREG__,__tmp_reg__
+ 128 00b8 EDBF      		out __SP_L__,r30
+ 129 00ba 80E0      		ldi r24,lo8(0)
+ 130 00bc 612F      		mov r22,r17
+ 131 00be 0E94 0000 		call s595_set_val
+ 132 00c2 81E0      		ldi r24,lo8(1)
+ 133 00c4 612F      		mov r22,r17
+ 134 00c6 0E94 0000 		call s595_set_val
+ 135 00ca 82E0      		ldi r24,lo8(2)
+ 136 00cc 612F      		mov r22,r17
+ 137 00ce 0E94 0000 		call s595_set_val
+ 138               	.LM15:
+ 139 00d2 83E0      		ldi r24,lo8(3)
+ 140 00d4 0E94 0000 		call s595_write
+ 141               	.LM16:
+ 142 00d8 0F5F      		subi r16,lo8(-(1))
+ 143               	.LM17:
+ 144 00da 0830      		cpi r16,lo8(8)
+ 145 00dc 00F0      		brlo .L2
+ 146 00de 00E0      		ldi r16,lo8(0)
+ 147               	.L2:
+ 148               	.LM18:
+ 149 00e0 84EF      		ldi r24,lo8(500)
+ 150 00e2 91E0      		ldi r25,hi8(500)
+ 151 00e4 0E94 0000 		call delay
+ 152 00e8 00C0      		rjmp .L3
+ 153               	.LFE2:
+ 154               		.size	main, .-main
+ 155               	.global	values
+ 156               		.data
+ 157               		.type	values, @object
+ 158               		.size	values, 16
+ 159               	values:
+ 160 0016 0100      		.word	1
+ 161 0018 0200      		.word	2
+ 162 001a 0400      		.word	4
+ 163 001c 0800      		.word	8
+ 164 001e 1000      		.word	16
+ 165 0020 2000      		.word	32
+ 166 0022 4000      		.word	64
+ 167 0024 8000      		.word	128
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 4
+
+
+ 168               		.comm vol,2,1
+ 169               		.comm ch,2,1
+ 170               		.comm bal,2,1
+ 171               		.section	.debug_frame,"",@progbits
+ 172               	.Lframe0:
+ 173 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 174               	.LSCIE0:
+ 175 0004 FFFF FFFF 		.long	0xffffffff
+ 176 0008 01        		.byte	0x1
+ 177 0009 00        		.string	""
+ 178 000a 01        		.uleb128 0x1
+ 179 000b 7F        		.sleb128 -1
+ 180 000c 24        		.byte	0x24
+ 181 000d 0C        		.byte	0xc
+ 182 000e 20        		.uleb128 0x20
+ 183 000f 00        		.uleb128 0x0
+ 184               		.p2align	2
+ 185               	.LECIE0:
+ 186               	.LSFDE0:
+ 187 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 188               	.LASFDE0:
+ 189 0014 0000 0000 		.long	.Lframe0
+ 190 0018 0000 0000 		.long	.LFB2
+ 191 001c EA00 0000 		.long	.LFE2-.LFB2
+ 192               		.p2align	2
+ 193               	.LEFDE0:
+ 194               		.text
+ 195               	.Letext0:
+ 196               		.section	.debug_info
+ 197 0000 1301 0000 		.long	0x113
+ 198 0004 0200      		.word	0x2
+ 199 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 200 000a 04        		.byte	0x4
+ 201 000b 01        		.uleb128 0x1
+ 202 000c 0000 0000 		.long	.LASF9
+ 203 0010 01        		.byte	0x1
+ 204 0011 0000 0000 		.long	.LASF10
+ 205 0015 0000 0000 		.long	.LASF11
+ 206 0019 0000 0000 		.long	.Ltext0
+ 207 001d 0000 0000 		.long	.Letext0
+ 208 0021 0000 0000 		.long	.Ldebug_line0
+ 209 0025 02        		.uleb128 0x2
+ 210 0026 01        		.byte	0x1
+ 211 0027 06        		.byte	0x6
+ 212 0028 0000 0000 		.long	.LASF0
+ 213 002c 03        		.uleb128 0x3
+ 214 002d 0000 0000 		.long	.LASF12
+ 215 0031 02        		.byte	0x2
+ 216 0032 7A        		.byte	0x7a
+ 217 0033 3700 0000 		.long	0x37
+ 218 0037 02        		.uleb128 0x2
+ 219 0038 01        		.byte	0x1
+ 220 0039 08        		.byte	0x8
+ 221 003a 0000 0000 		.long	.LASF1
+ 222 003e 04        		.uleb128 0x4
+ 223 003f 02        		.byte	0x2
+ 224 0040 05        		.byte	0x5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 5
+
+
+ 225 0041 696E 7400 		.string	"int"
+ 226 0045 02        		.uleb128 0x2
+ 227 0046 02        		.byte	0x2
+ 228 0047 07        		.byte	0x7
+ 229 0048 0000 0000 		.long	.LASF2
+ 230 004c 02        		.uleb128 0x2
+ 231 004d 04        		.byte	0x4
+ 232 004e 05        		.byte	0x5
+ 233 004f 0000 0000 		.long	.LASF3
+ 234 0053 02        		.uleb128 0x2
+ 235 0054 04        		.byte	0x4
+ 236 0055 07        		.byte	0x7
+ 237 0056 0000 0000 		.long	.LASF4
+ 238 005a 02        		.uleb128 0x2
+ 239 005b 08        		.byte	0x8
+ 240 005c 05        		.byte	0x5
+ 241 005d 0000 0000 		.long	.LASF5
+ 242 0061 02        		.uleb128 0x2
+ 243 0062 08        		.byte	0x8
+ 244 0063 07        		.byte	0x7
+ 245 0064 0000 0000 		.long	.LASF6
+ 246 0068 05        		.uleb128 0x5
+ 247 0069 01        		.byte	0x1
+ 248 006a 0000 0000 		.long	.LASF13
+ 249 006e 01        		.byte	0x1
+ 250 006f 26        		.byte	0x26
+ 251 0070 01        		.byte	0x1
+ 252 0071 3E00 0000 		.long	0x3e
+ 253 0075 0000 0000 		.long	.LFB2
+ 254 0079 0000 0000 		.long	.LFE2
+ 255 007d 02        		.byte	0x2
+ 256 007e 90        		.byte	0x90
+ 257 007f 20        		.uleb128 0x20
+ 258 0080 BC00 0000 		.long	0xbc
+ 259 0084 06        		.uleb128 0x6
+ 260 0085 6900      		.string	"i"
+ 261 0087 01        		.byte	0x1
+ 262 0088 27        		.byte	0x27
+ 263 0089 2C00 0000 		.long	0x2c
+ 264 008d 01        		.byte	0x1
+ 265 008e 60        		.byte	0x60
+ 266 008f 07        		.uleb128 0x7
+ 267 0090 6A00      		.string	"j"
+ 268 0092 01        		.byte	0x1
+ 269 0093 27        		.byte	0x27
+ 270 0094 2C00 0000 		.long	0x2c
+ 271 0098 06        		.uleb128 0x6
+ 272 0099 7661 6C00 		.string	"val"
+ 273 009d 01        		.byte	0x1
+ 274 009e 27        		.byte	0x27
+ 275 009f 2C00 0000 		.long	0x2c
+ 276 00a3 01        		.byte	0x1
+ 277 00a4 61        		.byte	0x61
+ 278 00a5 08        		.uleb128 0x8
+ 279 00a6 0000 0000 		.long	.LASF7
+ 280 00aa 01        		.byte	0x1
+ 281 00ab 27        		.byte	0x27
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 6
+
+
+ 282 00ac 2C00 0000 		.long	0x2c
+ 283 00b0 07        		.uleb128 0x7
+ 284 00b1 7265 7600 		.string	"rev"
+ 285 00b5 01        		.byte	0x1
+ 286 00b6 28        		.byte	0x28
+ 287 00b7 3E00 0000 		.long	0x3e
+ 288 00bb 00        		.byte	0x0
+ 289 00bc 09        		.uleb128 0x9
+ 290 00bd 766F 6C00 		.string	"vol"
+ 291 00c1 01        		.byte	0x1
+ 292 00c2 1D        		.byte	0x1d
+ 293 00c3 4500 0000 		.long	0x45
+ 294 00c7 01        		.byte	0x1
+ 295 00c8 05        		.byte	0x5
+ 296 00c9 03        		.byte	0x3
+ 297 00ca 0000 0000 		.long	vol
+ 298 00ce 09        		.uleb128 0x9
+ 299 00cf 6368 00   		.string	"ch"
+ 300 00d2 01        		.byte	0x1
+ 301 00d3 1D        		.byte	0x1d
+ 302 00d4 4500 0000 		.long	0x45
+ 303 00d8 01        		.byte	0x1
+ 304 00d9 05        		.byte	0x5
+ 305 00da 03        		.byte	0x3
+ 306 00db 0000 0000 		.long	ch
+ 307 00df 09        		.uleb128 0x9
+ 308 00e0 6261 6C00 		.string	"bal"
+ 309 00e4 01        		.byte	0x1
+ 310 00e5 1E        		.byte	0x1e
+ 311 00e6 3E00 0000 		.long	0x3e
+ 312 00ea 01        		.byte	0x1
+ 313 00eb 05        		.byte	0x5
+ 314 00ec 03        		.byte	0x3
+ 315 00ed 0000 0000 		.long	bal
+ 316 00f1 0A        		.uleb128 0xa
+ 317 00f2 3E00 0000 		.long	0x3e
+ 318 00f6 0101 0000 		.long	0x101
+ 319 00fa 0B        		.uleb128 0xb
+ 320 00fb 0101 0000 		.long	0x101
+ 321 00ff 07        		.byte	0x7
+ 322 0100 00        		.byte	0x0
+ 323 0101 0C        		.uleb128 0xc
+ 324 0102 02        		.byte	0x2
+ 325 0103 07        		.byte	0x7
+ 326 0104 0D        		.uleb128 0xd
+ 327 0105 0000 0000 		.long	.LASF8
+ 328 0109 01        		.byte	0x1
+ 329 010a 23        		.byte	0x23
+ 330 010b F100 0000 		.long	0xf1
+ 331 010f 01        		.byte	0x1
+ 332 0110 05        		.byte	0x5
+ 333 0111 03        		.byte	0x3
+ 334 0112 0000 0000 		.long	values
+ 335 0116 00        		.byte	0x0
+ 336               		.section	.debug_abbrev
+ 337 0000 01        		.uleb128 0x1
+ 338 0001 11        		.uleb128 0x11
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 7
+
+
+ 339 0002 01        		.byte	0x1
+ 340 0003 25        		.uleb128 0x25
+ 341 0004 0E        		.uleb128 0xe
+ 342 0005 13        		.uleb128 0x13
+ 343 0006 0B        		.uleb128 0xb
+ 344 0007 03        		.uleb128 0x3
+ 345 0008 0E        		.uleb128 0xe
+ 346 0009 1B        		.uleb128 0x1b
+ 347 000a 0E        		.uleb128 0xe
+ 348 000b 11        		.uleb128 0x11
+ 349 000c 01        		.uleb128 0x1
+ 350 000d 12        		.uleb128 0x12
+ 351 000e 01        		.uleb128 0x1
+ 352 000f 10        		.uleb128 0x10
+ 353 0010 06        		.uleb128 0x6
+ 354 0011 00        		.byte	0x0
+ 355 0012 00        		.byte	0x0
+ 356 0013 02        		.uleb128 0x2
+ 357 0014 24        		.uleb128 0x24
+ 358 0015 00        		.byte	0x0
+ 359 0016 0B        		.uleb128 0xb
+ 360 0017 0B        		.uleb128 0xb
+ 361 0018 3E        		.uleb128 0x3e
+ 362 0019 0B        		.uleb128 0xb
+ 363 001a 03        		.uleb128 0x3
+ 364 001b 0E        		.uleb128 0xe
+ 365 001c 00        		.byte	0x0
+ 366 001d 00        		.byte	0x0
+ 367 001e 03        		.uleb128 0x3
+ 368 001f 16        		.uleb128 0x16
+ 369 0020 00        		.byte	0x0
+ 370 0021 03        		.uleb128 0x3
+ 371 0022 0E        		.uleb128 0xe
+ 372 0023 3A        		.uleb128 0x3a
+ 373 0024 0B        		.uleb128 0xb
+ 374 0025 3B        		.uleb128 0x3b
+ 375 0026 0B        		.uleb128 0xb
+ 376 0027 49        		.uleb128 0x49
+ 377 0028 13        		.uleb128 0x13
+ 378 0029 00        		.byte	0x0
+ 379 002a 00        		.byte	0x0
+ 380 002b 04        		.uleb128 0x4
+ 381 002c 24        		.uleb128 0x24
+ 382 002d 00        		.byte	0x0
+ 383 002e 0B        		.uleb128 0xb
+ 384 002f 0B        		.uleb128 0xb
+ 385 0030 3E        		.uleb128 0x3e
+ 386 0031 0B        		.uleb128 0xb
+ 387 0032 03        		.uleb128 0x3
+ 388 0033 08        		.uleb128 0x8
+ 389 0034 00        		.byte	0x0
+ 390 0035 00        		.byte	0x0
+ 391 0036 05        		.uleb128 0x5
+ 392 0037 2E        		.uleb128 0x2e
+ 393 0038 01        		.byte	0x1
+ 394 0039 3F        		.uleb128 0x3f
+ 395 003a 0C        		.uleb128 0xc
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 8
+
+
+ 396 003b 03        		.uleb128 0x3
+ 397 003c 0E        		.uleb128 0xe
+ 398 003d 3A        		.uleb128 0x3a
+ 399 003e 0B        		.uleb128 0xb
+ 400 003f 3B        		.uleb128 0x3b
+ 401 0040 0B        		.uleb128 0xb
+ 402 0041 27        		.uleb128 0x27
+ 403 0042 0C        		.uleb128 0xc
+ 404 0043 49        		.uleb128 0x49
+ 405 0044 13        		.uleb128 0x13
+ 406 0045 11        		.uleb128 0x11
+ 407 0046 01        		.uleb128 0x1
+ 408 0047 12        		.uleb128 0x12
+ 409 0048 01        		.uleb128 0x1
+ 410 0049 40        		.uleb128 0x40
+ 411 004a 0A        		.uleb128 0xa
+ 412 004b 01        		.uleb128 0x1
+ 413 004c 13        		.uleb128 0x13
+ 414 004d 00        		.byte	0x0
+ 415 004e 00        		.byte	0x0
+ 416 004f 06        		.uleb128 0x6
+ 417 0050 34        		.uleb128 0x34
+ 418 0051 00        		.byte	0x0
+ 419 0052 03        		.uleb128 0x3
+ 420 0053 08        		.uleb128 0x8
+ 421 0054 3A        		.uleb128 0x3a
+ 422 0055 0B        		.uleb128 0xb
+ 423 0056 3B        		.uleb128 0x3b
+ 424 0057 0B        		.uleb128 0xb
+ 425 0058 49        		.uleb128 0x49
+ 426 0059 13        		.uleb128 0x13
+ 427 005a 02        		.uleb128 0x2
+ 428 005b 0A        		.uleb128 0xa
+ 429 005c 00        		.byte	0x0
+ 430 005d 00        		.byte	0x0
+ 431 005e 07        		.uleb128 0x7
+ 432 005f 34        		.uleb128 0x34
+ 433 0060 00        		.byte	0x0
+ 434 0061 03        		.uleb128 0x3
+ 435 0062 08        		.uleb128 0x8
+ 436 0063 3A        		.uleb128 0x3a
+ 437 0064 0B        		.uleb128 0xb
+ 438 0065 3B        		.uleb128 0x3b
+ 439 0066 0B        		.uleb128 0xb
+ 440 0067 49        		.uleb128 0x49
+ 441 0068 13        		.uleb128 0x13
+ 442 0069 00        		.byte	0x0
+ 443 006a 00        		.byte	0x0
+ 444 006b 08        		.uleb128 0x8
+ 445 006c 34        		.uleb128 0x34
+ 446 006d 00        		.byte	0x0
+ 447 006e 03        		.uleb128 0x3
+ 448 006f 0E        		.uleb128 0xe
+ 449 0070 3A        		.uleb128 0x3a
+ 450 0071 0B        		.uleb128 0xb
+ 451 0072 3B        		.uleb128 0x3b
+ 452 0073 0B        		.uleb128 0xb
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 9
+
+
+ 453 0074 49        		.uleb128 0x49
+ 454 0075 13        		.uleb128 0x13
+ 455 0076 00        		.byte	0x0
+ 456 0077 00        		.byte	0x0
+ 457 0078 09        		.uleb128 0x9
+ 458 0079 34        		.uleb128 0x34
+ 459 007a 00        		.byte	0x0
+ 460 007b 03        		.uleb128 0x3
+ 461 007c 08        		.uleb128 0x8
+ 462 007d 3A        		.uleb128 0x3a
+ 463 007e 0B        		.uleb128 0xb
+ 464 007f 3B        		.uleb128 0x3b
+ 465 0080 0B        		.uleb128 0xb
+ 466 0081 49        		.uleb128 0x49
+ 467 0082 13        		.uleb128 0x13
+ 468 0083 3F        		.uleb128 0x3f
+ 469 0084 0C        		.uleb128 0xc
+ 470 0085 02        		.uleb128 0x2
+ 471 0086 0A        		.uleb128 0xa
+ 472 0087 00        		.byte	0x0
+ 473 0088 00        		.byte	0x0
+ 474 0089 0A        		.uleb128 0xa
+ 475 008a 01        		.uleb128 0x1
+ 476 008b 01        		.byte	0x1
+ 477 008c 49        		.uleb128 0x49
+ 478 008d 13        		.uleb128 0x13
+ 479 008e 01        		.uleb128 0x1
+ 480 008f 13        		.uleb128 0x13
+ 481 0090 00        		.byte	0x0
+ 482 0091 00        		.byte	0x0
+ 483 0092 0B        		.uleb128 0xb
+ 484 0093 21        		.uleb128 0x21
+ 485 0094 00        		.byte	0x0
+ 486 0095 49        		.uleb128 0x49
+ 487 0096 13        		.uleb128 0x13
+ 488 0097 2F        		.uleb128 0x2f
+ 489 0098 0B        		.uleb128 0xb
+ 490 0099 00        		.byte	0x0
+ 491 009a 00        		.byte	0x0
+ 492 009b 0C        		.uleb128 0xc
+ 493 009c 24        		.uleb128 0x24
+ 494 009d 00        		.byte	0x0
+ 495 009e 0B        		.uleb128 0xb
+ 496 009f 0B        		.uleb128 0xb
+ 497 00a0 3E        		.uleb128 0x3e
+ 498 00a1 0B        		.uleb128 0xb
+ 499 00a2 00        		.byte	0x0
+ 500 00a3 00        		.byte	0x0
+ 501 00a4 0D        		.uleb128 0xd
+ 502 00a5 34        		.uleb128 0x34
+ 503 00a6 00        		.byte	0x0
+ 504 00a7 03        		.uleb128 0x3
+ 505 00a8 0E        		.uleb128 0xe
+ 506 00a9 3A        		.uleb128 0x3a
+ 507 00aa 0B        		.uleb128 0xb
+ 508 00ab 3B        		.uleb128 0x3b
+ 509 00ac 0B        		.uleb128 0xb
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 10
+
+
+ 510 00ad 49        		.uleb128 0x49
+ 511 00ae 13        		.uleb128 0x13
+ 512 00af 3F        		.uleb128 0x3f
+ 513 00b0 0C        		.uleb128 0xc
+ 514 00b1 02        		.uleb128 0x2
+ 515 00b2 0A        		.uleb128 0xa
+ 516 00b3 00        		.byte	0x0
+ 517 00b4 00        		.byte	0x0
+ 518 00b5 00        		.byte	0x0
+ 519               		.section	.debug_pubnames,"",@progbits
+ 520 0000 3900 0000 		.long	0x39
+ 521 0004 0200      		.word	0x2
+ 522 0006 0000 0000 		.long	.Ldebug_info0
+ 523 000a 1701 0000 		.long	0x117
+ 524 000e 6800 0000 		.long	0x68
+ 525 0012 6D61 696E 		.string	"main"
+ 525      00
+ 526 0017 BC00 0000 		.long	0xbc
+ 527 001b 766F 6C00 		.string	"vol"
+ 528 001f CE00 0000 		.long	0xce
+ 529 0023 6368 00   		.string	"ch"
+ 530 0026 DF00 0000 		.long	0xdf
+ 531 002a 6261 6C00 		.string	"bal"
+ 532 002e 0401 0000 		.long	0x104
+ 533 0032 7661 6C75 		.string	"values"
+ 533      6573 00
+ 534 0039 0000 0000 		.long	0x0
+ 535               		.section	.debug_aranges,"",@progbits
+ 536 0000 1C00 0000 		.long	0x1c
+ 537 0004 0200      		.word	0x2
+ 538 0006 0000 0000 		.long	.Ldebug_info0
+ 539 000a 04        		.byte	0x4
+ 540 000b 00        		.byte	0x0
+ 541 000c 0000      		.word	0x0
+ 542 000e 0000      		.word	0x0
+ 543 0010 0000 0000 		.long	.Ltext0
+ 544 0014 EA00 0000 		.long	.Letext0-.Ltext0
+ 545 0018 0000 0000 		.long	0x0
+ 546 001c 0000 0000 		.long	0x0
+ 547               		.section	.debug_line
+ 548 0000 F300 0000 		.long	.LELT0-.LSLT0
+ 549               	.LSLT0:
+ 550 0004 0200      		.word	0x2
+ 551 0006 5300 0000 		.long	.LELTP0-.LASLTP0
+ 552               	.LASLTP0:
+ 553 000a 01        		.byte	0x1
+ 554 000b 01        		.byte	0x1
+ 555 000c F6        		.byte	0xf6
+ 556 000d F5        		.byte	0xf5
+ 557 000e 0A        		.byte	0xa
+ 558 000f 00        		.byte	0x0
+ 559 0010 01        		.byte	0x1
+ 560 0011 01        		.byte	0x1
+ 561 0012 01        		.byte	0x1
+ 562 0013 01        		.byte	0x1
+ 563 0014 00        		.byte	0x0
+ 564 0015 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 11
+
+
+ 565 0016 00        		.byte	0x0
+ 566 0017 01        		.byte	0x1
+ 567 0018 643A 2F77 		.ascii	"d:/winavr-20100110/lib/gcc/../../avr/include"
+ 567      696E 6176 
+ 567      722D 3230 
+ 567      3130 3031 
+ 567      3130 2F6C 
+ 568 0044 00        		.byte	0
+ 569 0045 00        		.byte	0x0
+ 570 0046 6D61 696E 		.string	"main.c"
+ 570      2E63 00
+ 571 004d 00        		.uleb128 0x0
+ 572 004e 00        		.uleb128 0x0
+ 573 004f 00        		.uleb128 0x0
+ 574 0050 7374 6469 		.string	"stdint.h"
+ 574      6E74 2E68 
+ 574      00
+ 575 0059 01        		.uleb128 0x1
+ 576 005a 00        		.uleb128 0x0
+ 577 005b 00        		.uleb128 0x0
+ 578 005c 00        		.byte	0x0
+ 579               	.LELTP0:
+ 580 005d 00        		.byte	0x0
+ 581 005e 05        		.uleb128 0x5
+ 582 005f 02        		.byte	0x2
+ 583 0060 0000 0000 		.long	.LM1
+ 584 0064 39        		.byte	0x39
+ 585 0065 00        		.byte	0x0
+ 586 0066 05        		.uleb128 0x5
+ 587 0067 02        		.byte	0x2
+ 588 0068 0000 0000 		.long	.LM2
+ 589 006c 1C        		.byte	0x1c
+ 590 006d 00        		.byte	0x0
+ 591 006e 05        		.uleb128 0x5
+ 592 006f 02        		.byte	0x2
+ 593 0070 0000 0000 		.long	.LM3
+ 594 0074 17        		.byte	0x17
+ 595 0075 00        		.byte	0x0
+ 596 0076 05        		.uleb128 0x5
+ 597 0077 02        		.byte	0x2
+ 598 0078 0000 0000 		.long	.LM4
+ 599 007c 15        		.byte	0x15
+ 600 007d 00        		.byte	0x0
+ 601 007e 05        		.uleb128 0x5
+ 602 007f 02        		.byte	0x2
+ 603 0080 0000 0000 		.long	.LM5
+ 604 0084 15        		.byte	0x15
+ 605 0085 00        		.byte	0x0
+ 606 0086 05        		.uleb128 0x5
+ 607 0087 02        		.byte	0x2
+ 608 0088 0000 0000 		.long	.LM6
+ 609 008c 16        		.byte	0x16
+ 610 008d 00        		.byte	0x0
+ 611 008e 05        		.uleb128 0x5
+ 612 008f 02        		.byte	0x2
+ 613 0090 0000 0000 		.long	.LM7
+ 614 0094 16        		.byte	0x16
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 12
+
+
+ 615 0095 00        		.byte	0x0
+ 616 0096 05        		.uleb128 0x5
+ 617 0097 02        		.byte	0x2
+ 618 0098 0000 0000 		.long	.LM8
+ 619 009c 15        		.byte	0x15
+ 620 009d 00        		.byte	0x0
+ 621 009e 05        		.uleb128 0x5
+ 622 009f 02        		.byte	0x2
+ 623 00a0 0000 0000 		.long	.LM9
+ 624 00a4 15        		.byte	0x15
+ 625 00a5 00        		.byte	0x0
+ 626 00a6 05        		.uleb128 0x5
+ 627 00a7 02        		.byte	0x2
+ 628 00a8 0000 0000 		.long	.LM10
+ 629 00ac 1E        		.byte	0x1e
+ 630 00ad 00        		.byte	0x0
+ 631 00ae 05        		.uleb128 0x5
+ 632 00af 02        		.byte	0x2
+ 633 00b0 0000 0000 		.long	.LM11
+ 634 00b4 12        		.byte	0x12
+ 635 00b5 00        		.byte	0x0
+ 636 00b6 05        		.uleb128 0x5
+ 637 00b7 02        		.byte	0x2
+ 638 00b8 0000 0000 		.long	.LM12
+ 639 00bc 15        		.byte	0x15
+ 640 00bd 00        		.byte	0x0
+ 641 00be 05        		.uleb128 0x5
+ 642 00bf 02        		.byte	0x2
+ 643 00c0 0000 0000 		.long	.LM13
+ 644 00c4 15        		.byte	0x15
+ 645 00c5 00        		.byte	0x0
+ 646 00c6 05        		.uleb128 0x5
+ 647 00c7 02        		.byte	0x2
+ 648 00c8 0000 0000 		.long	.LM14
+ 649 00cc 17        		.byte	0x17
+ 650 00cd 00        		.byte	0x0
+ 651 00ce 05        		.uleb128 0x5
+ 652 00cf 02        		.byte	0x2
+ 653 00d0 0000 0000 		.long	.LM15
+ 654 00d4 16        		.byte	0x16
+ 655 00d5 00        		.byte	0x0
+ 656 00d6 05        		.uleb128 0x5
+ 657 00d7 02        		.byte	0x2
+ 658 00d8 0000 0000 		.long	.LM16
+ 659 00dc 16        		.byte	0x16
+ 660 00dd 00        		.byte	0x0
+ 661 00de 05        		.uleb128 0x5
+ 662 00df 02        		.byte	0x2
+ 663 00e0 0000 0000 		.long	.LM17
+ 664 00e4 15        		.byte	0x15
+ 665 00e5 00        		.byte	0x0
+ 666 00e6 05        		.uleb128 0x5
+ 667 00e7 02        		.byte	0x2
+ 668 00e8 0000 0000 		.long	.LM18
+ 669 00ec 17        		.byte	0x17
+ 670 00ed 00        		.byte	0x0
+ 671 00ee 05        		.uleb128 0x5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 13
+
+
+ 672 00ef 02        		.byte	0x2
+ 673 00f0 0000 0000 		.long	.Letext0
+ 674 00f4 00        		.byte	0x0
+ 675 00f5 01        		.uleb128 0x1
+ 676 00f6 01        		.byte	0x1
+ 677               	.LELT0:
+ 678 00f7 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 678      0200 1000 
+ 678      0000 0101 
+ 678      FB0E 0A00 
+ 678      0101 0101 
+ 679               	.LASF7:
+ 680 0000 6E75 6D63 		.string	"numchips"
+ 680      6869 7073 
+ 680      00
+ 681               	.LASF1:
+ 682 0009 756E 7369 		.string	"unsigned char"
+ 682      676E 6564 
+ 682      2063 6861 
+ 682      7200 
+ 683               	.LASF4:
+ 684 0017 6C6F 6E67 		.string	"long unsigned int"
+ 684      2075 6E73 
+ 684      6967 6E65 
+ 684      6420 696E 
+ 684      7400 
+ 685               	.LASF9:
+ 686 0029 474E 5520 		.string	"GNU C 4.3.3"
+ 686      4320 342E 
+ 686      332E 3300 
+ 687               	.LASF13:
+ 688 0035 6D61 696E 		.string	"main"
+ 688      00
+ 689               	.LASF2:
+ 690 003a 756E 7369 		.string	"unsigned int"
+ 690      676E 6564 
+ 690      2069 6E74 
+ 690      00
+ 691               	.LASF6:
+ 692 0047 6C6F 6E67 		.string	"long long unsigned int"
+ 692      206C 6F6E 
+ 692      6720 756E 
+ 692      7369 676E 
+ 692      6564 2069 
+ 693               	.LASF12:
+ 694 005e 7569 6E74 		.string	"uint8_t"
+ 694      385F 7400 
+ 695               	.LASF5:
+ 696 0066 6C6F 6E67 		.string	"long long int"
+ 696      206C 6F6E 
+ 696      6720 696E 
+ 696      7400 
+ 697               	.LASF10:
+ 698 0074 6D61 696E 		.string	"main.c"
+ 698      2E63 00
+ 699               	.LASF11:
+ 700 007b 453A 5C61 		.string	"E:\\avr\\tubetester"
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 14
+
+
+ 700      7672 5C74 
+ 700      7562 6574 
+ 700      6573 7465 
+ 700      7200 
+ 701               	.LASF3:
+ 702 008d 6C6F 6E67 		.string	"long int"
+ 702      2069 6E74 
+ 702      00
+ 703               	.LASF8:
+ 704 0096 7661 6C75 		.string	"values"
+ 704      6573 00
+ 705               	.LASF0:
+ 706 009d 7369 676E 		.string	"signed char"
+ 706      6564 2063 
+ 706      6861 7200 
+ 707               	.global __do_copy_data
+ 708               	.global __do_clear_bss
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s:24     .text:00000000 main
+C:\Users\alex\AppData\Local\Temp/ccgd7TT3.s:159    .data:00000016 values
+                            *COM*:00000002 vol
+                            *COM*:00000002 ch
+                            *COM*:00000002 bal
+
+UNDEFINED SYMBOLS
+uart_init
+uart_printf
+init_74hc595
+s595_putc
+s595_set_val
+s595_write
+delay
+__do_copy_data
+__do_clear_bss

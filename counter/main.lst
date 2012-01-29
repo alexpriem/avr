@@ -1,0 +1,2350 @@
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 1
+
+
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               	.global	mapping
+  17               		.data
+  18               		.type	mapping, @object
+  19               		.size	mapping, 17
+  20               	mapping:
+  21 0000 01        		.byte	1
+  22 0001 02        		.byte	2
+  23 0002 0F        		.byte	15
+  24 0003 03        		.byte	3
+  25 0004 04        		.byte	4
+  26 0005 05        		.byte	5
+  27 0006 0E        		.byte	14
+  28 0007 06        		.byte	6
+  29 0008 07        		.byte	7
+  30 0009 08        		.byte	8
+  31 000a 0D        		.byte	13
+  32 000b 09        		.byte	9
+  33 000c 0A        		.byte	10
+  34 000d 00        		.byte	0
+  35 000e 0C        		.byte	12
+  36 000f 0B        		.byte	11
+  37 0010 FF        		.byte	-1
+  38               		.text
+  39               	.global	get_number
+  40               		.type	get_number, @function
+  41               	get_number:
+  42               	.LFB2:
+  43               	.LM1:
+  44 0000 DF93      		push r29
+  45 0002 CF93      		push r28
+  46 0004 CDB7      		in r28,__SP_L__
+  47 0006 DEB7      		in r29,__SP_H__
+  48 0008 2C97      		sbiw r28,12
+  49 000a 0FB6      		in __tmp_reg__,__SREG__
+  50 000c F894      		cli
+  51 000e DEBF      		out __SP_H__,r29
+  52 0010 0FBE      		out __SREG__,__tmp_reg__
+  53 0012 CDBF      		out __SP_L__,r28
+  54               	/* prologue: function */
+  55               	/* frame size = 12 */
+  56 0014 8A87      		std Y+10,r24
+  57               	.LM2:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 2
+
+
+  58 0016 8FE0      		ldi r24,lo8(15)
+  59 0018 90E0      		ldi r25,hi8(15)
+  60 001a 9F83      		std Y+7,r25
+  61 001c 8E83      		std Y+6,r24
+  62               	.LM3:
+  63 001e 1D82      		std Y+5,__zero_reg__
+  64               	.LM4:
+  65 0020 1C82      		std Y+4,__zero_reg__
+  66               	.LM5:
+  67 0022 1B82      		std Y+3,__zero_reg__
+  68               	.LM6:
+  69 0024 1A82      		std Y+2,__zero_reg__
+  70               	.LM7:
+  71 0026 1986      		std Y+9,__zero_reg__
+  72 0028 1886      		std Y+8,__zero_reg__
+  73               	.LM8:
+  74 002a 2885      		ldd r18,Y+8
+  75 002c 3985      		ldd r19,Y+9
+  76 002e 8A85      		ldd r24,Y+10
+  77 0030 B901      		movw r22,r18
+  78 0032 0E94 0000 		call cat4016_put_unumber
+  79 0036 00C0      		rjmp .L2
+  80               	.L3:
+  81               	.LM9:
+  82 0038 0E94 0000 		call getc_4x4_keypad
+  83 003c 882F      		mov r24,r24
+  84 003e 90E0      		ldi r25,lo8(0)
+  85 0040 9F83      		std Y+7,r25
+  86 0042 8E83      		std Y+6,r24
+  87               	.LM10:
+  88 0044 8E81      		ldd r24,Y+6
+  89 0046 9F81      		ldd r25,Y+7
+  90 0048 2227      		clr r18
+  91 004a 3327      		clr r19
+  92 004c 281B      		sub r18,r24
+  93 004e 390B      		sbc r19,r25
+  94 0050 80E0      		ldi r24,lo8(0)
+  95 0052 B901      		movw r22,r18
+  96 0054 0E94 0000 		call cat4016_put_snumber
+  97               	.L2:
+  98               	.LM11:
+  99 0058 8E81      		ldd r24,Y+6
+ 100 005a 9F81      		ldd r25,Y+7
+ 101 005c 8031      		cpi r24,16
+ 102 005e 9105      		cpc r25,__zero_reg__
+ 103 0060 01F4      		brne .L3
+ 104 0062 00C0      		rjmp .L4
+ 105               	.L5:
+ 106               	.LM12:
+ 107 0064 0E94 0000 		call getc_4x4_keypad
+ 108 0068 882F      		mov r24,r24
+ 109 006a 90E0      		ldi r25,lo8(0)
+ 110 006c 9F83      		std Y+7,r25
+ 111 006e 8E83      		std Y+6,r24
+ 112               	.LM13:
+ 113 0070 8E81      		ldd r24,Y+6
+ 114 0072 9F81      		ldd r25,Y+7
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 3
+
+
+ 115 0074 FC01      		movw r30,r24
+ 116 0076 E050      		subi r30,lo8(-(mapping))
+ 117 0078 F040      		sbci r31,hi8(-(mapping))
+ 118 007a 8081      		ld r24,Z
+ 119 007c 8983      		std Y+1,r24
+ 120               	.LM14:
+ 121 007e 8981      		ldd r24,Y+1
+ 122 0080 282F      		mov r18,r24
+ 123 0082 30E0      		ldi r19,lo8(0)
+ 124 0084 80E0      		ldi r24,lo8(0)
+ 125 0086 B901      		movw r22,r18
+ 126 0088 0E94 0000 		call cat4016_put_unumber
+ 127               	.L4:
+ 128               	.LM15:
+ 129 008c 8E81      		ldd r24,Y+6
+ 130 008e 9F81      		ldd r25,Y+7
+ 131 0090 8031      		cpi r24,16
+ 132 0092 9105      		cpc r25,__zero_reg__
+ 133 0094 01F0      		breq .L5
+ 134               	.LM16:
+ 135 0096 8E81      		ldd r24,Y+6
+ 136 0098 9F81      		ldd r25,Y+7
+ 137 009a FC01      		movw r30,r24
+ 138 009c E050      		subi r30,lo8(-(mapping))
+ 139 009e F040      		sbci r31,hi8(-(mapping))
+ 140 00a0 8081      		ld r24,Z
+ 141 00a2 8983      		std Y+1,r24
+ 142               	.LM17:
+ 143 00a4 8981      		ldd r24,Y+1
+ 144 00a6 8C30      		cpi r24,lo8(12)
+ 145 00a8 01F4      		brne .L6
+ 146 00aa 6FEF      		ldi r22,lo8(-1)
+ 147 00ac 7FEF      		ldi r23,hi8(-1)
+ 148 00ae 7C87      		std Y+12,r23
+ 149 00b0 6B87      		std Y+11,r22
+ 150 00b2 00C0      		rjmp .L7
+ 151               	.L6:
+ 152               	.LM18:
+ 153 00b4 8981      		ldd r24,Y+1
+ 154 00b6 8A30      		cpi r24,lo8(10)
+ 155 00b8 01F4      		brne .L8
+ 156 00ba 8885      		ldd r24,Y+8
+ 157 00bc 9985      		ldd r25,Y+9
+ 158 00be 9C87      		std Y+12,r25
+ 159 00c0 8B87      		std Y+11,r24
+ 160 00c2 00C0      		rjmp .L7
+ 161               	.L8:
+ 162               	.LM19:
+ 163 00c4 8981      		ldd r24,Y+1
+ 164 00c6 8D30      		cpi r24,lo8(13)
+ 165 00c8 01F4      		brne .L9
+ 166               	.LM20:
+ 167 00ca 1D82      		std Y+5,__zero_reg__
+ 168               	.L9:
+ 169               	.LM21:
+ 170 00cc 8981      		ldd r24,Y+1
+ 171 00ce 8B30      		cpi r24,lo8(11)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 4
+
+
+ 172 00d0 01F4      		brne .L10
+ 173               	.LM22:
+ 174 00d2 1A82      		std Y+2,__zero_reg__
+ 175               	.LM23:
+ 176 00d4 8A81      		ldd r24,Y+2
+ 177 00d6 8B83      		std Y+3,r24
+ 178               	.LM24:
+ 179 00d8 8B81      		ldd r24,Y+3
+ 180 00da 8C83      		std Y+4,r24
+ 181               	.LM25:
+ 182 00dc 8C81      		ldd r24,Y+4
+ 183 00de 8D83      		std Y+5,r24
+ 184               	.L10:
+ 185               	.LM26:
+ 186 00e0 8981      		ldd r24,Y+1
+ 187 00e2 8A30      		cpi r24,lo8(10)
+ 188 00e4 00F4      		brsh .L11
+ 189 00e6 8885      		ldd r24,Y+8
+ 190 00e8 9985      		ldd r25,Y+9
+ 191 00ea 23E0      		ldi r18,hi8(1000)
+ 192 00ec 883E      		cpi r24,lo8(1000)
+ 193 00ee 9207      		cpc r25,r18
+ 194 00f0 04F4      		brge .L11
+ 195               	.LM27:
+ 196 00f2 8B81      		ldd r24,Y+3
+ 197 00f4 8A83      		std Y+2,r24
+ 198               	.LM28:
+ 199 00f6 8C81      		ldd r24,Y+4
+ 200 00f8 8B83      		std Y+3,r24
+ 201               	.LM29:
+ 202 00fa 8D81      		ldd r24,Y+5
+ 203 00fc 8C83      		std Y+4,r24
+ 204               	.LM30:
+ 205 00fe 8981      		ldd r24,Y+1
+ 206 0100 8D83      		std Y+5,r24
+ 207               	.L11:
+ 208               	.LM31:
+ 209 0102 8A81      		ldd r24,Y+2
+ 210 0104 282F      		mov r18,r24
+ 211 0106 30E0      		ldi r19,lo8(0)
+ 212 0108 88EE      		ldi r24,lo8(1000)
+ 213 010a 93E0      		ldi r25,hi8(1000)
+ 214 010c 289F      		mul r18,r24
+ 215 010e A001      		movw r20,r0
+ 216 0110 299F      		mul r18,r25
+ 217 0112 500D      		add r21,r0
+ 218 0114 389F      		mul r19,r24
+ 219 0116 500D      		add r21,r0
+ 220 0118 1124      		clr r1
+ 221 011a 8B81      		ldd r24,Y+3
+ 222 011c 282F      		mov r18,r24
+ 223 011e 30E0      		ldi r19,lo8(0)
+ 224 0120 84E6      		ldi r24,lo8(100)
+ 225 0122 90E0      		ldi r25,hi8(100)
+ 226 0124 BC01      		movw r22,r24
+ 227 0126 269F      		mul r18,r22
+ 228 0128 C001      		movw r24,r0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 5
+
+
+ 229 012a 279F      		mul r18,r23
+ 230 012c 900D      		add r25,r0
+ 231 012e 369F      		mul r19,r22
+ 232 0130 900D      		add r25,r0
+ 233 0132 1124      		clr r1
+ 234 0134 480F      		add r20,r24
+ 235 0136 591F      		adc r21,r25
+ 236 0138 8C81      		ldd r24,Y+4
+ 237 013a 882F      		mov r24,r24
+ 238 013c 90E0      		ldi r25,lo8(0)
+ 239 013e 9C01      		movw r18,r24
+ 240 0140 220F      		lsl r18
+ 241 0142 331F      		rol r19
+ 242 0144 C901      		movw r24,r18
+ 243 0146 880F      		lsl r24
+ 244 0148 991F      		rol r25
+ 245 014a 880F      		lsl r24
+ 246 014c 991F      		rol r25
+ 247 014e 820F      		add r24,r18
+ 248 0150 931F      		adc r25,r19
+ 249 0152 9A01      		movw r18,r20
+ 250 0154 280F      		add r18,r24
+ 251 0156 391F      		adc r19,r25
+ 252 0158 8D81      		ldd r24,Y+5
+ 253 015a 882F      		mov r24,r24
+ 254 015c 90E0      		ldi r25,lo8(0)
+ 255 015e 820F      		add r24,r18
+ 256 0160 931F      		adc r25,r19
+ 257 0162 9987      		std Y+9,r25
+ 258 0164 8887      		std Y+8,r24
+ 259               	.LM32:
+ 260 0166 2885      		ldd r18,Y+8
+ 261 0168 3985      		ldd r19,Y+9
+ 262 016a 8A85      		ldd r24,Y+10
+ 263 016c B901      		movw r22,r18
+ 264 016e 0E94 0000 		call cat4016_put_unumber
+ 265 0172 00C0      		rjmp .L12
+ 266               	.L13:
+ 267               	.LM33:
+ 268 0174 0E94 0000 		call getc_4x4_keypad
+ 269 0178 882F      		mov r24,r24
+ 270 017a 90E0      		ldi r25,lo8(0)
+ 271 017c 9F83      		std Y+7,r25
+ 272 017e 8E83      		std Y+6,r24
+ 273               	.LM34:
+ 274 0180 8E81      		ldd r24,Y+6
+ 275 0182 9F81      		ldd r25,Y+7
+ 276 0184 FC01      		movw r30,r24
+ 277 0186 E050      		subi r30,lo8(-(mapping))
+ 278 0188 F040      		sbci r31,hi8(-(mapping))
+ 279 018a 8081      		ld r24,Z
+ 280 018c 8983      		std Y+1,r24
+ 281               	.LM35:
+ 282 018e 8981      		ldd r24,Y+1
+ 283 0190 882F      		mov r24,r24
+ 284 0192 90E0      		ldi r25,lo8(0)
+ 285 0194 2227      		clr r18
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 6
+
+
+ 286 0196 3327      		clr r19
+ 287 0198 281B      		sub r18,r24
+ 288 019a 390B      		sbc r19,r25
+ 289 019c 80E0      		ldi r24,lo8(0)
+ 290 019e B901      		movw r22,r18
+ 291 01a0 0E94 0000 		call cat4016_put_snumber
+ 292               	.L12:
+ 293               	.LM36:
+ 294 01a4 8E81      		ldd r24,Y+6
+ 295 01a6 9F81      		ldd r25,Y+7
+ 296 01a8 8031      		cpi r24,16
+ 297 01aa 9105      		cpc r25,__zero_reg__
+ 298 01ac 01F4      		brne .L13
+ 299 01ae 00C0      		rjmp .L4
+ 300               	.L7:
+ 301               	.LM37:
+ 302 01b0 8B85      		ldd r24,Y+11
+ 303 01b2 9C85      		ldd r25,Y+12
+ 304               	/* epilogue start */
+ 305               	.LM38:
+ 306 01b4 2C96      		adiw r28,12
+ 307 01b6 0FB6      		in __tmp_reg__,__SREG__
+ 308 01b8 F894      		cli
+ 309 01ba DEBF      		out __SP_H__,r29
+ 310 01bc 0FBE      		out __SREG__,__tmp_reg__
+ 311 01be CDBF      		out __SP_L__,r28
+ 312 01c0 CF91      		pop r28
+ 313 01c2 DF91      		pop r29
+ 314 01c4 0895      		ret
+ 315               	.LFE2:
+ 316               		.size	get_number, .-get_number
+ 317               	.global	set_dir_left
+ 318               		.type	set_dir_left, @function
+ 319               	set_dir_left:
+ 320               	.LFB3:
+ 321               	.LM39:
+ 322 01c6 DF93      		push r29
+ 323 01c8 CF93      		push r28
+ 324 01ca CDB7      		in r28,__SP_L__
+ 325 01cc DEB7      		in r29,__SP_H__
+ 326               	/* prologue: function */
+ 327               	/* frame size = 0 */
+ 328               	/* epilogue start */
+ 329               	.LM40:
+ 330 01ce CF91      		pop r28
+ 331 01d0 DF91      		pop r29
+ 332 01d2 0895      		ret
+ 333               	.LFE3:
+ 334               		.size	set_dir_left, .-set_dir_left
+ 335               	.global	set_dir_right
+ 336               		.type	set_dir_right, @function
+ 337               	set_dir_right:
+ 338               	.LFB4:
+ 339               	.LM41:
+ 340 01d4 DF93      		push r29
+ 341 01d6 CF93      		push r28
+ 342 01d8 CDB7      		in r28,__SP_L__
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 7
+
+
+ 343 01da DEB7      		in r29,__SP_H__
+ 344               	/* prologue: function */
+ 345               	/* frame size = 0 */
+ 346               	/* epilogue start */
+ 347               	.LM42:
+ 348 01dc CF91      		pop r28
+ 349 01de DF91      		pop r29
+ 350 01e0 0895      		ret
+ 351               	.LFE4:
+ 352               		.size	set_dir_right, .-set_dir_right
+ 353               	.global	start_winding
+ 354               		.type	start_winding, @function
+ 355               	start_winding:
+ 356               	.LFB5:
+ 357               	.LM43:
+ 358 01e2 DF93      		push r29
+ 359 01e4 CF93      		push r28
+ 360 01e6 CDB7      		in r28,__SP_L__
+ 361 01e8 DEB7      		in r29,__SP_H__
+ 362               	/* prologue: function */
+ 363               	/* frame size = 0 */
+ 364               	/* epilogue start */
+ 365               	.LM44:
+ 366 01ea CF91      		pop r28
+ 367 01ec DF91      		pop r29
+ 368 01ee 0895      		ret
+ 369               	.LFE5:
+ 370               		.size	start_winding, .-start_winding
+ 371               	.global	stop_winding
+ 372               		.type	stop_winding, @function
+ 373               	stop_winding:
+ 374               	.LFB6:
+ 375               	.LM45:
+ 376 01f0 DF93      		push r29
+ 377 01f2 CF93      		push r28
+ 378 01f4 CDB7      		in r28,__SP_L__
+ 379 01f6 DEB7      		in r29,__SP_H__
+ 380               	/* prologue: function */
+ 381               	/* frame size = 0 */
+ 382               	/* epilogue start */
+ 383               	.LM46:
+ 384 01f8 CF91      		pop r28
+ 385 01fa DF91      		pop r29
+ 386 01fc 0895      		ret
+ 387               	.LFE6:
+ 388               		.size	stop_winding, .-stop_winding
+ 389               	.global	start_filling
+ 390               		.type	start_filling, @function
+ 391               	start_filling:
+ 392               	.LFB7:
+ 393               	.LM47:
+ 394 01fe DF93      		push r29
+ 395 0200 CF93      		push r28
+ 396 0202 CDB7      		in r28,__SP_L__
+ 397 0204 DEB7      		in r29,__SP_H__
+ 398               	/* prologue: function */
+ 399               	/* frame size = 0 */
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 8
+
+
+ 400               	/* epilogue start */
+ 401               	.LM48:
+ 402 0206 CF91      		pop r28
+ 403 0208 DF91      		pop r29
+ 404 020a 0895      		ret
+ 405               	.LFE7:
+ 406               		.size	start_filling, .-start_filling
+ 407               	.global	stop_filling
+ 408               		.type	stop_filling, @function
+ 409               	stop_filling:
+ 410               	.LFB8:
+ 411               	.LM49:
+ 412 020c DF93      		push r29
+ 413 020e CF93      		push r28
+ 414 0210 CDB7      		in r28,__SP_L__
+ 415 0212 DEB7      		in r29,__SP_H__
+ 416               	/* prologue: function */
+ 417               	/* frame size = 0 */
+ 418               	/* epilogue start */
+ 419               	.LM50:
+ 420 0214 CF91      		pop r28
+ 421 0216 DF91      		pop r29
+ 422 0218 0895      		ret
+ 423               	.LFE8:
+ 424               		.size	stop_filling, .-stop_filling
+ 425               		.data
+ 426               	.LC0:
+ 427 0011 0D0A 636F 		.string	"\r\ncounter init\r\n"
+ 427      756E 7465 
+ 427      7220 696E 
+ 427      6974 0D0A 
+ 427      00
+ 428               	.LC1:
+ 429 0022 7478 7374 		.string	"txsttekst"
+ 429      7465 6B73 
+ 429      7400 
+ 430               	.LC2:
+ 431 002c 6669 6C6C 		.string	"fill"
+ 431      00
+ 432               	.LC3:
+ 433 0031 7475 206C 		.string	"tu l"
+ 433      00
+ 434               	.LC4:
+ 435 0036 7475 2072 		.string	"tu r"
+ 435      00
+ 436               		.text
+ 437               	.global	main
+ 438               		.type	main, @function
+ 439               	main:
+ 440               	.LFB9:
+ 441               	.LM51:
+ 442 021a AF92      		push r10
+ 443 021c CF92      		push r12
+ 444 021e EF92      		push r14
+ 445 0220 0F93      		push r16
+ 446 0222 DF93      		push r29
+ 447 0224 CF93      		push r28
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 9
+
+
+ 448 0226 CDB7      		in r28,__SP_L__
+ 449 0228 DEB7      		in r29,__SP_H__
+ 450 022a 6D97      		sbiw r28,29
+ 451 022c 0FB6      		in __tmp_reg__,__SREG__
+ 452 022e F894      		cli
+ 453 0230 DEBF      		out __SP_H__,r29
+ 454 0232 0FBE      		out __SREG__,__tmp_reg__
+ 455 0234 CDBF      		out __SP_L__,r28
+ 456               	/* prologue: function */
+ 457               	/* frame size = 29 */
+ 458               	.LM52:
+ 459 0236 1C82      		std Y+4,__zero_reg__
+ 460 0238 1B82      		std Y+3,__zero_reg__
+ 461 023a 1A82      		std Y+2,__zero_reg__
+ 462 023c 1982      		std Y+1,__zero_reg__
+ 463               	.LM53:
+ 464 023e 0E94 0000 		call uart_init
+ 465               	.LM54:
+ 466 0242 80E0      		ldi r24,lo8(.LC0)
+ 467 0244 90E0      		ldi r25,hi8(.LC0)
+ 468 0246 0E94 0000 		call uart_puts
+ 469               	.LM55:
+ 470 024a 80E0      		ldi r24,lo8(.LC0)
+ 471 024c 90E0      		ldi r25,hi8(.LC0)
+ 472 024e 0E94 0000 		call uart_puts
+ 473               	.LM56:
+ 474 0252 80E0      		ldi r24,lo8(.LC0)
+ 475 0254 90E0      		ldi r25,hi8(.LC0)
+ 476 0256 0E94 0000 		call uart_puts
+ 477               	.LM57:
+ 478 025a EAE3      		ldi r30,lo8(58)
+ 479 025c F0E0      		ldi r31,hi8(58)
+ 480 025e 8FE0      		ldi r24,lo8(15)
+ 481 0260 8083      		st Z,r24
+ 482               	.LM58:
+ 483 0262 EBE3      		ldi r30,lo8(59)
+ 484 0264 F0E0      		ldi r31,hi8(59)
+ 485 0266 80EF      		ldi r24,lo8(-16)
+ 486 0268 8083      		st Z,r24
+ 487               	.LM59:
+ 488 026a EAE3      		ldi r30,lo8(58)
+ 489 026c F0E0      		ldi r31,hi8(58)
+ 490 026e 8FEF      		ldi r24,lo8(-1)
+ 491 0270 8083      		st Z,r24
+ 492               	.LM60:
+ 493 0272 E4E3      		ldi r30,lo8(52)
+ 494 0274 F0E0      		ldi r31,hi8(52)
+ 495 0276 8FEF      		ldi r24,lo8(-1)
+ 496 0278 8083      		st Z,r24
+ 497               	.LM61:
+ 498 027a E1E3      		ldi r30,lo8(49)
+ 499 027c F0E0      		ldi r31,hi8(49)
+ 500 027e 8FEF      		ldi r24,lo8(-1)
+ 501 0280 8083      		st Z,r24
+ 502               	.LM62:
+ 503 0282 85E1      		ldi r24,lo8(21)
+ 504 0284 66E1      		ldi r22,lo8(22)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 10
+
+
+ 505 0286 47E1      		ldi r20,lo8(23)
+ 506 0288 24E1      		ldi r18,lo8(20)
+ 507 028a 03E1      		ldi r16,lo8(19)
+ 508 028c 0F2E      		mov __tmp_reg__,r31
+ 509 028e F2E1      		ldi r31,lo8(18)
+ 510 0290 EF2E      		mov r14,r31
+ 511 0292 F02D      		mov r31,__tmp_reg__
+ 512 0294 0F2E      		mov __tmp_reg__,r31
+ 513 0296 F1E1      		ldi r31,lo8(17)
+ 514 0298 CF2E      		mov r12,r31
+ 515 029a F02D      		mov r31,__tmp_reg__
+ 516 029c AA24      		clr r10
+ 517 029e 6894      		set
+ 518 02a0 A4F8      		bld r10,4
+ 519 02a2 0E94 0000 		call lcd_setup
+ 520               	.LM63:
+ 521 02a6 85E1      		ldi r24,lo8(21)
+ 522 02a8 66E1      		ldi r22,lo8(22)
+ 523 02aa 47E1      		ldi r20,lo8(23)
+ 524 02ac 24E1      		ldi r18,lo8(20)
+ 525 02ae 00E1      		ldi r16,lo8(16)
+ 526 02b0 0F2E      		mov __tmp_reg__,r31
+ 527 02b2 F1E1      		ldi r31,lo8(17)
+ 528 02b4 EF2E      		mov r14,r31
+ 529 02b6 F02D      		mov r31,__tmp_reg__
+ 530 02b8 0F2E      		mov __tmp_reg__,r31
+ 531 02ba F2E1      		ldi r31,lo8(18)
+ 532 02bc CF2E      		mov r12,r31
+ 533 02be F02D      		mov r31,__tmp_reg__
+ 534 02c0 0F2E      		mov __tmp_reg__,r31
+ 535 02c2 F3E1      		ldi r31,lo8(19)
+ 536 02c4 AF2E      		mov r10,r31
+ 537 02c6 F02D      		mov r31,__tmp_reg__
+ 538 02c8 0E94 0000 		call lcd_setup
+ 539               	.LM64:
+ 540 02cc 8FE0      		ldi r24,lo8(15)
+ 541 02ce 0E94 0000 		call lcd_init
+ 542               	.LM65:
+ 543 02d2 80E0      		ldi r24,lo8(.LC1)
+ 544 02d4 90E0      		ldi r25,hi8(.LC1)
+ 545 02d6 0E94 0000 		call lcd_puts
+ 546               	.LM66:
+ 547 02da 80E0      		ldi r24,lo8(0)
+ 548 02dc 66E3      		ldi r22,lo8(54)
+ 549 02de 40E3      		ldi r20,lo8(48)
+ 550 02e0 24E3      		ldi r18,lo8(52)
+ 551 02e2 02E0      		ldi r16,lo8(2)
+ 552 02e4 0E94 0000 		call init_cat4016
+ 553               	.LM67:
+ 554 02e8 81E0      		ldi r24,lo8(1)
+ 555 02ea 67E3      		ldi r22,lo8(55)
+ 556 02ec 41E3      		ldi r20,lo8(49)
+ 557 02ee 25E3      		ldi r18,lo8(53)
+ 558 02f0 03E0      		ldi r16,lo8(3)
+ 559 02f2 0E94 0000 		call init_cat4016
+ 560               	.LM68:
+ 561 02f6 82E0      		ldi r24,lo8(2)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 11
+
+
+ 562 02f8 66E2      		ldi r22,lo8(38)
+ 563 02fa 40E2      		ldi r20,lo8(32)
+ 564 02fc 24E2      		ldi r18,lo8(36)
+ 565 02fe 02E0      		ldi r16,lo8(2)
+ 566 0300 0E94 0000 		call init_cat4016
+ 567               	.LM69:
+ 568 0304 83E0      		ldi r24,lo8(3)
+ 569 0306 67E2      		ldi r22,lo8(39)
+ 570 0308 41E2      		ldi r20,lo8(33)
+ 571 030a 25E2      		ldi r18,lo8(37)
+ 572 030c 03E0      		ldi r16,lo8(3)
+ 573 030e 0E94 0000 		call init_cat4016
+ 574               	.LM70:
+ 575 0312 80E0      		ldi r24,lo8(0)
+ 576 0314 61E0      		ldi r22,lo8(1)
+ 577 0316 42E0      		ldi r20,lo8(2)
+ 578 0318 23E0      		ldi r18,lo8(3)
+ 579 031a 04E0      		ldi r16,lo8(4)
+ 580 031c 0F2E      		mov __tmp_reg__,r31
+ 581 031e F5E0      		ldi r31,lo8(5)
+ 582 0320 EF2E      		mov r14,r31
+ 583 0322 F02D      		mov r31,__tmp_reg__
+ 584 0324 0F2E      		mov __tmp_reg__,r31
+ 585 0326 F6E0      		ldi r31,lo8(6)
+ 586 0328 CF2E      		mov r12,r31
+ 587 032a F02D      		mov r31,__tmp_reg__
+ 588 032c 0F2E      		mov __tmp_reg__,r31
+ 589 032e F7E0      		ldi r31,lo8(7)
+ 590 0330 AF2E      		mov r10,r31
+ 591 0332 F02D      		mov r31,__tmp_reg__
+ 592 0334 0E94 0000 		call init_4x4_keypad
+ 593               	.LM71:
+ 594 0338 1D86      		std Y+13,__zero_reg__
+ 595 033a 1C86      		std Y+12,__zero_reg__
+ 596               	.LM72:
+ 597 033c EBE3      		ldi r30,lo8(59)
+ 598 033e F0E0      		ldi r31,hi8(59)
+ 599 0340 8FEB      		ldi r24,lo8(-65)
+ 600 0342 8083      		st Z,r24
+ 601               	.L40:
+ 602               	.LM73:
+ 603 0344 0E94 0000 		call getc_4x4_keypad
+ 604 0348 882F      		mov r24,r24
+ 605 034a 90E0      		ldi r25,lo8(0)
+ 606 034c 9B87      		std Y+11,r25
+ 607 034e 8A87      		std Y+10,r24
+ 608               	.LM74:
+ 609 0350 8A85      		ldd r24,Y+10
+ 610 0352 9B85      		ldd r25,Y+11
+ 611 0354 FC01      		movw r30,r24
+ 612 0356 E050      		subi r30,lo8(-(mapping))
+ 613 0358 F040      		sbci r31,hi8(-(mapping))
+ 614 035a 8081      		ld r24,Z
+ 615 035c 882F      		mov r24,r24
+ 616 035e 90E0      		ldi r25,lo8(0)
+ 617 0360 9987      		std Y+9,r25
+ 618 0362 8887      		std Y+8,r24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 12
+
+
+ 619               	.LM75:
+ 620 0364 8885      		ldd r24,Y+8
+ 621 0366 9985      		ldd r25,Y+9
+ 622 0368 8F30      		cpi r24,15
+ 623 036a 9105      		cpc r25,__zero_reg__
+ 624 036c 01F4      		brne .L29
+ 625               	.LM76:
+ 626 036e 20E0      		ldi r18,lo8(.LC2)
+ 627 0370 30E0      		ldi r19,hi8(.LC2)
+ 628 0372 83E0      		ldi r24,lo8(3)
+ 629 0374 B901      		movw r22,r18
+ 630 0376 0E94 0000 		call cat4016_put_txt
+ 631               	.LM77:
+ 632 037a 82E0      		ldi r24,lo8(2)
+ 633 037c 0E94 0000 		call get_number
+ 634 0380 9A83      		std Y+2,r25
+ 635 0382 8983      		std Y+1,r24
+ 636               	.LM78:
+ 637 0384 8981      		ldd r24,Y+1
+ 638 0386 9A81      		ldd r25,Y+2
+ 639 0388 1816      		cp __zero_reg__,r24
+ 640 038a 1906      		cpc __zero_reg__,r25
+ 641 038c 04F4      		brge .L29
+ 642               	.LM79:
+ 643 038e 2981      		ldd r18,Y+1
+ 644 0390 3A81      		ldd r19,Y+2
+ 645 0392 81E0      		ldi r24,lo8(1)
+ 646 0394 B901      		movw r22,r18
+ 647 0396 0E94 0000 		call cat4016_put_unumber
+ 648               	.LM80:
+ 649 039a 0E94 0000 		call start_filling
+ 650               	.LM81:
+ 651 039e 81E0      		ldi r24,lo8(1)
+ 652 03a0 8E83      		std Y+6,r24
+ 653               	.L29:
+ 654               	.LM82:
+ 655 03a2 8885      		ldd r24,Y+8
+ 656 03a4 9985      		ldd r25,Y+9
+ 657 03a6 8E30      		cpi r24,14
+ 658 03a8 9105      		cpc r25,__zero_reg__
+ 659 03aa 01F4      		brne .L30
+ 660               	.LM83:
+ 661 03ac 20E0      		ldi r18,lo8(.LC3)
+ 662 03ae 30E0      		ldi r19,hi8(.LC3)
+ 663 03b0 83E0      		ldi r24,lo8(3)
+ 664 03b2 B901      		movw r22,r18
+ 665 03b4 0E94 0000 		call cat4016_put_txt
+ 666               	.LM84:
+ 667 03b8 82E0      		ldi r24,lo8(2)
+ 668 03ba 0E94 0000 		call get_number
+ 669 03be 9C83      		std Y+4,r25
+ 670 03c0 8B83      		std Y+3,r24
+ 671               	.LM85:
+ 672 03c2 8B81      		ldd r24,Y+3
+ 673 03c4 9C81      		ldd r25,Y+4
+ 674 03c6 1816      		cp __zero_reg__,r24
+ 675 03c8 1906      		cpc __zero_reg__,r25
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 13
+
+
+ 676 03ca 04F4      		brge .L30
+ 677               	.LM86:
+ 678 03cc 2B81      		ldd r18,Y+3
+ 679 03ce 3C81      		ldd r19,Y+4
+ 680 03d0 81E0      		ldi r24,lo8(1)
+ 681 03d2 B901      		movw r22,r18
+ 682 03d4 0E94 0000 		call cat4016_put_unumber
+ 683               	.LM87:
+ 684 03d8 81E0      		ldi r24,lo8(1)
+ 685 03da 8F83      		std Y+7,r24
+ 686               	.LM88:
+ 687 03dc 81E0      		ldi r24,lo8(1)
+ 688 03de 8D83      		std Y+5,r24
+ 689               	.LM89:
+ 690 03e0 0E94 0000 		call set_dir_left
+ 691               	.LM90:
+ 692 03e4 0E94 0000 		call start_winding
+ 693               	.L30:
+ 694               	.LM91:
+ 695 03e8 8885      		ldd r24,Y+8
+ 696 03ea 9985      		ldd r25,Y+9
+ 697 03ec 8E30      		cpi r24,14
+ 698 03ee 9105      		cpc r25,__zero_reg__
+ 699 03f0 01F4      		brne .L31
+ 700               	.LM92:
+ 701 03f2 20E0      		ldi r18,lo8(.LC4)
+ 702 03f4 30E0      		ldi r19,hi8(.LC4)
+ 703 03f6 83E0      		ldi r24,lo8(3)
+ 704 03f8 B901      		movw r22,r18
+ 705 03fa 0E94 0000 		call cat4016_put_txt
+ 706               	.LM93:
+ 707 03fe 82E0      		ldi r24,lo8(2)
+ 708 0400 0E94 0000 		call get_number
+ 709 0404 9C83      		std Y+4,r25
+ 710 0406 8B83      		std Y+3,r24
+ 711               	.LM94:
+ 712 0408 8B81      		ldd r24,Y+3
+ 713 040a 9C81      		ldd r25,Y+4
+ 714 040c 1816      		cp __zero_reg__,r24
+ 715 040e 1906      		cpc __zero_reg__,r25
+ 716 0410 04F4      		brge .L31
+ 717               	.LM95:
+ 718 0412 2B81      		ldd r18,Y+3
+ 719 0414 3C81      		ldd r19,Y+4
+ 720 0416 81E0      		ldi r24,lo8(1)
+ 721 0418 B901      		movw r22,r18
+ 722 041a 0E94 0000 		call cat4016_put_unumber
+ 723               	.LM96:
+ 724 041e 82E0      		ldi r24,lo8(2)
+ 725 0420 8F83      		std Y+7,r24
+ 726               	.LM97:
+ 727 0422 81E0      		ldi r24,lo8(1)
+ 728 0424 8D83      		std Y+5,r24
+ 729               	.LM98:
+ 730 0426 0E94 0000 		call set_dir_right
+ 731               	.LM99:
+ 732 042a 0E94 0000 		call start_winding
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 14
+
+
+ 733               	.L31:
+ 734               	.LM100:
+ 735 042e 8885      		ldd r24,Y+8
+ 736 0430 9985      		ldd r25,Y+9
+ 737 0432 8A30      		cpi r24,10
+ 738 0434 9105      		cpc r25,__zero_reg__
+ 739 0436 01F4      		brne .L32
+ 740 0438 8D81      		ldd r24,Y+5
+ 741 043a 8823      		tst r24
+ 742 043c 01F4      		brne .L33
+ 743 043e 8E81      		ldd r24,Y+6
+ 744 0440 8823      		tst r24
+ 745 0442 01F0      		breq .L32
+ 746               	.L33:
+ 747               	.LM101:
+ 748 0444 81E0      		ldi r24,lo8(1)
+ 749 0446 8F83      		std Y+7,r24
+ 750               	.LM102:
+ 751 0448 0E94 0000 		call set_dir_left
+ 752               	.L32:
+ 753               	.LM103:
+ 754 044c 8885      		ldd r24,Y+8
+ 755 044e 9985      		ldd r25,Y+9
+ 756 0450 8B30      		cpi r24,11
+ 757 0452 9105      		cpc r25,__zero_reg__
+ 758 0454 01F4      		brne .L34
+ 759 0456 8D81      		ldd r24,Y+5
+ 760 0458 8823      		tst r24
+ 761 045a 01F4      		brne .L35
+ 762 045c 8E81      		ldd r24,Y+6
+ 763 045e 8823      		tst r24
+ 764 0460 01F0      		breq .L34
+ 765               	.L35:
+ 766               	.LM104:
+ 767 0462 82E0      		ldi r24,lo8(2)
+ 768 0464 8F83      		std Y+7,r24
+ 769               	.LM105:
+ 770 0466 0E94 0000 		call set_dir_right
+ 771               	.L34:
+ 772               	.LM106:
+ 773 046a 8885      		ldd r24,Y+8
+ 774 046c 9985      		ldd r25,Y+9
+ 775 046e 8C30      		cpi r24,12
+ 776 0470 9105      		cpc r25,__zero_reg__
+ 777 0472 01F0      		breq .L36
+ 778 0474 8885      		ldd r24,Y+8
+ 779 0476 9985      		ldd r25,Y+9
+ 780 0478 0097      		sbiw r24,0
+ 781 047a 01F4      		brne .L37
+ 782               	.L36:
+ 783               	.LM107:
+ 784 047c 8E81      		ldd r24,Y+6
+ 785 047e 8823      		tst r24
+ 786 0480 01F0      		breq .L38
+ 787 0482 0E94 0000 		call stop_filling
+ 788               	.L38:
+ 789               	.LM108:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 15
+
+
+ 790 0486 8D81      		ldd r24,Y+5
+ 791 0488 8823      		tst r24
+ 792 048a 01F0      		breq .L37
+ 793 048c 0E94 0000 		call stop_winding
+ 794               	.L37:
+ 795               	.LM109:
+ 796 0490 8C85      		ldd r24,Y+12
+ 797 0492 9D85      		ldd r25,Y+13
+ 798 0494 0196      		adiw r24,1
+ 799 0496 9D87      		std Y+13,r25
+ 800 0498 8C87      		std Y+12,r24
+ 801               	.LM110:
+ 802 049a 8C85      		ldd r24,Y+12
+ 803 049c 9D85      		ldd r25,Y+13
+ 804 049e 27E2      		ldi r18,hi8(10000)
+ 805 04a0 8031      		cpi r24,lo8(10000)
+ 806 04a2 9207      		cpc r25,r18
+ 807 04a4 04F0      		brlt .L39
+ 808 04a6 1D86      		std Y+13,__zero_reg__
+ 809 04a8 1C86      		std Y+12,__zero_reg__
+ 810               	.L39:
+ 811               	.LM111:
+ 812 04aa 2885      		ldd r18,Y+8
+ 813 04ac 3985      		ldd r19,Y+9
+ 814 04ae 80E0      		ldi r24,lo8(0)
+ 815 04b0 B901      		movw r22,r18
+ 816 04b2 0E94 0000 		call cat4016_put_unumber
+ 817               	.LM112:
+ 818 04b6 2C85      		ldd r18,Y+12
+ 819 04b8 3D85      		ldd r19,Y+13
+ 820 04ba 81E0      		ldi r24,lo8(1)
+ 821 04bc B901      		movw r22,r18
+ 822 04be 0E94 0000 		call cat4016_put_unumber
+ 823 04c2 00C0      		rjmp .L40
+ 824               	.LFE9:
+ 825               		.size	main, .-main
+ 826               		.section	.debug_frame,"",@progbits
+ 827               	.Lframe0:
+ 828 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 829               	.LSCIE0:
+ 830 0004 FFFF FFFF 		.long	0xffffffff
+ 831 0008 01        		.byte	0x1
+ 832 0009 00        		.string	""
+ 833 000a 01        		.uleb128 0x1
+ 834 000b 7F        		.sleb128 -1
+ 835 000c 24        		.byte	0x24
+ 836 000d 0C        		.byte	0xc
+ 837 000e 20        		.uleb128 0x20
+ 838 000f 00        		.uleb128 0x0
+ 839               		.p2align	2
+ 840               	.LECIE0:
+ 841               	.LSFDE0:
+ 842 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 843               	.LASFDE0:
+ 844 0014 0000 0000 		.long	.Lframe0
+ 845 0018 0000 0000 		.long	.LFB2
+ 846 001c C601 0000 		.long	.LFE2-.LFB2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 16
+
+
+ 847               		.p2align	2
+ 848               	.LEFDE0:
+ 849               	.LSFDE2:
+ 850 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 851               	.LASFDE2:
+ 852 0024 0000 0000 		.long	.Lframe0
+ 853 0028 0000 0000 		.long	.LFB3
+ 854 002c 0E00 0000 		.long	.LFE3-.LFB3
+ 855               		.p2align	2
+ 856               	.LEFDE2:
+ 857               	.LSFDE4:
+ 858 0030 0C00 0000 		.long	.LEFDE4-.LASFDE4
+ 859               	.LASFDE4:
+ 860 0034 0000 0000 		.long	.Lframe0
+ 861 0038 0000 0000 		.long	.LFB4
+ 862 003c 0E00 0000 		.long	.LFE4-.LFB4
+ 863               		.p2align	2
+ 864               	.LEFDE4:
+ 865               	.LSFDE6:
+ 866 0040 0C00 0000 		.long	.LEFDE6-.LASFDE6
+ 867               	.LASFDE6:
+ 868 0044 0000 0000 		.long	.Lframe0
+ 869 0048 0000 0000 		.long	.LFB5
+ 870 004c 0E00 0000 		.long	.LFE5-.LFB5
+ 871               		.p2align	2
+ 872               	.LEFDE6:
+ 873               	.LSFDE8:
+ 874 0050 0C00 0000 		.long	.LEFDE8-.LASFDE8
+ 875               	.LASFDE8:
+ 876 0054 0000 0000 		.long	.Lframe0
+ 877 0058 0000 0000 		.long	.LFB6
+ 878 005c 0E00 0000 		.long	.LFE6-.LFB6
+ 879               		.p2align	2
+ 880               	.LEFDE8:
+ 881               	.LSFDE10:
+ 882 0060 0C00 0000 		.long	.LEFDE10-.LASFDE10
+ 883               	.LASFDE10:
+ 884 0064 0000 0000 		.long	.Lframe0
+ 885 0068 0000 0000 		.long	.LFB7
+ 886 006c 0E00 0000 		.long	.LFE7-.LFB7
+ 887               		.p2align	2
+ 888               	.LEFDE10:
+ 889               	.LSFDE12:
+ 890 0070 0C00 0000 		.long	.LEFDE12-.LASFDE12
+ 891               	.LASFDE12:
+ 892 0074 0000 0000 		.long	.Lframe0
+ 893 0078 0000 0000 		.long	.LFB8
+ 894 007c 0E00 0000 		.long	.LFE8-.LFB8
+ 895               		.p2align	2
+ 896               	.LEFDE12:
+ 897               	.LSFDE14:
+ 898 0080 0C00 0000 		.long	.LEFDE14-.LASFDE14
+ 899               	.LASFDE14:
+ 900 0084 0000 0000 		.long	.Lframe0
+ 901 0088 0000 0000 		.long	.LFB9
+ 902 008c AA02 0000 		.long	.LFE9-.LFB9
+ 903               		.p2align	2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 17
+
+
+ 904               	.LEFDE14:
+ 905               		.text
+ 906               	.Letext0:
+ 907               		.section	.debug_info
+ 908 0000 3302 0000 		.long	0x233
+ 909 0004 0200      		.word	0x2
+ 910 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 911 000a 04        		.byte	0x4
+ 912 000b 01        		.uleb128 0x1
+ 913 000c 0000 0000 		.long	.LASF21
+ 914 0010 01        		.byte	0x1
+ 915 0011 0000 0000 		.long	.LASF22
+ 916 0015 0000 0000 		.long	.LASF23
+ 917 0019 0000 0000 		.long	.Ltext0
+ 918 001d 0000 0000 		.long	.Letext0
+ 919 0021 0000 0000 		.long	.Ldebug_line0
+ 920 0025 02        		.uleb128 0x2
+ 921 0026 01        		.byte	0x1
+ 922 0027 06        		.byte	0x6
+ 923 0028 0000 0000 		.long	.LASF0
+ 924 002c 03        		.uleb128 0x3
+ 925 002d 0000 0000 		.long	.LASF24
+ 926 0031 02        		.byte	0x2
+ 927 0032 7A        		.byte	0x7a
+ 928 0033 3700 0000 		.long	0x37
+ 929 0037 02        		.uleb128 0x2
+ 930 0038 01        		.byte	0x1
+ 931 0039 08        		.byte	0x8
+ 932 003a 0000 0000 		.long	.LASF1
+ 933 003e 04        		.uleb128 0x4
+ 934 003f 02        		.byte	0x2
+ 935 0040 05        		.byte	0x5
+ 936 0041 696E 7400 		.string	"int"
+ 937 0045 02        		.uleb128 0x2
+ 938 0046 02        		.byte	0x2
+ 939 0047 07        		.byte	0x7
+ 940 0048 0000 0000 		.long	.LASF2
+ 941 004c 02        		.uleb128 0x2
+ 942 004d 04        		.byte	0x4
+ 943 004e 05        		.byte	0x5
+ 944 004f 0000 0000 		.long	.LASF3
+ 945 0053 02        		.uleb128 0x2
+ 946 0054 04        		.byte	0x4
+ 947 0055 07        		.byte	0x7
+ 948 0056 0000 0000 		.long	.LASF4
+ 949 005a 02        		.uleb128 0x2
+ 950 005b 08        		.byte	0x8
+ 951 005c 05        		.byte	0x5
+ 952 005d 0000 0000 		.long	.LASF5
+ 953 0061 02        		.uleb128 0x2
+ 954 0062 08        		.byte	0x8
+ 955 0063 07        		.byte	0x7
+ 956 0064 0000 0000 		.long	.LASF6
+ 957 0068 05        		.uleb128 0x5
+ 958 0069 01        		.byte	0x1
+ 959 006a 08        		.byte	0x8
+ 960 006b 06        		.uleb128 0x6
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 18
+
+
+ 961 006c 01        		.byte	0x1
+ 962 006d 0000 0000 		.long	.LASF14
+ 963 0071 01        		.byte	0x1
+ 964 0072 27        		.byte	0x27
+ 965 0073 01        		.byte	0x1
+ 966 0074 3E00 0000 		.long	0x3e
+ 967 0078 0000 0000 		.long	.LFB2
+ 968 007c 0000 0000 		.long	.LFE2
+ 969 0080 02        		.byte	0x2
+ 970 0081 90        		.byte	0x90
+ 971 0082 20        		.uleb128 0x20
+ 972 0083 F200 0000 		.long	0xf2
+ 973 0087 07        		.uleb128 0x7
+ 974 0088 0000 0000 		.long	.LASF25
+ 975 008c 01        		.byte	0x1
+ 976 008d 25        		.byte	0x25
+ 977 008e 2C00 0000 		.long	0x2c
+ 978 0092 02        		.byte	0x2
+ 979 0093 8C        		.byte	0x8c
+ 980 0094 0A        		.sleb128 10
+ 981 0095 08        		.uleb128 0x8
+ 982 0096 6E75 6D00 		.string	"num"
+ 983 009a 01        		.byte	0x1
+ 984 009b 28        		.byte	0x28
+ 985 009c 3E00 0000 		.long	0x3e
+ 986 00a0 02        		.byte	0x2
+ 987 00a1 8C        		.byte	0x8c
+ 988 00a2 08        		.sleb128 8
+ 989 00a3 08        		.uleb128 0x8
+ 990 00a4 6300      		.string	"c"
+ 991 00a6 01        		.byte	0x1
+ 992 00a7 28        		.byte	0x28
+ 993 00a8 3E00 0000 		.long	0x3e
+ 994 00ac 02        		.byte	0x2
+ 995 00ad 8C        		.byte	0x8c
+ 996 00ae 06        		.sleb128 6
+ 997 00af 08        		.uleb128 0x8
+ 998 00b0 6430 00   		.string	"d0"
+ 999 00b3 01        		.byte	0x1
+ 1000 00b4 29        		.byte	0x29
+ 1001 00b5 2C00 0000 		.long	0x2c
+ 1002 00b9 02        		.byte	0x2
+ 1003 00ba 8C        		.byte	0x8c
+ 1004 00bb 05        		.sleb128 5
+ 1005 00bc 08        		.uleb128 0x8
+ 1006 00bd 6431 00   		.string	"d1"
+ 1007 00c0 01        		.byte	0x1
+ 1008 00c1 29        		.byte	0x29
+ 1009 00c2 2C00 0000 		.long	0x2c
+ 1010 00c6 02        		.byte	0x2
+ 1011 00c7 8C        		.byte	0x8c
+ 1012 00c8 04        		.sleb128 4
+ 1013 00c9 08        		.uleb128 0x8
+ 1014 00ca 6432 00   		.string	"d2"
+ 1015 00cd 01        		.byte	0x1
+ 1016 00ce 29        		.byte	0x29
+ 1017 00cf 2C00 0000 		.long	0x2c
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 19
+
+
+ 1018 00d3 02        		.byte	0x2
+ 1019 00d4 8C        		.byte	0x8c
+ 1020 00d5 03        		.sleb128 3
+ 1021 00d6 08        		.uleb128 0x8
+ 1022 00d7 6433 00   		.string	"d3"
+ 1023 00da 01        		.byte	0x1
+ 1024 00db 29        		.byte	0x29
+ 1025 00dc 2C00 0000 		.long	0x2c
+ 1026 00e0 02        		.byte	0x2
+ 1027 00e1 8C        		.byte	0x8c
+ 1028 00e2 02        		.sleb128 2
+ 1029 00e3 09        		.uleb128 0x9
+ 1030 00e4 0000 0000 		.long	.LASF7
+ 1031 00e8 01        		.byte	0x1
+ 1032 00e9 29        		.byte	0x29
+ 1033 00ea 2C00 0000 		.long	0x2c
+ 1034 00ee 02        		.byte	0x2
+ 1035 00ef 8C        		.byte	0x8c
+ 1036 00f0 01        		.sleb128 1
+ 1037 00f1 00        		.byte	0x0
+ 1038 00f2 0A        		.uleb128 0xa
+ 1039 00f3 01        		.byte	0x1
+ 1040 00f4 0000 0000 		.long	.LASF8
+ 1041 00f8 01        		.byte	0x1
+ 1042 00f9 60        		.byte	0x60
+ 1043 00fa 01        		.byte	0x1
+ 1044 00fb 0000 0000 		.long	.LFB3
+ 1045 00ff 0000 0000 		.long	.LFE3
+ 1046 0103 02        		.byte	0x2
+ 1047 0104 90        		.byte	0x90
+ 1048 0105 20        		.uleb128 0x20
+ 1049 0106 0A        		.uleb128 0xa
+ 1050 0107 01        		.byte	0x1
+ 1051 0108 0000 0000 		.long	.LASF9
+ 1052 010c 01        		.byte	0x1
+ 1053 010d 66        		.byte	0x66
+ 1054 010e 01        		.byte	0x1
+ 1055 010f 0000 0000 		.long	.LFB4
+ 1056 0113 0000 0000 		.long	.LFE4
+ 1057 0117 02        		.byte	0x2
+ 1058 0118 90        		.byte	0x90
+ 1059 0119 20        		.uleb128 0x20
+ 1060 011a 0A        		.uleb128 0xa
+ 1061 011b 01        		.byte	0x1
+ 1062 011c 0000 0000 		.long	.LASF10
+ 1063 0120 01        		.byte	0x1
+ 1064 0121 6C        		.byte	0x6c
+ 1065 0122 01        		.byte	0x1
+ 1066 0123 0000 0000 		.long	.LFB5
+ 1067 0127 0000 0000 		.long	.LFE5
+ 1068 012b 02        		.byte	0x2
+ 1069 012c 90        		.byte	0x90
+ 1070 012d 20        		.uleb128 0x20
+ 1071 012e 0A        		.uleb128 0xa
+ 1072 012f 01        		.byte	0x1
+ 1073 0130 0000 0000 		.long	.LASF11
+ 1074 0134 01        		.byte	0x1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 20
+
+
+ 1075 0135 71        		.byte	0x71
+ 1076 0136 01        		.byte	0x1
+ 1077 0137 0000 0000 		.long	.LFB6
+ 1078 013b 0000 0000 		.long	.LFE6
+ 1079 013f 02        		.byte	0x2
+ 1080 0140 90        		.byte	0x90
+ 1081 0141 20        		.uleb128 0x20
+ 1082 0142 0A        		.uleb128 0xa
+ 1083 0143 01        		.byte	0x1
+ 1084 0144 0000 0000 		.long	.LASF12
+ 1085 0148 01        		.byte	0x1
+ 1086 0149 76        		.byte	0x76
+ 1087 014a 01        		.byte	0x1
+ 1088 014b 0000 0000 		.long	.LFB7
+ 1089 014f 0000 0000 		.long	.LFE7
+ 1090 0153 02        		.byte	0x2
+ 1091 0154 90        		.byte	0x90
+ 1092 0155 20        		.uleb128 0x20
+ 1093 0156 0A        		.uleb128 0xa
+ 1094 0157 01        		.byte	0x1
+ 1095 0158 0000 0000 		.long	.LASF13
+ 1096 015c 01        		.byte	0x1
+ 1097 015d 7B        		.byte	0x7b
+ 1098 015e 01        		.byte	0x1
+ 1099 015f 0000 0000 		.long	.LFB8
+ 1100 0163 0000 0000 		.long	.LFE8
+ 1101 0167 02        		.byte	0x2
+ 1102 0168 90        		.byte	0x90
+ 1103 0169 20        		.uleb128 0x20
+ 1104 016a 06        		.uleb128 0x6
+ 1105 016b 01        		.byte	0x1
+ 1106 016c 0000 0000 		.long	.LASF15
+ 1107 0170 01        		.byte	0x1
+ 1108 0171 7F        		.byte	0x7f
+ 1109 0172 01        		.byte	0x1
+ 1110 0173 3E00 0000 		.long	0x3e
+ 1111 0177 0000 0000 		.long	.LFB9
+ 1112 017b 0000 0000 		.long	.LFE9
+ 1113 017f 02        		.byte	0x2
+ 1114 0180 90        		.byte	0x90
+ 1115 0181 20        		.uleb128 0x20
+ 1116 0182 0102 0000 		.long	0x201
+ 1117 0186 08        		.uleb128 0x8
+ 1118 0187 6A00      		.string	"j"
+ 1119 0189 01        		.byte	0x1
+ 1120 018a 81        		.byte	0x81
+ 1121 018b 3E00 0000 		.long	0x3e
+ 1122 018f 02        		.byte	0x2
+ 1123 0190 8C        		.byte	0x8c
+ 1124 0191 0C        		.sleb128 12
+ 1125 0192 08        		.uleb128 0x8
+ 1126 0193 6300      		.string	"c"
+ 1127 0195 01        		.byte	0x1
+ 1128 0196 81        		.byte	0x81
+ 1129 0197 3E00 0000 		.long	0x3e
+ 1130 019b 02        		.byte	0x2
+ 1131 019c 8C        		.byte	0x8c
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 21
+
+
+ 1132 019d 0A        		.sleb128 10
+ 1133 019e 08        		.uleb128 0x8
+ 1134 019f 6E75 6D00 		.string	"num"
+ 1135 01a3 01        		.byte	0x1
+ 1136 01a4 81        		.byte	0x81
+ 1137 01a5 3E00 0000 		.long	0x3e
+ 1138 01a9 02        		.byte	0x2
+ 1139 01aa 8C        		.byte	0x8c
+ 1140 01ab 08        		.sleb128 8
+ 1141 01ac 08        		.uleb128 0x8
+ 1142 01ad 6469 7200 		.string	"dir"
+ 1143 01b1 01        		.byte	0x1
+ 1144 01b2 82        		.byte	0x82
+ 1145 01b3 2C00 0000 		.long	0x2c
+ 1146 01b7 02        		.byte	0x2
+ 1147 01b8 8C        		.byte	0x8c
+ 1148 01b9 07        		.sleb128 7
+ 1149 01ba 09        		.uleb128 0x9
+ 1150 01bb 0000 0000 		.long	.LASF16
+ 1151 01bf 01        		.byte	0x1
+ 1152 01c0 82        		.byte	0x82
+ 1153 01c1 2C00 0000 		.long	0x2c
+ 1154 01c5 02        		.byte	0x2
+ 1155 01c6 8C        		.byte	0x8c
+ 1156 01c7 06        		.sleb128 6
+ 1157 01c8 09        		.uleb128 0x9
+ 1158 01c9 0000 0000 		.long	.LASF17
+ 1159 01cd 01        		.byte	0x1
+ 1160 01ce 82        		.byte	0x82
+ 1161 01cf 2C00 0000 		.long	0x2c
+ 1162 01d3 02        		.byte	0x2
+ 1163 01d4 8C        		.byte	0x8c
+ 1164 01d5 05        		.sleb128 5
+ 1165 01d6 09        		.uleb128 0x9
+ 1166 01d7 0000 0000 		.long	.LASF18
+ 1167 01db 01        		.byte	0x1
+ 1168 01dc 83        		.byte	0x83
+ 1169 01dd 3E00 0000 		.long	0x3e
+ 1170 01e1 02        		.byte	0x2
+ 1171 01e2 8C        		.byte	0x8c
+ 1172 01e3 03        		.sleb128 3
+ 1173 01e4 09        		.uleb128 0x9
+ 1174 01e5 0000 0000 		.long	.LASF19
+ 1175 01e9 01        		.byte	0x1
+ 1176 01ea 83        		.byte	0x83
+ 1177 01eb 3E00 0000 		.long	0x3e
+ 1178 01ef 02        		.byte	0x2
+ 1179 01f0 8C        		.byte	0x8c
+ 1180 01f1 01        		.sleb128 1
+ 1181 01f2 09        		.uleb128 0x9
+ 1182 01f3 0000 0000 		.long	.LASF20
+ 1183 01f7 01        		.byte	0x1
+ 1184 01f8 84        		.byte	0x84
+ 1185 01f9 0102 0000 		.long	0x201
+ 1186 01fd 02        		.byte	0x2
+ 1187 01fe 8C        		.byte	0x8c
+ 1188 01ff 0E        		.sleb128 14
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 22
+
+
+ 1189 0200 00        		.byte	0x0
+ 1190 0201 0B        		.uleb128 0xb
+ 1191 0202 3E00 0000 		.long	0x3e
+ 1192 0206 1102 0000 		.long	0x211
+ 1193 020a 0C        		.uleb128 0xc
+ 1194 020b 1102 0000 		.long	0x211
+ 1195 020f 07        		.byte	0x7
+ 1196 0210 00        		.byte	0x0
+ 1197 0211 05        		.uleb128 0x5
+ 1198 0212 02        		.byte	0x2
+ 1199 0213 07        		.byte	0x7
+ 1200 0214 0B        		.uleb128 0xb
+ 1201 0215 2C00 0000 		.long	0x2c
+ 1202 0219 2402 0000 		.long	0x224
+ 1203 021d 0C        		.uleb128 0xc
+ 1204 021e 1102 0000 		.long	0x211
+ 1205 0222 10        		.byte	0x10
+ 1206 0223 00        		.byte	0x0
+ 1207 0224 0D        		.uleb128 0xd
+ 1208 0225 0000 0000 		.long	.LASF26
+ 1209 0229 01        		.byte	0x1
+ 1210 022a 21        		.byte	0x21
+ 1211 022b 1402 0000 		.long	0x214
+ 1212 022f 01        		.byte	0x1
+ 1213 0230 05        		.byte	0x5
+ 1214 0231 03        		.byte	0x3
+ 1215 0232 0000 0000 		.long	mapping
+ 1216 0236 00        		.byte	0x0
+ 1217               		.section	.debug_abbrev
+ 1218 0000 01        		.uleb128 0x1
+ 1219 0001 11        		.uleb128 0x11
+ 1220 0002 01        		.byte	0x1
+ 1221 0003 25        		.uleb128 0x25
+ 1222 0004 0E        		.uleb128 0xe
+ 1223 0005 13        		.uleb128 0x13
+ 1224 0006 0B        		.uleb128 0xb
+ 1225 0007 03        		.uleb128 0x3
+ 1226 0008 0E        		.uleb128 0xe
+ 1227 0009 1B        		.uleb128 0x1b
+ 1228 000a 0E        		.uleb128 0xe
+ 1229 000b 11        		.uleb128 0x11
+ 1230 000c 01        		.uleb128 0x1
+ 1231 000d 12        		.uleb128 0x12
+ 1232 000e 01        		.uleb128 0x1
+ 1233 000f 10        		.uleb128 0x10
+ 1234 0010 06        		.uleb128 0x6
+ 1235 0011 00        		.byte	0x0
+ 1236 0012 00        		.byte	0x0
+ 1237 0013 02        		.uleb128 0x2
+ 1238 0014 24        		.uleb128 0x24
+ 1239 0015 00        		.byte	0x0
+ 1240 0016 0B        		.uleb128 0xb
+ 1241 0017 0B        		.uleb128 0xb
+ 1242 0018 3E        		.uleb128 0x3e
+ 1243 0019 0B        		.uleb128 0xb
+ 1244 001a 03        		.uleb128 0x3
+ 1245 001b 0E        		.uleb128 0xe
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 23
+
+
+ 1246 001c 00        		.byte	0x0
+ 1247 001d 00        		.byte	0x0
+ 1248 001e 03        		.uleb128 0x3
+ 1249 001f 16        		.uleb128 0x16
+ 1250 0020 00        		.byte	0x0
+ 1251 0021 03        		.uleb128 0x3
+ 1252 0022 0E        		.uleb128 0xe
+ 1253 0023 3A        		.uleb128 0x3a
+ 1254 0024 0B        		.uleb128 0xb
+ 1255 0025 3B        		.uleb128 0x3b
+ 1256 0026 0B        		.uleb128 0xb
+ 1257 0027 49        		.uleb128 0x49
+ 1258 0028 13        		.uleb128 0x13
+ 1259 0029 00        		.byte	0x0
+ 1260 002a 00        		.byte	0x0
+ 1261 002b 04        		.uleb128 0x4
+ 1262 002c 24        		.uleb128 0x24
+ 1263 002d 00        		.byte	0x0
+ 1264 002e 0B        		.uleb128 0xb
+ 1265 002f 0B        		.uleb128 0xb
+ 1266 0030 3E        		.uleb128 0x3e
+ 1267 0031 0B        		.uleb128 0xb
+ 1268 0032 03        		.uleb128 0x3
+ 1269 0033 08        		.uleb128 0x8
+ 1270 0034 00        		.byte	0x0
+ 1271 0035 00        		.byte	0x0
+ 1272 0036 05        		.uleb128 0x5
+ 1273 0037 24        		.uleb128 0x24
+ 1274 0038 00        		.byte	0x0
+ 1275 0039 0B        		.uleb128 0xb
+ 1276 003a 0B        		.uleb128 0xb
+ 1277 003b 3E        		.uleb128 0x3e
+ 1278 003c 0B        		.uleb128 0xb
+ 1279 003d 00        		.byte	0x0
+ 1280 003e 00        		.byte	0x0
+ 1281 003f 06        		.uleb128 0x6
+ 1282 0040 2E        		.uleb128 0x2e
+ 1283 0041 01        		.byte	0x1
+ 1284 0042 3F        		.uleb128 0x3f
+ 1285 0043 0C        		.uleb128 0xc
+ 1286 0044 03        		.uleb128 0x3
+ 1287 0045 0E        		.uleb128 0xe
+ 1288 0046 3A        		.uleb128 0x3a
+ 1289 0047 0B        		.uleb128 0xb
+ 1290 0048 3B        		.uleb128 0x3b
+ 1291 0049 0B        		.uleb128 0xb
+ 1292 004a 27        		.uleb128 0x27
+ 1293 004b 0C        		.uleb128 0xc
+ 1294 004c 49        		.uleb128 0x49
+ 1295 004d 13        		.uleb128 0x13
+ 1296 004e 11        		.uleb128 0x11
+ 1297 004f 01        		.uleb128 0x1
+ 1298 0050 12        		.uleb128 0x12
+ 1299 0051 01        		.uleb128 0x1
+ 1300 0052 40        		.uleb128 0x40
+ 1301 0053 0A        		.uleb128 0xa
+ 1302 0054 01        		.uleb128 0x1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 24
+
+
+ 1303 0055 13        		.uleb128 0x13
+ 1304 0056 00        		.byte	0x0
+ 1305 0057 00        		.byte	0x0
+ 1306 0058 07        		.uleb128 0x7
+ 1307 0059 05        		.uleb128 0x5
+ 1308 005a 00        		.byte	0x0
+ 1309 005b 03        		.uleb128 0x3
+ 1310 005c 0E        		.uleb128 0xe
+ 1311 005d 3A        		.uleb128 0x3a
+ 1312 005e 0B        		.uleb128 0xb
+ 1313 005f 3B        		.uleb128 0x3b
+ 1314 0060 0B        		.uleb128 0xb
+ 1315 0061 49        		.uleb128 0x49
+ 1316 0062 13        		.uleb128 0x13
+ 1317 0063 02        		.uleb128 0x2
+ 1318 0064 0A        		.uleb128 0xa
+ 1319 0065 00        		.byte	0x0
+ 1320 0066 00        		.byte	0x0
+ 1321 0067 08        		.uleb128 0x8
+ 1322 0068 34        		.uleb128 0x34
+ 1323 0069 00        		.byte	0x0
+ 1324 006a 03        		.uleb128 0x3
+ 1325 006b 08        		.uleb128 0x8
+ 1326 006c 3A        		.uleb128 0x3a
+ 1327 006d 0B        		.uleb128 0xb
+ 1328 006e 3B        		.uleb128 0x3b
+ 1329 006f 0B        		.uleb128 0xb
+ 1330 0070 49        		.uleb128 0x49
+ 1331 0071 13        		.uleb128 0x13
+ 1332 0072 02        		.uleb128 0x2
+ 1333 0073 0A        		.uleb128 0xa
+ 1334 0074 00        		.byte	0x0
+ 1335 0075 00        		.byte	0x0
+ 1336 0076 09        		.uleb128 0x9
+ 1337 0077 34        		.uleb128 0x34
+ 1338 0078 00        		.byte	0x0
+ 1339 0079 03        		.uleb128 0x3
+ 1340 007a 0E        		.uleb128 0xe
+ 1341 007b 3A        		.uleb128 0x3a
+ 1342 007c 0B        		.uleb128 0xb
+ 1343 007d 3B        		.uleb128 0x3b
+ 1344 007e 0B        		.uleb128 0xb
+ 1345 007f 49        		.uleb128 0x49
+ 1346 0080 13        		.uleb128 0x13
+ 1347 0081 02        		.uleb128 0x2
+ 1348 0082 0A        		.uleb128 0xa
+ 1349 0083 00        		.byte	0x0
+ 1350 0084 00        		.byte	0x0
+ 1351 0085 0A        		.uleb128 0xa
+ 1352 0086 2E        		.uleb128 0x2e
+ 1353 0087 00        		.byte	0x0
+ 1354 0088 3F        		.uleb128 0x3f
+ 1355 0089 0C        		.uleb128 0xc
+ 1356 008a 03        		.uleb128 0x3
+ 1357 008b 0E        		.uleb128 0xe
+ 1358 008c 3A        		.uleb128 0x3a
+ 1359 008d 0B        		.uleb128 0xb
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 25
+
+
+ 1360 008e 3B        		.uleb128 0x3b
+ 1361 008f 0B        		.uleb128 0xb
+ 1362 0090 27        		.uleb128 0x27
+ 1363 0091 0C        		.uleb128 0xc
+ 1364 0092 11        		.uleb128 0x11
+ 1365 0093 01        		.uleb128 0x1
+ 1366 0094 12        		.uleb128 0x12
+ 1367 0095 01        		.uleb128 0x1
+ 1368 0096 40        		.uleb128 0x40
+ 1369 0097 0A        		.uleb128 0xa
+ 1370 0098 00        		.byte	0x0
+ 1371 0099 00        		.byte	0x0
+ 1372 009a 0B        		.uleb128 0xb
+ 1373 009b 01        		.uleb128 0x1
+ 1374 009c 01        		.byte	0x1
+ 1375 009d 49        		.uleb128 0x49
+ 1376 009e 13        		.uleb128 0x13
+ 1377 009f 01        		.uleb128 0x1
+ 1378 00a0 13        		.uleb128 0x13
+ 1379 00a1 00        		.byte	0x0
+ 1380 00a2 00        		.byte	0x0
+ 1381 00a3 0C        		.uleb128 0xc
+ 1382 00a4 21        		.uleb128 0x21
+ 1383 00a5 00        		.byte	0x0
+ 1384 00a6 49        		.uleb128 0x49
+ 1385 00a7 13        		.uleb128 0x13
+ 1386 00a8 2F        		.uleb128 0x2f
+ 1387 00a9 0B        		.uleb128 0xb
+ 1388 00aa 00        		.byte	0x0
+ 1389 00ab 00        		.byte	0x0
+ 1390 00ac 0D        		.uleb128 0xd
+ 1391 00ad 34        		.uleb128 0x34
+ 1392 00ae 00        		.byte	0x0
+ 1393 00af 03        		.uleb128 0x3
+ 1394 00b0 0E        		.uleb128 0xe
+ 1395 00b1 3A        		.uleb128 0x3a
+ 1396 00b2 0B        		.uleb128 0xb
+ 1397 00b3 3B        		.uleb128 0x3b
+ 1398 00b4 0B        		.uleb128 0xb
+ 1399 00b5 49        		.uleb128 0x49
+ 1400 00b6 13        		.uleb128 0x13
+ 1401 00b7 3F        		.uleb128 0x3f
+ 1402 00b8 0C        		.uleb128 0xc
+ 1403 00b9 02        		.uleb128 0x2
+ 1404 00ba 0A        		.uleb128 0xa
+ 1405 00bb 00        		.byte	0x0
+ 1406 00bc 00        		.byte	0x0
+ 1407 00bd 00        		.byte	0x0
+ 1408               		.section	.debug_pubnames,"",@progbits
+ 1409 0000 9B00 0000 		.long	0x9b
+ 1410 0004 0200      		.word	0x2
+ 1411 0006 0000 0000 		.long	.Ldebug_info0
+ 1412 000a 3702 0000 		.long	0x237
+ 1413 000e 6B00 0000 		.long	0x6b
+ 1414 0012 6765 745F 		.string	"get_number"
+ 1414      6E75 6D62 
+ 1414      6572 00
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 26
+
+
+ 1415 001d F200 0000 		.long	0xf2
+ 1416 0021 7365 745F 		.string	"set_dir_left"
+ 1416      6469 725F 
+ 1416      6C65 6674 
+ 1416      00
+ 1417 002e 0601 0000 		.long	0x106
+ 1418 0032 7365 745F 		.string	"set_dir_right"
+ 1418      6469 725F 
+ 1418      7269 6768 
+ 1418      7400 
+ 1419 0040 1A01 0000 		.long	0x11a
+ 1420 0044 7374 6172 		.string	"start_winding"
+ 1420      745F 7769 
+ 1420      6E64 696E 
+ 1420      6700 
+ 1421 0052 2E01 0000 		.long	0x12e
+ 1422 0056 7374 6F70 		.string	"stop_winding"
+ 1422      5F77 696E 
+ 1422      6469 6E67 
+ 1422      00
+ 1423 0063 4201 0000 		.long	0x142
+ 1424 0067 7374 6172 		.string	"start_filling"
+ 1424      745F 6669 
+ 1424      6C6C 696E 
+ 1424      6700 
+ 1425 0075 5601 0000 		.long	0x156
+ 1426 0079 7374 6F70 		.string	"stop_filling"
+ 1426      5F66 696C 
+ 1426      6C69 6E67 
+ 1426      00
+ 1427 0086 6A01 0000 		.long	0x16a
+ 1428 008a 6D61 696E 		.string	"main"
+ 1428      00
+ 1429 008f 2402 0000 		.long	0x224
+ 1430 0093 6D61 7070 		.string	"mapping"
+ 1430      696E 6700 
+ 1431 009b 0000 0000 		.long	0x0
+ 1432               		.section	.debug_aranges,"",@progbits
+ 1433 0000 1C00 0000 		.long	0x1c
+ 1434 0004 0200      		.word	0x2
+ 1435 0006 0000 0000 		.long	.Ldebug_info0
+ 1436 000a 04        		.byte	0x4
+ 1437 000b 00        		.byte	0x0
+ 1438 000c 0000      		.word	0x0
+ 1439 000e 0000      		.word	0x0
+ 1440 0010 0000 0000 		.long	.Ltext0
+ 1441 0014 C404 0000 		.long	.Letext0-.Ltext0
+ 1442 0018 0000 0000 		.long	0x0
+ 1443 001c 0000 0000 		.long	0x0
+ 1444               		.section	.debug_line
+ 1445 0000 E303 0000 		.long	.LELT0-.LSLT0
+ 1446               	.LSLT0:
+ 1447 0004 0200      		.word	0x2
+ 1448 0006 5300 0000 		.long	.LELTP0-.LASLTP0
+ 1449               	.LASLTP0:
+ 1450 000a 01        		.byte	0x1
+ 1451 000b 01        		.byte	0x1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 27
+
+
+ 1452 000c F6        		.byte	0xf6
+ 1453 000d F5        		.byte	0xf5
+ 1454 000e 0A        		.byte	0xa
+ 1455 000f 00        		.byte	0x0
+ 1456 0010 01        		.byte	0x1
+ 1457 0011 01        		.byte	0x1
+ 1458 0012 01        		.byte	0x1
+ 1459 0013 01        		.byte	0x1
+ 1460 0014 00        		.byte	0x0
+ 1461 0015 00        		.byte	0x0
+ 1462 0016 00        		.byte	0x0
+ 1463 0017 01        		.byte	0x1
+ 1464 0018 633A 2F77 		.ascii	"c:/winavr-20100110/lib/gcc/../../avr/include"
+ 1464      696E 6176 
+ 1464      722D 3230 
+ 1464      3130 3031 
+ 1464      3130 2F6C 
+ 1465 0044 00        		.byte	0
+ 1466 0045 00        		.byte	0x0
+ 1467 0046 6D61 696E 		.string	"main.c"
+ 1467      2E63 00
+ 1468 004d 00        		.uleb128 0x0
+ 1469 004e 00        		.uleb128 0x0
+ 1470 004f 00        		.uleb128 0x0
+ 1471 0050 7374 6469 		.string	"stdint.h"
+ 1471      6E74 2E68 
+ 1471      00
+ 1472 0059 01        		.uleb128 0x1
+ 1473 005a 00        		.uleb128 0x0
+ 1474 005b 00        		.uleb128 0x0
+ 1475 005c 00        		.byte	0x0
+ 1476               	.LELTP0:
+ 1477 005d 00        		.byte	0x0
+ 1478 005e 05        		.uleb128 0x5
+ 1479 005f 02        		.byte	0x2
+ 1480 0060 0000 0000 		.long	.LM1
+ 1481 0064 3A        		.byte	0x3a
+ 1482 0065 00        		.byte	0x0
+ 1483 0066 05        		.uleb128 0x5
+ 1484 0067 02        		.byte	0x2
+ 1485 0068 0000 0000 		.long	.LM2
+ 1486 006c 18        		.byte	0x18
+ 1487 006d 00        		.byte	0x0
+ 1488 006e 05        		.uleb128 0x5
+ 1489 006f 02        		.byte	0x2
+ 1490 0070 0000 0000 		.long	.LM3
+ 1491 0074 15        		.byte	0x15
+ 1492 0075 00        		.byte	0x0
+ 1493 0076 05        		.uleb128 0x5
+ 1494 0077 02        		.byte	0x2
+ 1495 0078 0000 0000 		.long	.LM4
+ 1496 007c 15        		.byte	0x15
+ 1497 007d 00        		.byte	0x0
+ 1498 007e 05        		.uleb128 0x5
+ 1499 007f 02        		.byte	0x2
+ 1500 0080 0000 0000 		.long	.LM5
+ 1501 0084 15        		.byte	0x15
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 28
+
+
+ 1502 0085 00        		.byte	0x0
+ 1503 0086 05        		.uleb128 0x5
+ 1504 0087 02        		.byte	0x2
+ 1505 0088 0000 0000 		.long	.LM6
+ 1506 008c 15        		.byte	0x15
+ 1507 008d 00        		.byte	0x0
+ 1508 008e 05        		.uleb128 0x5
+ 1509 008f 02        		.byte	0x2
+ 1510 0090 0000 0000 		.long	.LM7
+ 1511 0094 16        		.byte	0x16
+ 1512 0095 00        		.byte	0x0
+ 1513 0096 05        		.uleb128 0x5
+ 1514 0097 02        		.byte	0x2
+ 1515 0098 0000 0000 		.long	.LM8
+ 1516 009c 15        		.byte	0x15
+ 1517 009d 00        		.byte	0x0
+ 1518 009e 05        		.uleb128 0x5
+ 1519 009f 02        		.byte	0x2
+ 1520 00a0 0000 0000 		.long	.LM9
+ 1521 00a4 16        		.byte	0x16
+ 1522 00a5 00        		.byte	0x0
+ 1523 00a6 05        		.uleb128 0x5
+ 1524 00a7 02        		.byte	0x2
+ 1525 00a8 0000 0000 		.long	.LM10
+ 1526 00ac 15        		.byte	0x15
+ 1527 00ad 00        		.byte	0x0
+ 1528 00ae 05        		.uleb128 0x5
+ 1529 00af 02        		.byte	0x2
+ 1530 00b0 0000 0000 		.long	.LM11
+ 1531 00b4 12        		.byte	0x12
+ 1532 00b5 00        		.byte	0x0
+ 1533 00b6 05        		.uleb128 0x5
+ 1534 00b7 02        		.byte	0x2
+ 1535 00b8 0000 0000 		.long	.LM12
+ 1536 00bc 1D        		.byte	0x1d
+ 1537 00bd 00        		.byte	0x0
+ 1538 00be 05        		.uleb128 0x5
+ 1539 00bf 02        		.byte	0x2
+ 1540 00c0 0000 0000 		.long	.LM13
+ 1541 00c4 15        		.byte	0x15
+ 1542 00c5 00        		.byte	0x0
+ 1543 00c6 05        		.uleb128 0x5
+ 1544 00c7 02        		.byte	0x2
+ 1545 00c8 0000 0000 		.long	.LM14
+ 1546 00cc 15        		.byte	0x15
+ 1547 00cd 00        		.byte	0x0
+ 1548 00ce 05        		.uleb128 0x5
+ 1549 00cf 02        		.byte	0x2
+ 1550 00d0 0000 0000 		.long	.LM15
+ 1551 00d4 10        		.byte	0x10
+ 1552 00d5 00        		.byte	0x0
+ 1553 00d6 05        		.uleb128 0x5
+ 1554 00d7 02        		.byte	0x2
+ 1555 00d8 0000 0000 		.long	.LM16
+ 1556 00dc 1A        		.byte	0x1a
+ 1557 00dd 00        		.byte	0x0
+ 1558 00de 05        		.uleb128 0x5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 29
+
+
+ 1559 00df 02        		.byte	0x2
+ 1560 00e0 0000 0000 		.long	.LM17
+ 1561 00e4 15        		.byte	0x15
+ 1562 00e5 00        		.byte	0x0
+ 1563 00e6 05        		.uleb128 0x5
+ 1564 00e7 02        		.byte	0x2
+ 1565 00e8 0000 0000 		.long	.LM18
+ 1566 00ec 15        		.byte	0x15
+ 1567 00ed 00        		.byte	0x0
+ 1568 00ee 05        		.uleb128 0x5
+ 1569 00ef 02        		.byte	0x2
+ 1570 00f0 0000 0000 		.long	.LM19
+ 1571 00f4 15        		.byte	0x15
+ 1572 00f5 00        		.byte	0x0
+ 1573 00f6 05        		.uleb128 0x5
+ 1574 00f7 02        		.byte	0x2
+ 1575 00f8 0000 0000 		.long	.LM20
+ 1576 00fc 15        		.byte	0x15
+ 1577 00fd 00        		.byte	0x0
+ 1578 00fe 05        		.uleb128 0x5
+ 1579 00ff 02        		.byte	0x2
+ 1580 0100 0000 0000 		.long	.LM21
+ 1581 0104 16        		.byte	0x16
+ 1582 0105 00        		.byte	0x0
+ 1583 0106 05        		.uleb128 0x5
+ 1584 0107 02        		.byte	0x2
+ 1585 0108 0000 0000 		.long	.LM22
+ 1586 010c 15        		.byte	0x15
+ 1587 010d 00        		.byte	0x0
+ 1588 010e 05        		.uleb128 0x5
+ 1589 010f 02        		.byte	0x2
+ 1590 0110 0000 0000 		.long	.LM23
+ 1591 0114 15        		.byte	0x15
+ 1592 0115 00        		.byte	0x0
+ 1593 0116 05        		.uleb128 0x5
+ 1594 0117 02        		.byte	0x2
+ 1595 0118 0000 0000 		.long	.LM24
+ 1596 011c 15        		.byte	0x15
+ 1597 011d 00        		.byte	0x0
+ 1598 011e 05        		.uleb128 0x5
+ 1599 011f 02        		.byte	0x2
+ 1600 0120 0000 0000 		.long	.LM25
+ 1601 0124 15        		.byte	0x15
+ 1602 0125 00        		.byte	0x0
+ 1603 0126 05        		.uleb128 0x5
+ 1604 0127 02        		.byte	0x2
+ 1605 0128 0000 0000 		.long	.LM26
+ 1606 012c 16        		.byte	0x16
+ 1607 012d 00        		.byte	0x0
+ 1608 012e 05        		.uleb128 0x5
+ 1609 012f 02        		.byte	0x2
+ 1610 0130 0000 0000 		.long	.LM27
+ 1611 0134 15        		.byte	0x15
+ 1612 0135 00        		.byte	0x0
+ 1613 0136 05        		.uleb128 0x5
+ 1614 0137 02        		.byte	0x2
+ 1615 0138 0000 0000 		.long	.LM28
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 30
+
+
+ 1616 013c 15        		.byte	0x15
+ 1617 013d 00        		.byte	0x0
+ 1618 013e 05        		.uleb128 0x5
+ 1619 013f 02        		.byte	0x2
+ 1620 0140 0000 0000 		.long	.LM29
+ 1621 0144 15        		.byte	0x15
+ 1622 0145 00        		.byte	0x0
+ 1623 0146 05        		.uleb128 0x5
+ 1624 0147 02        		.byte	0x2
+ 1625 0148 0000 0000 		.long	.LM30
+ 1626 014c 15        		.byte	0x15
+ 1627 014d 00        		.byte	0x0
+ 1628 014e 05        		.uleb128 0x5
+ 1629 014f 02        		.byte	0x2
+ 1630 0150 0000 0000 		.long	.LM31
+ 1631 0154 16        		.byte	0x16
+ 1632 0155 00        		.byte	0x0
+ 1633 0156 05        		.uleb128 0x5
+ 1634 0157 02        		.byte	0x2
+ 1635 0158 0000 0000 		.long	.LM32
+ 1636 015c 15        		.byte	0x15
+ 1637 015d 00        		.byte	0x0
+ 1638 015e 05        		.uleb128 0x5
+ 1639 015f 02        		.byte	0x2
+ 1640 0160 0000 0000 		.long	.LM33
+ 1641 0164 16        		.byte	0x16
+ 1642 0165 00        		.byte	0x0
+ 1643 0166 05        		.uleb128 0x5
+ 1644 0167 02        		.byte	0x2
+ 1645 0168 0000 0000 		.long	.LM34
+ 1646 016c 15        		.byte	0x15
+ 1647 016d 00        		.byte	0x0
+ 1648 016e 05        		.uleb128 0x5
+ 1649 016f 02        		.byte	0x2
+ 1650 0170 0000 0000 		.long	.LM35
+ 1651 0174 15        		.byte	0x15
+ 1652 0175 00        		.byte	0x0
+ 1653 0176 05        		.uleb128 0x5
+ 1654 0177 02        		.byte	0x2
+ 1655 0178 0000 0000 		.long	.LM36
+ 1656 017c 11        		.byte	0x11
+ 1657 017d 00        		.byte	0x0
+ 1658 017e 05        		.uleb128 0x5
+ 1659 017f 02        		.byte	0x2
+ 1660 0180 0000 0000 		.long	.LM37
+ 1661 0184 1A        		.byte	0x1a
+ 1662 0185 00        		.byte	0x0
+ 1663 0186 05        		.uleb128 0x5
+ 1664 0187 02        		.byte	0x2
+ 1665 0188 0000 0000 		.long	.LM38
+ 1666 018c 15        		.byte	0x15
+ 1667 018d 00        		.byte	0x0
+ 1668 018e 05        		.uleb128 0x5
+ 1669 018f 02        		.byte	0x2
+ 1670 0190 0000 0000 		.long	.LM39
+ 1671 0194 19        		.byte	0x19
+ 1672 0195 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 31
+
+
+ 1673 0196 05        		.uleb128 0x5
+ 1674 0197 02        		.byte	0x2
+ 1675 0198 0000 0000 		.long	.LM40
+ 1676 019c 16        		.byte	0x16
+ 1677 019d 00        		.byte	0x0
+ 1678 019e 05        		.uleb128 0x5
+ 1679 019f 02        		.byte	0x2
+ 1680 01a0 0000 0000 		.long	.LM41
+ 1681 01a4 18        		.byte	0x18
+ 1682 01a5 00        		.byte	0x0
+ 1683 01a6 05        		.uleb128 0x5
+ 1684 01a7 02        		.byte	0x2
+ 1685 01a8 0000 0000 		.long	.LM42
+ 1686 01ac 16        		.byte	0x16
+ 1687 01ad 00        		.byte	0x0
+ 1688 01ae 05        		.uleb128 0x5
+ 1689 01af 02        		.byte	0x2
+ 1690 01b0 0000 0000 		.long	.LM43
+ 1691 01b4 18        		.byte	0x18
+ 1692 01b5 00        		.byte	0x0
+ 1693 01b6 05        		.uleb128 0x5
+ 1694 01b7 02        		.byte	0x2
+ 1695 01b8 0000 0000 		.long	.LM44
+ 1696 01bc 15        		.byte	0x15
+ 1697 01bd 00        		.byte	0x0
+ 1698 01be 05        		.uleb128 0x5
+ 1699 01bf 02        		.byte	0x2
+ 1700 01c0 0000 0000 		.long	.LM45
+ 1701 01c4 18        		.byte	0x18
+ 1702 01c5 00        		.byte	0x0
+ 1703 01c6 05        		.uleb128 0x5
+ 1704 01c7 02        		.byte	0x2
+ 1705 01c8 0000 0000 		.long	.LM46
+ 1706 01cc 15        		.byte	0x15
+ 1707 01cd 00        		.byte	0x0
+ 1708 01ce 05        		.uleb128 0x5
+ 1709 01cf 02        		.byte	0x2
+ 1710 01d0 0000 0000 		.long	.LM47
+ 1711 01d4 18        		.byte	0x18
+ 1712 01d5 00        		.byte	0x0
+ 1713 01d6 05        		.uleb128 0x5
+ 1714 01d7 02        		.byte	0x2
+ 1715 01d8 0000 0000 		.long	.LM48
+ 1716 01dc 15        		.byte	0x15
+ 1717 01dd 00        		.byte	0x0
+ 1718 01de 05        		.uleb128 0x5
+ 1719 01df 02        		.byte	0x2
+ 1720 01e0 0000 0000 		.long	.LM49
+ 1721 01e4 18        		.byte	0x18
+ 1722 01e5 00        		.byte	0x0
+ 1723 01e6 05        		.uleb128 0x5
+ 1724 01e7 02        		.byte	0x2
+ 1725 01e8 0000 0000 		.long	.LM50
+ 1726 01ec 15        		.byte	0x15
+ 1727 01ed 00        		.byte	0x0
+ 1728 01ee 05        		.uleb128 0x5
+ 1729 01ef 02        		.byte	0x2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 32
+
+
+ 1730 01f0 0000 0000 		.long	.LM51
+ 1731 01f4 17        		.byte	0x17
+ 1732 01f5 00        		.byte	0x0
+ 1733 01f6 05        		.uleb128 0x5
+ 1734 01f7 02        		.byte	0x2
+ 1735 01f8 0000 0000 		.long	.LM52
+ 1736 01fc 18        		.byte	0x18
+ 1737 01fd 00        		.byte	0x0
+ 1738 01fe 05        		.uleb128 0x5
+ 1739 01ff 02        		.byte	0x2
+ 1740 0200 0000 0000 		.long	.LM53
+ 1741 0204 18        		.byte	0x18
+ 1742 0205 00        		.byte	0x0
+ 1743 0206 05        		.uleb128 0x5
+ 1744 0207 02        		.byte	0x2
+ 1745 0208 0000 0000 		.long	.LM54
+ 1746 020c 15        		.byte	0x15
+ 1747 020d 00        		.byte	0x0
+ 1748 020e 05        		.uleb128 0x5
+ 1749 020f 02        		.byte	0x2
+ 1750 0210 0000 0000 		.long	.LM55
+ 1751 0214 15        		.byte	0x15
+ 1752 0215 00        		.byte	0x0
+ 1753 0216 05        		.uleb128 0x5
+ 1754 0217 02        		.byte	0x2
+ 1755 0218 0000 0000 		.long	.LM56
+ 1756 021c 15        		.byte	0x15
+ 1757 021d 00        		.byte	0x0
+ 1758 021e 05        		.uleb128 0x5
+ 1759 021f 02        		.byte	0x2
+ 1760 0220 0000 0000 		.long	.LM57
+ 1761 0224 16        		.byte	0x16
+ 1762 0225 00        		.byte	0x0
+ 1763 0226 05        		.uleb128 0x5
+ 1764 0227 02        		.byte	0x2
+ 1765 0228 0000 0000 		.long	.LM58
+ 1766 022c 15        		.byte	0x15
+ 1767 022d 00        		.byte	0x0
+ 1768 022e 05        		.uleb128 0x5
+ 1769 022f 02        		.byte	0x2
+ 1770 0230 0000 0000 		.long	.LM59
+ 1771 0234 17        		.byte	0x17
+ 1772 0235 00        		.byte	0x0
+ 1773 0236 05        		.uleb128 0x5
+ 1774 0237 02        		.byte	0x2
+ 1775 0238 0000 0000 		.long	.LM60
+ 1776 023c 15        		.byte	0x15
+ 1777 023d 00        		.byte	0x0
+ 1778 023e 05        		.uleb128 0x5
+ 1779 023f 02        		.byte	0x2
+ 1780 0240 0000 0000 		.long	.LM61
+ 1781 0244 15        		.byte	0x15
+ 1782 0245 00        		.byte	0x0
+ 1783 0246 05        		.uleb128 0x5
+ 1784 0247 02        		.byte	0x2
+ 1785 0248 0000 0000 		.long	.LM62
+ 1786 024c 18        		.byte	0x18
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 33
+
+
+ 1787 024d 00        		.byte	0x0
+ 1788 024e 05        		.uleb128 0x5
+ 1789 024f 02        		.byte	0x2
+ 1790 0250 0000 0000 		.long	.LM63
+ 1791 0254 17        		.byte	0x17
+ 1792 0255 00        		.byte	0x0
+ 1793 0256 05        		.uleb128 0x5
+ 1794 0257 02        		.byte	0x2
+ 1795 0258 0000 0000 		.long	.LM64
+ 1796 025c 18        		.byte	0x18
+ 1797 025d 00        		.byte	0x0
+ 1798 025e 05        		.uleb128 0x5
+ 1799 025f 02        		.byte	0x2
+ 1800 0260 0000 0000 		.long	.LM65
+ 1801 0264 16        		.byte	0x16
+ 1802 0265 00        		.byte	0x0
+ 1803 0266 05        		.uleb128 0x5
+ 1804 0267 02        		.byte	0x2
+ 1805 0268 0000 0000 		.long	.LM66
+ 1806 026c 19        		.byte	0x19
+ 1807 026d 00        		.byte	0x0
+ 1808 026e 05        		.uleb128 0x5
+ 1809 026f 02        		.byte	0x2
+ 1810 0270 0000 0000 		.long	.LM67
+ 1811 0274 15        		.byte	0x15
+ 1812 0275 00        		.byte	0x0
+ 1813 0276 05        		.uleb128 0x5
+ 1814 0277 02        		.byte	0x2
+ 1815 0278 0000 0000 		.long	.LM68
+ 1816 027c 15        		.byte	0x15
+ 1817 027d 00        		.byte	0x0
+ 1818 027e 05        		.uleb128 0x5
+ 1819 027f 02        		.byte	0x2
+ 1820 0280 0000 0000 		.long	.LM69
+ 1821 0284 15        		.byte	0x15
+ 1822 0285 00        		.byte	0x0
+ 1823 0286 05        		.uleb128 0x5
+ 1824 0287 02        		.byte	0x2
+ 1825 0288 0000 0000 		.long	.LM70
+ 1826 028c 16        		.byte	0x16
+ 1827 028d 00        		.byte	0x0
+ 1828 028e 05        		.uleb128 0x5
+ 1829 028f 02        		.byte	0x2
+ 1830 0290 0000 0000 		.long	.LM71
+ 1831 0294 18        		.byte	0x18
+ 1832 0295 00        		.byte	0x0
+ 1833 0296 05        		.uleb128 0x5
+ 1834 0297 02        		.byte	0x2
+ 1835 0298 0000 0000 		.long	.LM72
+ 1836 029c 15        		.byte	0x15
+ 1837 029d 00        		.byte	0x0
+ 1838 029e 05        		.uleb128 0x5
+ 1839 029f 02        		.byte	0x2
+ 1840 02a0 0000 0000 		.long	.LM73
+ 1841 02a4 16        		.byte	0x16
+ 1842 02a5 00        		.byte	0x0
+ 1843 02a6 05        		.uleb128 0x5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 34
+
+
+ 1844 02a7 02        		.byte	0x2
+ 1845 02a8 0000 0000 		.long	.LM74
+ 1846 02ac 15        		.byte	0x15
+ 1847 02ad 00        		.byte	0x0
+ 1848 02ae 05        		.uleb128 0x5
+ 1849 02af 02        		.byte	0x2
+ 1850 02b0 0000 0000 		.long	.LM75
+ 1851 02b4 15        		.byte	0x15
+ 1852 02b5 00        		.byte	0x0
+ 1853 02b6 05        		.uleb128 0x5
+ 1854 02b7 02        		.byte	0x2
+ 1855 02b8 0000 0000 		.long	.LM76
+ 1856 02bc 15        		.byte	0x15
+ 1857 02bd 00        		.byte	0x0
+ 1858 02be 05        		.uleb128 0x5
+ 1859 02bf 02        		.byte	0x2
+ 1860 02c0 0000 0000 		.long	.LM77
+ 1861 02c4 15        		.byte	0x15
+ 1862 02c5 00        		.byte	0x0
+ 1863 02c6 05        		.uleb128 0x5
+ 1864 02c7 02        		.byte	0x2
+ 1865 02c8 0000 0000 		.long	.LM78
+ 1866 02cc 15        		.byte	0x15
+ 1867 02cd 00        		.byte	0x0
+ 1868 02ce 05        		.uleb128 0x5
+ 1869 02cf 02        		.byte	0x2
+ 1870 02d0 0000 0000 		.long	.LM79
+ 1871 02d4 15        		.byte	0x15
+ 1872 02d5 00        		.byte	0x0
+ 1873 02d6 05        		.uleb128 0x5
+ 1874 02d7 02        		.byte	0x2
+ 1875 02d8 0000 0000 		.long	.LM80
+ 1876 02dc 15        		.byte	0x15
+ 1877 02dd 00        		.byte	0x0
+ 1878 02de 05        		.uleb128 0x5
+ 1879 02df 02        		.byte	0x2
+ 1880 02e0 0000 0000 		.long	.LM81
+ 1881 02e4 15        		.byte	0x15
+ 1882 02e5 00        		.byte	0x0
+ 1883 02e6 05        		.uleb128 0x5
+ 1884 02e7 02        		.byte	0x2
+ 1885 02e8 0000 0000 		.long	.LM82
+ 1886 02ec 17        		.byte	0x17
+ 1887 02ed 00        		.byte	0x0
+ 1888 02ee 05        		.uleb128 0x5
+ 1889 02ef 02        		.byte	0x2
+ 1890 02f0 0000 0000 		.long	.LM83
+ 1891 02f4 15        		.byte	0x15
+ 1892 02f5 00        		.byte	0x0
+ 1893 02f6 05        		.uleb128 0x5
+ 1894 02f7 02        		.byte	0x2
+ 1895 02f8 0000 0000 		.long	.LM84
+ 1896 02fc 15        		.byte	0x15
+ 1897 02fd 00        		.byte	0x0
+ 1898 02fe 05        		.uleb128 0x5
+ 1899 02ff 02        		.byte	0x2
+ 1900 0300 0000 0000 		.long	.LM85
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 35
+
+
+ 1901 0304 15        		.byte	0x15
+ 1902 0305 00        		.byte	0x0
+ 1903 0306 05        		.uleb128 0x5
+ 1904 0307 02        		.byte	0x2
+ 1905 0308 0000 0000 		.long	.LM86
+ 1906 030c 15        		.byte	0x15
+ 1907 030d 00        		.byte	0x0
+ 1908 030e 05        		.uleb128 0x5
+ 1909 030f 02        		.byte	0x2
+ 1910 0310 0000 0000 		.long	.LM87
+ 1911 0314 15        		.byte	0x15
+ 1912 0315 00        		.byte	0x0
+ 1913 0316 05        		.uleb128 0x5
+ 1914 0317 02        		.byte	0x2
+ 1915 0318 0000 0000 		.long	.LM88
+ 1916 031c 15        		.byte	0x15
+ 1917 031d 00        		.byte	0x0
+ 1918 031e 05        		.uleb128 0x5
+ 1919 031f 02        		.byte	0x2
+ 1920 0320 0000 0000 		.long	.LM89
+ 1921 0324 15        		.byte	0x15
+ 1922 0325 00        		.byte	0x0
+ 1923 0326 05        		.uleb128 0x5
+ 1924 0327 02        		.byte	0x2
+ 1925 0328 0000 0000 		.long	.LM90
+ 1926 032c 15        		.byte	0x15
+ 1927 032d 00        		.byte	0x0
+ 1928 032e 05        		.uleb128 0x5
+ 1929 032f 02        		.byte	0x2
+ 1930 0330 0000 0000 		.long	.LM91
+ 1931 0334 18        		.byte	0x18
+ 1932 0335 00        		.byte	0x0
+ 1933 0336 05        		.uleb128 0x5
+ 1934 0337 02        		.byte	0x2
+ 1935 0338 0000 0000 		.long	.LM92
+ 1936 033c 15        		.byte	0x15
+ 1937 033d 00        		.byte	0x0
+ 1938 033e 05        		.uleb128 0x5
+ 1939 033f 02        		.byte	0x2
+ 1940 0340 0000 0000 		.long	.LM93
+ 1941 0344 15        		.byte	0x15
+ 1942 0345 00        		.byte	0x0
+ 1943 0346 05        		.uleb128 0x5
+ 1944 0347 02        		.byte	0x2
+ 1945 0348 0000 0000 		.long	.LM94
+ 1946 034c 15        		.byte	0x15
+ 1947 034d 00        		.byte	0x0
+ 1948 034e 05        		.uleb128 0x5
+ 1949 034f 02        		.byte	0x2
+ 1950 0350 0000 0000 		.long	.LM95
+ 1951 0354 15        		.byte	0x15
+ 1952 0355 00        		.byte	0x0
+ 1953 0356 05        		.uleb128 0x5
+ 1954 0357 02        		.byte	0x2
+ 1955 0358 0000 0000 		.long	.LM96
+ 1956 035c 15        		.byte	0x15
+ 1957 035d 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 36
+
+
+ 1958 035e 05        		.uleb128 0x5
+ 1959 035f 02        		.byte	0x2
+ 1960 0360 0000 0000 		.long	.LM97
+ 1961 0364 15        		.byte	0x15
+ 1962 0365 00        		.byte	0x0
+ 1963 0366 05        		.uleb128 0x5
+ 1964 0367 02        		.byte	0x2
+ 1965 0368 0000 0000 		.long	.LM98
+ 1966 036c 15        		.byte	0x15
+ 1967 036d 00        		.byte	0x0
+ 1968 036e 05        		.uleb128 0x5
+ 1969 036f 02        		.byte	0x2
+ 1970 0370 0000 0000 		.long	.LM99
+ 1971 0374 15        		.byte	0x15
+ 1972 0375 00        		.byte	0x0
+ 1973 0376 05        		.uleb128 0x5
+ 1974 0377 02        		.byte	0x2
+ 1975 0378 0000 0000 		.long	.LM100
+ 1976 037c 19        		.byte	0x19
+ 1977 037d 00        		.byte	0x0
+ 1978 037e 05        		.uleb128 0x5
+ 1979 037f 02        		.byte	0x2
+ 1980 0380 0000 0000 		.long	.LM101
+ 1981 0384 15        		.byte	0x15
+ 1982 0385 00        		.byte	0x0
+ 1983 0386 05        		.uleb128 0x5
+ 1984 0387 02        		.byte	0x2
+ 1985 0388 0000 0000 		.long	.LM102
+ 1986 038c 15        		.byte	0x15
+ 1987 038d 00        		.byte	0x0
+ 1988 038e 05        		.uleb128 0x5
+ 1989 038f 02        		.byte	0x2
+ 1990 0390 0000 0000 		.long	.LM103
+ 1991 0394 16        		.byte	0x16
+ 1992 0395 00        		.byte	0x0
+ 1993 0396 05        		.uleb128 0x5
+ 1994 0397 02        		.byte	0x2
+ 1995 0398 0000 0000 		.long	.LM104
+ 1996 039c 15        		.byte	0x15
+ 1997 039d 00        		.byte	0x0
+ 1998 039e 05        		.uleb128 0x5
+ 1999 039f 02        		.byte	0x2
+ 2000 03a0 0000 0000 		.long	.LM105
+ 2001 03a4 15        		.byte	0x15
+ 2002 03a5 00        		.byte	0x0
+ 2003 03a6 05        		.uleb128 0x5
+ 2004 03a7 02        		.byte	0x2
+ 2005 03a8 0000 0000 		.long	.LM106
+ 2006 03ac 17        		.byte	0x17
+ 2007 03ad 00        		.byte	0x0
+ 2008 03ae 05        		.uleb128 0x5
+ 2009 03af 02        		.byte	0x2
+ 2010 03b0 0000 0000 		.long	.LM107
+ 2011 03b4 15        		.byte	0x15
+ 2012 03b5 00        		.byte	0x0
+ 2013 03b6 05        		.uleb128 0x5
+ 2014 03b7 02        		.byte	0x2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 37
+
+
+ 2015 03b8 0000 0000 		.long	.LM108
+ 2016 03bc 15        		.byte	0x15
+ 2017 03bd 00        		.byte	0x0
+ 2018 03be 05        		.uleb128 0x5
+ 2019 03bf 02        		.byte	0x2
+ 2020 03c0 0000 0000 		.long	.LM109
+ 2021 03c4 16        		.byte	0x16
+ 2022 03c5 00        		.byte	0x0
+ 2023 03c6 05        		.uleb128 0x5
+ 2024 03c7 02        		.byte	0x2
+ 2025 03c8 0000 0000 		.long	.LM110
+ 2026 03cc 15        		.byte	0x15
+ 2027 03cd 00        		.byte	0x0
+ 2028 03ce 05        		.uleb128 0x5
+ 2029 03cf 02        		.byte	0x2
+ 2030 03d0 0000 0000 		.long	.LM111
+ 2031 03d4 15        		.byte	0x15
+ 2032 03d5 00        		.byte	0x0
+ 2033 03d6 05        		.uleb128 0x5
+ 2034 03d7 02        		.byte	0x2
+ 2035 03d8 0000 0000 		.long	.LM112
+ 2036 03dc 15        		.byte	0x15
+ 2037 03dd 00        		.byte	0x0
+ 2038 03de 05        		.uleb128 0x5
+ 2039 03df 02        		.byte	0x2
+ 2040 03e0 0000 0000 		.long	.Letext0
+ 2041 03e4 00        		.byte	0x0
+ 2042 03e5 01        		.uleb128 0x1
+ 2043 03e6 01        		.byte	0x1
+ 2044               	.LELT0:
+ 2045 03e7 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 2045      0200 1000 
+ 2045      0000 0101 
+ 2045      FB0E 0A00 
+ 2045      0101 0101 
+ 2046               	.LASF19:
+ 2047 0000 6669 6C6C 		.string	"fills"
+ 2047      7300 
+ 2048               	.LASF13:
+ 2049 0006 7374 6F70 		.string	"stop_filling"
+ 2049      5F66 696C 
+ 2049      6C69 6E67 
+ 2049      00
+ 2050               	.LASF10:
+ 2051 0013 7374 6172 		.string	"start_winding"
+ 2051      745F 7769 
+ 2051      6E64 696E 
+ 2051      6700 
+ 2052               	.LASF17:
+ 2053 0021 7769 6E64 		.string	"winding"
+ 2053      696E 6700 
+ 2054               	.LASF1:
+ 2055 0029 756E 7369 		.string	"unsigned char"
+ 2055      676E 6564 
+ 2055      2063 6861 
+ 2055      7200 
+ 2056               	.LASF14:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 38
+
+
+ 2057 0037 6765 745F 		.string	"get_number"
+ 2057      6E75 6D62 
+ 2057      6572 00
+ 2058               	.LASF16:
+ 2059 0042 6669 6C6C 		.string	"filling"
+ 2059      696E 6700 
+ 2060               	.LASF4:
+ 2061 004a 6C6F 6E67 		.string	"long unsigned int"
+ 2061      2075 6E73 
+ 2061      6967 6E65 
+ 2061      6420 696E 
+ 2061      7400 
+ 2062               	.LASF18:
+ 2063 005c 7475 726E 		.string	"turns"
+ 2063      7300 
+ 2064               	.LASF11:
+ 2065 0062 7374 6F70 		.string	"stop_winding"
+ 2065      5F77 696E 
+ 2065      6469 6E67 
+ 2065      00
+ 2066               	.LASF21:
+ 2067 006f 474E 5520 		.string	"GNU C 4.3.3"
+ 2067      4320 342E 
+ 2067      332E 3300 
+ 2068               	.LASF23:
+ 2069 007b 453A 5C61 		.string	"E:\\avr\\counter"
+ 2069      7672 5C63 
+ 2069      6F75 6E74 
+ 2069      6572 00
+ 2070               	.LASF15:
+ 2071 008a 6D61 696E 		.string	"main"
+ 2071      00
+ 2072               	.LASF2:
+ 2073 008f 756E 7369 		.string	"unsigned int"
+ 2073      676E 6564 
+ 2073      2069 6E74 
+ 2073      00
+ 2074               	.LASF7:
+ 2075 009c 6469 6769 		.string	"digit"
+ 2075      7400 
+ 2076               	.LASF6:
+ 2077 00a2 6C6F 6E67 		.string	"long long unsigned int"
+ 2077      206C 6F6E 
+ 2077      6720 756E 
+ 2077      7369 676E 
+ 2077      6564 2069 
+ 2078               	.LASF24:
+ 2079 00b9 7569 6E74 		.string	"uint8_t"
+ 2079      385F 7400 
+ 2080               	.LASF25:
+ 2081 00c1 6469 7370 		.string	"disp"
+ 2081      00
+ 2082               	.LASF20:
+ 2083 00c6 6C61 7965 		.string	"layers"
+ 2083      7273 00
+ 2084               	.LASF5:
+ 2085 00cd 6C6F 6E67 		.string	"long long int"
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 39
+
+
+ 2085      206C 6F6E 
+ 2085      6720 696E 
+ 2085      7400 
+ 2086               	.LASF22:
+ 2087 00db 6D61 696E 		.string	"main.c"
+ 2087      2E63 00
+ 2088               	.LASF26:
+ 2089 00e2 6D61 7070 		.string	"mapping"
+ 2089      696E 6700 
+ 2090               	.LASF3:
+ 2091 00ea 6C6F 6E67 		.string	"long int"
+ 2091      2069 6E74 
+ 2091      00
+ 2092               	.LASF9:
+ 2093 00f3 7365 745F 		.string	"set_dir_right"
+ 2093      6469 725F 
+ 2093      7269 6768 
+ 2093      7400 
+ 2094               	.LASF12:
+ 2095 0101 7374 6172 		.string	"start_filling"
+ 2095      745F 6669 
+ 2095      6C6C 696E 
+ 2095      6700 
+ 2096               	.LASF0:
+ 2097 010f 7369 676E 		.string	"signed char"
+ 2097      6564 2063 
+ 2097      6861 7200 
+ 2098               	.LASF8:
+ 2099 011b 7365 745F 		.string	"set_dir_left"
+ 2099      6469 725F 
+ 2099      6C65 6674 
+ 2099      00
+ 2100               	.global __do_copy_data
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccnztsXw.s 			page 40
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:20     .data:00000000 mapping
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:41     .text:00000000 get_number
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:319    .text:000001c6 set_dir_left
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:337    .text:000001d4 set_dir_right
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:355    .text:000001e2 start_winding
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:373    .text:000001f0 stop_winding
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:391    .text:000001fe start_filling
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:409    .text:0000020c stop_filling
+C:\Users\alex\AppData\Local\Temp/ccnztsXw.s:439    .text:0000021a main
+
+UNDEFINED SYMBOLS
+cat4016_put_unumber
+getc_4x4_keypad
+cat4016_put_snumber
+uart_init
+uart_puts
+lcd_setup
+lcd_init
+lcd_puts
+init_cat4016
+init_4x4_keypad
+cat4016_put_txt
+__do_copy_data

@@ -1,0 +1,361 @@
+GAS LISTING /tmp/ccvtppss.s 			page 1
+
+
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               		.stabs	"/home/alex/avr/counter/",100,0,2,.Ltext0
+  10               		.stabs	"main.c",100,0,2,.Ltext0
+  11               		.text
+  12               	.Ltext0:
+  13               		.stabs	"gcc2_compiled.",60,0,0,0
+  14               		.stabs	"int:t(0,1)=r(0,1);-32768;32767;",128,0,0,0
+  15               		.stabs	"char:t(0,2)=@s8;r(0,2);0;255;",128,0,0,0
+  16               		.stabs	"long int:t(0,3)=@s32;r(0,3);020000000000;017777777777;",128,0,0,0
+  17               		.stabs	"unsigned int:t(0,4)=r(0,4);0;0177777;",128,0,0,0
+  18               		.stabs	"long unsigned int:t(0,5)=@s32;r(0,5);0;037777777777;",128,0,0,0
+  19               		.stabs	"long long int:t(0,6)=@s64;r(0,6);01000000000000000000000;0777777777777777777777;",128,0,0,
+  20               		.stabs	"long long unsigned int:t(0,7)=@s64;r(0,7);0;01777777777777777777777;",128,0,0,0
+  21               		.stabs	"short int:t(0,8)=r(0,8);-32768;32767;",128,0,0,0
+  22               		.stabs	"short unsigned int:t(0,9)=r(0,9);0;0177777;",128,0,0,0
+  23               		.stabs	"signed char:t(0,10)=@s8;r(0,10);-128;127;",128,0,0,0
+  24               		.stabs	"unsigned char:t(0,11)=@s8;r(0,11);0;255;",128,0,0,0
+  25               		.stabs	"float:t(0,12)=r(0,1);4;0;",128,0,0,0
+  26               		.stabs	"double:t(0,13)=r(0,1);4;0;",128,0,0,0
+  27               		.stabs	"long double:t(0,14)=r(0,1);4;0;",128,0,0,0
+  28               		.stabs	"void:t(0,15)=(0,15)",128,0,0,0
+  29               		.stabs	"/usr/local/AVR/lib/gcc/avr/4.2.1/../../../../avr/include/stdlib.h",130,0,0,0
+  30               		.stabs	"/usr/local/AVR/lib/gcc/avr/4.2.1/include/stddef.h",130,0,0,0
+  31               		.stabs	"size_t:t(2,1)=(0,4)",128,0,214,0
+  32               		.stabs	"wchar_t:t(2,2)=(0,1)",128,0,326,0
+  33               		.stabn	162,0,0,0
+  34               		.stabs	"div_t:t(1,1)=(1,2)=s4quot:(0,1),0,16;rem:(0,1),16,16;;",128,0,71,0
+  35               		.stabs	"ldiv_t:t(1,3)=(1,4)=s8quot:(0,3),0,32;rem:(0,3),32,32;;",128,0,77,0
+  36               		.stabs	"__compar_fn_t:t(1,5)=(1,6)=*(1,7)=f(0,1)",128,0,80,0
+  37               		.stabn	162,0,0,0
+  38               		.stabs	"/usr/local/AVR/lib/gcc/avr/4.2.1/../../../../avr/include/avr/io.h",130,0,0,0
+  39               		.stabs	"/usr/local/AVR/lib/gcc/avr/4.2.1/../../../../avr/include/avr/sfr_defs.h",130,0,0,0
+  40               		.stabs	"/usr/local/AVR/lib/gcc/avr/4.2.1/../../../../avr/include/inttypes.h",130,0,0,0
+  41               		.stabs	"/usr/local/AVR/lib/gcc/avr/4.2.1/../../../../avr/include/stdint.h",130,0,0,0
+  42               		.stabs	"int8_t:t(6,1)=(0,10)",128,0,121,0
+  43               		.stabs	"uint8_t:t(6,2)=(0,11)",128,0,122,0
+  44               		.stabs	"int16_t:t(6,3)=(0,1)",128,0,123,0
+  45               		.stabs	"uint16_t:t(6,4)=(0,4)",128,0,124,0
+  46               		.stabs	"int32_t:t(6,5)=(0,3)",128,0,125,0
+  47               		.stabs	"uint32_t:t(6,6)=(0,5)",128,0,126,0
+  48               		.stabs	"int64_t:t(6,7)=(0,6)",128,0,128,0
+  49               		.stabs	"uint64_t:t(6,8)=(0,7)",128,0,129,0
+  50               		.stabs	"intptr_t:t(6,9)=(6,3)",128,0,142,0
+  51               		.stabs	"uintptr_t:t(6,10)=(6,4)",128,0,147,0
+  52               		.stabs	"int_least8_t:t(6,11)=(6,1)",128,0,159,0
+  53               		.stabs	"uint_least8_t:t(6,12)=(6,2)",128,0,164,0
+  54               		.stabs	"int_least16_t:t(6,13)=(6,3)",128,0,169,0
+  55               		.stabs	"uint_least16_t:t(6,14)=(6,4)",128,0,174,0
+  56               		.stabs	"int_least32_t:t(6,15)=(6,5)",128,0,179,0
+  57               		.stabs	"uint_least32_t:t(6,16)=(6,6)",128,0,184,0
+GAS LISTING /tmp/ccvtppss.s 			page 2
+
+
+  58               		.stabs	"int_least64_t:t(6,17)=(6,7)",128,0,192,0
+  59               		.stabs	"uint_least64_t:t(6,18)=(6,8)",128,0,199,0
+  60               		.stabs	"int_fast8_t:t(6,19)=(6,1)",128,0,213,0
+  61               		.stabs	"uint_fast8_t:t(6,20)=(6,2)",128,0,218,0
+  62               		.stabs	"int_fast16_t:t(6,21)=(6,3)",128,0,223,0
+  63               		.stabs	"uint_fast16_t:t(6,22)=(6,4)",128,0,228,0
+  64               		.stabs	"int_fast32_t:t(6,23)=(6,5)",128,0,233,0
+  65               		.stabs	"uint_fast32_t:t(6,24)=(6,6)",128,0,238,0
+  66               		.stabs	"int_fast64_t:t(6,25)=(6,7)",128,0,246,0
+  67               		.stabs	"uint_fast64_t:t(6,26)=(6,8)",128,0,253,0
+  68               		.stabs	"intmax_t:t(6,27)=(6,7)",128,0,273,0
+  69               		.stabs	"uintmax_t:t(6,28)=(6,8)",128,0,278,0
+  70               		.stabn	162,0,0,0
+  71               		.stabs	"int_farptr_t:t(5,1)=(6,5)",128,0,77,0
+  72               		.stabs	"uint_farptr_t:t(5,2)=(6,6)",128,0,81,0
+  73               		.stabn	162,0,0,0
+  74               		.stabn	162,0,0,0
+  75               		.stabn	162,0,0,0
+  76               		.stabs	"/usr/local/AVR/lib/gcc/avr/4.2.1/../../../../avr/include/avr/pgmspace.h",130,0,0,0
+  77               		.stabs	"prog_void:t(7,1)=(7,2)=(7,2)",128,0,210,0
+  78               		.stabs	"prog_char:t(7,3)=(7,4)=@s8;r(7,4);0;255;",128,0,211,0
+  79               		.stabs	"prog_uchar:t(7,5)=(7,4)",128,0,212,0
+  80               		.stabs	"prog_int8_t:t(7,6)=(7,7)=(0,10)",128,0,214,0
+  81               		.stabs	"prog_uint8_t:t(7,8)=(7,4)",128,0,215,0
+  82               		.stabs	"prog_int16_t:t(7,9)=(7,10)=(0,1)",128,0,216,0
+  83               		.stabs	"prog_uint16_t:t(7,11)=(7,12)=(0,4)",128,0,217,0
+  84               		.stabs	"prog_int32_t:t(7,13)=(7,14)=(0,3)",128,0,218,0
+  85               		.stabs	"prog_uint32_t:t(7,15)=(7,16)=(0,5)",128,0,219,0
+  86               		.stabs	"prog_int64_t:t(7,17)=(7,18)=(0,6)",128,0,221,0
+  87               		.stabs	"prog_uint64_t:t(7,19)=(7,20)=(0,7)",128,0,222,0
+  88               		.stabn	162,0,0,0
+  89               		.stabs	"wait_until_key_pressed:F(0,15)",36,0,33,wait_until_key_pressed
+  90               	.global	wait_until_key_pressed
+  91               		.type	wait_until_key_pressed, @function
+  92               	wait_until_key_pressed:
+  93               		.stabd	46,0,0
+   1:main.c        **** /*************************************************************************
+   2:main.c        **** Title:    testing output to a HD44780 based LCD display.
+   3:main.c        **** Author:   Peter Fleury  <pfleury@gmx.ch>  http://jump.to/fleury
+   4:main.c        **** File:     $Id: test_lcd.c,v 1.6 2004/12/10 13:53:59 peter Exp $
+   5:main.c        **** Software: AVR-GCC 3.3
+   6:main.c        **** Hardware: HD44780 compatible LCD text display
+   7:main.c        ****           ATS90S8515/ATmega if memory-mapped LCD interface is used
+   8:main.c        ****           any AVR with 7 free I/O pins if 4-bit IO port mode is used
+   9:main.c        **** **************************************************************************/
+  10:main.c        **** #include <stdlib.h>
+  11:main.c        **** #include <avr/io.h>
+  12:main.c        **** #include <avr/pgmspace.h>
+  13:main.c        **** #include "lcd.h"
+  14:main.c        **** 
+  15:main.c        **** 
+  16:main.c        **** /*
+  17:main.c        **** ** constant definitions
+  18:main.c        **** */
+  19:main.c        **** static const PROGMEM unsigned char copyRightChar[] =
+  20:main.c        **** {
+  21:main.c        **** 	0x07, 0x08, 0x13, 0x14, 0x14, 0x13, 0x08, 0x07,
+GAS LISTING /tmp/ccvtppss.s 			page 3
+
+
+  22:main.c        **** 	0x00, 0x10, 0x08, 0x08, 0x08, 0x08, 0x10, 0x00
+  23:main.c        **** };
+  24:main.c        **** 
+  25:main.c        **** 
+  26:main.c        **** /*
+  27:main.c        **** ** function prototypes
+  28:main.c        **** */ 
+  29:main.c        **** void wait_until_key_pressed(void);
+  30:main.c        **** 
+  31:main.c        **** 
+  32:main.c        **** void wait_until_key_pressed(void)
+  33:main.c        **** {
+  94               		.stabn	68,0,33,.LM0-.LFBB1
+  95               	.LM0:
+  96               	.LFBB1:
+  97               	/* prologue: frame size=0 */
+  98               	/* prologue end (size=0) */
+  99               	.L3:
+  34:main.c        ****     unsigned char temp1, temp2;
+  35:main.c        ****     unsigned int i;
+  36:main.c        ****     
+  37:main.c        ****     do {
+  38:main.c        ****         temp1 = PIND;                  // read input
+ 100               		.stabn	68,0,38,.LM1-.LFBB1
+ 101               	.LM1:
+ 102 0000 90B3      		in r25,48-0x20
+  39:main.c        ****         for(i=0;i<65535;i++);
+  40:main.c        ****         temp2 = PIND;                  // read input
+ 103               		.stabn	68,0,40,.LM2-.LFBB1
+ 104               	.LM2:
+ 105 0002 80B3      		in r24,48-0x20
+  41:main.c        ****         temp1 = (temp1 & temp2);       // debounce input
+  42:main.c        ****     } while ( temp1 & _BV(PIND2) );
+ 106               		.stabn	68,0,42,.LM3-.LFBB1
+ 107               	.LM3:
+ 108 0004 8923      		and r24,r25
+ 109 0006 82FD      		sbrc r24,2
+ 110 0008 00C0      		rjmp .L3
+ 111               	.L7:
+  43:main.c        ****     
+  44:main.c        ****     loop_until_bit_is_set(PIND,PIND2);            /* wait until key is released */
+ 112               		.stabn	68,0,44,.LM4-.LFBB1
+ 113               	.LM4:
+ 114 000a 829B      		sbis 48-0x20,2
+ 115 000c 00C0      		rjmp .L7
+ 116               	/* epilogue: frame size=0 */
+ 117 000e 0895      		ret
+ 118               	/* epilogue end (size=1) */
+ 119               	/* function wait_until_key_pressed size 8 (7) */
+ 120               		.size	wait_until_key_pressed, .-wait_until_key_pressed
+ 121               		.stabs	"temp1:r(0,11)",64,0,34,25
+ 122               		.stabn	192,0,0,.LFBB1-.LFBB1
+ 123               		.stabn	224,0,0,.Lscope1-.LFBB1
+ 124               	.Lscope1:
+ 125               		.stabs	"",36,0,0,.Lscope1-.LFBB1
+ 126               		.stabd	78,0,0
+ 127               		.data
+GAS LISTING /tmp/ccvtppss.s 			page 4
+
+
+ 128               	.LC0:
+ 129 0000 4C43 4420 		.string	"LCD Test Line 1\n"
+ 129      5465 7374 
+ 129      204C 696E 
+ 129      6520 310A 
+ 129      00
+ 130               	.LC1:
+ 131 0011 4C69 6E65 		.string	"Line 2"
+ 131      2032 00
+ 132               		.text
+ 133               		.stabs	"main:F(0,1)",36,0,52,main
+ 134               	.global	main
+ 135               		.type	main, @function
+ 136               	main:
+ 137               		.stabd	46,0,0
+  45:main.c        **** }
+  46:main.c        **** 
+  47:main.c        **** 
+  48:main.c        **** 
+  49:main.c        **** 
+  50:main.c        **** 
+  51:main.c        **** int main(void)
+  52:main.c        **** {
+ 138               		.stabn	68,0,52,.LM5-.LFBB2
+ 139               	.LM5:
+ 140               	.LFBB2:
+ 141               	/* prologue: frame size=0 */
+ 142 0010 C0E0      		ldi r28,lo8(__stack - 0)
+ 143 0012 D0E0      		ldi r29,hi8(__stack - 0)
+ 144 0014 DEBF      		out __SP_H__,r29
+ 145 0016 CDBF      		out __SP_L__,r28
+ 146               	/* prologue end (size=4) */
+  53:main.c        ****     char buffer[7];
+  54:main.c        ****     int  num=134;
+  55:main.c        ****     unsigned char i;
+  56:main.c        ****     uint8_t q;
+  57:main.c        ****     
+  58:main.c        ****     
+  59:main.c        ****     DDRD &=~ (1 << PD2);        /* Pin PD2 input              */
+ 147               		.stabn	68,0,59,.LM6-.LFBB2
+ 148               	.LM6:
+ 149 0018 8A98      		cbi 49-0x20,2
+  60:main.c        ****     PORTD |= (1 << PD2);        /* Pin PD2 pull-up enabled    */
+ 150               		.stabn	68,0,60,.LM7-.LFBB2
+ 151               	.LM7:
+ 152 001a 929A      		sbi 50-0x20,2
+  61:main.c        **** 
+  62:main.c        ****     DDRD = 0x0;     /* Port D input */
+ 153               		.stabn	68,0,62,.LM8-.LFBB2
+ 154               	.LM8:
+ 155 001c 11BA      		out 49-0x20,__zero_reg__
+  63:main.c        ****     PORTD = 0XFF;    /* Port D pullup enable */
+ 156               		.stabn	68,0,63,.LM9-.LFBB2
+ 157               	.LM9:
+ 158 001e 8FEF      		ldi r24,lo8(-1)
+ 159 0020 82BB      		out 50-0x20,r24
+  64:main.c        **** 
+GAS LISTING /tmp/ccvtppss.s 			page 5
+
+
+  65:main.c        **** 	DDRC = 0xFF;
+ 160               		.stabn	68,0,65,.LM10-.LFBB2
+ 161               	.LM10:
+ 162 0022 84BB      		out 52-0x20,r24
+  66:main.c        ****     PORTC = 0x2b;
+ 163               		.stabn	68,0,66,.LM11-.LFBB2
+ 164               	.LM11:
+ 165 0024 8BE2      		ldi r24,lo8(43)
+ 166 0026 85BB      		out 53-0x20,r24
+  67:main.c        **** 
+  68:main.c        ****    
+  69:main.c        **** 
+  70:main.c        ****     /* initialize display, cursor off */
+  71:main.c        ****     lcd_init(LCD_DISP_ON);
+ 167               		.stabn	68,0,71,.LM12-.LFBB2
+ 168               	.LM12:
+ 169 0028 8CE0      		ldi r24,lo8(12)
+ 170 002a 0E94 0000 		call lcd_init
+  72:main.c        ****     lcd_backlight(LCD_BL_ON);
+ 171               		.stabn	68,0,72,.LM13-.LFBB2
+ 172               	.LM13:
+ 173 002e 81E0      		ldi r24,lo8(1)
+ 174 0030 0E94 0000 		call lcd_backlight
+  73:main.c        **** 
+  74:main.c        **** 
+  75:main.c        **** /*    for (;;) {
+  76:main.c        ****       q = PIND;
+  77:main.c        ****       PORTB= q;
+  78:main.c        **** 		
+  79:main.c        ****     }
+  80:main.c        **** 
+  81:main.c        **** */
+  82:main.c        **** 
+  83:main.c        ****         /* 
+  84:main.c        ****          * Test 1:  write text to display
+  85:main.c        ****          */
+  86:main.c        **** 
+  87:main.c        ****         /* clear display and home cursor */
+  88:main.c        ****         lcd_clrscr();
+ 175               		.stabn	68,0,88,.LM14-.LFBB2
+ 176               	.LM14:
+ 177 0034 0E94 0000 		call lcd_clrscr
+  89:main.c        ****         
+  90:main.c        ****         /* put string to display (line 1) with linefeed */
+  91:main.c        ****         lcd_puts("LCD Test Line 1\n");
+ 178               		.stabn	68,0,91,.LM15-.LFBB2
+ 179               	.LM15:
+ 180 0038 80E0      		ldi r24,lo8(.LC0)
+ 181 003a 90E0      		ldi r25,hi8(.LC0)
+ 182 003c 0E94 0000 		call lcd_puts
+  92:main.c        **** 
+  93:main.c        ****         /* cursor is now on second line, write second line */
+  94:main.c        ****         lcd_puts("Line 2");
+ 183               		.stabn	68,0,94,.LM16-.LFBB2
+ 184               	.LM16:
+ 185 0040 80E0      		ldi r24,lo8(.LC1)
+ 186 0042 90E0      		ldi r25,hi8(.LC1)
+GAS LISTING /tmp/ccvtppss.s 			page 6
+
+
+ 187 0044 0E94 0000 		call lcd_puts
+  95:main.c        ****         
+  96:main.c        ****         /* move cursor to position 8 on line 2 */
+  97:main.c        ****         lcd_gotoxy(7,1);  
+ 188               		.stabn	68,0,97,.LM17-.LFBB2
+ 189               	.LM17:
+ 190 0048 61E0      		ldi r22,lo8(1)
+ 191 004a 87E0      		ldi r24,lo8(7)
+ 192 004c 0E94 0000 		call lcd_gotoxy
+  98:main.c        ****         
+  99:main.c        ****         /* write single char to display */
+ 100:main.c        ****         lcd_putc(':');
+ 193               		.stabn	68,0,100,.LM18-.LFBB2
+ 194               	.LM18:
+ 195 0050 8AE3      		ldi r24,lo8(58)
+ 196 0052 0E94 0000 		call lcd_putc
+ 101:main.c        ****         
+ 102:main.c        ****         /* wait until push button PD2 (INT0) is pressed */
+ 103:main.c        ****         wait_until_key_pressed();
+ 197               		.stabn	68,0,103,.LM19-.LFBB2
+ 198               	.LM19:
+ 199 0056 0E94 0000 		call wait_until_key_pressed
+ 200               	.L12:
+ 201 005a 00C0      		rjmp .L12
+ 202               	/* epilogue: frame size=0 */
+ 203               	/* epilogue: noreturn */
+ 204               	/* epilogue end (size=0) */
+ 205               	/* function main size 38 (34) */
+ 206               		.size	main, .-main
+ 207               	.Lscope2:
+ 208               		.stabs	"",36,0,0,.Lscope2-.LFBB2
+ 209               		.stabd	78,0,0
+ 210               		.stabs	"",100,0,0,.Letext0
+ 211               	.Letext0:
+ 212               	/* File "main.c": code   46 = 0x002e (  41), prologues   4, epilogues   1 */
+GAS LISTING /tmp/ccvtppss.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccvtppss.s:2      *ABS*:0000003f __SREG__
+     /tmp/ccvtppss.s:3      *ABS*:0000003e __SP_H__
+     /tmp/ccvtppss.s:4      *ABS*:0000003d __SP_L__
+     /tmp/ccvtppss.s:5      *ABS*:00000000 __tmp_reg__
+     /tmp/ccvtppss.s:6      *ABS*:00000001 __zero_reg__
+     /tmp/ccvtppss.s:92     .text:00000000 wait_until_key_pressed
+     /tmp/ccvtppss.s:136    .text:00000010 main
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__stack
+lcd_init
+lcd_backlight
+lcd_clrscr
+lcd_puts
+lcd_gotoxy
+lcd_putc

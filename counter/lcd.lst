@@ -1,0 +1,5466 @@
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 1
+
+
+   1               		.file	"lcd.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               		.type	lcd_e_toggle, @function
+  17               	lcd_e_toggle:
+  18               	.LFB3:
+  19               	.LM1:
+  20 0000 DF93      		push r29
+  21 0002 CF93      		push r28
+  22 0004 CDB7      		in r28,__SP_L__
+  23 0006 DEB7      		in r29,__SP_H__
+  24               	/* prologue: function */
+  25               	/* frame size = 0 */
+  26               	.LM2:
+  27 0008 A091 0000 		lds r26,lcd_p_enable
+  28 000c B091 0000 		lds r27,(lcd_p_enable)+1
+  29 0010 E091 0000 		lds r30,lcd_p_enable
+  30 0014 F091 0000 		lds r31,(lcd_p_enable)+1
+  31 0018 9081      		ld r25,Z
+  32 001a 8091 0000 		lds r24,lcd_b_enable
+  33 001e 892B      		or r24,r25
+  34 0020 8C93      		st X,r24
+  35               	.LM3:
+  36 0022 A091 0000 		lds r26,lcd_p_backlight
+  37 0026 B091 0000 		lds r27,(lcd_p_backlight)+1
+  38 002a E091 0000 		lds r30,lcd_p_backlight
+  39 002e F091 0000 		lds r31,(lcd_p_backlight)+1
+  40 0032 9081      		ld r25,Z
+  41 0034 8091 0000 		lds r24,lcd_b_backlight
+  42 0038 892B      		or r24,r25
+  43 003a 8C93      		st X,r24
+  44               	.LM4:
+  45               	/* #APP */
+  46               	 ;  106 "lcd.c" 1
+  47 003c 00C0      		rjmp 1f
+  48               	 1:
+  49               	 ;  0 "" 2
+  50               	.LM5:
+  51               	/* #NOAPP */
+  52 003e A091 0000 		lds r26,lcd_p_enable
+  53 0042 B091 0000 		lds r27,(lcd_p_enable)+1
+  54 0046 E091 0000 		lds r30,lcd_p_enable
+  55 004a F091 0000 		lds r31,(lcd_p_enable)+1
+  56 004e 8081      		ld r24,Z
+  57 0050 982F      		mov r25,r24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 2
+
+
+  58 0052 8091 0000 		lds r24,lcd_b_enable
+  59 0056 8095      		com r24
+  60 0058 8923      		and r24,r25
+  61 005a 8C93      		st X,r24
+  62               	.LM6:
+  63 005c A091 0000 		lds r26,lcd_p_backlight
+  64 0060 B091 0000 		lds r27,(lcd_p_backlight)+1
+  65 0064 E091 0000 		lds r30,lcd_p_backlight
+  66 0068 F091 0000 		lds r31,(lcd_p_backlight)+1
+  67 006c 8081      		ld r24,Z
+  68 006e 982F      		mov r25,r24
+  69 0070 8091 0000 		lds r24,lcd_b_backlight
+  70 0074 8095      		com r24
+  71 0076 8923      		and r24,r25
+  72 0078 8C93      		st X,r24
+  73               	/* epilogue start */
+  74               	.LM7:
+  75 007a CF91      		pop r28
+  76 007c DF91      		pop r29
+  77 007e 0895      		ret
+  78               	.LFE3:
+  79               		.size	lcd_e_toggle, .-lcd_e_toggle
+  80               		.type	lcd_write, @function
+  81               	lcd_write:
+  82               	.LFB4:
+  83               	.LM8:
+  84 0080 DF93      		push r29
+  85 0082 CF93      		push r28
+  86 0084 00D0      		rcall .
+  87 0086 CDB7      		in r28,__SP_L__
+  88 0088 DEB7      		in r29,__SP_H__
+  89               	/* prologue: function */
+  90               	/* frame size = 2 */
+  91 008a 8983      		std Y+1,r24
+  92 008c 6A83      		std Y+2,r22
+  93               	.LM9:
+  94 008e 8A81      		ldd r24,Y+2
+  95 0090 8823      		tst r24
+  96 0092 01F0      		breq .L4
+  97               	.LM10:
+  98 0094 A091 0000 		lds r26,lcd_p_rs
+  99 0098 B091 0000 		lds r27,(lcd_p_rs)+1
+ 100 009c E091 0000 		lds r30,lcd_p_rs
+ 101 00a0 F091 0000 		lds r31,(lcd_p_rs)+1
+ 102 00a4 9081      		ld r25,Z
+ 103 00a6 8091 0000 		lds r24,lcd_b_rs
+ 104 00aa 892B      		or r24,r25
+ 105 00ac 8C93      		st X,r24
+ 106 00ae 00C0      		rjmp .L5
+ 107               	.L4:
+ 108               	.LM11:
+ 109 00b0 A091 0000 		lds r26,lcd_p_rs
+ 110 00b4 B091 0000 		lds r27,(lcd_p_rs)+1
+ 111 00b8 E091 0000 		lds r30,lcd_p_rs
+ 112 00bc F091 0000 		lds r31,(lcd_p_rs)+1
+ 113 00c0 8081      		ld r24,Z
+ 114 00c2 982F      		mov r25,r24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 3
+
+
+ 115 00c4 8091 0000 		lds r24,lcd_b_rs
+ 116 00c8 8095      		com r24
+ 117 00ca 8923      		and r24,r25
+ 118 00cc 8C93      		st X,r24
+ 119               	.L5:
+ 120               	.LM12:
+ 121 00ce A091 0000 		lds r26,lcd_p_rw
+ 122 00d2 B091 0000 		lds r27,(lcd_p_rw)+1
+ 123 00d6 E091 0000 		lds r30,lcd_p_rw
+ 124 00da F091 0000 		lds r31,(lcd_p_rw)+1
+ 125 00de 8081      		ld r24,Z
+ 126 00e0 982F      		mov r25,r24
+ 127 00e2 8091 0000 		lds r24,lcd_b_rw
+ 128 00e6 8095      		com r24
+ 129 00e8 8923      		and r24,r25
+ 130 00ea 8C93      		st X,r24
+ 131               	.LM13:
+ 132 00ec A091 0000 		lds r26,lcd_ddr_db0
+ 133 00f0 B091 0000 		lds r27,(lcd_ddr_db0)+1
+ 134 00f4 E091 0000 		lds r30,lcd_ddr_db0
+ 135 00f8 F091 0000 		lds r31,(lcd_ddr_db0)+1
+ 136 00fc 9081      		ld r25,Z
+ 137 00fe 8091 0000 		lds r24,lcd_b_db0
+ 138 0102 892B      		or r24,r25
+ 139 0104 8C93      		st X,r24
+ 140               	.LM14:
+ 141 0106 A091 0000 		lds r26,lcd_ddr_db1
+ 142 010a B091 0000 		lds r27,(lcd_ddr_db1)+1
+ 143 010e E091 0000 		lds r30,lcd_ddr_db1
+ 144 0112 F091 0000 		lds r31,(lcd_ddr_db1)+1
+ 145 0116 9081      		ld r25,Z
+ 146 0118 8091 0000 		lds r24,lcd_b_db1
+ 147 011c 892B      		or r24,r25
+ 148 011e 8C93      		st X,r24
+ 149               	.LM15:
+ 150 0120 A091 0000 		lds r26,lcd_ddr_db2
+ 151 0124 B091 0000 		lds r27,(lcd_ddr_db2)+1
+ 152 0128 E091 0000 		lds r30,lcd_ddr_db2
+ 153 012c F091 0000 		lds r31,(lcd_ddr_db2)+1
+ 154 0130 9081      		ld r25,Z
+ 155 0132 8091 0000 		lds r24,lcd_b_db2
+ 156 0136 892B      		or r24,r25
+ 157 0138 8C93      		st X,r24
+ 158               	.LM16:
+ 159 013a A091 0000 		lds r26,lcd_ddr_db3
+ 160 013e B091 0000 		lds r27,(lcd_ddr_db3)+1
+ 161 0142 E091 0000 		lds r30,lcd_ddr_db3
+ 162 0146 F091 0000 		lds r31,(lcd_ddr_db3)+1
+ 163 014a 9081      		ld r25,Z
+ 164 014c 8091 0000 		lds r24,lcd_b_db3
+ 165 0150 892B      		or r24,r25
+ 166 0152 8C93      		st X,r24
+ 167               	.LM17:
+ 168 0154 A091 0000 		lds r26,lcd_p_db0
+ 169 0158 B091 0000 		lds r27,(lcd_p_db0)+1
+ 170 015c E091 0000 		lds r30,lcd_p_db0
+ 171 0160 F091 0000 		lds r31,(lcd_p_db0)+1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 4
+
+
+ 172 0164 8081      		ld r24,Z
+ 173 0166 982F      		mov r25,r24
+ 174 0168 8091 0000 		lds r24,lcd_b_db0
+ 175 016c 8095      		com r24
+ 176 016e 8923      		and r24,r25
+ 177 0170 8C93      		st X,r24
+ 178               	.LM18:
+ 179 0172 A091 0000 		lds r26,lcd_p_db1
+ 180 0176 B091 0000 		lds r27,(lcd_p_db1)+1
+ 181 017a E091 0000 		lds r30,lcd_p_db1
+ 182 017e F091 0000 		lds r31,(lcd_p_db1)+1
+ 183 0182 8081      		ld r24,Z
+ 184 0184 982F      		mov r25,r24
+ 185 0186 8091 0000 		lds r24,lcd_b_db1
+ 186 018a 8095      		com r24
+ 187 018c 8923      		and r24,r25
+ 188 018e 8C93      		st X,r24
+ 189               	.LM19:
+ 190 0190 A091 0000 		lds r26,lcd_p_db2
+ 191 0194 B091 0000 		lds r27,(lcd_p_db2)+1
+ 192 0198 E091 0000 		lds r30,lcd_p_db2
+ 193 019c F091 0000 		lds r31,(lcd_p_db2)+1
+ 194 01a0 8081      		ld r24,Z
+ 195 01a2 982F      		mov r25,r24
+ 196 01a4 8091 0000 		lds r24,lcd_b_db2
+ 197 01a8 8095      		com r24
+ 198 01aa 8923      		and r24,r25
+ 199 01ac 8C93      		st X,r24
+ 200               	.LM20:
+ 201 01ae A091 0000 		lds r26,lcd_p_db3
+ 202 01b2 B091 0000 		lds r27,(lcd_p_db3)+1
+ 203 01b6 E091 0000 		lds r30,lcd_p_db3
+ 204 01ba F091 0000 		lds r31,(lcd_p_db3)+1
+ 205 01be 8081      		ld r24,Z
+ 206 01c0 982F      		mov r25,r24
+ 207 01c2 8091 0000 		lds r24,lcd_b_db3
+ 208 01c6 8095      		com r24
+ 209 01c8 8923      		and r24,r25
+ 210 01ca 8C93      		st X,r24
+ 211               	.LM21:
+ 212 01cc 8981      		ldd r24,Y+1
+ 213 01ce 8823      		tst r24
+ 214 01d0 04F4      		brge .L6
+ 215 01d2 A091 0000 		lds r26,lcd_p_db3
+ 216 01d6 B091 0000 		lds r27,(lcd_p_db3)+1
+ 217 01da E091 0000 		lds r30,lcd_p_db3
+ 218 01de F091 0000 		lds r31,(lcd_p_db3)+1
+ 219 01e2 9081      		ld r25,Z
+ 220 01e4 8091 0000 		lds r24,lcd_b_db3
+ 221 01e8 892B      		or r24,r25
+ 222 01ea 8C93      		st X,r24
+ 223               	.L6:
+ 224               	.LM22:
+ 225 01ec 8981      		ldd r24,Y+1
+ 226 01ee 882F      		mov r24,r24
+ 227 01f0 90E0      		ldi r25,lo8(0)
+ 228 01f2 8074      		andi r24,lo8(64)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 5
+
+
+ 229 01f4 9070      		andi r25,hi8(64)
+ 230 01f6 0097      		sbiw r24,0
+ 231 01f8 01F0      		breq .L7
+ 232 01fa A091 0000 		lds r26,lcd_p_db2
+ 233 01fe B091 0000 		lds r27,(lcd_p_db2)+1
+ 234 0202 E091 0000 		lds r30,lcd_p_db2
+ 235 0206 F091 0000 		lds r31,(lcd_p_db2)+1
+ 236 020a 9081      		ld r25,Z
+ 237 020c 8091 0000 		lds r24,lcd_b_db2
+ 238 0210 892B      		or r24,r25
+ 239 0212 8C93      		st X,r24
+ 240               	.L7:
+ 241               	.LM23:
+ 242 0214 8981      		ldd r24,Y+1
+ 243 0216 882F      		mov r24,r24
+ 244 0218 90E0      		ldi r25,lo8(0)
+ 245 021a 8072      		andi r24,lo8(32)
+ 246 021c 9070      		andi r25,hi8(32)
+ 247 021e 0097      		sbiw r24,0
+ 248 0220 01F0      		breq .L8
+ 249 0222 A091 0000 		lds r26,lcd_p_db1
+ 250 0226 B091 0000 		lds r27,(lcd_p_db1)+1
+ 251 022a E091 0000 		lds r30,lcd_p_db1
+ 252 022e F091 0000 		lds r31,(lcd_p_db1)+1
+ 253 0232 9081      		ld r25,Z
+ 254 0234 8091 0000 		lds r24,lcd_b_db1
+ 255 0238 892B      		or r24,r25
+ 256 023a 8C93      		st X,r24
+ 257               	.L8:
+ 258               	.LM24:
+ 259 023c 8981      		ldd r24,Y+1
+ 260 023e 882F      		mov r24,r24
+ 261 0240 90E0      		ldi r25,lo8(0)
+ 262 0242 8071      		andi r24,lo8(16)
+ 263 0244 9070      		andi r25,hi8(16)
+ 264 0246 0097      		sbiw r24,0
+ 265 0248 01F0      		breq .L9
+ 266 024a A091 0000 		lds r26,lcd_p_db0
+ 267 024e B091 0000 		lds r27,(lcd_p_db0)+1
+ 268 0252 E091 0000 		lds r30,lcd_p_db0
+ 269 0256 F091 0000 		lds r31,(lcd_p_db0)+1
+ 270 025a 9081      		ld r25,Z
+ 271 025c 8091 0000 		lds r24,lcd_b_db0
+ 272 0260 892B      		or r24,r25
+ 273 0262 8C93      		st X,r24
+ 274               	.L9:
+ 275               	.LM25:
+ 276 0264 0E94 0000 		call lcd_e_toggle
+ 277               	.LM26:
+ 278 0268 A091 0000 		lds r26,lcd_p_db0
+ 279 026c B091 0000 		lds r27,(lcd_p_db0)+1
+ 280 0270 E091 0000 		lds r30,lcd_p_db0
+ 281 0274 F091 0000 		lds r31,(lcd_p_db0)+1
+ 282 0278 8081      		ld r24,Z
+ 283 027a 982F      		mov r25,r24
+ 284 027c 8091 0000 		lds r24,lcd_b_db0
+ 285 0280 8095      		com r24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 6
+
+
+ 286 0282 8923      		and r24,r25
+ 287 0284 8C93      		st X,r24
+ 288               	.LM27:
+ 289 0286 A091 0000 		lds r26,lcd_p_db1
+ 290 028a B091 0000 		lds r27,(lcd_p_db1)+1
+ 291 028e E091 0000 		lds r30,lcd_p_db1
+ 292 0292 F091 0000 		lds r31,(lcd_p_db1)+1
+ 293 0296 8081      		ld r24,Z
+ 294 0298 982F      		mov r25,r24
+ 295 029a 8091 0000 		lds r24,lcd_b_db1
+ 296 029e 8095      		com r24
+ 297 02a0 8923      		and r24,r25
+ 298 02a2 8C93      		st X,r24
+ 299               	.LM28:
+ 300 02a4 A091 0000 		lds r26,lcd_p_db2
+ 301 02a8 B091 0000 		lds r27,(lcd_p_db2)+1
+ 302 02ac E091 0000 		lds r30,lcd_p_db2
+ 303 02b0 F091 0000 		lds r31,(lcd_p_db2)+1
+ 304 02b4 8081      		ld r24,Z
+ 305 02b6 982F      		mov r25,r24
+ 306 02b8 8091 0000 		lds r24,lcd_b_db2
+ 307 02bc 8095      		com r24
+ 308 02be 8923      		and r24,r25
+ 309 02c0 8C93      		st X,r24
+ 310               	.LM29:
+ 311 02c2 A091 0000 		lds r26,lcd_p_db3
+ 312 02c6 B091 0000 		lds r27,(lcd_p_db3)+1
+ 313 02ca E091 0000 		lds r30,lcd_p_db3
+ 314 02ce F091 0000 		lds r31,(lcd_p_db3)+1
+ 315 02d2 8081      		ld r24,Z
+ 316 02d4 982F      		mov r25,r24
+ 317 02d6 8091 0000 		lds r24,lcd_b_db3
+ 318 02da 8095      		com r24
+ 319 02dc 8923      		and r24,r25
+ 320 02de 8C93      		st X,r24
+ 321               	.LM30:
+ 322 02e0 8981      		ldd r24,Y+1
+ 323 02e2 882F      		mov r24,r24
+ 324 02e4 90E0      		ldi r25,lo8(0)
+ 325 02e6 8870      		andi r24,lo8(8)
+ 326 02e8 9070      		andi r25,hi8(8)
+ 327 02ea 0097      		sbiw r24,0
+ 328 02ec 01F0      		breq .L10
+ 329 02ee A091 0000 		lds r26,lcd_p_db3
+ 330 02f2 B091 0000 		lds r27,(lcd_p_db3)+1
+ 331 02f6 E091 0000 		lds r30,lcd_p_db3
+ 332 02fa F091 0000 		lds r31,(lcd_p_db3)+1
+ 333 02fe 9081      		ld r25,Z
+ 334 0300 8091 0000 		lds r24,lcd_b_db3
+ 335 0304 892B      		or r24,r25
+ 336 0306 8C93      		st X,r24
+ 337               	.L10:
+ 338               	.LM31:
+ 339 0308 8981      		ldd r24,Y+1
+ 340 030a 882F      		mov r24,r24
+ 341 030c 90E0      		ldi r25,lo8(0)
+ 342 030e 8470      		andi r24,lo8(4)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 7
+
+
+ 343 0310 9070      		andi r25,hi8(4)
+ 344 0312 0097      		sbiw r24,0
+ 345 0314 01F0      		breq .L11
+ 346 0316 A091 0000 		lds r26,lcd_p_db2
+ 347 031a B091 0000 		lds r27,(lcd_p_db2)+1
+ 348 031e E091 0000 		lds r30,lcd_p_db2
+ 349 0322 F091 0000 		lds r31,(lcd_p_db2)+1
+ 350 0326 9081      		ld r25,Z
+ 351 0328 8091 0000 		lds r24,lcd_b_db2
+ 352 032c 892B      		or r24,r25
+ 353 032e 8C93      		st X,r24
+ 354               	.L11:
+ 355               	.LM32:
+ 356 0330 8981      		ldd r24,Y+1
+ 357 0332 882F      		mov r24,r24
+ 358 0334 90E0      		ldi r25,lo8(0)
+ 359 0336 8270      		andi r24,lo8(2)
+ 360 0338 9070      		andi r25,hi8(2)
+ 361 033a 0097      		sbiw r24,0
+ 362 033c 01F0      		breq .L12
+ 363 033e A091 0000 		lds r26,lcd_p_db1
+ 364 0342 B091 0000 		lds r27,(lcd_p_db1)+1
+ 365 0346 E091 0000 		lds r30,lcd_p_db1
+ 366 034a F091 0000 		lds r31,(lcd_p_db1)+1
+ 367 034e 9081      		ld r25,Z
+ 368 0350 8091 0000 		lds r24,lcd_b_db1
+ 369 0354 892B      		or r24,r25
+ 370 0356 8C93      		st X,r24
+ 371               	.L12:
+ 372               	.LM33:
+ 373 0358 8981      		ldd r24,Y+1
+ 374 035a 882F      		mov r24,r24
+ 375 035c 90E0      		ldi r25,lo8(0)
+ 376 035e 8170      		andi r24,lo8(1)
+ 377 0360 9070      		andi r25,hi8(1)
+ 378 0362 8823      		tst r24
+ 379 0364 01F0      		breq .L13
+ 380 0366 A091 0000 		lds r26,lcd_p_db0
+ 381 036a B091 0000 		lds r27,(lcd_p_db0)+1
+ 382 036e E091 0000 		lds r30,lcd_p_db0
+ 383 0372 F091 0000 		lds r31,(lcd_p_db0)+1
+ 384 0376 9081      		ld r25,Z
+ 385 0378 8091 0000 		lds r24,lcd_b_db0
+ 386 037c 892B      		or r24,r25
+ 387 037e 8C93      		st X,r24
+ 388               	.L13:
+ 389               	.LM34:
+ 390 0380 0E94 0000 		call lcd_e_toggle
+ 391               	.LM35:
+ 392 0384 A091 0000 		lds r26,lcd_p_db0
+ 393 0388 B091 0000 		lds r27,(lcd_p_db0)+1
+ 394 038c E091 0000 		lds r30,lcd_p_db0
+ 395 0390 F091 0000 		lds r31,(lcd_p_db0)+1
+ 396 0394 9081      		ld r25,Z
+ 397 0396 8091 0000 		lds r24,lcd_b_db0
+ 398 039a 892B      		or r24,r25
+ 399 039c 8C93      		st X,r24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 8
+
+
+ 400               	.LM36:
+ 401 039e A091 0000 		lds r26,lcd_p_db1
+ 402 03a2 B091 0000 		lds r27,(lcd_p_db1)+1
+ 403 03a6 E091 0000 		lds r30,lcd_p_db1
+ 404 03aa F091 0000 		lds r31,(lcd_p_db1)+1
+ 405 03ae 9081      		ld r25,Z
+ 406 03b0 8091 0000 		lds r24,lcd_b_db1
+ 407 03b4 892B      		or r24,r25
+ 408 03b6 8C93      		st X,r24
+ 409               	.LM37:
+ 410 03b8 A091 0000 		lds r26,lcd_p_db2
+ 411 03bc B091 0000 		lds r27,(lcd_p_db2)+1
+ 412 03c0 E091 0000 		lds r30,lcd_p_db2
+ 413 03c4 F091 0000 		lds r31,(lcd_p_db2)+1
+ 414 03c8 9081      		ld r25,Z
+ 415 03ca 8091 0000 		lds r24,lcd_b_db2
+ 416 03ce 892B      		or r24,r25
+ 417 03d0 8C93      		st X,r24
+ 418               	.LM38:
+ 419 03d2 A091 0000 		lds r26,lcd_p_db3
+ 420 03d6 B091 0000 		lds r27,(lcd_p_db3)+1
+ 421 03da E091 0000 		lds r30,lcd_p_db3
+ 422 03de F091 0000 		lds r31,(lcd_p_db3)+1
+ 423 03e2 9081      		ld r25,Z
+ 424 03e4 8091 0000 		lds r24,lcd_b_db3
+ 425 03e8 892B      		or r24,r25
+ 426 03ea 8C93      		st X,r24
+ 427               	/* epilogue start */
+ 428               	.LM39:
+ 429 03ec 0F90      		pop __tmp_reg__
+ 430 03ee 0F90      		pop __tmp_reg__
+ 431 03f0 CF91      		pop r28
+ 432 03f2 DF91      		pop r29
+ 433 03f4 0895      		ret
+ 434               	.LFE4:
+ 435               		.size	lcd_write, .-lcd_write
+ 436               		.type	lcd_read, @function
+ 437               	lcd_read:
+ 438               	.LFB5:
+ 439               	.LM40:
+ 440 03f6 DF93      		push r29
+ 441 03f8 CF93      		push r28
+ 442 03fa 00D0      		rcall .
+ 443 03fc CDB7      		in r28,__SP_L__
+ 444 03fe DEB7      		in r29,__SP_H__
+ 445               	/* prologue: function */
+ 446               	/* frame size = 2 */
+ 447 0400 8A83      		std Y+2,r24
+ 448               	.LM41:
+ 449 0402 8A81      		ldd r24,Y+2
+ 450 0404 8823      		tst r24
+ 451 0406 01F0      		breq .L16
+ 452               	.LM42:
+ 453 0408 A091 0000 		lds r26,lcd_p_rs
+ 454 040c B091 0000 		lds r27,(lcd_p_rs)+1
+ 455 0410 E091 0000 		lds r30,lcd_p_rs
+ 456 0414 F091 0000 		lds r31,(lcd_p_rs)+1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 9
+
+
+ 457 0418 9081      		ld r25,Z
+ 458 041a 8091 0000 		lds r24,lcd_b_rs
+ 459 041e 892B      		or r24,r25
+ 460 0420 8C93      		st X,r24
+ 461 0422 00C0      		rjmp .L17
+ 462               	.L16:
+ 463               	.LM43:
+ 464 0424 A091 0000 		lds r26,lcd_p_rs
+ 465 0428 B091 0000 		lds r27,(lcd_p_rs)+1
+ 466 042c E091 0000 		lds r30,lcd_p_rs
+ 467 0430 F091 0000 		lds r31,(lcd_p_rs)+1
+ 468 0434 8081      		ld r24,Z
+ 469 0436 982F      		mov r25,r24
+ 470 0438 8091 0000 		lds r24,lcd_b_rs
+ 471 043c 8095      		com r24
+ 472 043e 8923      		and r24,r25
+ 473 0440 8C93      		st X,r24
+ 474               	.L17:
+ 475               	.LM44:
+ 476 0442 A091 0000 		lds r26,lcd_p_rw
+ 477 0446 B091 0000 		lds r27,(lcd_p_rw)+1
+ 478 044a E091 0000 		lds r30,lcd_p_rw
+ 479 044e F091 0000 		lds r31,(lcd_p_rw)+1
+ 480 0452 9081      		ld r25,Z
+ 481 0454 8091 0000 		lds r24,lcd_b_rw
+ 482 0458 892B      		or r24,r25
+ 483 045a 8C93      		st X,r24
+ 484               	.LM45:
+ 485 045c A091 0000 		lds r26,lcd_ddr_db0
+ 486 0460 B091 0000 		lds r27,(lcd_ddr_db0)+1
+ 487 0464 E091 0000 		lds r30,lcd_ddr_db0
+ 488 0468 F091 0000 		lds r31,(lcd_ddr_db0)+1
+ 489 046c 8081      		ld r24,Z
+ 490 046e 982F      		mov r25,r24
+ 491 0470 8091 0000 		lds r24,lcd_b_db0
+ 492 0474 8095      		com r24
+ 493 0476 8923      		and r24,r25
+ 494 0478 8C93      		st X,r24
+ 495               	.LM46:
+ 496 047a A091 0000 		lds r26,lcd_ddr_db1
+ 497 047e B091 0000 		lds r27,(lcd_ddr_db1)+1
+ 498 0482 E091 0000 		lds r30,lcd_ddr_db1
+ 499 0486 F091 0000 		lds r31,(lcd_ddr_db1)+1
+ 500 048a 8081      		ld r24,Z
+ 501 048c 982F      		mov r25,r24
+ 502 048e 8091 0000 		lds r24,lcd_b_db1
+ 503 0492 8095      		com r24
+ 504 0494 8923      		and r24,r25
+ 505 0496 8C93      		st X,r24
+ 506               	.LM47:
+ 507 0498 A091 0000 		lds r26,lcd_ddr_db2
+ 508 049c B091 0000 		lds r27,(lcd_ddr_db2)+1
+ 509 04a0 E091 0000 		lds r30,lcd_ddr_db2
+ 510 04a4 F091 0000 		lds r31,(lcd_ddr_db2)+1
+ 511 04a8 8081      		ld r24,Z
+ 512 04aa 982F      		mov r25,r24
+ 513 04ac 8091 0000 		lds r24,lcd_b_db2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 10
+
+
+ 514 04b0 8095      		com r24
+ 515 04b2 8923      		and r24,r25
+ 516 04b4 8C93      		st X,r24
+ 517               	.LM48:
+ 518 04b6 A091 0000 		lds r26,lcd_ddr_db3
+ 519 04ba B091 0000 		lds r27,(lcd_ddr_db3)+1
+ 520 04be E091 0000 		lds r30,lcd_ddr_db3
+ 521 04c2 F091 0000 		lds r31,(lcd_ddr_db3)+1
+ 522 04c6 8081      		ld r24,Z
+ 523 04c8 982F      		mov r25,r24
+ 524 04ca 8091 0000 		lds r24,lcd_b_db3
+ 525 04ce 8095      		com r24
+ 526 04d0 8923      		and r24,r25
+ 527 04d2 8C93      		st X,r24
+ 528               	.LM49:
+ 529 04d4 A091 0000 		lds r26,lcd_p_enable
+ 530 04d8 B091 0000 		lds r27,(lcd_p_enable)+1
+ 531 04dc E091 0000 		lds r30,lcd_p_enable
+ 532 04e0 F091 0000 		lds r31,(lcd_p_enable)+1
+ 533 04e4 9081      		ld r25,Z
+ 534 04e6 8091 0000 		lds r24,lcd_b_enable
+ 535 04ea 892B      		or r24,r25
+ 536 04ec 8C93      		st X,r24
+ 537               	.LM50:
+ 538 04ee A091 0000 		lds r26,lcd_p_backlight
+ 539 04f2 B091 0000 		lds r27,(lcd_p_backlight)+1
+ 540 04f6 E091 0000 		lds r30,lcd_p_backlight
+ 541 04fa F091 0000 		lds r31,(lcd_p_backlight)+1
+ 542 04fe 9081      		ld r25,Z
+ 543 0500 8091 0000 		lds r24,lcd_b_backlight
+ 544 0504 892B      		or r24,r25
+ 545 0506 8C93      		st X,r24
+ 546               	.LM51:
+ 547               	/* #APP */
+ 548               	 ;  192 "lcd.c" 1
+ 549 0508 00C0      		rjmp 1f
+ 550               	 1:
+ 551               	 ;  0 "" 2
+ 552               	.LM52:
+ 553               	/* #NOAPP */
+ 554 050a 1982      		std Y+1,__zero_reg__
+ 555               	.LM53:
+ 556 050c E091 0000 		lds r30,lcd_pin_db0
+ 557 0510 F091 0000 		lds r31,(lcd_pin_db0)+1
+ 558 0514 9081      		ld r25,Z
+ 559 0516 8091 0000 		lds r24,lcd_b_db0
+ 560 051a 8923      		and r24,r25
+ 561 051c 8823      		tst r24
+ 562 051e 01F0      		breq .L18
+ 563 0520 8981      		ldd r24,Y+1
+ 564 0522 8061      		ori r24,lo8(16)
+ 565 0524 8983      		std Y+1,r24
+ 566               	.L18:
+ 567               	.LM54:
+ 568 0526 E091 0000 		lds r30,lcd_pin_db1
+ 569 052a F091 0000 		lds r31,(lcd_pin_db1)+1
+ 570 052e 9081      		ld r25,Z
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 11
+
+
+ 571 0530 8091 0000 		lds r24,lcd_b_db1
+ 572 0534 8923      		and r24,r25
+ 573 0536 8823      		tst r24
+ 574 0538 01F0      		breq .L19
+ 575 053a 8981      		ldd r24,Y+1
+ 576 053c 8062      		ori r24,lo8(32)
+ 577 053e 8983      		std Y+1,r24
+ 578               	.L19:
+ 579               	.LM55:
+ 580 0540 E091 0000 		lds r30,lcd_pin_db2
+ 581 0544 F091 0000 		lds r31,(lcd_pin_db2)+1
+ 582 0548 9081      		ld r25,Z
+ 583 054a 8091 0000 		lds r24,lcd_b_db2
+ 584 054e 8923      		and r24,r25
+ 585 0550 8823      		tst r24
+ 586 0552 01F0      		breq .L20
+ 587 0554 8981      		ldd r24,Y+1
+ 588 0556 8064      		ori r24,lo8(64)
+ 589 0558 8983      		std Y+1,r24
+ 590               	.L20:
+ 591               	.LM56:
+ 592 055a E091 0000 		lds r30,lcd_pin_db3
+ 593 055e F091 0000 		lds r31,(lcd_pin_db3)+1
+ 594 0562 9081      		ld r25,Z
+ 595 0564 8091 0000 		lds r24,lcd_b_db3
+ 596 0568 8923      		and r24,r25
+ 597 056a 8823      		tst r24
+ 598 056c 01F0      		breq .L21
+ 599 056e 8981      		ldd r24,Y+1
+ 600 0570 8068      		ori r24,lo8(-128)
+ 601 0572 8983      		std Y+1,r24
+ 602               	.L21:
+ 603               	.LM57:
+ 604 0574 A091 0000 		lds r26,lcd_p_enable
+ 605 0578 B091 0000 		lds r27,(lcd_p_enable)+1
+ 606 057c E091 0000 		lds r30,lcd_p_enable
+ 607 0580 F091 0000 		lds r31,(lcd_p_enable)+1
+ 608 0584 8081      		ld r24,Z
+ 609 0586 982F      		mov r25,r24
+ 610 0588 8091 0000 		lds r24,lcd_b_enable
+ 611 058c 8095      		com r24
+ 612 058e 8923      		and r24,r25
+ 613 0590 8C93      		st X,r24
+ 614               	.LM58:
+ 615 0592 A091 0000 		lds r26,lcd_p_backlight
+ 616 0596 B091 0000 		lds r27,(lcd_p_backlight)+1
+ 617 059a E091 0000 		lds r30,lcd_p_backlight
+ 618 059e F091 0000 		lds r31,(lcd_p_backlight)+1
+ 619 05a2 8081      		ld r24,Z
+ 620 05a4 982F      		mov r25,r24
+ 621 05a6 8091 0000 		lds r24,lcd_b_backlight
+ 622 05aa 8095      		com r24
+ 623 05ac 8923      		and r24,r25
+ 624 05ae 8C93      		st X,r24
+ 625               	.LM59:
+ 626               	/* #APP */
+ 627               	 ;  201 "lcd.c" 1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 12
+
+
+ 628 05b0 00C0      		rjmp 1f
+ 629               	 1:
+ 630               	 ;  0 "" 2
+ 631               	.LM60:
+ 632               	/* #NOAPP */
+ 633 05b2 A091 0000 		lds r26,lcd_p_enable
+ 634 05b6 B091 0000 		lds r27,(lcd_p_enable)+1
+ 635 05ba E091 0000 		lds r30,lcd_p_enable
+ 636 05be F091 0000 		lds r31,(lcd_p_enable)+1
+ 637 05c2 9081      		ld r25,Z
+ 638 05c4 8091 0000 		lds r24,lcd_b_enable
+ 639 05c8 892B      		or r24,r25
+ 640 05ca 8C93      		st X,r24
+ 641               	.LM61:
+ 642 05cc A091 0000 		lds r26,lcd_p_backlight
+ 643 05d0 B091 0000 		lds r27,(lcd_p_backlight)+1
+ 644 05d4 E091 0000 		lds r30,lcd_p_backlight
+ 645 05d8 F091 0000 		lds r31,(lcd_p_backlight)+1
+ 646 05dc 9081      		ld r25,Z
+ 647 05de 8091 0000 		lds r24,lcd_b_backlight
+ 648 05e2 892B      		or r24,r25
+ 649 05e4 8C93      		st X,r24
+ 650               	.LM62:
+ 651               	/* #APP */
+ 652               	 ;  206 "lcd.c" 1
+ 653 05e6 00C0      		rjmp 1f
+ 654               	 1:
+ 655               	 ;  0 "" 2
+ 656               	.LM63:
+ 657               	/* #NOAPP */
+ 658 05e8 E091 0000 		lds r30,lcd_pin_db0
+ 659 05ec F091 0000 		lds r31,(lcd_pin_db0)+1
+ 660 05f0 9081      		ld r25,Z
+ 661 05f2 8091 0000 		lds r24,lcd_b_db0
+ 662 05f6 8923      		and r24,r25
+ 663 05f8 8823      		tst r24
+ 664 05fa 01F0      		breq .L22
+ 665 05fc 8981      		ldd r24,Y+1
+ 666 05fe 8160      		ori r24,lo8(1)
+ 667 0600 8983      		std Y+1,r24
+ 668               	.L22:
+ 669               	.LM64:
+ 670 0602 E091 0000 		lds r30,lcd_pin_db1
+ 671 0606 F091 0000 		lds r31,(lcd_pin_db1)+1
+ 672 060a 9081      		ld r25,Z
+ 673 060c 8091 0000 		lds r24,lcd_b_db1
+ 674 0610 8923      		and r24,r25
+ 675 0612 8823      		tst r24
+ 676 0614 01F0      		breq .L23
+ 677 0616 8981      		ldd r24,Y+1
+ 678 0618 8260      		ori r24,lo8(2)
+ 679 061a 8983      		std Y+1,r24
+ 680               	.L23:
+ 681               	.LM65:
+ 682 061c E091 0000 		lds r30,lcd_pin_db2
+ 683 0620 F091 0000 		lds r31,(lcd_pin_db2)+1
+ 684 0624 9081      		ld r25,Z
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 13
+
+
+ 685 0626 8091 0000 		lds r24,lcd_b_db2
+ 686 062a 8923      		and r24,r25
+ 687 062c 8823      		tst r24
+ 688 062e 01F0      		breq .L24
+ 689 0630 8981      		ldd r24,Y+1
+ 690 0632 8460      		ori r24,lo8(4)
+ 691 0634 8983      		std Y+1,r24
+ 692               	.L24:
+ 693               	.LM66:
+ 694 0636 E091 0000 		lds r30,lcd_pin_db3
+ 695 063a F091 0000 		lds r31,(lcd_pin_db3)+1
+ 696 063e 9081      		ld r25,Z
+ 697 0640 8091 0000 		lds r24,lcd_b_db3
+ 698 0644 8923      		and r24,r25
+ 699 0646 8823      		tst r24
+ 700 0648 01F0      		breq .L25
+ 701 064a 8981      		ldd r24,Y+1
+ 702 064c 8860      		ori r24,lo8(8)
+ 703 064e 8983      		std Y+1,r24
+ 704               	.L25:
+ 705               	.LM67:
+ 706 0650 A091 0000 		lds r26,lcd_p_enable
+ 707 0654 B091 0000 		lds r27,(lcd_p_enable)+1
+ 708 0658 E091 0000 		lds r30,lcd_p_enable
+ 709 065c F091 0000 		lds r31,(lcd_p_enable)+1
+ 710 0660 8081      		ld r24,Z
+ 711 0662 982F      		mov r25,r24
+ 712 0664 8091 0000 		lds r24,lcd_b_enable
+ 713 0668 8095      		com r24
+ 714 066a 8923      		and r24,r25
+ 715 066c 8C93      		st X,r24
+ 716               	.LM68:
+ 717 066e A091 0000 		lds r26,lcd_p_backlight
+ 718 0672 B091 0000 		lds r27,(lcd_p_backlight)+1
+ 719 0676 E091 0000 		lds r30,lcd_p_backlight
+ 720 067a F091 0000 		lds r31,(lcd_p_backlight)+1
+ 721 067e 8081      		ld r24,Z
+ 722 0680 982F      		mov r25,r24
+ 723 0682 8091 0000 		lds r24,lcd_b_backlight
+ 724 0686 8095      		com r24
+ 725 0688 8923      		and r24,r25
+ 726 068a 8C93      		st X,r24
+ 727               	.LM69:
+ 728 068c 8981      		ldd r24,Y+1
+ 729               	/* epilogue start */
+ 730               	.LM70:
+ 731 068e 0F90      		pop __tmp_reg__
+ 732 0690 0F90      		pop __tmp_reg__
+ 733 0692 CF91      		pop r28
+ 734 0694 DF91      		pop r29
+ 735 0696 0895      		ret
+ 736               	.LFE5:
+ 737               		.size	lcd_read, .-lcd_read
+ 738               		.type	lcd_waitbusy, @function
+ 739               	lcd_waitbusy:
+ 740               	.LFB6:
+ 741               	.LM71:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 14
+
+
+ 742 0698 DF93      		push r29
+ 743 069a CF93      		push r28
+ 744 069c CDB7      		in r28,__SP_L__
+ 745 069e DEB7      		in r29,__SP_H__
+ 746               	/* prologue: function */
+ 747               	/* frame size = 0 */
+ 748               	.L28:
+ 749               	.LM72:
+ 750 06a0 80E0      		ldi r24,lo8(0)
+ 751 06a2 0E94 0000 		call lcd_read
+ 752 06a6 8823      		tst r24
+ 753 06a8 04F0      		brlt .L28
+ 754               	.LM73:
+ 755 06aa 67E0      		ldi r22,lo8(7)
+ 756 06ac 70E0      		ldi r23,hi8(7)
+ 757 06ae 80E0      		ldi r24,hlo8(7)
+ 758 06b0 90E0      		ldi r25,hhi8(7)
+ 759 06b2 0E94 0000 		call _delayFourCycles
+ 760               	.LM74:
+ 761 06b6 80E0      		ldi r24,lo8(0)
+ 762 06b8 0E94 0000 		call lcd_read
+ 763               	/* epilogue start */
+ 764               	.LM75:
+ 765 06bc CF91      		pop r28
+ 766 06be DF91      		pop r29
+ 767 06c0 0895      		ret
+ 768               	.LFE6:
+ 769               		.size	lcd_waitbusy, .-lcd_waitbusy
+ 770               		.type	_delayFourCycles, @function
+ 771               	_delayFourCycles:
+ 772               	.LFB2:
+ 773               	.LM76:
+ 774 06c2 DF93      		push r29
+ 775 06c4 CF93      		push r28
+ 776 06c6 00D0      		rcall .
+ 777 06c8 00D0      		rcall .
+ 778 06ca CDB7      		in r28,__SP_L__
+ 779 06cc DEB7      		in r29,__SP_H__
+ 780               	/* prologue: function */
+ 781               	/* frame size = 4 */
+ 782 06ce 6983      		std Y+1,r22
+ 783 06d0 7A83      		std Y+2,r23
+ 784 06d2 8B83      		std Y+3,r24
+ 785 06d4 9C83      		std Y+4,r25
+ 786               	.LM77:
+ 787 06d6 8981      		ldd r24,Y+1
+ 788 06d8 9A81      		ldd r25,Y+2
+ 789 06da AB81      		ldd r26,Y+3
+ 790 06dc BC81      		ldd r27,Y+4
+ 791 06de 0097      		sbiw r24,0
+ 792 06e0 A105      		cpc r26,__zero_reg__
+ 793 06e2 B105      		cpc r27,__zero_reg__
+ 794 06e4 01F4      		brne .L31
+ 795               	.LM78:
+ 796               	/* #APP */
+ 797               	 ;  82 "lcd.c" 1
+ 798 06e6 00C0      		rjmp 1f
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 15
+
+
+ 799               	 1:
+ 800               	 ;  0 "" 2
+ 801               	/* #NOAPP */
+ 802 06e8 00C0      		rjmp .L33
+ 803               	.L31:
+ 804               	.LM79:
+ 805 06ea 8981      		ldd r24,Y+1
+ 806 06ec 9A81      		ldd r25,Y+2
+ 807 06ee AB81      		ldd r26,Y+3
+ 808 06f0 BC81      		ldd r27,Y+4
+ 809               	/* #APP */
+ 810               	 ;  84 "lcd.c" 1
+ 811 06f2 0197      		1: sbiw r24,1
+ 812 06f4 01F4      		brne 1b
+ 813               	 ;  0 "" 2
+ 814               	/* #NOAPP */
+ 815 06f6 8983      		std Y+1,r24
+ 816 06f8 9A83      		std Y+2,r25
+ 817 06fa AB83      		std Y+3,r26
+ 818 06fc BC83      		std Y+4,r27
+ 819               	.L33:
+ 820               	/* epilogue start */
+ 821               	.LM80:
+ 822 06fe 0F90      		pop __tmp_reg__
+ 823 0700 0F90      		pop __tmp_reg__
+ 824 0702 0F90      		pop __tmp_reg__
+ 825 0704 0F90      		pop __tmp_reg__
+ 826 0706 CF91      		pop r28
+ 827 0708 DF91      		pop r29
+ 828 070a 0895      		ret
+ 829               	.LFE2:
+ 830               		.size	_delayFourCycles, .-_delayFourCycles
+ 831               	.global	lcd_backlight_on
+ 832               		.type	lcd_backlight_on, @function
+ 833               	lcd_backlight_on:
+ 834               	.LFB8:
+ 835               	.LM81:
+ 836 070c DF93      		push r29
+ 837 070e CF93      		push r28
+ 838 0710 CDB7      		in r28,__SP_L__
+ 839 0712 DEB7      		in r29,__SP_H__
+ 840               	/* prologue: function */
+ 841               	/* frame size = 0 */
+ 842               	.LM82:
+ 843 0714 A091 0000 		lds r26,lcd_p_backlight
+ 844 0718 B091 0000 		lds r27,(lcd_p_backlight)+1
+ 845 071c E091 0000 		lds r30,lcd_p_backlight
+ 846 0720 F091 0000 		lds r31,(lcd_p_backlight)+1
+ 847 0724 9081      		ld r25,Z
+ 848 0726 8091 0000 		lds r24,lcd_b_backlight
+ 849 072a 892B      		or r24,r25
+ 850 072c 8C93      		st X,r24
+ 851               	/* epilogue start */
+ 852               	.LM83:
+ 853 072e CF91      		pop r28
+ 854 0730 DF91      		pop r29
+ 855 0732 0895      		ret
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 16
+
+
+ 856               	.LFE8:
+ 857               		.size	lcd_backlight_on, .-lcd_backlight_on
+ 858               	.global	lcd_backlight_off
+ 859               		.type	lcd_backlight_off, @function
+ 860               	lcd_backlight_off:
+ 861               	.LFB9:
+ 862               	.LM84:
+ 863 0734 DF93      		push r29
+ 864 0736 CF93      		push r28
+ 865 0738 CDB7      		in r28,__SP_L__
+ 866 073a DEB7      		in r29,__SP_H__
+ 867               	/* prologue: function */
+ 868               	/* frame size = 0 */
+ 869               	.LM85:
+ 870 073c A091 0000 		lds r26,lcd_p_backlight
+ 871 0740 B091 0000 		lds r27,(lcd_p_backlight)+1
+ 872 0744 E091 0000 		lds r30,lcd_p_backlight
+ 873 0748 F091 0000 		lds r31,(lcd_p_backlight)+1
+ 874 074c 8081      		ld r24,Z
+ 875 074e 982F      		mov r25,r24
+ 876 0750 8091 0000 		lds r24,lcd_b_backlight
+ 877 0754 8095      		com r24
+ 878 0756 8923      		and r24,r25
+ 879 0758 8C93      		st X,r24
+ 880               	/* epilogue start */
+ 881               	.LM86:
+ 882 075a CF91      		pop r28
+ 883 075c DF91      		pop r29
+ 884 075e 0895      		ret
+ 885               	.LFE9:
+ 886               		.size	lcd_backlight_off, .-lcd_backlight_off
+ 887               	.global	lcd_command
+ 888               		.type	lcd_command, @function
+ 889               	lcd_command:
+ 890               	.LFB10:
+ 891               	.LM87:
+ 892 0760 DF93      		push r29
+ 893 0762 CF93      		push r28
+ 894 0764 0F92      		push __tmp_reg__
+ 895 0766 CDB7      		in r28,__SP_L__
+ 896 0768 DEB7      		in r29,__SP_H__
+ 897               	/* prologue: function */
+ 898               	/* frame size = 1 */
+ 899 076a 8983      		std Y+1,r24
+ 900               	.LM88:
+ 901 076c 0E94 0000 		call lcd_waitbusy
+ 902               	.LM89:
+ 903 0770 8981      		ldd r24,Y+1
+ 904 0772 60E0      		ldi r22,lo8(0)
+ 905 0774 0E94 0000 		call lcd_write
+ 906               	/* epilogue start */
+ 907               	.LM90:
+ 908 0778 0F90      		pop __tmp_reg__
+ 909 077a CF91      		pop r28
+ 910 077c DF91      		pop r29
+ 911 077e 0895      		ret
+ 912               	.LFE10:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 17
+
+
+ 913               		.size	lcd_command, .-lcd_command
+ 914               	.global	lcd_data
+ 915               		.type	lcd_data, @function
+ 916               	lcd_data:
+ 917               	.LFB11:
+ 918               	.LM91:
+ 919 0780 DF93      		push r29
+ 920 0782 CF93      		push r28
+ 921 0784 0F92      		push __tmp_reg__
+ 922 0786 CDB7      		in r28,__SP_L__
+ 923 0788 DEB7      		in r29,__SP_H__
+ 924               	/* prologue: function */
+ 925               	/* frame size = 1 */
+ 926 078a 8983      		std Y+1,r24
+ 927               	.LM92:
+ 928 078c 0E94 0000 		call lcd_waitbusy
+ 929               	.LM93:
+ 930 0790 8981      		ldd r24,Y+1
+ 931 0792 61E0      		ldi r22,lo8(1)
+ 932 0794 0E94 0000 		call lcd_write
+ 933               	/* epilogue start */
+ 934               	.LM94:
+ 935 0798 0F90      		pop __tmp_reg__
+ 936 079a CF91      		pop r28
+ 937 079c DF91      		pop r29
+ 938 079e 0895      		ret
+ 939               	.LFE11:
+ 940               		.size	lcd_data, .-lcd_data
+ 941               	.global	lcd_gotoxy
+ 942               		.type	lcd_gotoxy, @function
+ 943               	lcd_gotoxy:
+ 944               	.LFB12:
+ 945               	.LM95:
+ 946 07a0 DF93      		push r29
+ 947 07a2 CF93      		push r28
+ 948 07a4 00D0      		rcall .
+ 949 07a6 CDB7      		in r28,__SP_L__
+ 950 07a8 DEB7      		in r29,__SP_H__
+ 951               	/* prologue: function */
+ 952               	/* frame size = 2 */
+ 953 07aa 8983      		std Y+1,r24
+ 954 07ac 6A83      		std Y+2,r22
+ 955               	.LM96:
+ 956 07ae 8A81      		ldd r24,Y+2
+ 957 07b0 8823      		tst r24
+ 958 07b2 01F4      		brne .L43
+ 959               	.LM97:
+ 960 07b4 8981      		ldd r24,Y+1
+ 961 07b6 8058      		subi r24,lo8(-(-128))
+ 962 07b8 0E94 0000 		call lcd_command
+ 963 07bc 00C0      		rjmp .L47
+ 964               	.L43:
+ 965               	.LM98:
+ 966 07be 8A81      		ldd r24,Y+2
+ 967 07c0 8130      		cpi r24,lo8(1)
+ 968 07c2 01F4      		brne .L45
+ 969               	.LM99:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 18
+
+
+ 970 07c4 8981      		ldd r24,Y+1
+ 971 07c6 8054      		subi r24,lo8(-(-64))
+ 972 07c8 0E94 0000 		call lcd_command
+ 973 07cc 00C0      		rjmp .L47
+ 974               	.L45:
+ 975               	.LM100:
+ 976 07ce 8A81      		ldd r24,Y+2
+ 977 07d0 8230      		cpi r24,lo8(2)
+ 978 07d2 01F4      		brne .L46
+ 979               	.LM101:
+ 980 07d4 8981      		ldd r24,Y+1
+ 981 07d6 8C56      		subi r24,lo8(-(-108))
+ 982 07d8 0E94 0000 		call lcd_command
+ 983 07dc 00C0      		rjmp .L47
+ 984               	.L46:
+ 985               	.LM102:
+ 986 07de 8981      		ldd r24,Y+1
+ 987 07e0 8C52      		subi r24,lo8(-(-44))
+ 988 07e2 0E94 0000 		call lcd_command
+ 989               	.L47:
+ 990               	/* epilogue start */
+ 991               	.LM103:
+ 992 07e6 0F90      		pop __tmp_reg__
+ 993 07e8 0F90      		pop __tmp_reg__
+ 994 07ea CF91      		pop r28
+ 995 07ec DF91      		pop r29
+ 996 07ee 0895      		ret
+ 997               	.LFE12:
+ 998               		.size	lcd_gotoxy, .-lcd_gotoxy
+ 999               	.global	lcd_getxy
+ 1000               		.type	lcd_getxy, @function
+ 1001               	lcd_getxy:
+ 1002               	.LFB13:
+ 1003               	.LM104:
+ 1004 07f0 DF93      		push r29
+ 1005 07f2 CF93      		push r28
+ 1006 07f4 CDB7      		in r28,__SP_L__
+ 1007 07f6 DEB7      		in r29,__SP_H__
+ 1008               	/* prologue: function */
+ 1009               	/* frame size = 0 */
+ 1010               	.LM105:
+ 1011 07f8 0E94 0000 		call lcd_waitbusy
+ 1012 07fc 882F      		mov r24,r24
+ 1013 07fe 90E0      		ldi r25,lo8(0)
+ 1014               	/* epilogue start */
+ 1015               	.LM106:
+ 1016 0800 CF91      		pop r28
+ 1017 0802 DF91      		pop r29
+ 1018 0804 0895      		ret
+ 1019               	.LFE13:
+ 1020               		.size	lcd_getxy, .-lcd_getxy
+ 1021               	.global	lcd_clrscr
+ 1022               		.type	lcd_clrscr, @function
+ 1023               	lcd_clrscr:
+ 1024               	.LFB14:
+ 1025               	.LM107:
+ 1026 0806 DF93      		push r29
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 19
+
+
+ 1027 0808 CF93      		push r28
+ 1028 080a CDB7      		in r28,__SP_L__
+ 1029 080c DEB7      		in r29,__SP_H__
+ 1030               	/* prologue: function */
+ 1031               	/* frame size = 0 */
+ 1032               	.LM108:
+ 1033 080e 81E0      		ldi r24,lo8(1)
+ 1034 0810 0E94 0000 		call lcd_command
+ 1035               	/* epilogue start */
+ 1036               	.LM109:
+ 1037 0814 CF91      		pop r28
+ 1038 0816 DF91      		pop r29
+ 1039 0818 0895      		ret
+ 1040               	.LFE14:
+ 1041               		.size	lcd_clrscr, .-lcd_clrscr
+ 1042               	.global	lcd_home
+ 1043               		.type	lcd_home, @function
+ 1044               	lcd_home:
+ 1045               	.LFB15:
+ 1046               	.LM110:
+ 1047 081a DF93      		push r29
+ 1048 081c CF93      		push r28
+ 1049 081e CDB7      		in r28,__SP_L__
+ 1050 0820 DEB7      		in r29,__SP_H__
+ 1051               	/* prologue: function */
+ 1052               	/* frame size = 0 */
+ 1053               	.LM111:
+ 1054 0822 82E0      		ldi r24,lo8(2)
+ 1055 0824 0E94 0000 		call lcd_command
+ 1056               	/* epilogue start */
+ 1057               	.LM112:
+ 1058 0828 CF91      		pop r28
+ 1059 082a DF91      		pop r29
+ 1060 082c 0895      		ret
+ 1061               	.LFE15:
+ 1062               		.size	lcd_home, .-lcd_home
+ 1063               	.global	lcd_putc
+ 1064               		.type	lcd_putc, @function
+ 1065               	lcd_putc:
+ 1066               	.LFB16:
+ 1067               	.LM113:
+ 1068 082e DF93      		push r29
+ 1069 0830 CF93      		push r28
+ 1070 0832 00D0      		rcall .
+ 1071 0834 CDB7      		in r28,__SP_L__
+ 1072 0836 DEB7      		in r29,__SP_H__
+ 1073               	/* prologue: function */
+ 1074               	/* frame size = 2 */
+ 1075 0838 8A83      		std Y+2,r24
+ 1076               	.LM114:
+ 1077 083a 0E94 0000 		call lcd_waitbusy
+ 1078 083e 8983      		std Y+1,r24
+ 1079               	.LM115:
+ 1080 0840 8A81      		ldd r24,Y+2
+ 1081 0842 8A30      		cpi r24,lo8(10)
+ 1082 0844 01F4      		brne .L55
+ 1083               	.LM116:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 20
+
+
+ 1084 0846 8981      		ldd r24,Y+1
+ 1085 0848 0E94 0000 		call lcd_newline
+ 1086 084c 00C0      		rjmp .L57
+ 1087               	.L55:
+ 1088               	.LM117:
+ 1089 084e 8A81      		ldd r24,Y+2
+ 1090 0850 61E0      		ldi r22,lo8(1)
+ 1091 0852 0E94 0000 		call lcd_write
+ 1092               	.L57:
+ 1093               	/* epilogue start */
+ 1094               	.LM118:
+ 1095 0856 0F90      		pop __tmp_reg__
+ 1096 0858 0F90      		pop __tmp_reg__
+ 1097 085a CF91      		pop r28
+ 1098 085c DF91      		pop r29
+ 1099 085e 0895      		ret
+ 1100               	.LFE16:
+ 1101               		.size	lcd_putc, .-lcd_putc
+ 1102               		.type	lcd_newline, @function
+ 1103               	lcd_newline:
+ 1104               	.LFB7:
+ 1105               	.LM119:
+ 1106 0860 DF93      		push r29
+ 1107 0862 CF93      		push r28
+ 1108 0864 00D0      		rcall .
+ 1109 0866 CDB7      		in r28,__SP_L__
+ 1110 0868 DEB7      		in r29,__SP_H__
+ 1111               	/* prologue: function */
+ 1112               	/* frame size = 2 */
+ 1113 086a 8983      		std Y+1,r24
+ 1114               	.LM120:
+ 1115 086c 8981      		ldd r24,Y+1
+ 1116 086e 8431      		cpi r24,lo8(20)
+ 1117 0870 00F4      		brsh .L59
+ 1118               	.LM121:
+ 1119 0872 80E4      		ldi r24,lo8(64)
+ 1120 0874 8A83      		std Y+2,r24
+ 1121 0876 00C0      		rjmp .L60
+ 1122               	.L59:
+ 1123               	.LM122:
+ 1124 0878 8981      		ldd r24,Y+1
+ 1125 087a 8034      		cpi r24,lo8(64)
+ 1126 087c 00F0      		brlo .L61
+ 1127 087e 8981      		ldd r24,Y+1
+ 1128 0880 8435      		cpi r24,lo8(84)
+ 1129 0882 00F4      		brsh .L61
+ 1130               	.LM123:
+ 1131 0884 84E1      		ldi r24,lo8(20)
+ 1132 0886 8A83      		std Y+2,r24
+ 1133 0888 00C0      		rjmp .L60
+ 1134               	.L61:
+ 1135               	.LM124:
+ 1136 088a 8981      		ldd r24,Y+1
+ 1137 088c 8431      		cpi r24,lo8(20)
+ 1138 088e 00F0      		brlo .L62
+ 1139 0890 8981      		ldd r24,Y+1
+ 1140 0892 8034      		cpi r24,lo8(64)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 21
+
+
+ 1141 0894 00F4      		brsh .L62
+ 1142               	.LM125:
+ 1143 0896 84E5      		ldi r24,lo8(84)
+ 1144 0898 8A83      		std Y+2,r24
+ 1145 089a 00C0      		rjmp .L60
+ 1146               	.L62:
+ 1147               	.LM126:
+ 1148 089c 1A82      		std Y+2,__zero_reg__
+ 1149               	.L60:
+ 1150               	.LM127:
+ 1151 089e 8A81      		ldd r24,Y+2
+ 1152 08a0 8058      		subi r24,lo8(-(-128))
+ 1153 08a2 0E94 0000 		call lcd_command
+ 1154               	/* epilogue start */
+ 1155               	.LM128:
+ 1156 08a6 0F90      		pop __tmp_reg__
+ 1157 08a8 0F90      		pop __tmp_reg__
+ 1158 08aa CF91      		pop r28
+ 1159 08ac DF91      		pop r29
+ 1160 08ae 0895      		ret
+ 1161               	.LFE7:
+ 1162               		.size	lcd_newline, .-lcd_newline
+ 1163               	.global	lcd_puts
+ 1164               		.type	lcd_puts, @function
+ 1165               	lcd_puts:
+ 1166               	.LFB17:
+ 1167               	.LM129:
+ 1168 08b0 DF93      		push r29
+ 1169 08b2 CF93      		push r28
+ 1170 08b4 00D0      		rcall .
+ 1171 08b6 00D0      		rcall .
+ 1172 08b8 CDB7      		in r28,__SP_L__
+ 1173 08ba DEB7      		in r29,__SP_H__
+ 1174               	/* prologue: function */
+ 1175               	/* frame size = 4 */
+ 1176 08bc 9A83      		std Y+2,r25
+ 1177 08be 8983      		std Y+1,r24
+ 1178 08c0 00C0      		rjmp .L65
+ 1179               	.L67:
+ 1180               	.LM130:
+ 1181 08c2 8B81      		ldd r24,Y+3
+ 1182 08c4 0E94 0000 		call lcd_putc
+ 1183               	.L65:
+ 1184               	.LM131:
+ 1185 08c8 E981      		ldd r30,Y+1
+ 1186 08ca FA81      		ldd r31,Y+2
+ 1187 08cc 8081      		ld r24,Z
+ 1188 08ce 8B83      		std Y+3,r24
+ 1189 08d0 8B81      		ldd r24,Y+3
+ 1190 08d2 8C83      		std Y+4,r24
+ 1191 08d4 8C81      		ldd r24,Y+4
+ 1192 08d6 8823      		tst r24
+ 1193 08d8 01F0      		breq .L66
+ 1194 08da 81E0      		ldi r24,lo8(1)
+ 1195 08dc 8C83      		std Y+4,r24
+ 1196               	.L66:
+ 1197 08de 8C81      		ldd r24,Y+4
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 22
+
+
+ 1198 08e0 2981      		ldd r18,Y+1
+ 1199 08e2 3A81      		ldd r19,Y+2
+ 1200 08e4 2F5F      		subi r18,lo8(-(1))
+ 1201 08e6 3F4F      		sbci r19,hi8(-(1))
+ 1202 08e8 3A83      		std Y+2,r19
+ 1203 08ea 2983      		std Y+1,r18
+ 1204 08ec 8823      		tst r24
+ 1205 08ee 01F4      		brne .L67
+ 1206               	/* epilogue start */
+ 1207               	.LM132:
+ 1208 08f0 0F90      		pop __tmp_reg__
+ 1209 08f2 0F90      		pop __tmp_reg__
+ 1210 08f4 0F90      		pop __tmp_reg__
+ 1211 08f6 0F90      		pop __tmp_reg__
+ 1212 08f8 CF91      		pop r28
+ 1213 08fa DF91      		pop r29
+ 1214 08fc 0895      		ret
+ 1215               	.LFE17:
+ 1216               		.size	lcd_puts, .-lcd_puts
+ 1217               	.global	lcd_puts_p
+ 1218               		.type	lcd_puts_p, @function
+ 1219               	lcd_puts_p:
+ 1220               	.LFB18:
+ 1221               	.LM133:
+ 1222 08fe DF93      		push r29
+ 1223 0900 CF93      		push r28
+ 1224 0902 00D0      		rcall .
+ 1225 0904 00D0      		rcall .
+ 1226 0906 00D0      		rcall .
+ 1227 0908 CDB7      		in r28,__SP_L__
+ 1228 090a DEB7      		in r29,__SP_H__
+ 1229               	/* prologue: function */
+ 1230               	/* frame size = 6 */
+ 1231 090c 9D83      		std Y+5,r25
+ 1232 090e 8C83      		std Y+4,r24
+ 1233 0910 00C0      		rjmp .L70
+ 1234               	.L71:
+ 1235               	.LM134:
+ 1236 0912 8E81      		ldd r24,Y+6
+ 1237 0914 0E94 0000 		call lcd_putc
+ 1238               	.L70:
+ 1239               	.LBB2:
+ 1240               	.LM135:
+ 1241 0918 8C81      		ldd r24,Y+4
+ 1242 091a 9D81      		ldd r25,Y+5
+ 1243 091c 9B83      		std Y+3,r25
+ 1244 091e 8A83      		std Y+2,r24
+ 1245 0920 8C81      		ldd r24,Y+4
+ 1246 0922 9D81      		ldd r25,Y+5
+ 1247 0924 0196      		adiw r24,1
+ 1248 0926 9D83      		std Y+5,r25
+ 1249 0928 8C83      		std Y+4,r24
+ 1250 092a EA81      		ldd r30,Y+2
+ 1251 092c FB81      		ldd r31,Y+3
+ 1252               	/* #APP */
+ 1253               	 ;  462 "lcd.c" 1
+ 1254 092e 8491      		lpm r24, Z
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 23
+
+
+ 1255               		
+ 1256               	 ;  0 "" 2
+ 1257               	/* #NOAPP */
+ 1258 0930 8983      		std Y+1,r24
+ 1259 0932 8981      		ldd r24,Y+1
+ 1260               	.LBE2:
+ 1261 0934 8E83      		std Y+6,r24
+ 1262 0936 8E81      		ldd r24,Y+6
+ 1263 0938 8823      		tst r24
+ 1264 093a 01F4      		brne .L71
+ 1265               	/* epilogue start */
+ 1266               	.LM136:
+ 1267 093c 2696      		adiw r28,6
+ 1268 093e 0FB6      		in __tmp_reg__,__SREG__
+ 1269 0940 F894      		cli
+ 1270 0942 DEBF      		out __SP_H__,r29
+ 1271 0944 0FBE      		out __SREG__,__tmp_reg__
+ 1272 0946 CDBF      		out __SP_L__,r28
+ 1273 0948 CF91      		pop r28
+ 1274 094a DF91      		pop r29
+ 1275 094c 0895      		ret
+ 1276               	.LFE18:
+ 1277               		.size	lcd_puts_p, .-lcd_puts_p
+ 1278               	.global	lcd_setup
+ 1279               		.type	lcd_setup, @function
+ 1280               	lcd_setup:
+ 1281               	.LFB19:
+ 1282               	.LM137:
+ 1283 094e AF92      		push r10
+ 1284 0950 CF92      		push r12
+ 1285 0952 EF92      		push r14
+ 1286 0954 0F93      		push r16
+ 1287 0956 DF93      		push r29
+ 1288 0958 CF93      		push r28
+ 1289 095a CDB7      		in r28,__SP_L__
+ 1290 095c DEB7      		in r29,__SP_H__
+ 1291 095e 2897      		sbiw r28,8
+ 1292 0960 0FB6      		in __tmp_reg__,__SREG__
+ 1293 0962 F894      		cli
+ 1294 0964 DEBF      		out __SP_H__,r29
+ 1295 0966 0FBE      		out __SREG__,__tmp_reg__
+ 1296 0968 CDBF      		out __SP_L__,r28
+ 1297               	/* prologue: function */
+ 1298               	/* frame size = 8 */
+ 1299 096a 8983      		std Y+1,r24
+ 1300 096c 6A83      		std Y+2,r22
+ 1301 096e 4B83      		std Y+3,r20
+ 1302 0970 2C83      		std Y+4,r18
+ 1303 0972 0D83      		std Y+5,r16
+ 1304 0974 EE82      		std Y+6,r14
+ 1305 0976 CF82      		std Y+7,r12
+ 1306 0978 A886      		std Y+8,r10
+ 1307               	.LM138:
+ 1308 097a 8981      		ldd r24,Y+1
+ 1309 097c 882F      		mov r24,r24
+ 1310 097e 90E0      		ldi r25,lo8(0)
+ 1311 0980 9C01      		movw r18,r24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 24
+
+
+ 1312 0982 2F70      		andi r18,lo8(15)
+ 1313 0984 3070      		andi r19,hi8(15)
+ 1314 0986 81E0      		ldi r24,lo8(1)
+ 1315 0988 90E0      		ldi r25,hi8(1)
+ 1316 098a 00C0      		rjmp 2f
+ 1317 098c 880F      	1:	lsl r24
+ 1318 098e 991F      		rol r25
+ 1319 0990 2A95      	2:	dec r18
+ 1320 0992 02F4      		brpl 1b
+ 1321 0994 8093 0000 		sts lcd_b_rs,r24
+ 1322               	.LM139:
+ 1323 0998 8A81      		ldd r24,Y+2
+ 1324 099a 882F      		mov r24,r24
+ 1325 099c 90E0      		ldi r25,lo8(0)
+ 1326 099e 9C01      		movw r18,r24
+ 1327 09a0 2F70      		andi r18,lo8(15)
+ 1328 09a2 3070      		andi r19,hi8(15)
+ 1329 09a4 81E0      		ldi r24,lo8(1)
+ 1330 09a6 90E0      		ldi r25,hi8(1)
+ 1331 09a8 00C0      		rjmp 2f
+ 1332 09aa 880F      	1:	lsl r24
+ 1333 09ac 991F      		rol r25
+ 1334 09ae 2A95      	2:	dec r18
+ 1335 09b0 02F4      		brpl 1b
+ 1336 09b2 8093 0000 		sts lcd_b_rw,r24
+ 1337               	.LM140:
+ 1338 09b6 8B81      		ldd r24,Y+3
+ 1339 09b8 882F      		mov r24,r24
+ 1340 09ba 90E0      		ldi r25,lo8(0)
+ 1341 09bc 9C01      		movw r18,r24
+ 1342 09be 2F70      		andi r18,lo8(15)
+ 1343 09c0 3070      		andi r19,hi8(15)
+ 1344 09c2 81E0      		ldi r24,lo8(1)
+ 1345 09c4 90E0      		ldi r25,hi8(1)
+ 1346 09c6 00C0      		rjmp 2f
+ 1347 09c8 880F      	1:	lsl r24
+ 1348 09ca 991F      		rol r25
+ 1349 09cc 2A95      	2:	dec r18
+ 1350 09ce 02F4      		brpl 1b
+ 1351 09d0 8093 0000 		sts lcd_b_enable,r24
+ 1352               	.LM141:
+ 1353 09d4 8C81      		ldd r24,Y+4
+ 1354 09d6 882F      		mov r24,r24
+ 1355 09d8 90E0      		ldi r25,lo8(0)
+ 1356 09da 9C01      		movw r18,r24
+ 1357 09dc 2F70      		andi r18,lo8(15)
+ 1358 09de 3070      		andi r19,hi8(15)
+ 1359 09e0 81E0      		ldi r24,lo8(1)
+ 1360 09e2 90E0      		ldi r25,hi8(1)
+ 1361 09e4 00C0      		rjmp 2f
+ 1362 09e6 880F      	1:	lsl r24
+ 1363 09e8 991F      		rol r25
+ 1364 09ea 2A95      	2:	dec r18
+ 1365 09ec 02F4      		brpl 1b
+ 1366 09ee 8093 0000 		sts lcd_b_backlight,r24
+ 1367               	.LM142:
+ 1368 09f2 8D81      		ldd r24,Y+5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 25
+
+
+ 1369 09f4 882F      		mov r24,r24
+ 1370 09f6 90E0      		ldi r25,lo8(0)
+ 1371 09f8 9C01      		movw r18,r24
+ 1372 09fa 2F70      		andi r18,lo8(15)
+ 1373 09fc 3070      		andi r19,hi8(15)
+ 1374 09fe 81E0      		ldi r24,lo8(1)
+ 1375 0a00 90E0      		ldi r25,hi8(1)
+ 1376 0a02 00C0      		rjmp 2f
+ 1377 0a04 880F      	1:	lsl r24
+ 1378 0a06 991F      		rol r25
+ 1379 0a08 2A95      	2:	dec r18
+ 1380 0a0a 02F4      		brpl 1b
+ 1381 0a0c 8093 0000 		sts lcd_b_db0,r24
+ 1382               	.LM143:
+ 1383 0a10 8E81      		ldd r24,Y+6
+ 1384 0a12 882F      		mov r24,r24
+ 1385 0a14 90E0      		ldi r25,lo8(0)
+ 1386 0a16 9C01      		movw r18,r24
+ 1387 0a18 2F70      		andi r18,lo8(15)
+ 1388 0a1a 3070      		andi r19,hi8(15)
+ 1389 0a1c 81E0      		ldi r24,lo8(1)
+ 1390 0a1e 90E0      		ldi r25,hi8(1)
+ 1391 0a20 00C0      		rjmp 2f
+ 1392 0a22 880F      	1:	lsl r24
+ 1393 0a24 991F      		rol r25
+ 1394 0a26 2A95      	2:	dec r18
+ 1395 0a28 02F4      		brpl 1b
+ 1396 0a2a 8093 0000 		sts lcd_b_db1,r24
+ 1397               	.LM144:
+ 1398 0a2e 8F81      		ldd r24,Y+7
+ 1399 0a30 882F      		mov r24,r24
+ 1400 0a32 90E0      		ldi r25,lo8(0)
+ 1401 0a34 9C01      		movw r18,r24
+ 1402 0a36 2F70      		andi r18,lo8(15)
+ 1403 0a38 3070      		andi r19,hi8(15)
+ 1404 0a3a 81E0      		ldi r24,lo8(1)
+ 1405 0a3c 90E0      		ldi r25,hi8(1)
+ 1406 0a3e 00C0      		rjmp 2f
+ 1407 0a40 880F      	1:	lsl r24
+ 1408 0a42 991F      		rol r25
+ 1409 0a44 2A95      	2:	dec r18
+ 1410 0a46 02F4      		brpl 1b
+ 1411 0a48 8093 0000 		sts lcd_b_db2,r24
+ 1412               	.LM145:
+ 1413 0a4c 8885      		ldd r24,Y+8
+ 1414 0a4e 882F      		mov r24,r24
+ 1415 0a50 90E0      		ldi r25,lo8(0)
+ 1416 0a52 9C01      		movw r18,r24
+ 1417 0a54 2F70      		andi r18,lo8(15)
+ 1418 0a56 3070      		andi r19,hi8(15)
+ 1419 0a58 81E0      		ldi r24,lo8(1)
+ 1420 0a5a 90E0      		ldi r25,hi8(1)
+ 1421 0a5c 022E      		mov r0,r18
+ 1422 0a5e 00C0      		rjmp 2f
+ 1423 0a60 880F      	1:	lsl r24
+ 1424 0a62 991F      		rol r25
+ 1425 0a64 0A94      	2:	dec r0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 26
+
+
+ 1426 0a66 02F4      		brpl 1b
+ 1427 0a68 8093 0000 		sts lcd_b_db3,r24
+ 1428               	.LM146:
+ 1429 0a6c 8981      		ldd r24,Y+1
+ 1430 0a6e 807F      		andi r24,lo8(-16)
+ 1431 0a70 8983      		std Y+1,r24
+ 1432               	.LM147:
+ 1433 0a72 8981      		ldd r24,Y+1
+ 1434 0a74 8823      		tst r24
+ 1435 0a76 01F4      		brne .L74
+ 1436 0a78 8BE3      		ldi r24,lo8(59)
+ 1437 0a7a 90E0      		ldi r25,hi8(59)
+ 1438 0a7c 9093 0000 		sts (lcd_p_rs)+1,r25
+ 1439 0a80 8093 0000 		sts lcd_p_rs,r24
+ 1440 0a84 AAE3      		ldi r26,lo8(58)
+ 1441 0a86 B0E0      		ldi r27,hi8(58)
+ 1442 0a88 EAE3      		ldi r30,lo8(58)
+ 1443 0a8a F0E0      		ldi r31,hi8(58)
+ 1444 0a8c 9081      		ld r25,Z
+ 1445 0a8e 8091 0000 		lds r24,lcd_b_rs
+ 1446 0a92 892B      		or r24,r25
+ 1447 0a94 8C93      		st X,r24
+ 1448               	.L74:
+ 1449               	.LM148:
+ 1450 0a96 8981      		ldd r24,Y+1
+ 1451 0a98 8031      		cpi r24,lo8(16)
+ 1452 0a9a 01F4      		brne .L75
+ 1453 0a9c 88E3      		ldi r24,lo8(56)
+ 1454 0a9e 90E0      		ldi r25,hi8(56)
+ 1455 0aa0 9093 0000 		sts (lcd_p_rs)+1,r25
+ 1456 0aa4 8093 0000 		sts lcd_p_rs,r24
+ 1457 0aa8 A7E3      		ldi r26,lo8(55)
+ 1458 0aaa B0E0      		ldi r27,hi8(55)
+ 1459 0aac E7E3      		ldi r30,lo8(55)
+ 1460 0aae F0E0      		ldi r31,hi8(55)
+ 1461 0ab0 9081      		ld r25,Z
+ 1462 0ab2 8091 0000 		lds r24,lcd_b_rs
+ 1463 0ab6 892B      		or r24,r25
+ 1464 0ab8 8C93      		st X,r24
+ 1465               	.L75:
+ 1466               	.LM149:
+ 1467 0aba 8981      		ldd r24,Y+1
+ 1468 0abc 8032      		cpi r24,lo8(32)
+ 1469 0abe 01F4      		brne .L76
+ 1470 0ac0 85E3      		ldi r24,lo8(53)
+ 1471 0ac2 90E0      		ldi r25,hi8(53)
+ 1472 0ac4 9093 0000 		sts (lcd_p_rs)+1,r25
+ 1473 0ac8 8093 0000 		sts lcd_p_rs,r24
+ 1474 0acc A4E3      		ldi r26,lo8(52)
+ 1475 0ace B0E0      		ldi r27,hi8(52)
+ 1476 0ad0 E4E3      		ldi r30,lo8(52)
+ 1477 0ad2 F0E0      		ldi r31,hi8(52)
+ 1478 0ad4 9081      		ld r25,Z
+ 1479 0ad6 8091 0000 		lds r24,lcd_b_rs
+ 1480 0ada 892B      		or r24,r25
+ 1481 0adc 8C93      		st X,r24
+ 1482               	.L76:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 27
+
+
+ 1483               	.LM150:
+ 1484 0ade 8981      		ldd r24,Y+1
+ 1485 0ae0 8033      		cpi r24,lo8(48)
+ 1486 0ae2 01F4      		brne .L77
+ 1487 0ae4 82E3      		ldi r24,lo8(50)
+ 1488 0ae6 90E0      		ldi r25,hi8(50)
+ 1489 0ae8 9093 0000 		sts (lcd_p_rs)+1,r25
+ 1490 0aec 8093 0000 		sts lcd_p_rs,r24
+ 1491 0af0 A1E3      		ldi r26,lo8(49)
+ 1492 0af2 B0E0      		ldi r27,hi8(49)
+ 1493 0af4 E1E3      		ldi r30,lo8(49)
+ 1494 0af6 F0E0      		ldi r31,hi8(49)
+ 1495 0af8 9081      		ld r25,Z
+ 1496 0afa 8091 0000 		lds r24,lcd_b_rs
+ 1497 0afe 892B      		or r24,r25
+ 1498 0b00 8C93      		st X,r24
+ 1499               	.L77:
+ 1500               	.LM151:
+ 1501 0b02 8A81      		ldd r24,Y+2
+ 1502 0b04 807F      		andi r24,lo8(-16)
+ 1503 0b06 8A83      		std Y+2,r24
+ 1504               	.LM152:
+ 1505 0b08 8A81      		ldd r24,Y+2
+ 1506 0b0a 8823      		tst r24
+ 1507 0b0c 01F4      		brne .L78
+ 1508 0b0e 8BE3      		ldi r24,lo8(59)
+ 1509 0b10 90E0      		ldi r25,hi8(59)
+ 1510 0b12 9093 0000 		sts (lcd_p_rw)+1,r25
+ 1511 0b16 8093 0000 		sts lcd_p_rw,r24
+ 1512 0b1a AAE3      		ldi r26,lo8(58)
+ 1513 0b1c B0E0      		ldi r27,hi8(58)
+ 1514 0b1e EAE3      		ldi r30,lo8(58)
+ 1515 0b20 F0E0      		ldi r31,hi8(58)
+ 1516 0b22 9081      		ld r25,Z
+ 1517 0b24 8091 0000 		lds r24,lcd_b_rw
+ 1518 0b28 892B      		or r24,r25
+ 1519 0b2a 8C93      		st X,r24
+ 1520               	.L78:
+ 1521               	.LM153:
+ 1522 0b2c 8A81      		ldd r24,Y+2
+ 1523 0b2e 8031      		cpi r24,lo8(16)
+ 1524 0b30 01F4      		brne .L79
+ 1525 0b32 88E3      		ldi r24,lo8(56)
+ 1526 0b34 90E0      		ldi r25,hi8(56)
+ 1527 0b36 9093 0000 		sts (lcd_p_rw)+1,r25
+ 1528 0b3a 8093 0000 		sts lcd_p_rw,r24
+ 1529 0b3e A7E3      		ldi r26,lo8(55)
+ 1530 0b40 B0E0      		ldi r27,hi8(55)
+ 1531 0b42 E7E3      		ldi r30,lo8(55)
+ 1532 0b44 F0E0      		ldi r31,hi8(55)
+ 1533 0b46 9081      		ld r25,Z
+ 1534 0b48 8091 0000 		lds r24,lcd_b_rw
+ 1535 0b4c 892B      		or r24,r25
+ 1536 0b4e 8C93      		st X,r24
+ 1537               	.L79:
+ 1538               	.LM154:
+ 1539 0b50 8A81      		ldd r24,Y+2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 28
+
+
+ 1540 0b52 8032      		cpi r24,lo8(32)
+ 1541 0b54 01F4      		brne .L80
+ 1542 0b56 85E3      		ldi r24,lo8(53)
+ 1543 0b58 90E0      		ldi r25,hi8(53)
+ 1544 0b5a 9093 0000 		sts (lcd_p_rw)+1,r25
+ 1545 0b5e 8093 0000 		sts lcd_p_rw,r24
+ 1546 0b62 A4E3      		ldi r26,lo8(52)
+ 1547 0b64 B0E0      		ldi r27,hi8(52)
+ 1548 0b66 E4E3      		ldi r30,lo8(52)
+ 1549 0b68 F0E0      		ldi r31,hi8(52)
+ 1550 0b6a 9081      		ld r25,Z
+ 1551 0b6c 8091 0000 		lds r24,lcd_b_rw
+ 1552 0b70 892B      		or r24,r25
+ 1553 0b72 8C93      		st X,r24
+ 1554               	.L80:
+ 1555               	.LM155:
+ 1556 0b74 8A81      		ldd r24,Y+2
+ 1557 0b76 8033      		cpi r24,lo8(48)
+ 1558 0b78 01F4      		brne .L81
+ 1559 0b7a 82E3      		ldi r24,lo8(50)
+ 1560 0b7c 90E0      		ldi r25,hi8(50)
+ 1561 0b7e 9093 0000 		sts (lcd_p_rw)+1,r25
+ 1562 0b82 8093 0000 		sts lcd_p_rw,r24
+ 1563 0b86 A1E3      		ldi r26,lo8(49)
+ 1564 0b88 B0E0      		ldi r27,hi8(49)
+ 1565 0b8a E1E3      		ldi r30,lo8(49)
+ 1566 0b8c F0E0      		ldi r31,hi8(49)
+ 1567 0b8e 9081      		ld r25,Z
+ 1568 0b90 8091 0000 		lds r24,lcd_b_rw
+ 1569 0b94 892B      		or r24,r25
+ 1570 0b96 8C93      		st X,r24
+ 1571               	.L81:
+ 1572               	.LM156:
+ 1573 0b98 8B81      		ldd r24,Y+3
+ 1574 0b9a 807F      		andi r24,lo8(-16)
+ 1575 0b9c 8B83      		std Y+3,r24
+ 1576               	.LM157:
+ 1577 0b9e 8B81      		ldd r24,Y+3
+ 1578 0ba0 8823      		tst r24
+ 1579 0ba2 01F4      		brne .L82
+ 1580 0ba4 8BE3      		ldi r24,lo8(59)
+ 1581 0ba6 90E0      		ldi r25,hi8(59)
+ 1582 0ba8 9093 0000 		sts (lcd_p_enable)+1,r25
+ 1583 0bac 8093 0000 		sts lcd_p_enable,r24
+ 1584 0bb0 AAE3      		ldi r26,lo8(58)
+ 1585 0bb2 B0E0      		ldi r27,hi8(58)
+ 1586 0bb4 EAE3      		ldi r30,lo8(58)
+ 1587 0bb6 F0E0      		ldi r31,hi8(58)
+ 1588 0bb8 9081      		ld r25,Z
+ 1589 0bba 8091 0000 		lds r24,lcd_b_enable
+ 1590 0bbe 892B      		or r24,r25
+ 1591 0bc0 8C93      		st X,r24
+ 1592               	.L82:
+ 1593               	.LM158:
+ 1594 0bc2 8B81      		ldd r24,Y+3
+ 1595 0bc4 8031      		cpi r24,lo8(16)
+ 1596 0bc6 01F4      		brne .L83
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 29
+
+
+ 1597 0bc8 88E3      		ldi r24,lo8(56)
+ 1598 0bca 90E0      		ldi r25,hi8(56)
+ 1599 0bcc 9093 0000 		sts (lcd_p_enable)+1,r25
+ 1600 0bd0 8093 0000 		sts lcd_p_enable,r24
+ 1601 0bd4 A7E3      		ldi r26,lo8(55)
+ 1602 0bd6 B0E0      		ldi r27,hi8(55)
+ 1603 0bd8 E7E3      		ldi r30,lo8(55)
+ 1604 0bda F0E0      		ldi r31,hi8(55)
+ 1605 0bdc 9081      		ld r25,Z
+ 1606 0bde 8091 0000 		lds r24,lcd_b_enable
+ 1607 0be2 892B      		or r24,r25
+ 1608 0be4 8C93      		st X,r24
+ 1609               	.L83:
+ 1610               	.LM159:
+ 1611 0be6 8B81      		ldd r24,Y+3
+ 1612 0be8 8032      		cpi r24,lo8(32)
+ 1613 0bea 01F4      		brne .L84
+ 1614 0bec 85E3      		ldi r24,lo8(53)
+ 1615 0bee 90E0      		ldi r25,hi8(53)
+ 1616 0bf0 9093 0000 		sts (lcd_p_enable)+1,r25
+ 1617 0bf4 8093 0000 		sts lcd_p_enable,r24
+ 1618 0bf8 A4E3      		ldi r26,lo8(52)
+ 1619 0bfa B0E0      		ldi r27,hi8(52)
+ 1620 0bfc E4E3      		ldi r30,lo8(52)
+ 1621 0bfe F0E0      		ldi r31,hi8(52)
+ 1622 0c00 9081      		ld r25,Z
+ 1623 0c02 8091 0000 		lds r24,lcd_b_enable
+ 1624 0c06 892B      		or r24,r25
+ 1625 0c08 8C93      		st X,r24
+ 1626               	.L84:
+ 1627               	.LM160:
+ 1628 0c0a 8B81      		ldd r24,Y+3
+ 1629 0c0c 8033      		cpi r24,lo8(48)
+ 1630 0c0e 01F4      		brne .L85
+ 1631 0c10 82E3      		ldi r24,lo8(50)
+ 1632 0c12 90E0      		ldi r25,hi8(50)
+ 1633 0c14 9093 0000 		sts (lcd_p_enable)+1,r25
+ 1634 0c18 8093 0000 		sts lcd_p_enable,r24
+ 1635 0c1c A1E3      		ldi r26,lo8(49)
+ 1636 0c1e B0E0      		ldi r27,hi8(49)
+ 1637 0c20 E1E3      		ldi r30,lo8(49)
+ 1638 0c22 F0E0      		ldi r31,hi8(49)
+ 1639 0c24 9081      		ld r25,Z
+ 1640 0c26 8091 0000 		lds r24,lcd_b_enable
+ 1641 0c2a 892B      		or r24,r25
+ 1642 0c2c 8C93      		st X,r24
+ 1643               	.L85:
+ 1644               	.LM161:
+ 1645 0c2e 8C81      		ldd r24,Y+4
+ 1646 0c30 807F      		andi r24,lo8(-16)
+ 1647 0c32 8C83      		std Y+4,r24
+ 1648               	.LM162:
+ 1649 0c34 8C81      		ldd r24,Y+4
+ 1650 0c36 8823      		tst r24
+ 1651 0c38 01F4      		brne .L86
+ 1652 0c3a 8BE3      		ldi r24,lo8(59)
+ 1653 0c3c 90E0      		ldi r25,hi8(59)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 30
+
+
+ 1654 0c3e 9093 0000 		sts (lcd_p_backlight)+1,r25
+ 1655 0c42 8093 0000 		sts lcd_p_backlight,r24
+ 1656 0c46 AAE3      		ldi r26,lo8(58)
+ 1657 0c48 B0E0      		ldi r27,hi8(58)
+ 1658 0c4a EAE3      		ldi r30,lo8(58)
+ 1659 0c4c F0E0      		ldi r31,hi8(58)
+ 1660 0c4e 9081      		ld r25,Z
+ 1661 0c50 8091 0000 		lds r24,lcd_b_backlight
+ 1662 0c54 892B      		or r24,r25
+ 1663 0c56 8C93      		st X,r24
+ 1664               	.L86:
+ 1665               	.LM163:
+ 1666 0c58 8C81      		ldd r24,Y+4
+ 1667 0c5a 8031      		cpi r24,lo8(16)
+ 1668 0c5c 01F4      		brne .L87
+ 1669 0c5e 88E3      		ldi r24,lo8(56)
+ 1670 0c60 90E0      		ldi r25,hi8(56)
+ 1671 0c62 9093 0000 		sts (lcd_p_backlight)+1,r25
+ 1672 0c66 8093 0000 		sts lcd_p_backlight,r24
+ 1673 0c6a A7E3      		ldi r26,lo8(55)
+ 1674 0c6c B0E0      		ldi r27,hi8(55)
+ 1675 0c6e E7E3      		ldi r30,lo8(55)
+ 1676 0c70 F0E0      		ldi r31,hi8(55)
+ 1677 0c72 9081      		ld r25,Z
+ 1678 0c74 8091 0000 		lds r24,lcd_b_backlight
+ 1679 0c78 892B      		or r24,r25
+ 1680 0c7a 8C93      		st X,r24
+ 1681               	.L87:
+ 1682               	.LM164:
+ 1683 0c7c 8C81      		ldd r24,Y+4
+ 1684 0c7e 8032      		cpi r24,lo8(32)
+ 1685 0c80 01F4      		brne .L88
+ 1686 0c82 85E3      		ldi r24,lo8(53)
+ 1687 0c84 90E0      		ldi r25,hi8(53)
+ 1688 0c86 9093 0000 		sts (lcd_p_backlight)+1,r25
+ 1689 0c8a 8093 0000 		sts lcd_p_backlight,r24
+ 1690 0c8e A4E3      		ldi r26,lo8(52)
+ 1691 0c90 B0E0      		ldi r27,hi8(52)
+ 1692 0c92 E4E3      		ldi r30,lo8(52)
+ 1693 0c94 F0E0      		ldi r31,hi8(52)
+ 1694 0c96 9081      		ld r25,Z
+ 1695 0c98 8091 0000 		lds r24,lcd_b_backlight
+ 1696 0c9c 892B      		or r24,r25
+ 1697 0c9e 8C93      		st X,r24
+ 1698               	.L88:
+ 1699               	.LM165:
+ 1700 0ca0 8C81      		ldd r24,Y+4
+ 1701 0ca2 8033      		cpi r24,lo8(48)
+ 1702 0ca4 01F4      		brne .L89
+ 1703 0ca6 82E3      		ldi r24,lo8(50)
+ 1704 0ca8 90E0      		ldi r25,hi8(50)
+ 1705 0caa 9093 0000 		sts (lcd_p_backlight)+1,r25
+ 1706 0cae 8093 0000 		sts lcd_p_backlight,r24
+ 1707 0cb2 A1E3      		ldi r26,lo8(49)
+ 1708 0cb4 B0E0      		ldi r27,hi8(49)
+ 1709 0cb6 E1E3      		ldi r30,lo8(49)
+ 1710 0cb8 F0E0      		ldi r31,hi8(49)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 31
+
+
+ 1711 0cba 9081      		ld r25,Z
+ 1712 0cbc 8091 0000 		lds r24,lcd_b_backlight
+ 1713 0cc0 892B      		or r24,r25
+ 1714 0cc2 8C93      		st X,r24
+ 1715               	.L89:
+ 1716               	.LM166:
+ 1717 0cc4 8D81      		ldd r24,Y+5
+ 1718 0cc6 807F      		andi r24,lo8(-16)
+ 1719 0cc8 8D83      		std Y+5,r24
+ 1720               	.LM167:
+ 1721 0cca 8D81      		ldd r24,Y+5
+ 1722 0ccc 8823      		tst r24
+ 1723 0cce 01F4      		brne .L90
+ 1724 0cd0 8BE3      		ldi r24,lo8(59)
+ 1725 0cd2 90E0      		ldi r25,hi8(59)
+ 1726 0cd4 9093 0000 		sts (lcd_p_db0)+1,r25
+ 1727 0cd8 8093 0000 		sts lcd_p_db0,r24
+ 1728 0cdc 89E3      		ldi r24,lo8(57)
+ 1729 0cde 90E0      		ldi r25,hi8(57)
+ 1730 0ce0 9093 0000 		sts (lcd_pin_db0)+1,r25
+ 1731 0ce4 8093 0000 		sts lcd_pin_db0,r24
+ 1732 0ce8 8AE3      		ldi r24,lo8(58)
+ 1733 0cea 90E0      		ldi r25,hi8(58)
+ 1734 0cec 9093 0000 		sts (lcd_ddr_db0)+1,r25
+ 1735 0cf0 8093 0000 		sts lcd_ddr_db0,r24
+ 1736 0cf4 AAE3      		ldi r26,lo8(58)
+ 1737 0cf6 B0E0      		ldi r27,hi8(58)
+ 1738 0cf8 EAE3      		ldi r30,lo8(58)
+ 1739 0cfa F0E0      		ldi r31,hi8(58)
+ 1740 0cfc 9081      		ld r25,Z
+ 1741 0cfe 8091 0000 		lds r24,lcd_b_db0
+ 1742 0d02 892B      		or r24,r25
+ 1743 0d04 8C93      		st X,r24
+ 1744               	.L90:
+ 1745               	.LM168:
+ 1746 0d06 8D81      		ldd r24,Y+5
+ 1747 0d08 8031      		cpi r24,lo8(16)
+ 1748 0d0a 01F4      		brne .L91
+ 1749 0d0c 88E3      		ldi r24,lo8(56)
+ 1750 0d0e 90E0      		ldi r25,hi8(56)
+ 1751 0d10 9093 0000 		sts (lcd_p_db0)+1,r25
+ 1752 0d14 8093 0000 		sts lcd_p_db0,r24
+ 1753 0d18 86E3      		ldi r24,lo8(54)
+ 1754 0d1a 90E0      		ldi r25,hi8(54)
+ 1755 0d1c 9093 0000 		sts (lcd_pin_db0)+1,r25
+ 1756 0d20 8093 0000 		sts lcd_pin_db0,r24
+ 1757 0d24 87E3      		ldi r24,lo8(55)
+ 1758 0d26 90E0      		ldi r25,hi8(55)
+ 1759 0d28 9093 0000 		sts (lcd_ddr_db0)+1,r25
+ 1760 0d2c 8093 0000 		sts lcd_ddr_db0,r24
+ 1761 0d30 A7E3      		ldi r26,lo8(55)
+ 1762 0d32 B0E0      		ldi r27,hi8(55)
+ 1763 0d34 E7E3      		ldi r30,lo8(55)
+ 1764 0d36 F0E0      		ldi r31,hi8(55)
+ 1765 0d38 9081      		ld r25,Z
+ 1766 0d3a 8091 0000 		lds r24,lcd_b_db0
+ 1767 0d3e 892B      		or r24,r25
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 32
+
+
+ 1768 0d40 8C93      		st X,r24
+ 1769               	.L91:
+ 1770               	.LM169:
+ 1771 0d42 8D81      		ldd r24,Y+5
+ 1772 0d44 8032      		cpi r24,lo8(32)
+ 1773 0d46 01F4      		brne .L92
+ 1774 0d48 85E3      		ldi r24,lo8(53)
+ 1775 0d4a 90E0      		ldi r25,hi8(53)
+ 1776 0d4c 9093 0000 		sts (lcd_p_db0)+1,r25
+ 1777 0d50 8093 0000 		sts lcd_p_db0,r24
+ 1778 0d54 83E3      		ldi r24,lo8(51)
+ 1779 0d56 90E0      		ldi r25,hi8(51)
+ 1780 0d58 9093 0000 		sts (lcd_pin_db0)+1,r25
+ 1781 0d5c 8093 0000 		sts lcd_pin_db0,r24
+ 1782 0d60 84E3      		ldi r24,lo8(52)
+ 1783 0d62 90E0      		ldi r25,hi8(52)
+ 1784 0d64 9093 0000 		sts (lcd_ddr_db0)+1,r25
+ 1785 0d68 8093 0000 		sts lcd_ddr_db0,r24
+ 1786 0d6c A4E3      		ldi r26,lo8(52)
+ 1787 0d6e B0E0      		ldi r27,hi8(52)
+ 1788 0d70 E4E3      		ldi r30,lo8(52)
+ 1789 0d72 F0E0      		ldi r31,hi8(52)
+ 1790 0d74 9081      		ld r25,Z
+ 1791 0d76 8091 0000 		lds r24,lcd_b_db0
+ 1792 0d7a 892B      		or r24,r25
+ 1793 0d7c 8C93      		st X,r24
+ 1794               	.L92:
+ 1795               	.LM170:
+ 1796 0d7e 8D81      		ldd r24,Y+5
+ 1797 0d80 8033      		cpi r24,lo8(48)
+ 1798 0d82 01F4      		brne .L93
+ 1799 0d84 82E3      		ldi r24,lo8(50)
+ 1800 0d86 90E0      		ldi r25,hi8(50)
+ 1801 0d88 9093 0000 		sts (lcd_p_db0)+1,r25
+ 1802 0d8c 8093 0000 		sts lcd_p_db0,r24
+ 1803 0d90 80E3      		ldi r24,lo8(48)
+ 1804 0d92 90E0      		ldi r25,hi8(48)
+ 1805 0d94 9093 0000 		sts (lcd_pin_db0)+1,r25
+ 1806 0d98 8093 0000 		sts lcd_pin_db0,r24
+ 1807 0d9c 81E3      		ldi r24,lo8(49)
+ 1808 0d9e 90E0      		ldi r25,hi8(49)
+ 1809 0da0 9093 0000 		sts (lcd_ddr_db0)+1,r25
+ 1810 0da4 8093 0000 		sts lcd_ddr_db0,r24
+ 1811 0da8 A1E3      		ldi r26,lo8(49)
+ 1812 0daa B0E0      		ldi r27,hi8(49)
+ 1813 0dac E1E3      		ldi r30,lo8(49)
+ 1814 0dae F0E0      		ldi r31,hi8(49)
+ 1815 0db0 9081      		ld r25,Z
+ 1816 0db2 8091 0000 		lds r24,lcd_b_db0
+ 1817 0db6 892B      		or r24,r25
+ 1818 0db8 8C93      		st X,r24
+ 1819               	.L93:
+ 1820               	.LM171:
+ 1821 0dba 8E81      		ldd r24,Y+6
+ 1822 0dbc 807F      		andi r24,lo8(-16)
+ 1823 0dbe 8E83      		std Y+6,r24
+ 1824               	.LM172:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 33
+
+
+ 1825 0dc0 8E81      		ldd r24,Y+6
+ 1826 0dc2 8823      		tst r24
+ 1827 0dc4 01F4      		brne .L94
+ 1828 0dc6 8BE3      		ldi r24,lo8(59)
+ 1829 0dc8 90E0      		ldi r25,hi8(59)
+ 1830 0dca 9093 0000 		sts (lcd_p_db1)+1,r25
+ 1831 0dce 8093 0000 		sts lcd_p_db1,r24
+ 1832 0dd2 89E3      		ldi r24,lo8(57)
+ 1833 0dd4 90E0      		ldi r25,hi8(57)
+ 1834 0dd6 9093 0000 		sts (lcd_pin_db1)+1,r25
+ 1835 0dda 8093 0000 		sts lcd_pin_db1,r24
+ 1836 0dde 8AE3      		ldi r24,lo8(58)
+ 1837 0de0 90E0      		ldi r25,hi8(58)
+ 1838 0de2 9093 0000 		sts (lcd_ddr_db1)+1,r25
+ 1839 0de6 8093 0000 		sts lcd_ddr_db1,r24
+ 1840 0dea AAE3      		ldi r26,lo8(58)
+ 1841 0dec B0E0      		ldi r27,hi8(58)
+ 1842 0dee EAE3      		ldi r30,lo8(58)
+ 1843 0df0 F0E0      		ldi r31,hi8(58)
+ 1844 0df2 9081      		ld r25,Z
+ 1845 0df4 8091 0000 		lds r24,lcd_b_db1
+ 1846 0df8 892B      		or r24,r25
+ 1847 0dfa 8C93      		st X,r24
+ 1848               	.L94:
+ 1849               	.LM173:
+ 1850 0dfc 8E81      		ldd r24,Y+6
+ 1851 0dfe 8031      		cpi r24,lo8(16)
+ 1852 0e00 01F4      		brne .L95
+ 1853 0e02 88E3      		ldi r24,lo8(56)
+ 1854 0e04 90E0      		ldi r25,hi8(56)
+ 1855 0e06 9093 0000 		sts (lcd_p_db1)+1,r25
+ 1856 0e0a 8093 0000 		sts lcd_p_db1,r24
+ 1857 0e0e 86E3      		ldi r24,lo8(54)
+ 1858 0e10 90E0      		ldi r25,hi8(54)
+ 1859 0e12 9093 0000 		sts (lcd_pin_db1)+1,r25
+ 1860 0e16 8093 0000 		sts lcd_pin_db1,r24
+ 1861 0e1a 87E3      		ldi r24,lo8(55)
+ 1862 0e1c 90E0      		ldi r25,hi8(55)
+ 1863 0e1e 9093 0000 		sts (lcd_ddr_db1)+1,r25
+ 1864 0e22 8093 0000 		sts lcd_ddr_db1,r24
+ 1865 0e26 A7E3      		ldi r26,lo8(55)
+ 1866 0e28 B0E0      		ldi r27,hi8(55)
+ 1867 0e2a E7E3      		ldi r30,lo8(55)
+ 1868 0e2c F0E0      		ldi r31,hi8(55)
+ 1869 0e2e 9081      		ld r25,Z
+ 1870 0e30 8091 0000 		lds r24,lcd_b_db1
+ 1871 0e34 892B      		or r24,r25
+ 1872 0e36 8C93      		st X,r24
+ 1873               	.L95:
+ 1874               	.LM174:
+ 1875 0e38 8E81      		ldd r24,Y+6
+ 1876 0e3a 8032      		cpi r24,lo8(32)
+ 1877 0e3c 01F4      		brne .L96
+ 1878 0e3e 85E3      		ldi r24,lo8(53)
+ 1879 0e40 90E0      		ldi r25,hi8(53)
+ 1880 0e42 9093 0000 		sts (lcd_p_db1)+1,r25
+ 1881 0e46 8093 0000 		sts lcd_p_db1,r24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 34
+
+
+ 1882 0e4a 83E3      		ldi r24,lo8(51)
+ 1883 0e4c 90E0      		ldi r25,hi8(51)
+ 1884 0e4e 9093 0000 		sts (lcd_pin_db1)+1,r25
+ 1885 0e52 8093 0000 		sts lcd_pin_db1,r24
+ 1886 0e56 84E3      		ldi r24,lo8(52)
+ 1887 0e58 90E0      		ldi r25,hi8(52)
+ 1888 0e5a 9093 0000 		sts (lcd_ddr_db1)+1,r25
+ 1889 0e5e 8093 0000 		sts lcd_ddr_db1,r24
+ 1890 0e62 A4E3      		ldi r26,lo8(52)
+ 1891 0e64 B0E0      		ldi r27,hi8(52)
+ 1892 0e66 E4E3      		ldi r30,lo8(52)
+ 1893 0e68 F0E0      		ldi r31,hi8(52)
+ 1894 0e6a 9081      		ld r25,Z
+ 1895 0e6c 8091 0000 		lds r24,lcd_b_db1
+ 1896 0e70 892B      		or r24,r25
+ 1897 0e72 8C93      		st X,r24
+ 1898               	.L96:
+ 1899               	.LM175:
+ 1900 0e74 8E81      		ldd r24,Y+6
+ 1901 0e76 8033      		cpi r24,lo8(48)
+ 1902 0e78 01F4      		brne .L97
+ 1903 0e7a 82E3      		ldi r24,lo8(50)
+ 1904 0e7c 90E0      		ldi r25,hi8(50)
+ 1905 0e7e 9093 0000 		sts (lcd_p_db1)+1,r25
+ 1906 0e82 8093 0000 		sts lcd_p_db1,r24
+ 1907 0e86 80E3      		ldi r24,lo8(48)
+ 1908 0e88 90E0      		ldi r25,hi8(48)
+ 1909 0e8a 9093 0000 		sts (lcd_pin_db1)+1,r25
+ 1910 0e8e 8093 0000 		sts lcd_pin_db1,r24
+ 1911 0e92 81E3      		ldi r24,lo8(49)
+ 1912 0e94 90E0      		ldi r25,hi8(49)
+ 1913 0e96 9093 0000 		sts (lcd_ddr_db1)+1,r25
+ 1914 0e9a 8093 0000 		sts lcd_ddr_db1,r24
+ 1915 0e9e A1E3      		ldi r26,lo8(49)
+ 1916 0ea0 B0E0      		ldi r27,hi8(49)
+ 1917 0ea2 E1E3      		ldi r30,lo8(49)
+ 1918 0ea4 F0E0      		ldi r31,hi8(49)
+ 1919 0ea6 9081      		ld r25,Z
+ 1920 0ea8 8091 0000 		lds r24,lcd_b_db1
+ 1921 0eac 892B      		or r24,r25
+ 1922 0eae 8C93      		st X,r24
+ 1923               	.L97:
+ 1924               	.LM176:
+ 1925 0eb0 8F81      		ldd r24,Y+7
+ 1926 0eb2 807F      		andi r24,lo8(-16)
+ 1927 0eb4 8F83      		std Y+7,r24
+ 1928               	.LM177:
+ 1929 0eb6 8F81      		ldd r24,Y+7
+ 1930 0eb8 8823      		tst r24
+ 1931 0eba 01F4      		brne .L98
+ 1932 0ebc 8BE3      		ldi r24,lo8(59)
+ 1933 0ebe 90E0      		ldi r25,hi8(59)
+ 1934 0ec0 9093 0000 		sts (lcd_p_db2)+1,r25
+ 1935 0ec4 8093 0000 		sts lcd_p_db2,r24
+ 1936 0ec8 89E3      		ldi r24,lo8(57)
+ 1937 0eca 90E0      		ldi r25,hi8(57)
+ 1938 0ecc 9093 0000 		sts (lcd_pin_db2)+1,r25
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 35
+
+
+ 1939 0ed0 8093 0000 		sts lcd_pin_db2,r24
+ 1940 0ed4 8AE3      		ldi r24,lo8(58)
+ 1941 0ed6 90E0      		ldi r25,hi8(58)
+ 1942 0ed8 9093 0000 		sts (lcd_ddr_db2)+1,r25
+ 1943 0edc 8093 0000 		sts lcd_ddr_db2,r24
+ 1944 0ee0 AAE3      		ldi r26,lo8(58)
+ 1945 0ee2 B0E0      		ldi r27,hi8(58)
+ 1946 0ee4 EAE3      		ldi r30,lo8(58)
+ 1947 0ee6 F0E0      		ldi r31,hi8(58)
+ 1948 0ee8 9081      		ld r25,Z
+ 1949 0eea 8091 0000 		lds r24,lcd_b_db2
+ 1950 0eee 892B      		or r24,r25
+ 1951 0ef0 8C93      		st X,r24
+ 1952               	.L98:
+ 1953               	.LM178:
+ 1954 0ef2 8F81      		ldd r24,Y+7
+ 1955 0ef4 8031      		cpi r24,lo8(16)
+ 1956 0ef6 01F4      		brne .L99
+ 1957 0ef8 88E3      		ldi r24,lo8(56)
+ 1958 0efa 90E0      		ldi r25,hi8(56)
+ 1959 0efc 9093 0000 		sts (lcd_p_db2)+1,r25
+ 1960 0f00 8093 0000 		sts lcd_p_db2,r24
+ 1961 0f04 86E3      		ldi r24,lo8(54)
+ 1962 0f06 90E0      		ldi r25,hi8(54)
+ 1963 0f08 9093 0000 		sts (lcd_pin_db2)+1,r25
+ 1964 0f0c 8093 0000 		sts lcd_pin_db2,r24
+ 1965 0f10 87E3      		ldi r24,lo8(55)
+ 1966 0f12 90E0      		ldi r25,hi8(55)
+ 1967 0f14 9093 0000 		sts (lcd_ddr_db2)+1,r25
+ 1968 0f18 8093 0000 		sts lcd_ddr_db2,r24
+ 1969 0f1c A7E3      		ldi r26,lo8(55)
+ 1970 0f1e B0E0      		ldi r27,hi8(55)
+ 1971 0f20 E7E3      		ldi r30,lo8(55)
+ 1972 0f22 F0E0      		ldi r31,hi8(55)
+ 1973 0f24 9081      		ld r25,Z
+ 1974 0f26 8091 0000 		lds r24,lcd_b_db2
+ 1975 0f2a 892B      		or r24,r25
+ 1976 0f2c 8C93      		st X,r24
+ 1977               	.L99:
+ 1978               	.LM179:
+ 1979 0f2e 8F81      		ldd r24,Y+7
+ 1980 0f30 8032      		cpi r24,lo8(32)
+ 1981 0f32 01F4      		brne .L100
+ 1982 0f34 85E3      		ldi r24,lo8(53)
+ 1983 0f36 90E0      		ldi r25,hi8(53)
+ 1984 0f38 9093 0000 		sts (lcd_p_db2)+1,r25
+ 1985 0f3c 8093 0000 		sts lcd_p_db2,r24
+ 1986 0f40 83E3      		ldi r24,lo8(51)
+ 1987 0f42 90E0      		ldi r25,hi8(51)
+ 1988 0f44 9093 0000 		sts (lcd_pin_db2)+1,r25
+ 1989 0f48 8093 0000 		sts lcd_pin_db2,r24
+ 1990 0f4c 84E3      		ldi r24,lo8(52)
+ 1991 0f4e 90E0      		ldi r25,hi8(52)
+ 1992 0f50 9093 0000 		sts (lcd_ddr_db2)+1,r25
+ 1993 0f54 8093 0000 		sts lcd_ddr_db2,r24
+ 1994 0f58 A4E3      		ldi r26,lo8(52)
+ 1995 0f5a B0E0      		ldi r27,hi8(52)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 36
+
+
+ 1996 0f5c E4E3      		ldi r30,lo8(52)
+ 1997 0f5e F0E0      		ldi r31,hi8(52)
+ 1998 0f60 9081      		ld r25,Z
+ 1999 0f62 8091 0000 		lds r24,lcd_b_db2
+ 2000 0f66 892B      		or r24,r25
+ 2001 0f68 8C93      		st X,r24
+ 2002               	.L100:
+ 2003               	.LM180:
+ 2004 0f6a 8F81      		ldd r24,Y+7
+ 2005 0f6c 8033      		cpi r24,lo8(48)
+ 2006 0f6e 01F4      		brne .L101
+ 2007 0f70 82E3      		ldi r24,lo8(50)
+ 2008 0f72 90E0      		ldi r25,hi8(50)
+ 2009 0f74 9093 0000 		sts (lcd_p_db2)+1,r25
+ 2010 0f78 8093 0000 		sts lcd_p_db2,r24
+ 2011 0f7c 80E3      		ldi r24,lo8(48)
+ 2012 0f7e 90E0      		ldi r25,hi8(48)
+ 2013 0f80 9093 0000 		sts (lcd_pin_db2)+1,r25
+ 2014 0f84 8093 0000 		sts lcd_pin_db2,r24
+ 2015 0f88 81E3      		ldi r24,lo8(49)
+ 2016 0f8a 90E0      		ldi r25,hi8(49)
+ 2017 0f8c 9093 0000 		sts (lcd_ddr_db2)+1,r25
+ 2018 0f90 8093 0000 		sts lcd_ddr_db2,r24
+ 2019 0f94 A1E3      		ldi r26,lo8(49)
+ 2020 0f96 B0E0      		ldi r27,hi8(49)
+ 2021 0f98 E1E3      		ldi r30,lo8(49)
+ 2022 0f9a F0E0      		ldi r31,hi8(49)
+ 2023 0f9c 9081      		ld r25,Z
+ 2024 0f9e 8091 0000 		lds r24,lcd_b_db2
+ 2025 0fa2 892B      		or r24,r25
+ 2026 0fa4 8C93      		st X,r24
+ 2027               	.L101:
+ 2028               	.LM181:
+ 2029 0fa6 8885      		ldd r24,Y+8
+ 2030 0fa8 807F      		andi r24,lo8(-16)
+ 2031 0faa 8887      		std Y+8,r24
+ 2032               	.LM182:
+ 2033 0fac 8885      		ldd r24,Y+8
+ 2034 0fae 8823      		tst r24
+ 2035 0fb0 01F4      		brne .L102
+ 2036 0fb2 8BE3      		ldi r24,lo8(59)
+ 2037 0fb4 90E0      		ldi r25,hi8(59)
+ 2038 0fb6 9093 0000 		sts (lcd_p_db3)+1,r25
+ 2039 0fba 8093 0000 		sts lcd_p_db3,r24
+ 2040 0fbe 89E3      		ldi r24,lo8(57)
+ 2041 0fc0 90E0      		ldi r25,hi8(57)
+ 2042 0fc2 9093 0000 		sts (lcd_pin_db3)+1,r25
+ 2043 0fc6 8093 0000 		sts lcd_pin_db3,r24
+ 2044 0fca 8AE3      		ldi r24,lo8(58)
+ 2045 0fcc 90E0      		ldi r25,hi8(58)
+ 2046 0fce 9093 0000 		sts (lcd_ddr_db3)+1,r25
+ 2047 0fd2 8093 0000 		sts lcd_ddr_db3,r24
+ 2048 0fd6 AAE3      		ldi r26,lo8(58)
+ 2049 0fd8 B0E0      		ldi r27,hi8(58)
+ 2050 0fda EAE3      		ldi r30,lo8(58)
+ 2051 0fdc F0E0      		ldi r31,hi8(58)
+ 2052 0fde 9081      		ld r25,Z
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 37
+
+
+ 2053 0fe0 8091 0000 		lds r24,lcd_b_db3
+ 2054 0fe4 892B      		or r24,r25
+ 2055 0fe6 8C93      		st X,r24
+ 2056               	.L102:
+ 2057               	.LM183:
+ 2058 0fe8 8885      		ldd r24,Y+8
+ 2059 0fea 8031      		cpi r24,lo8(16)
+ 2060 0fec 01F4      		brne .L103
+ 2061 0fee 88E3      		ldi r24,lo8(56)
+ 2062 0ff0 90E0      		ldi r25,hi8(56)
+ 2063 0ff2 9093 0000 		sts (lcd_p_db3)+1,r25
+ 2064 0ff6 8093 0000 		sts lcd_p_db3,r24
+ 2065 0ffa 86E3      		ldi r24,lo8(54)
+ 2066 0ffc 90E0      		ldi r25,hi8(54)
+ 2067 0ffe 9093 0000 		sts (lcd_pin_db3)+1,r25
+ 2068 1002 8093 0000 		sts lcd_pin_db3,r24
+ 2069 1006 87E3      		ldi r24,lo8(55)
+ 2070 1008 90E0      		ldi r25,hi8(55)
+ 2071 100a 9093 0000 		sts (lcd_ddr_db3)+1,r25
+ 2072 100e 8093 0000 		sts lcd_ddr_db3,r24
+ 2073 1012 A7E3      		ldi r26,lo8(55)
+ 2074 1014 B0E0      		ldi r27,hi8(55)
+ 2075 1016 E7E3      		ldi r30,lo8(55)
+ 2076 1018 F0E0      		ldi r31,hi8(55)
+ 2077 101a 9081      		ld r25,Z
+ 2078 101c 8091 0000 		lds r24,lcd_b_db3
+ 2079 1020 892B      		or r24,r25
+ 2080 1022 8C93      		st X,r24
+ 2081               	.L103:
+ 2082               	.LM184:
+ 2083 1024 8885      		ldd r24,Y+8
+ 2084 1026 8032      		cpi r24,lo8(32)
+ 2085 1028 01F4      		brne .L104
+ 2086 102a 85E3      		ldi r24,lo8(53)
+ 2087 102c 90E0      		ldi r25,hi8(53)
+ 2088 102e 9093 0000 		sts (lcd_p_db3)+1,r25
+ 2089 1032 8093 0000 		sts lcd_p_db3,r24
+ 2090 1036 83E3      		ldi r24,lo8(51)
+ 2091 1038 90E0      		ldi r25,hi8(51)
+ 2092 103a 9093 0000 		sts (lcd_pin_db3)+1,r25
+ 2093 103e 8093 0000 		sts lcd_pin_db3,r24
+ 2094 1042 84E3      		ldi r24,lo8(52)
+ 2095 1044 90E0      		ldi r25,hi8(52)
+ 2096 1046 9093 0000 		sts (lcd_ddr_db3)+1,r25
+ 2097 104a 8093 0000 		sts lcd_ddr_db3,r24
+ 2098 104e A4E3      		ldi r26,lo8(52)
+ 2099 1050 B0E0      		ldi r27,hi8(52)
+ 2100 1052 E4E3      		ldi r30,lo8(52)
+ 2101 1054 F0E0      		ldi r31,hi8(52)
+ 2102 1056 9081      		ld r25,Z
+ 2103 1058 8091 0000 		lds r24,lcd_b_db3
+ 2104 105c 892B      		or r24,r25
+ 2105 105e 8C93      		st X,r24
+ 2106               	.L104:
+ 2107               	.LM185:
+ 2108 1060 8885      		ldd r24,Y+8
+ 2109 1062 8033      		cpi r24,lo8(48)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 38
+
+
+ 2110 1064 01F4      		brne .L106
+ 2111 1066 82E3      		ldi r24,lo8(50)
+ 2112 1068 90E0      		ldi r25,hi8(50)
+ 2113 106a 9093 0000 		sts (lcd_p_db3)+1,r25
+ 2114 106e 8093 0000 		sts lcd_p_db3,r24
+ 2115 1072 80E3      		ldi r24,lo8(48)
+ 2116 1074 90E0      		ldi r25,hi8(48)
+ 2117 1076 9093 0000 		sts (lcd_pin_db3)+1,r25
+ 2118 107a 8093 0000 		sts lcd_pin_db3,r24
+ 2119 107e 81E3      		ldi r24,lo8(49)
+ 2120 1080 90E0      		ldi r25,hi8(49)
+ 2121 1082 9093 0000 		sts (lcd_ddr_db3)+1,r25
+ 2122 1086 8093 0000 		sts lcd_ddr_db3,r24
+ 2123 108a A1E3      		ldi r26,lo8(49)
+ 2124 108c B0E0      		ldi r27,hi8(49)
+ 2125 108e E1E3      		ldi r30,lo8(49)
+ 2126 1090 F0E0      		ldi r31,hi8(49)
+ 2127 1092 9081      		ld r25,Z
+ 2128 1094 8091 0000 		lds r24,lcd_b_db3
+ 2129 1098 892B      		or r24,r25
+ 2130 109a 8C93      		st X,r24
+ 2131               	.L106:
+ 2132               	/* epilogue start */
+ 2133               	.LM186:
+ 2134 109c 2896      		adiw r28,8
+ 2135 109e 0FB6      		in __tmp_reg__,__SREG__
+ 2136 10a0 F894      		cli
+ 2137 10a2 DEBF      		out __SP_H__,r29
+ 2138 10a4 0FBE      		out __SREG__,__tmp_reg__
+ 2139 10a6 CDBF      		out __SP_L__,r28
+ 2140 10a8 CF91      		pop r28
+ 2141 10aa DF91      		pop r29
+ 2142 10ac 0F91      		pop r16
+ 2143 10ae EF90      		pop r14
+ 2144 10b0 CF90      		pop r12
+ 2145 10b2 AF90      		pop r10
+ 2146 10b4 0895      		ret
+ 2147               	.LFE19:
+ 2148               		.size	lcd_setup, .-lcd_setup
+ 2149               	.global	lcd_init
+ 2150               		.type	lcd_init, @function
+ 2151               	lcd_init:
+ 2152               	.LFB20:
+ 2153               	.LM187:
+ 2154 10b6 DF93      		push r29
+ 2155 10b8 CF93      		push r28
+ 2156 10ba 0F92      		push __tmp_reg__
+ 2157 10bc CDB7      		in r28,__SP_L__
+ 2158 10be DEB7      		in r29,__SP_H__
+ 2159               	/* prologue: function */
+ 2160               	/* frame size = 1 */
+ 2161 10c0 8983      		std Y+1,r24
+ 2162               	.LM188:
+ 2163 10c2 60EF      		ldi r22,lo8(195312)
+ 2164 10c4 7AEF      		ldi r23,hi8(195312)
+ 2165 10c6 82E0      		ldi r24,hlo8(195312)
+ 2166 10c8 90E0      		ldi r25,hhi8(195312)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 39
+
+
+ 2167 10ca 0E94 0000 		call _delayFourCycles
+ 2168               	.LM189:
+ 2169 10ce A091 0000 		lds r26,lcd_p_db0
+ 2170 10d2 B091 0000 		lds r27,(lcd_p_db0)+1
+ 2171 10d6 E091 0000 		lds r30,lcd_p_db0
+ 2172 10da F091 0000 		lds r31,(lcd_p_db0)+1
+ 2173 10de 8081      		ld r24,Z
+ 2174 10e0 982F      		mov r25,r24
+ 2175 10e2 8091 0000 		lds r24,lcd_b_db0
+ 2176 10e6 8095      		com r24
+ 2177 10e8 8923      		and r24,r25
+ 2178 10ea 8C93      		st X,r24
+ 2179               	.LM190:
+ 2180 10ec A091 0000 		lds r26,lcd_p_db1
+ 2181 10f0 B091 0000 		lds r27,(lcd_p_db1)+1
+ 2182 10f4 E091 0000 		lds r30,lcd_p_db1
+ 2183 10f8 F091 0000 		lds r31,(lcd_p_db1)+1
+ 2184 10fc 9081      		ld r25,Z
+ 2185 10fe 8091 0000 		lds r24,lcd_b_db1
+ 2186 1102 892B      		or r24,r25
+ 2187 1104 8C93      		st X,r24
+ 2188               	.LM191:
+ 2189 1106 A091 0000 		lds r26,lcd_p_db2
+ 2190 110a B091 0000 		lds r27,(lcd_p_db2)+1
+ 2191 110e E091 0000 		lds r30,lcd_p_db2
+ 2192 1112 F091 0000 		lds r31,(lcd_p_db2)+1
+ 2193 1116 8081      		ld r24,Z
+ 2194 1118 982F      		mov r25,r24
+ 2195 111a 8091 0000 		lds r24,lcd_b_db2
+ 2196 111e 8095      		com r24
+ 2197 1120 8923      		and r24,r25
+ 2198 1122 8C93      		st X,r24
+ 2199               	.LM192:
+ 2200 1124 A091 0000 		lds r26,lcd_p_db3
+ 2201 1128 B091 0000 		lds r27,(lcd_p_db3)+1
+ 2202 112c E091 0000 		lds r30,lcd_p_db3
+ 2203 1130 F091 0000 		lds r31,(lcd_p_db3)+1
+ 2204 1134 8081      		ld r24,Z
+ 2205 1136 982F      		mov r25,r24
+ 2206 1138 8091 0000 		lds r24,lcd_b_db3
+ 2207 113c 8095      		com r24
+ 2208 113e 8923      		and r24,r25
+ 2209 1140 8C93      		st X,r24
+ 2210               	.LM193:
+ 2211 1142 0E94 0000 		call lcd_e_toggle
+ 2212               	.LM194:
+ 2213 1146 6CE2      		ldi r22,lo8(19500)
+ 2214 1148 7CE4      		ldi r23,hi8(19500)
+ 2215 114a 80E0      		ldi r24,hlo8(19500)
+ 2216 114c 90E0      		ldi r25,hhi8(19500)
+ 2217 114e 0E94 0000 		call _delayFourCycles
+ 2218               	.LM195:
+ 2219 1152 0E94 0000 		call lcd_e_toggle
+ 2220               	.LM196:
+ 2221 1156 69E4      		ldi r22,lo8(585)
+ 2222 1158 72E0      		ldi r23,hi8(585)
+ 2223 115a 80E0      		ldi r24,hlo8(585)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 40
+
+
+ 2224 115c 90E0      		ldi r25,hhi8(585)
+ 2225 115e 0E94 0000 		call _delayFourCycles
+ 2226               	.LM197:
+ 2227 1162 0E94 0000 		call lcd_e_toggle
+ 2228               	.LM198:
+ 2229 1166 69E4      		ldi r22,lo8(585)
+ 2230 1168 72E0      		ldi r23,hi8(585)
+ 2231 116a 80E0      		ldi r24,hlo8(585)
+ 2232 116c 90E0      		ldi r25,hhi8(585)
+ 2233 116e 0E94 0000 		call _delayFourCycles
+ 2234               	.LM199:
+ 2235 1172 A091 0000 		lds r26,lcd_p_db0
+ 2236 1176 B091 0000 		lds r27,(lcd_p_db0)+1
+ 2237 117a E091 0000 		lds r30,lcd_p_db0
+ 2238 117e F091 0000 		lds r31,(lcd_p_db0)+1
+ 2239 1182 8081      		ld r24,Z
+ 2240 1184 982F      		mov r25,r24
+ 2241 1186 8091 0000 		lds r24,lcd_b_db0
+ 2242 118a 8095      		com r24
+ 2243 118c 8923      		and r24,r25
+ 2244 118e 8C93      		st X,r24
+ 2245               	.LM200:
+ 2246 1190 0E94 0000 		call lcd_e_toggle
+ 2247               	.LM201:
+ 2248 1194 69E4      		ldi r22,lo8(585)
+ 2249 1196 72E0      		ldi r23,hi8(585)
+ 2250 1198 80E0      		ldi r24,hlo8(585)
+ 2251 119a 90E0      		ldi r25,hhi8(585)
+ 2252 119c 0E94 0000 		call _delayFourCycles
+ 2253               	.LM202:
+ 2254 11a0 8FE0      		ldi r24,lo8(15)
+ 2255 11a2 0E94 0000 		call lcd_command
+ 2256               	.LM203:
+ 2257 11a6 88E2      		ldi r24,lo8(40)
+ 2258 11a8 0E94 0000 		call lcd_command
+ 2259               	.LM204:
+ 2260 11ac 0E94 0000 		call lcd_clrscr
+ 2261               	.LM205:
+ 2262 11b0 86E0      		ldi r24,lo8(6)
+ 2263 11b2 0E94 0000 		call lcd_command
+ 2264               	.LM206:
+ 2265 11b6 0E94 0000 		call lcd_backlight_on
+ 2266               	.LM207:
+ 2267 11ba 8981      		ldd r24,Y+1
+ 2268 11bc 0E94 0000 		call lcd_command
+ 2269               	/* epilogue start */
+ 2270               	.LM208:
+ 2271 11c0 0F90      		pop __tmp_reg__
+ 2272 11c2 CF91      		pop r28
+ 2273 11c4 DF91      		pop r29
+ 2274 11c6 0895      		ret
+ 2275               	.LFE20:
+ 2276               		.size	lcd_init, .-lcd_init
+ 2277               		.comm lcd_p_rs,2,1
+ 2278               		.comm lcd_p_rw,2,1
+ 2279               		.comm lcd_p_enable,2,1
+ 2280               		.comm lcd_p_backlight,2,1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 41
+
+
+ 2281               		.comm lcd_p_db0,2,1
+ 2282               		.comm lcd_p_db1,2,1
+ 2283               		.comm lcd_p_db2,2,1
+ 2284               		.comm lcd_p_db3,2,1
+ 2285               		.comm lcd_pin_db0,2,1
+ 2286               		.comm lcd_pin_db1,2,1
+ 2287               		.comm lcd_pin_db2,2,1
+ 2288               		.comm lcd_pin_db3,2,1
+ 2289               		.comm lcd_ddr_db0,2,1
+ 2290               		.comm lcd_ddr_db1,2,1
+ 2291               		.comm lcd_ddr_db2,2,1
+ 2292               		.comm lcd_ddr_db3,2,1
+ 2293               		.comm lcd_b_rs,1,1
+ 2294               		.comm lcd_b_rw,1,1
+ 2295               		.comm lcd_b_enable,1,1
+ 2296               		.comm lcd_b_backlight,1,1
+ 2297               		.comm lcd_b_db0,1,1
+ 2298               		.comm lcd_b_db1,1,1
+ 2299               		.comm lcd_b_db2,1,1
+ 2300               		.comm lcd_b_db3,1,1
+ 2301               		.section	.debug_frame,"",@progbits
+ 2302               	.Lframe0:
+ 2303 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 2304               	.LSCIE0:
+ 2305 0004 FFFF FFFF 		.long	0xffffffff
+ 2306 0008 01        		.byte	0x1
+ 2307 0009 00        		.string	""
+ 2308 000a 01        		.uleb128 0x1
+ 2309 000b 7F        		.sleb128 -1
+ 2310 000c 24        		.byte	0x24
+ 2311 000d 0C        		.byte	0xc
+ 2312 000e 20        		.uleb128 0x20
+ 2313 000f 00        		.uleb128 0x0
+ 2314               		.p2align	2
+ 2315               	.LECIE0:
+ 2316               	.LSFDE0:
+ 2317 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 2318               	.LASFDE0:
+ 2319 0014 0000 0000 		.long	.Lframe0
+ 2320 0018 0000 0000 		.long	.LFB3
+ 2321 001c 8000 0000 		.long	.LFE3-.LFB3
+ 2322               		.p2align	2
+ 2323               	.LEFDE0:
+ 2324               	.LSFDE2:
+ 2325 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 2326               	.LASFDE2:
+ 2327 0024 0000 0000 		.long	.Lframe0
+ 2328 0028 0000 0000 		.long	.LFB4
+ 2329 002c 7603 0000 		.long	.LFE4-.LFB4
+ 2330               		.p2align	2
+ 2331               	.LEFDE2:
+ 2332               	.LSFDE4:
+ 2333 0030 0C00 0000 		.long	.LEFDE4-.LASFDE4
+ 2334               	.LASFDE4:
+ 2335 0034 0000 0000 		.long	.Lframe0
+ 2336 0038 0000 0000 		.long	.LFB5
+ 2337 003c A202 0000 		.long	.LFE5-.LFB5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 42
+
+
+ 2338               		.p2align	2
+ 2339               	.LEFDE4:
+ 2340               	.LSFDE6:
+ 2341 0040 0C00 0000 		.long	.LEFDE6-.LASFDE6
+ 2342               	.LASFDE6:
+ 2343 0044 0000 0000 		.long	.Lframe0
+ 2344 0048 0000 0000 		.long	.LFB6
+ 2345 004c 2A00 0000 		.long	.LFE6-.LFB6
+ 2346               		.p2align	2
+ 2347               	.LEFDE6:
+ 2348               	.LSFDE8:
+ 2349 0050 0C00 0000 		.long	.LEFDE8-.LASFDE8
+ 2350               	.LASFDE8:
+ 2351 0054 0000 0000 		.long	.Lframe0
+ 2352 0058 0000 0000 		.long	.LFB2
+ 2353 005c 4A00 0000 		.long	.LFE2-.LFB2
+ 2354               		.p2align	2
+ 2355               	.LEFDE8:
+ 2356               	.LSFDE10:
+ 2357 0060 0C00 0000 		.long	.LEFDE10-.LASFDE10
+ 2358               	.LASFDE10:
+ 2359 0064 0000 0000 		.long	.Lframe0
+ 2360 0068 0000 0000 		.long	.LFB8
+ 2361 006c 2800 0000 		.long	.LFE8-.LFB8
+ 2362               		.p2align	2
+ 2363               	.LEFDE10:
+ 2364               	.LSFDE12:
+ 2365 0070 0C00 0000 		.long	.LEFDE12-.LASFDE12
+ 2366               	.LASFDE12:
+ 2367 0074 0000 0000 		.long	.Lframe0
+ 2368 0078 0000 0000 		.long	.LFB9
+ 2369 007c 2C00 0000 		.long	.LFE9-.LFB9
+ 2370               		.p2align	2
+ 2371               	.LEFDE12:
+ 2372               	.LSFDE14:
+ 2373 0080 0C00 0000 		.long	.LEFDE14-.LASFDE14
+ 2374               	.LASFDE14:
+ 2375 0084 0000 0000 		.long	.Lframe0
+ 2376 0088 0000 0000 		.long	.LFB10
+ 2377 008c 2000 0000 		.long	.LFE10-.LFB10
+ 2378               		.p2align	2
+ 2379               	.LEFDE14:
+ 2380               	.LSFDE16:
+ 2381 0090 0C00 0000 		.long	.LEFDE16-.LASFDE16
+ 2382               	.LASFDE16:
+ 2383 0094 0000 0000 		.long	.Lframe0
+ 2384 0098 0000 0000 		.long	.LFB11
+ 2385 009c 2000 0000 		.long	.LFE11-.LFB11
+ 2386               		.p2align	2
+ 2387               	.LEFDE16:
+ 2388               	.LSFDE18:
+ 2389 00a0 0C00 0000 		.long	.LEFDE18-.LASFDE18
+ 2390               	.LASFDE18:
+ 2391 00a4 0000 0000 		.long	.Lframe0
+ 2392 00a8 0000 0000 		.long	.LFB12
+ 2393 00ac 5000 0000 		.long	.LFE12-.LFB12
+ 2394               		.p2align	2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 43
+
+
+ 2395               	.LEFDE18:
+ 2396               	.LSFDE20:
+ 2397 00b0 0C00 0000 		.long	.LEFDE20-.LASFDE20
+ 2398               	.LASFDE20:
+ 2399 00b4 0000 0000 		.long	.Lframe0
+ 2400 00b8 0000 0000 		.long	.LFB13
+ 2401 00bc 1600 0000 		.long	.LFE13-.LFB13
+ 2402               		.p2align	2
+ 2403               	.LEFDE20:
+ 2404               	.LSFDE22:
+ 2405 00c0 0C00 0000 		.long	.LEFDE22-.LASFDE22
+ 2406               	.LASFDE22:
+ 2407 00c4 0000 0000 		.long	.Lframe0
+ 2408 00c8 0000 0000 		.long	.LFB14
+ 2409 00cc 1400 0000 		.long	.LFE14-.LFB14
+ 2410               		.p2align	2
+ 2411               	.LEFDE22:
+ 2412               	.LSFDE24:
+ 2413 00d0 0C00 0000 		.long	.LEFDE24-.LASFDE24
+ 2414               	.LASFDE24:
+ 2415 00d4 0000 0000 		.long	.Lframe0
+ 2416 00d8 0000 0000 		.long	.LFB15
+ 2417 00dc 1400 0000 		.long	.LFE15-.LFB15
+ 2418               		.p2align	2
+ 2419               	.LEFDE24:
+ 2420               	.LSFDE26:
+ 2421 00e0 0C00 0000 		.long	.LEFDE26-.LASFDE26
+ 2422               	.LASFDE26:
+ 2423 00e4 0000 0000 		.long	.Lframe0
+ 2424 00e8 0000 0000 		.long	.LFB16
+ 2425 00ec 3200 0000 		.long	.LFE16-.LFB16
+ 2426               		.p2align	2
+ 2427               	.LEFDE26:
+ 2428               	.LSFDE28:
+ 2429 00f0 0C00 0000 		.long	.LEFDE28-.LASFDE28
+ 2430               	.LASFDE28:
+ 2431 00f4 0000 0000 		.long	.Lframe0
+ 2432 00f8 0000 0000 		.long	.LFB7
+ 2433 00fc 5000 0000 		.long	.LFE7-.LFB7
+ 2434               		.p2align	2
+ 2435               	.LEFDE28:
+ 2436               	.LSFDE30:
+ 2437 0100 0C00 0000 		.long	.LEFDE30-.LASFDE30
+ 2438               	.LASFDE30:
+ 2439 0104 0000 0000 		.long	.Lframe0
+ 2440 0108 0000 0000 		.long	.LFB17
+ 2441 010c 4E00 0000 		.long	.LFE17-.LFB17
+ 2442               		.p2align	2
+ 2443               	.LEFDE30:
+ 2444               	.LSFDE32:
+ 2445 0110 0C00 0000 		.long	.LEFDE32-.LASFDE32
+ 2446               	.LASFDE32:
+ 2447 0114 0000 0000 		.long	.Lframe0
+ 2448 0118 0000 0000 		.long	.LFB18
+ 2449 011c 5000 0000 		.long	.LFE18-.LFB18
+ 2450               		.p2align	2
+ 2451               	.LEFDE32:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 44
+
+
+ 2452               	.LSFDE34:
+ 2453 0120 0C00 0000 		.long	.LEFDE34-.LASFDE34
+ 2454               	.LASFDE34:
+ 2455 0124 0000 0000 		.long	.Lframe0
+ 2456 0128 0000 0000 		.long	.LFB19
+ 2457 012c 6807 0000 		.long	.LFE19-.LFB19
+ 2458               		.p2align	2
+ 2459               	.LEFDE34:
+ 2460               	.LSFDE36:
+ 2461 0130 0C00 0000 		.long	.LEFDE36-.LASFDE36
+ 2462               	.LASFDE36:
+ 2463 0134 0000 0000 		.long	.Lframe0
+ 2464 0138 0000 0000 		.long	.LFB20
+ 2465 013c 1201 0000 		.long	.LFE20-.LFB20
+ 2466               		.p2align	2
+ 2467               	.LEFDE36:
+ 2468               		.text
+ 2469               	.Letext0:
+ 2470               		.section	.debug_info
+ 2471 0000 B205 0000 		.long	0x5b2
+ 2472 0004 0200      		.word	0x2
+ 2473 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 2474 000a 04        		.byte	0x4
+ 2475 000b 01        		.uleb128 0x1
+ 2476 000c 0000 0000 		.long	.LASF60
+ 2477 0010 01        		.byte	0x1
+ 2478 0011 0000 0000 		.long	.LASF61
+ 2479 0015 0000 0000 		.long	.LASF62
+ 2480 0019 0000 0000 		.long	.Ltext0
+ 2481 001d 0000 0000 		.long	.Letext0
+ 2482 0021 0000 0000 		.long	.Ldebug_line0
+ 2483 0025 02        		.uleb128 0x2
+ 2484 0026 01        		.byte	0x1
+ 2485 0027 06        		.byte	0x6
+ 2486 0028 0000 0000 		.long	.LASF0
+ 2487 002c 03        		.uleb128 0x3
+ 2488 002d 0000 0000 		.long	.LASF2
+ 2489 0031 02        		.byte	0x2
+ 2490 0032 7A        		.byte	0x7a
+ 2491 0033 3700 0000 		.long	0x37
+ 2492 0037 02        		.uleb128 0x2
+ 2493 0038 01        		.byte	0x1
+ 2494 0039 08        		.byte	0x8
+ 2495 003a 0000 0000 		.long	.LASF1
+ 2496 003e 04        		.uleb128 0x4
+ 2497 003f 02        		.byte	0x2
+ 2498 0040 05        		.byte	0x5
+ 2499 0041 696E 7400 		.string	"int"
+ 2500 0045 03        		.uleb128 0x3
+ 2501 0046 0000 0000 		.long	.LASF3
+ 2502 004a 02        		.byte	0x2
+ 2503 004b 7C        		.byte	0x7c
+ 2504 004c 5000 0000 		.long	0x50
+ 2505 0050 02        		.uleb128 0x2
+ 2506 0051 02        		.byte	0x2
+ 2507 0052 07        		.byte	0x7
+ 2508 0053 0000 0000 		.long	.LASF4
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 45
+
+
+ 2509 0057 02        		.uleb128 0x2
+ 2510 0058 04        		.byte	0x4
+ 2511 0059 05        		.byte	0x5
+ 2512 005a 0000 0000 		.long	.LASF5
+ 2513 005e 02        		.uleb128 0x2
+ 2514 005f 04        		.byte	0x4
+ 2515 0060 07        		.byte	0x7
+ 2516 0061 0000 0000 		.long	.LASF6
+ 2517 0065 02        		.uleb128 0x2
+ 2518 0066 08        		.byte	0x8
+ 2519 0067 05        		.byte	0x5
+ 2520 0068 0000 0000 		.long	.LASF7
+ 2521 006c 02        		.uleb128 0x2
+ 2522 006d 08        		.byte	0x8
+ 2523 006e 07        		.byte	0x7
+ 2524 006f 0000 0000 		.long	.LASF8
+ 2525 0073 05        		.uleb128 0x5
+ 2526 0074 01        		.byte	0x1
+ 2527 0075 08        		.byte	0x8
+ 2528 0076 06        		.uleb128 0x6
+ 2529 0077 0000 0000 		.long	.LASF63
+ 2530 007b 01        		.byte	0x1
+ 2531 007c 67        		.byte	0x67
+ 2532 007d 01        		.byte	0x1
+ 2533 007e 0000 0000 		.long	.LFB3
+ 2534 0082 0000 0000 		.long	.LFE3
+ 2535 0086 02        		.byte	0x2
+ 2536 0087 90        		.byte	0x90
+ 2537 0088 20        		.uleb128 0x20
+ 2538 0089 07        		.uleb128 0x7
+ 2539 008a 0000 0000 		.long	.LASF12
+ 2540 008e 01        		.byte	0x1
+ 2541 008f 7A        		.byte	0x7a
+ 2542 0090 01        		.byte	0x1
+ 2543 0091 0000 0000 		.long	.LFB4
+ 2544 0095 0000 0000 		.long	.LFE4
+ 2545 0099 02        		.byte	0x2
+ 2546 009a 90        		.byte	0x90
+ 2547 009b 20        		.uleb128 0x20
+ 2548 009c BC00 0000 		.long	0xbc
+ 2549 00a0 08        		.uleb128 0x8
+ 2550 00a1 0000 0000 		.long	.LASF9
+ 2551 00a5 01        		.byte	0x1
+ 2552 00a6 79        		.byte	0x79
+ 2553 00a7 2C00 0000 		.long	0x2c
+ 2554 00ab 02        		.byte	0x2
+ 2555 00ac 8C        		.byte	0x8c
+ 2556 00ad 01        		.sleb128 1
+ 2557 00ae 09        		.uleb128 0x9
+ 2558 00af 7273 00   		.string	"rs"
+ 2559 00b2 01        		.byte	0x1
+ 2560 00b3 79        		.byte	0x79
+ 2561 00b4 2C00 0000 		.long	0x2c
+ 2562 00b8 02        		.byte	0x2
+ 2563 00b9 8C        		.byte	0x8c
+ 2564 00ba 02        		.sleb128 2
+ 2565 00bb 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 46
+
+
+ 2566 00bc 0A        		.uleb128 0xa
+ 2567 00bd 0000 0000 		.long	.LASF10
+ 2568 00c1 01        		.byte	0x1
+ 2569 00c2 AE        		.byte	0xae
+ 2570 00c3 01        		.byte	0x1
+ 2571 00c4 2C00 0000 		.long	0x2c
+ 2572 00c8 0000 0000 		.long	.LFB5
+ 2573 00cc 0000 0000 		.long	.LFE5
+ 2574 00d0 02        		.byte	0x2
+ 2575 00d1 90        		.byte	0x90
+ 2576 00d2 20        		.uleb128 0x20
+ 2577 00d3 F300 0000 		.long	0xf3
+ 2578 00d7 09        		.uleb128 0x9
+ 2579 00d8 7273 00   		.string	"rs"
+ 2580 00db 01        		.byte	0x1
+ 2581 00dc AD        		.byte	0xad
+ 2582 00dd 2C00 0000 		.long	0x2c
+ 2583 00e1 02        		.byte	0x2
+ 2584 00e2 8C        		.byte	0x8c
+ 2585 00e3 02        		.sleb128 2
+ 2586 00e4 0B        		.uleb128 0xb
+ 2587 00e5 0000 0000 		.long	.LASF9
+ 2588 00e9 01        		.byte	0x1
+ 2589 00ea AF        		.byte	0xaf
+ 2590 00eb 2C00 0000 		.long	0x2c
+ 2591 00ef 02        		.byte	0x2
+ 2592 00f0 8C        		.byte	0x8c
+ 2593 00f1 01        		.sleb128 1
+ 2594 00f2 00        		.byte	0x0
+ 2595 00f3 0A        		.uleb128 0xa
+ 2596 00f4 0000 0000 		.long	.LASF11
+ 2597 00f8 01        		.byte	0x1
+ 2598 00f9 DE        		.byte	0xde
+ 2599 00fa 01        		.byte	0x1
+ 2600 00fb 2C00 0000 		.long	0x2c
+ 2601 00ff 0000 0000 		.long	.LFB6
+ 2602 0103 0000 0000 		.long	.LFE6
+ 2603 0107 02        		.byte	0x2
+ 2604 0108 90        		.byte	0x90
+ 2605 0109 20        		.uleb128 0x20
+ 2606 010a 1A01 0000 		.long	0x11a
+ 2607 010e 0C        		.uleb128 0xc
+ 2608 010f 6300      		.string	"c"
+ 2609 0111 01        		.byte	0x1
+ 2610 0112 DF        		.byte	0xdf
+ 2611 0113 2C00 0000 		.long	0x2c
+ 2612 0117 01        		.byte	0x1
+ 2613 0118 68        		.byte	0x68
+ 2614 0119 00        		.byte	0x0
+ 2615 011a 07        		.uleb128 0x7
+ 2616 011b 0000 0000 		.long	.LASF13
+ 2617 011f 01        		.byte	0x1
+ 2618 0120 50        		.byte	0x50
+ 2619 0121 01        		.byte	0x1
+ 2620 0122 0000 0000 		.long	.LFB2
+ 2621 0126 0000 0000 		.long	.LFE2
+ 2622 012a 02        		.byte	0x2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 47
+
+
+ 2623 012b 90        		.byte	0x90
+ 2624 012c 20        		.uleb128 0x20
+ 2625 012d 4001 0000 		.long	0x140
+ 2626 0131 08        		.uleb128 0x8
+ 2627 0132 0000 0000 		.long	.LASF14
+ 2628 0136 01        		.byte	0x1
+ 2629 0137 4F        		.byte	0x4f
+ 2630 0138 5E00 0000 		.long	0x5e
+ 2631 013c 02        		.byte	0x2
+ 2632 013d 8C        		.byte	0x8c
+ 2633 013e 01        		.sleb128 1
+ 2634 013f 00        		.byte	0x0
+ 2635 0140 0D        		.uleb128 0xd
+ 2636 0141 01        		.byte	0x1
+ 2637 0142 0000 0000 		.long	.LASF15
+ 2638 0146 01        		.byte	0x1
+ 2639 0147 2701      		.word	0x127
+ 2640 0149 01        		.byte	0x1
+ 2641 014a 0000 0000 		.long	.LFB8
+ 2642 014e 0000 0000 		.long	.LFE8
+ 2643 0152 02        		.byte	0x2
+ 2644 0153 90        		.byte	0x90
+ 2645 0154 20        		.uleb128 0x20
+ 2646 0155 0D        		.uleb128 0xd
+ 2647 0156 01        		.byte	0x1
+ 2648 0157 0000 0000 		.long	.LASF16
+ 2649 015b 01        		.byte	0x1
+ 2650 015c 2D01      		.word	0x12d
+ 2651 015e 01        		.byte	0x1
+ 2652 015f 0000 0000 		.long	.LFB9
+ 2653 0163 0000 0000 		.long	.LFE9
+ 2654 0167 02        		.byte	0x2
+ 2655 0168 90        		.byte	0x90
+ 2656 0169 20        		.uleb128 0x20
+ 2657 016a 0E        		.uleb128 0xe
+ 2658 016b 01        		.byte	0x1
+ 2659 016c 0000 0000 		.long	.LASF17
+ 2660 0170 01        		.byte	0x1
+ 2661 0171 3801      		.word	0x138
+ 2662 0173 01        		.byte	0x1
+ 2663 0174 0000 0000 		.long	.LFB10
+ 2664 0178 0000 0000 		.long	.LFE10
+ 2665 017c 02        		.byte	0x2
+ 2666 017d 90        		.byte	0x90
+ 2667 017e 20        		.uleb128 0x20
+ 2668 017f 9301 0000 		.long	0x193
+ 2669 0183 0F        		.uleb128 0xf
+ 2670 0184 636D 6400 		.string	"cmd"
+ 2671 0188 01        		.byte	0x1
+ 2672 0189 3701      		.word	0x137
+ 2673 018b 2C00 0000 		.long	0x2c
+ 2674 018f 02        		.byte	0x2
+ 2675 0190 8C        		.byte	0x8c
+ 2676 0191 01        		.sleb128 1
+ 2677 0192 00        		.byte	0x0
+ 2678 0193 0E        		.uleb128 0xe
+ 2679 0194 01        		.byte	0x1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 48
+
+
+ 2680 0195 0000 0000 		.long	.LASF18
+ 2681 0199 01        		.byte	0x1
+ 2682 019a 4401      		.word	0x144
+ 2683 019c 01        		.byte	0x1
+ 2684 019d 0000 0000 		.long	.LFB11
+ 2685 01a1 0000 0000 		.long	.LFE11
+ 2686 01a5 02        		.byte	0x2
+ 2687 01a6 90        		.byte	0x90
+ 2688 01a7 20        		.uleb128 0x20
+ 2689 01a8 BC01 0000 		.long	0x1bc
+ 2690 01ac 10        		.uleb128 0x10
+ 2691 01ad 0000 0000 		.long	.LASF9
+ 2692 01b1 01        		.byte	0x1
+ 2693 01b2 4301      		.word	0x143
+ 2694 01b4 2C00 0000 		.long	0x2c
+ 2695 01b8 02        		.byte	0x2
+ 2696 01b9 8C        		.byte	0x8c
+ 2697 01ba 01        		.sleb128 1
+ 2698 01bb 00        		.byte	0x0
+ 2699 01bc 0E        		.uleb128 0xe
+ 2700 01bd 01        		.byte	0x1
+ 2701 01be 0000 0000 		.long	.LASF19
+ 2702 01c2 01        		.byte	0x1
+ 2703 01c3 5201      		.word	0x152
+ 2704 01c5 01        		.byte	0x1
+ 2705 01c6 0000 0000 		.long	.LFB12
+ 2706 01ca 0000 0000 		.long	.LFE12
+ 2707 01ce 02        		.byte	0x2
+ 2708 01cf 90        		.byte	0x90
+ 2709 01d0 20        		.uleb128 0x20
+ 2710 01d1 F001 0000 		.long	0x1f0
+ 2711 01d5 0F        		.uleb128 0xf
+ 2712 01d6 7800      		.string	"x"
+ 2713 01d8 01        		.byte	0x1
+ 2714 01d9 5101      		.word	0x151
+ 2715 01db 2C00 0000 		.long	0x2c
+ 2716 01df 02        		.byte	0x2
+ 2717 01e0 8C        		.byte	0x8c
+ 2718 01e1 01        		.sleb128 1
+ 2719 01e2 0F        		.uleb128 0xf
+ 2720 01e3 7900      		.string	"y"
+ 2721 01e5 01        		.byte	0x1
+ 2722 01e6 5101      		.word	0x151
+ 2723 01e8 2C00 0000 		.long	0x2c
+ 2724 01ec 02        		.byte	0x2
+ 2725 01ed 8C        		.byte	0x8c
+ 2726 01ee 02        		.sleb128 2
+ 2727 01ef 00        		.byte	0x0
+ 2728 01f0 11        		.uleb128 0x11
+ 2729 01f1 01        		.byte	0x1
+ 2730 01f2 0000 0000 		.long	.LASF64
+ 2731 01f6 01        		.byte	0x1
+ 2732 01f7 6D01      		.word	0x16d
+ 2733 01f9 01        		.byte	0x1
+ 2734 01fa 3E00 0000 		.long	0x3e
+ 2735 01fe 0000 0000 		.long	.LFB13
+ 2736 0202 0000 0000 		.long	.LFE13
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 49
+
+
+ 2737 0206 02        		.byte	0x2
+ 2738 0207 90        		.byte	0x90
+ 2739 0208 20        		.uleb128 0x20
+ 2740 0209 0D        		.uleb128 0xd
+ 2741 020a 01        		.byte	0x1
+ 2742 020b 0000 0000 		.long	.LASF20
+ 2743 020f 01        		.byte	0x1
+ 2744 0210 7601      		.word	0x176
+ 2745 0212 01        		.byte	0x1
+ 2746 0213 0000 0000 		.long	.LFB14
+ 2747 0217 0000 0000 		.long	.LFE14
+ 2748 021b 02        		.byte	0x2
+ 2749 021c 90        		.byte	0x90
+ 2750 021d 20        		.uleb128 0x20
+ 2751 021e 0D        		.uleb128 0xd
+ 2752 021f 01        		.byte	0x1
+ 2753 0220 0000 0000 		.long	.LASF21
+ 2754 0224 01        		.byte	0x1
+ 2755 0225 7F01      		.word	0x17f
+ 2756 0227 01        		.byte	0x1
+ 2757 0228 0000 0000 		.long	.LFB15
+ 2758 022c 0000 0000 		.long	.LFE15
+ 2759 0230 02        		.byte	0x2
+ 2760 0231 90        		.byte	0x90
+ 2761 0232 20        		.uleb128 0x20
+ 2762 0233 0E        		.uleb128 0xe
+ 2763 0234 01        		.byte	0x1
+ 2764 0235 0000 0000 		.long	.LASF22
+ 2765 0239 01        		.byte	0x1
+ 2766 023a 8A01      		.word	0x18a
+ 2767 023c 01        		.byte	0x1
+ 2768 023d 0000 0000 		.long	.LFB16
+ 2769 0241 0000 0000 		.long	.LFE16
+ 2770 0245 02        		.byte	0x2
+ 2771 0246 90        		.byte	0x90
+ 2772 0247 20        		.uleb128 0x20
+ 2773 0248 6902 0000 		.long	0x269
+ 2774 024c 0F        		.uleb128 0xf
+ 2775 024d 6300      		.string	"c"
+ 2776 024f 01        		.byte	0x1
+ 2777 0250 8901      		.word	0x189
+ 2778 0252 6902 0000 		.long	0x269
+ 2779 0256 02        		.byte	0x2
+ 2780 0257 8C        		.byte	0x8c
+ 2781 0258 02        		.sleb128 2
+ 2782 0259 12        		.uleb128 0x12
+ 2783 025a 706F 7300 		.string	"pos"
+ 2784 025e 01        		.byte	0x1
+ 2785 025f 8B01      		.word	0x18b
+ 2786 0261 2C00 0000 		.long	0x2c
+ 2787 0265 02        		.byte	0x2
+ 2788 0266 8C        		.byte	0x8c
+ 2789 0267 01        		.sleb128 1
+ 2790 0268 00        		.byte	0x0
+ 2791 0269 02        		.uleb128 0x2
+ 2792 026a 01        		.byte	0x1
+ 2793 026b 08        		.byte	0x8
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 50
+
+
+ 2794 026c 0000 0000 		.long	.LASF23
+ 2795 0270 07        		.uleb128 0x7
+ 2796 0271 0000 0000 		.long	.LASF24
+ 2797 0275 01        		.byte	0x1
+ 2798 0276 F2        		.byte	0xf2
+ 2799 0277 01        		.byte	0x1
+ 2800 0278 0000 0000 		.long	.LFB7
+ 2801 027c 0000 0000 		.long	.LFE7
+ 2802 0280 02        		.byte	0x2
+ 2803 0281 90        		.byte	0x90
+ 2804 0282 20        		.uleb128 0x20
+ 2805 0283 A402 0000 		.long	0x2a4
+ 2806 0287 09        		.uleb128 0x9
+ 2807 0288 706F 7300 		.string	"pos"
+ 2808 028c 01        		.byte	0x1
+ 2809 028d F1        		.byte	0xf1
+ 2810 028e 2C00 0000 		.long	0x2c
+ 2811 0292 02        		.byte	0x2
+ 2812 0293 8C        		.byte	0x8c
+ 2813 0294 01        		.sleb128 1
+ 2814 0295 0B        		.uleb128 0xb
+ 2815 0296 0000 0000 		.long	.LASF25
+ 2816 029a 01        		.byte	0x1
+ 2817 029b F3        		.byte	0xf3
+ 2818 029c 2C00 0000 		.long	0x2c
+ 2819 02a0 02        		.byte	0x2
+ 2820 02a1 8C        		.byte	0x8c
+ 2821 02a2 02        		.sleb128 2
+ 2822 02a3 00        		.byte	0x0
+ 2823 02a4 0E        		.uleb128 0xe
+ 2824 02a5 01        		.byte	0x1
+ 2825 02a6 0000 0000 		.long	.LASF26
+ 2826 02aa 01        		.byte	0x1
+ 2827 02ab BA01      		.word	0x1ba
+ 2828 02ad 01        		.byte	0x1
+ 2829 02ae 0000 0000 		.long	.LFB17
+ 2830 02b2 0000 0000 		.long	.LFE17
+ 2831 02b6 02        		.byte	0x2
+ 2832 02b7 90        		.byte	0x90
+ 2833 02b8 20        		.uleb128 0x20
+ 2834 02b9 D802 0000 		.long	0x2d8
+ 2835 02bd 0F        		.uleb128 0xf
+ 2836 02be 7300      		.string	"s"
+ 2837 02c0 01        		.byte	0x1
+ 2838 02c1 B801      		.word	0x1b8
+ 2839 02c3 D802 0000 		.long	0x2d8
+ 2840 02c7 02        		.byte	0x2
+ 2841 02c8 8C        		.byte	0x8c
+ 2842 02c9 01        		.sleb128 1
+ 2843 02ca 12        		.uleb128 0x12
+ 2844 02cb 6300      		.string	"c"
+ 2845 02cd 01        		.byte	0x1
+ 2846 02ce BB01      		.word	0x1bb
+ 2847 02d0 6902 0000 		.long	0x269
+ 2848 02d4 02        		.byte	0x2
+ 2849 02d5 8C        		.byte	0x8c
+ 2850 02d6 03        		.sleb128 3
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 51
+
+
+ 2851 02d7 00        		.byte	0x0
+ 2852 02d8 13        		.uleb128 0x13
+ 2853 02d9 02        		.byte	0x2
+ 2854 02da DE02 0000 		.long	0x2de
+ 2855 02de 14        		.uleb128 0x14
+ 2856 02df 6902 0000 		.long	0x269
+ 2857 02e3 0E        		.uleb128 0xe
+ 2858 02e4 01        		.byte	0x1
+ 2859 02e5 0000 0000 		.long	.LASF27
+ 2860 02e9 01        		.byte	0x1
+ 2861 02ea CB01      		.word	0x1cb
+ 2862 02ec 01        		.byte	0x1
+ 2863 02ed 0000 0000 		.long	.LFB18
+ 2864 02f1 0000 0000 		.long	.LFE18
+ 2865 02f5 02        		.byte	0x2
+ 2866 02f6 90        		.byte	0x90
+ 2867 02f7 20        		.uleb128 0x20
+ 2868 02f8 4103 0000 		.long	0x341
+ 2869 02fc 10        		.uleb128 0x10
+ 2870 02fd 0000 0000 		.long	.LASF28
+ 2871 0301 01        		.byte	0x1
+ 2872 0302 C901      		.word	0x1c9
+ 2873 0304 D802 0000 		.long	0x2d8
+ 2874 0308 02        		.byte	0x2
+ 2875 0309 8C        		.byte	0x8c
+ 2876 030a 04        		.sleb128 4
+ 2877 030b 12        		.uleb128 0x12
+ 2878 030c 6300      		.string	"c"
+ 2879 030e 01        		.byte	0x1
+ 2880 030f CC01      		.word	0x1cc
+ 2881 0311 6902 0000 		.long	0x269
+ 2882 0315 02        		.byte	0x2
+ 2883 0316 8C        		.byte	0x8c
+ 2884 0317 06        		.sleb128 6
+ 2885 0318 15        		.uleb128 0x15
+ 2886 0319 0000 0000 		.long	.LBB2
+ 2887 031d 0000 0000 		.long	.LBE2
+ 2888 0321 16        		.uleb128 0x16
+ 2889 0322 0000 0000 		.long	.LASF29
+ 2890 0326 01        		.byte	0x1
+ 2891 0327 CE01      		.word	0x1ce
+ 2892 0329 4500 0000 		.long	0x45
+ 2893 032d 02        		.byte	0x2
+ 2894 032e 8C        		.byte	0x8c
+ 2895 032f 02        		.sleb128 2
+ 2896 0330 16        		.uleb128 0x16
+ 2897 0331 0000 0000 		.long	.LASF30
+ 2898 0335 01        		.byte	0x1
+ 2899 0336 CE01      		.word	0x1ce
+ 2900 0338 2C00 0000 		.long	0x2c
+ 2901 033c 02        		.byte	0x2
+ 2902 033d 8C        		.byte	0x8c
+ 2903 033e 01        		.sleb128 1
+ 2904 033f 00        		.byte	0x0
+ 2905 0340 00        		.byte	0x0
+ 2906 0341 0E        		.uleb128 0xe
+ 2907 0342 01        		.byte	0x1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 52
+
+
+ 2908 0343 0000 0000 		.long	.LASF31
+ 2909 0347 01        		.byte	0x1
+ 2910 0348 E201      		.word	0x1e2
+ 2911 034a 01        		.byte	0x1
+ 2912 034b 0000 0000 		.long	.LFB19
+ 2913 034f 0000 0000 		.long	.LFE19
+ 2914 0353 02        		.byte	0x2
+ 2915 0354 90        		.byte	0x90
+ 2916 0355 20        		.uleb128 0x20
+ 2917 0356 D103 0000 		.long	0x3d1
+ 2918 035a 0F        		.uleb128 0xf
+ 2919 035b 7273 00   		.string	"rs"
+ 2920 035e 01        		.byte	0x1
+ 2921 035f E001      		.word	0x1e0
+ 2922 0361 2C00 0000 		.long	0x2c
+ 2923 0365 02        		.byte	0x2
+ 2924 0366 8C        		.byte	0x8c
+ 2925 0367 01        		.sleb128 1
+ 2926 0368 0F        		.uleb128 0xf
+ 2927 0369 7277 00   		.string	"rw"
+ 2928 036c 01        		.byte	0x1
+ 2929 036d E001      		.word	0x1e0
+ 2930 036f 2C00 0000 		.long	0x2c
+ 2931 0373 02        		.byte	0x2
+ 2932 0374 8C        		.byte	0x8c
+ 2933 0375 02        		.sleb128 2
+ 2934 0376 10        		.uleb128 0x10
+ 2935 0377 0000 0000 		.long	.LASF32
+ 2936 037b 01        		.byte	0x1
+ 2937 037c E001      		.word	0x1e0
+ 2938 037e 2C00 0000 		.long	0x2c
+ 2939 0382 02        		.byte	0x2
+ 2940 0383 8C        		.byte	0x8c
+ 2941 0384 03        		.sleb128 3
+ 2942 0385 10        		.uleb128 0x10
+ 2943 0386 0000 0000 		.long	.LASF33
+ 2944 038a 01        		.byte	0x1
+ 2945 038b E001      		.word	0x1e0
+ 2946 038d 2C00 0000 		.long	0x2c
+ 2947 0391 02        		.byte	0x2
+ 2948 0392 8C        		.byte	0x8c
+ 2949 0393 04        		.sleb128 4
+ 2950 0394 0F        		.uleb128 0xf
+ 2951 0395 6462 3000 		.string	"db0"
+ 2952 0399 01        		.byte	0x1
+ 2953 039a E101      		.word	0x1e1
+ 2954 039c 2C00 0000 		.long	0x2c
+ 2955 03a0 02        		.byte	0x2
+ 2956 03a1 8C        		.byte	0x8c
+ 2957 03a2 05        		.sleb128 5
+ 2958 03a3 0F        		.uleb128 0xf
+ 2959 03a4 6462 3100 		.string	"db1"
+ 2960 03a8 01        		.byte	0x1
+ 2961 03a9 E101      		.word	0x1e1
+ 2962 03ab 2C00 0000 		.long	0x2c
+ 2963 03af 02        		.byte	0x2
+ 2964 03b0 8C        		.byte	0x8c
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 53
+
+
+ 2965 03b1 06        		.sleb128 6
+ 2966 03b2 0F        		.uleb128 0xf
+ 2967 03b3 6462 3200 		.string	"db2"
+ 2968 03b7 01        		.byte	0x1
+ 2969 03b8 E101      		.word	0x1e1
+ 2970 03ba 2C00 0000 		.long	0x2c
+ 2971 03be 02        		.byte	0x2
+ 2972 03bf 8C        		.byte	0x8c
+ 2973 03c0 07        		.sleb128 7
+ 2974 03c1 0F        		.uleb128 0xf
+ 2975 03c2 6462 3300 		.string	"db3"
+ 2976 03c6 01        		.byte	0x1
+ 2977 03c7 E101      		.word	0x1e1
+ 2978 03c9 2C00 0000 		.long	0x2c
+ 2979 03cd 02        		.byte	0x2
+ 2980 03ce 8C        		.byte	0x8c
+ 2981 03cf 08        		.sleb128 8
+ 2982 03d0 00        		.byte	0x0
+ 2983 03d1 0E        		.uleb128 0xe
+ 2984 03d2 01        		.byte	0x1
+ 2985 03d3 0000 0000 		.long	.LASF34
+ 2986 03d7 01        		.byte	0x1
+ 2987 03d8 2202      		.word	0x222
+ 2988 03da 01        		.byte	0x1
+ 2989 03db 0000 0000 		.long	.LFB20
+ 2990 03df 0000 0000 		.long	.LFE20
+ 2991 03e3 02        		.byte	0x2
+ 2992 03e4 90        		.byte	0x90
+ 2993 03e5 20        		.uleb128 0x20
+ 2994 03e6 FA03 0000 		.long	0x3fa
+ 2995 03ea 10        		.uleb128 0x10
+ 2996 03eb 0000 0000 		.long	.LASF35
+ 2997 03ef 01        		.byte	0x1
+ 2998 03f0 2102      		.word	0x221
+ 2999 03f2 2C00 0000 		.long	0x2c
+ 3000 03f6 02        		.byte	0x2
+ 3001 03f7 8C        		.byte	0x8c
+ 3002 03f8 01        		.sleb128 1
+ 3003 03f9 00        		.byte	0x0
+ 3004 03fa 17        		.uleb128 0x17
+ 3005 03fb 0000 0000 		.long	.LASF36
+ 3006 03ff 01        		.byte	0x1
+ 3007 0400 1F        		.byte	0x1f
+ 3008 0401 0C04 0000 		.long	0x40c
+ 3009 0405 01        		.byte	0x1
+ 3010 0406 05        		.byte	0x5
+ 3011 0407 03        		.byte	0x3
+ 3012 0408 0000 0000 		.long	lcd_p_rs
+ 3013 040c 13        		.uleb128 0x13
+ 3014 040d 02        		.byte	0x2
+ 3015 040e 1204 0000 		.long	0x412
+ 3016 0412 18        		.uleb128 0x18
+ 3017 0413 2C00 0000 		.long	0x2c
+ 3018 0417 17        		.uleb128 0x17
+ 3019 0418 0000 0000 		.long	.LASF37
+ 3020 041c 01        		.byte	0x1
+ 3021 041d 20        		.byte	0x20
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 54
+
+
+ 3022 041e 0C04 0000 		.long	0x40c
+ 3023 0422 01        		.byte	0x1
+ 3024 0423 05        		.byte	0x5
+ 3025 0424 03        		.byte	0x3
+ 3026 0425 0000 0000 		.long	lcd_p_rw
+ 3027 0429 17        		.uleb128 0x17
+ 3028 042a 0000 0000 		.long	.LASF38
+ 3029 042e 01        		.byte	0x1
+ 3030 042f 21        		.byte	0x21
+ 3031 0430 0C04 0000 		.long	0x40c
+ 3032 0434 01        		.byte	0x1
+ 3033 0435 05        		.byte	0x5
+ 3034 0436 03        		.byte	0x3
+ 3035 0437 0000 0000 		.long	lcd_p_enable
+ 3036 043b 17        		.uleb128 0x17
+ 3037 043c 0000 0000 		.long	.LASF39
+ 3038 0440 01        		.byte	0x1
+ 3039 0441 22        		.byte	0x22
+ 3040 0442 0C04 0000 		.long	0x40c
+ 3041 0446 01        		.byte	0x1
+ 3042 0447 05        		.byte	0x5
+ 3043 0448 03        		.byte	0x3
+ 3044 0449 0000 0000 		.long	lcd_p_backlight
+ 3045 044d 17        		.uleb128 0x17
+ 3046 044e 0000 0000 		.long	.LASF40
+ 3047 0452 01        		.byte	0x1
+ 3048 0453 24        		.byte	0x24
+ 3049 0454 0C04 0000 		.long	0x40c
+ 3050 0458 01        		.byte	0x1
+ 3051 0459 05        		.byte	0x5
+ 3052 045a 03        		.byte	0x3
+ 3053 045b 0000 0000 		.long	lcd_p_db0
+ 3054 045f 17        		.uleb128 0x17
+ 3055 0460 0000 0000 		.long	.LASF41
+ 3056 0464 01        		.byte	0x1
+ 3057 0465 25        		.byte	0x25
+ 3058 0466 0C04 0000 		.long	0x40c
+ 3059 046a 01        		.byte	0x1
+ 3060 046b 05        		.byte	0x5
+ 3061 046c 03        		.byte	0x3
+ 3062 046d 0000 0000 		.long	lcd_p_db1
+ 3063 0471 17        		.uleb128 0x17
+ 3064 0472 0000 0000 		.long	.LASF42
+ 3065 0476 01        		.byte	0x1
+ 3066 0477 26        		.byte	0x26
+ 3067 0478 0C04 0000 		.long	0x40c
+ 3068 047c 01        		.byte	0x1
+ 3069 047d 05        		.byte	0x5
+ 3070 047e 03        		.byte	0x3
+ 3071 047f 0000 0000 		.long	lcd_p_db2
+ 3072 0483 17        		.uleb128 0x17
+ 3073 0484 0000 0000 		.long	.LASF43
+ 3074 0488 01        		.byte	0x1
+ 3075 0489 27        		.byte	0x27
+ 3076 048a 0C04 0000 		.long	0x40c
+ 3077 048e 01        		.byte	0x1
+ 3078 048f 05        		.byte	0x5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 55
+
+
+ 3079 0490 03        		.byte	0x3
+ 3080 0491 0000 0000 		.long	lcd_p_db3
+ 3081 0495 17        		.uleb128 0x17
+ 3082 0496 0000 0000 		.long	.LASF44
+ 3083 049a 01        		.byte	0x1
+ 3084 049b 29        		.byte	0x29
+ 3085 049c 0C04 0000 		.long	0x40c
+ 3086 04a0 01        		.byte	0x1
+ 3087 04a1 05        		.byte	0x5
+ 3088 04a2 03        		.byte	0x3
+ 3089 04a3 0000 0000 		.long	lcd_pin_db0
+ 3090 04a7 17        		.uleb128 0x17
+ 3091 04a8 0000 0000 		.long	.LASF45
+ 3092 04ac 01        		.byte	0x1
+ 3093 04ad 2A        		.byte	0x2a
+ 3094 04ae 0C04 0000 		.long	0x40c
+ 3095 04b2 01        		.byte	0x1
+ 3096 04b3 05        		.byte	0x5
+ 3097 04b4 03        		.byte	0x3
+ 3098 04b5 0000 0000 		.long	lcd_pin_db1
+ 3099 04b9 17        		.uleb128 0x17
+ 3100 04ba 0000 0000 		.long	.LASF46
+ 3101 04be 01        		.byte	0x1
+ 3102 04bf 2B        		.byte	0x2b
+ 3103 04c0 0C04 0000 		.long	0x40c
+ 3104 04c4 01        		.byte	0x1
+ 3105 04c5 05        		.byte	0x5
+ 3106 04c6 03        		.byte	0x3
+ 3107 04c7 0000 0000 		.long	lcd_pin_db2
+ 3108 04cb 17        		.uleb128 0x17
+ 3109 04cc 0000 0000 		.long	.LASF47
+ 3110 04d0 01        		.byte	0x1
+ 3111 04d1 2C        		.byte	0x2c
+ 3112 04d2 0C04 0000 		.long	0x40c
+ 3113 04d6 01        		.byte	0x1
+ 3114 04d7 05        		.byte	0x5
+ 3115 04d8 03        		.byte	0x3
+ 3116 04d9 0000 0000 		.long	lcd_pin_db3
+ 3117 04dd 17        		.uleb128 0x17
+ 3118 04de 0000 0000 		.long	.LASF48
+ 3119 04e2 01        		.byte	0x1
+ 3120 04e3 2E        		.byte	0x2e
+ 3121 04e4 0C04 0000 		.long	0x40c
+ 3122 04e8 01        		.byte	0x1
+ 3123 04e9 05        		.byte	0x5
+ 3124 04ea 03        		.byte	0x3
+ 3125 04eb 0000 0000 		.long	lcd_ddr_db0
+ 3126 04ef 17        		.uleb128 0x17
+ 3127 04f0 0000 0000 		.long	.LASF49
+ 3128 04f4 01        		.byte	0x1
+ 3129 04f5 2F        		.byte	0x2f
+ 3130 04f6 0C04 0000 		.long	0x40c
+ 3131 04fa 01        		.byte	0x1
+ 3132 04fb 05        		.byte	0x5
+ 3133 04fc 03        		.byte	0x3
+ 3134 04fd 0000 0000 		.long	lcd_ddr_db1
+ 3135 0501 17        		.uleb128 0x17
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 56
+
+
+ 3136 0502 0000 0000 		.long	.LASF50
+ 3137 0506 01        		.byte	0x1
+ 3138 0507 30        		.byte	0x30
+ 3139 0508 0C04 0000 		.long	0x40c
+ 3140 050c 01        		.byte	0x1
+ 3141 050d 05        		.byte	0x5
+ 3142 050e 03        		.byte	0x3
+ 3143 050f 0000 0000 		.long	lcd_ddr_db2
+ 3144 0513 17        		.uleb128 0x17
+ 3145 0514 0000 0000 		.long	.LASF51
+ 3146 0518 01        		.byte	0x1
+ 3147 0519 31        		.byte	0x31
+ 3148 051a 0C04 0000 		.long	0x40c
+ 3149 051e 01        		.byte	0x1
+ 3150 051f 05        		.byte	0x5
+ 3151 0520 03        		.byte	0x3
+ 3152 0521 0000 0000 		.long	lcd_ddr_db3
+ 3153 0525 17        		.uleb128 0x17
+ 3154 0526 0000 0000 		.long	.LASF52
+ 3155 052a 01        		.byte	0x1
+ 3156 052b 34        		.byte	0x34
+ 3157 052c 2C00 0000 		.long	0x2c
+ 3158 0530 01        		.byte	0x1
+ 3159 0531 05        		.byte	0x5
+ 3160 0532 03        		.byte	0x3
+ 3161 0533 0000 0000 		.long	lcd_b_rs
+ 3162 0537 17        		.uleb128 0x17
+ 3163 0538 0000 0000 		.long	.LASF53
+ 3164 053c 01        		.byte	0x1
+ 3165 053d 35        		.byte	0x35
+ 3166 053e 2C00 0000 		.long	0x2c
+ 3167 0542 01        		.byte	0x1
+ 3168 0543 05        		.byte	0x5
+ 3169 0544 03        		.byte	0x3
+ 3170 0545 0000 0000 		.long	lcd_b_rw
+ 3171 0549 17        		.uleb128 0x17
+ 3172 054a 0000 0000 		.long	.LASF54
+ 3173 054e 01        		.byte	0x1
+ 3174 054f 36        		.byte	0x36
+ 3175 0550 2C00 0000 		.long	0x2c
+ 3176 0554 01        		.byte	0x1
+ 3177 0555 05        		.byte	0x5
+ 3178 0556 03        		.byte	0x3
+ 3179 0557 0000 0000 		.long	lcd_b_enable
+ 3180 055b 17        		.uleb128 0x17
+ 3181 055c 0000 0000 		.long	.LASF55
+ 3182 0560 01        		.byte	0x1
+ 3183 0561 37        		.byte	0x37
+ 3184 0562 2C00 0000 		.long	0x2c
+ 3185 0566 01        		.byte	0x1
+ 3186 0567 05        		.byte	0x5
+ 3187 0568 03        		.byte	0x3
+ 3188 0569 0000 0000 		.long	lcd_b_backlight
+ 3189 056d 17        		.uleb128 0x17
+ 3190 056e 0000 0000 		.long	.LASF56
+ 3191 0572 01        		.byte	0x1
+ 3192 0573 39        		.byte	0x39
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 57
+
+
+ 3193 0574 2C00 0000 		.long	0x2c
+ 3194 0578 01        		.byte	0x1
+ 3195 0579 05        		.byte	0x5
+ 3196 057a 03        		.byte	0x3
+ 3197 057b 0000 0000 		.long	lcd_b_db0
+ 3198 057f 17        		.uleb128 0x17
+ 3199 0580 0000 0000 		.long	.LASF57
+ 3200 0584 01        		.byte	0x1
+ 3201 0585 3A        		.byte	0x3a
+ 3202 0586 2C00 0000 		.long	0x2c
+ 3203 058a 01        		.byte	0x1
+ 3204 058b 05        		.byte	0x5
+ 3205 058c 03        		.byte	0x3
+ 3206 058d 0000 0000 		.long	lcd_b_db1
+ 3207 0591 17        		.uleb128 0x17
+ 3208 0592 0000 0000 		.long	.LASF58
+ 3209 0596 01        		.byte	0x1
+ 3210 0597 3B        		.byte	0x3b
+ 3211 0598 2C00 0000 		.long	0x2c
+ 3212 059c 01        		.byte	0x1
+ 3213 059d 05        		.byte	0x5
+ 3214 059e 03        		.byte	0x3
+ 3215 059f 0000 0000 		.long	lcd_b_db2
+ 3216 05a3 17        		.uleb128 0x17
+ 3217 05a4 0000 0000 		.long	.LASF59
+ 3218 05a8 01        		.byte	0x1
+ 3219 05a9 3C        		.byte	0x3c
+ 3220 05aa 2C00 0000 		.long	0x2c
+ 3221 05ae 01        		.byte	0x1
+ 3222 05af 05        		.byte	0x5
+ 3223 05b0 03        		.byte	0x3
+ 3224 05b1 0000 0000 		.long	lcd_b_db3
+ 3225 05b5 00        		.byte	0x0
+ 3226               		.section	.debug_abbrev
+ 3227 0000 01        		.uleb128 0x1
+ 3228 0001 11        		.uleb128 0x11
+ 3229 0002 01        		.byte	0x1
+ 3230 0003 25        		.uleb128 0x25
+ 3231 0004 0E        		.uleb128 0xe
+ 3232 0005 13        		.uleb128 0x13
+ 3233 0006 0B        		.uleb128 0xb
+ 3234 0007 03        		.uleb128 0x3
+ 3235 0008 0E        		.uleb128 0xe
+ 3236 0009 1B        		.uleb128 0x1b
+ 3237 000a 0E        		.uleb128 0xe
+ 3238 000b 11        		.uleb128 0x11
+ 3239 000c 01        		.uleb128 0x1
+ 3240 000d 12        		.uleb128 0x12
+ 3241 000e 01        		.uleb128 0x1
+ 3242 000f 10        		.uleb128 0x10
+ 3243 0010 06        		.uleb128 0x6
+ 3244 0011 00        		.byte	0x0
+ 3245 0012 00        		.byte	0x0
+ 3246 0013 02        		.uleb128 0x2
+ 3247 0014 24        		.uleb128 0x24
+ 3248 0015 00        		.byte	0x0
+ 3249 0016 0B        		.uleb128 0xb
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 58
+
+
+ 3250 0017 0B        		.uleb128 0xb
+ 3251 0018 3E        		.uleb128 0x3e
+ 3252 0019 0B        		.uleb128 0xb
+ 3253 001a 03        		.uleb128 0x3
+ 3254 001b 0E        		.uleb128 0xe
+ 3255 001c 00        		.byte	0x0
+ 3256 001d 00        		.byte	0x0
+ 3257 001e 03        		.uleb128 0x3
+ 3258 001f 16        		.uleb128 0x16
+ 3259 0020 00        		.byte	0x0
+ 3260 0021 03        		.uleb128 0x3
+ 3261 0022 0E        		.uleb128 0xe
+ 3262 0023 3A        		.uleb128 0x3a
+ 3263 0024 0B        		.uleb128 0xb
+ 3264 0025 3B        		.uleb128 0x3b
+ 3265 0026 0B        		.uleb128 0xb
+ 3266 0027 49        		.uleb128 0x49
+ 3267 0028 13        		.uleb128 0x13
+ 3268 0029 00        		.byte	0x0
+ 3269 002a 00        		.byte	0x0
+ 3270 002b 04        		.uleb128 0x4
+ 3271 002c 24        		.uleb128 0x24
+ 3272 002d 00        		.byte	0x0
+ 3273 002e 0B        		.uleb128 0xb
+ 3274 002f 0B        		.uleb128 0xb
+ 3275 0030 3E        		.uleb128 0x3e
+ 3276 0031 0B        		.uleb128 0xb
+ 3277 0032 03        		.uleb128 0x3
+ 3278 0033 08        		.uleb128 0x8
+ 3279 0034 00        		.byte	0x0
+ 3280 0035 00        		.byte	0x0
+ 3281 0036 05        		.uleb128 0x5
+ 3282 0037 24        		.uleb128 0x24
+ 3283 0038 00        		.byte	0x0
+ 3284 0039 0B        		.uleb128 0xb
+ 3285 003a 0B        		.uleb128 0xb
+ 3286 003b 3E        		.uleb128 0x3e
+ 3287 003c 0B        		.uleb128 0xb
+ 3288 003d 00        		.byte	0x0
+ 3289 003e 00        		.byte	0x0
+ 3290 003f 06        		.uleb128 0x6
+ 3291 0040 2E        		.uleb128 0x2e
+ 3292 0041 00        		.byte	0x0
+ 3293 0042 03        		.uleb128 0x3
+ 3294 0043 0E        		.uleb128 0xe
+ 3295 0044 3A        		.uleb128 0x3a
+ 3296 0045 0B        		.uleb128 0xb
+ 3297 0046 3B        		.uleb128 0x3b
+ 3298 0047 0B        		.uleb128 0xb
+ 3299 0048 27        		.uleb128 0x27
+ 3300 0049 0C        		.uleb128 0xc
+ 3301 004a 11        		.uleb128 0x11
+ 3302 004b 01        		.uleb128 0x1
+ 3303 004c 12        		.uleb128 0x12
+ 3304 004d 01        		.uleb128 0x1
+ 3305 004e 40        		.uleb128 0x40
+ 3306 004f 0A        		.uleb128 0xa
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 59
+
+
+ 3307 0050 00        		.byte	0x0
+ 3308 0051 00        		.byte	0x0
+ 3309 0052 07        		.uleb128 0x7
+ 3310 0053 2E        		.uleb128 0x2e
+ 3311 0054 01        		.byte	0x1
+ 3312 0055 03        		.uleb128 0x3
+ 3313 0056 0E        		.uleb128 0xe
+ 3314 0057 3A        		.uleb128 0x3a
+ 3315 0058 0B        		.uleb128 0xb
+ 3316 0059 3B        		.uleb128 0x3b
+ 3317 005a 0B        		.uleb128 0xb
+ 3318 005b 27        		.uleb128 0x27
+ 3319 005c 0C        		.uleb128 0xc
+ 3320 005d 11        		.uleb128 0x11
+ 3321 005e 01        		.uleb128 0x1
+ 3322 005f 12        		.uleb128 0x12
+ 3323 0060 01        		.uleb128 0x1
+ 3324 0061 40        		.uleb128 0x40
+ 3325 0062 0A        		.uleb128 0xa
+ 3326 0063 01        		.uleb128 0x1
+ 3327 0064 13        		.uleb128 0x13
+ 3328 0065 00        		.byte	0x0
+ 3329 0066 00        		.byte	0x0
+ 3330 0067 08        		.uleb128 0x8
+ 3331 0068 05        		.uleb128 0x5
+ 3332 0069 00        		.byte	0x0
+ 3333 006a 03        		.uleb128 0x3
+ 3334 006b 0E        		.uleb128 0xe
+ 3335 006c 3A        		.uleb128 0x3a
+ 3336 006d 0B        		.uleb128 0xb
+ 3337 006e 3B        		.uleb128 0x3b
+ 3338 006f 0B        		.uleb128 0xb
+ 3339 0070 49        		.uleb128 0x49
+ 3340 0071 13        		.uleb128 0x13
+ 3341 0072 02        		.uleb128 0x2
+ 3342 0073 0A        		.uleb128 0xa
+ 3343 0074 00        		.byte	0x0
+ 3344 0075 00        		.byte	0x0
+ 3345 0076 09        		.uleb128 0x9
+ 3346 0077 05        		.uleb128 0x5
+ 3347 0078 00        		.byte	0x0
+ 3348 0079 03        		.uleb128 0x3
+ 3349 007a 08        		.uleb128 0x8
+ 3350 007b 3A        		.uleb128 0x3a
+ 3351 007c 0B        		.uleb128 0xb
+ 3352 007d 3B        		.uleb128 0x3b
+ 3353 007e 0B        		.uleb128 0xb
+ 3354 007f 49        		.uleb128 0x49
+ 3355 0080 13        		.uleb128 0x13
+ 3356 0081 02        		.uleb128 0x2
+ 3357 0082 0A        		.uleb128 0xa
+ 3358 0083 00        		.byte	0x0
+ 3359 0084 00        		.byte	0x0
+ 3360 0085 0A        		.uleb128 0xa
+ 3361 0086 2E        		.uleb128 0x2e
+ 3362 0087 01        		.byte	0x1
+ 3363 0088 03        		.uleb128 0x3
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 60
+
+
+ 3364 0089 0E        		.uleb128 0xe
+ 3365 008a 3A        		.uleb128 0x3a
+ 3366 008b 0B        		.uleb128 0xb
+ 3367 008c 3B        		.uleb128 0x3b
+ 3368 008d 0B        		.uleb128 0xb
+ 3369 008e 27        		.uleb128 0x27
+ 3370 008f 0C        		.uleb128 0xc
+ 3371 0090 49        		.uleb128 0x49
+ 3372 0091 13        		.uleb128 0x13
+ 3373 0092 11        		.uleb128 0x11
+ 3374 0093 01        		.uleb128 0x1
+ 3375 0094 12        		.uleb128 0x12
+ 3376 0095 01        		.uleb128 0x1
+ 3377 0096 40        		.uleb128 0x40
+ 3378 0097 0A        		.uleb128 0xa
+ 3379 0098 01        		.uleb128 0x1
+ 3380 0099 13        		.uleb128 0x13
+ 3381 009a 00        		.byte	0x0
+ 3382 009b 00        		.byte	0x0
+ 3383 009c 0B        		.uleb128 0xb
+ 3384 009d 34        		.uleb128 0x34
+ 3385 009e 00        		.byte	0x0
+ 3386 009f 03        		.uleb128 0x3
+ 3387 00a0 0E        		.uleb128 0xe
+ 3388 00a1 3A        		.uleb128 0x3a
+ 3389 00a2 0B        		.uleb128 0xb
+ 3390 00a3 3B        		.uleb128 0x3b
+ 3391 00a4 0B        		.uleb128 0xb
+ 3392 00a5 49        		.uleb128 0x49
+ 3393 00a6 13        		.uleb128 0x13
+ 3394 00a7 02        		.uleb128 0x2
+ 3395 00a8 0A        		.uleb128 0xa
+ 3396 00a9 00        		.byte	0x0
+ 3397 00aa 00        		.byte	0x0
+ 3398 00ab 0C        		.uleb128 0xc
+ 3399 00ac 34        		.uleb128 0x34
+ 3400 00ad 00        		.byte	0x0
+ 3401 00ae 03        		.uleb128 0x3
+ 3402 00af 08        		.uleb128 0x8
+ 3403 00b0 3A        		.uleb128 0x3a
+ 3404 00b1 0B        		.uleb128 0xb
+ 3405 00b2 3B        		.uleb128 0x3b
+ 3406 00b3 0B        		.uleb128 0xb
+ 3407 00b4 49        		.uleb128 0x49
+ 3408 00b5 13        		.uleb128 0x13
+ 3409 00b6 02        		.uleb128 0x2
+ 3410 00b7 0A        		.uleb128 0xa
+ 3411 00b8 00        		.byte	0x0
+ 3412 00b9 00        		.byte	0x0
+ 3413 00ba 0D        		.uleb128 0xd
+ 3414 00bb 2E        		.uleb128 0x2e
+ 3415 00bc 00        		.byte	0x0
+ 3416 00bd 3F        		.uleb128 0x3f
+ 3417 00be 0C        		.uleb128 0xc
+ 3418 00bf 03        		.uleb128 0x3
+ 3419 00c0 0E        		.uleb128 0xe
+ 3420 00c1 3A        		.uleb128 0x3a
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 61
+
+
+ 3421 00c2 0B        		.uleb128 0xb
+ 3422 00c3 3B        		.uleb128 0x3b
+ 3423 00c4 05        		.uleb128 0x5
+ 3424 00c5 27        		.uleb128 0x27
+ 3425 00c6 0C        		.uleb128 0xc
+ 3426 00c7 11        		.uleb128 0x11
+ 3427 00c8 01        		.uleb128 0x1
+ 3428 00c9 12        		.uleb128 0x12
+ 3429 00ca 01        		.uleb128 0x1
+ 3430 00cb 40        		.uleb128 0x40
+ 3431 00cc 0A        		.uleb128 0xa
+ 3432 00cd 00        		.byte	0x0
+ 3433 00ce 00        		.byte	0x0
+ 3434 00cf 0E        		.uleb128 0xe
+ 3435 00d0 2E        		.uleb128 0x2e
+ 3436 00d1 01        		.byte	0x1
+ 3437 00d2 3F        		.uleb128 0x3f
+ 3438 00d3 0C        		.uleb128 0xc
+ 3439 00d4 03        		.uleb128 0x3
+ 3440 00d5 0E        		.uleb128 0xe
+ 3441 00d6 3A        		.uleb128 0x3a
+ 3442 00d7 0B        		.uleb128 0xb
+ 3443 00d8 3B        		.uleb128 0x3b
+ 3444 00d9 05        		.uleb128 0x5
+ 3445 00da 27        		.uleb128 0x27
+ 3446 00db 0C        		.uleb128 0xc
+ 3447 00dc 11        		.uleb128 0x11
+ 3448 00dd 01        		.uleb128 0x1
+ 3449 00de 12        		.uleb128 0x12
+ 3450 00df 01        		.uleb128 0x1
+ 3451 00e0 40        		.uleb128 0x40
+ 3452 00e1 0A        		.uleb128 0xa
+ 3453 00e2 01        		.uleb128 0x1
+ 3454 00e3 13        		.uleb128 0x13
+ 3455 00e4 00        		.byte	0x0
+ 3456 00e5 00        		.byte	0x0
+ 3457 00e6 0F        		.uleb128 0xf
+ 3458 00e7 05        		.uleb128 0x5
+ 3459 00e8 00        		.byte	0x0
+ 3460 00e9 03        		.uleb128 0x3
+ 3461 00ea 08        		.uleb128 0x8
+ 3462 00eb 3A        		.uleb128 0x3a
+ 3463 00ec 0B        		.uleb128 0xb
+ 3464 00ed 3B        		.uleb128 0x3b
+ 3465 00ee 05        		.uleb128 0x5
+ 3466 00ef 49        		.uleb128 0x49
+ 3467 00f0 13        		.uleb128 0x13
+ 3468 00f1 02        		.uleb128 0x2
+ 3469 00f2 0A        		.uleb128 0xa
+ 3470 00f3 00        		.byte	0x0
+ 3471 00f4 00        		.byte	0x0
+ 3472 00f5 10        		.uleb128 0x10
+ 3473 00f6 05        		.uleb128 0x5
+ 3474 00f7 00        		.byte	0x0
+ 3475 00f8 03        		.uleb128 0x3
+ 3476 00f9 0E        		.uleb128 0xe
+ 3477 00fa 3A        		.uleb128 0x3a
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 62
+
+
+ 3478 00fb 0B        		.uleb128 0xb
+ 3479 00fc 3B        		.uleb128 0x3b
+ 3480 00fd 05        		.uleb128 0x5
+ 3481 00fe 49        		.uleb128 0x49
+ 3482 00ff 13        		.uleb128 0x13
+ 3483 0100 02        		.uleb128 0x2
+ 3484 0101 0A        		.uleb128 0xa
+ 3485 0102 00        		.byte	0x0
+ 3486 0103 00        		.byte	0x0
+ 3487 0104 11        		.uleb128 0x11
+ 3488 0105 2E        		.uleb128 0x2e
+ 3489 0106 00        		.byte	0x0
+ 3490 0107 3F        		.uleb128 0x3f
+ 3491 0108 0C        		.uleb128 0xc
+ 3492 0109 03        		.uleb128 0x3
+ 3493 010a 0E        		.uleb128 0xe
+ 3494 010b 3A        		.uleb128 0x3a
+ 3495 010c 0B        		.uleb128 0xb
+ 3496 010d 3B        		.uleb128 0x3b
+ 3497 010e 05        		.uleb128 0x5
+ 3498 010f 27        		.uleb128 0x27
+ 3499 0110 0C        		.uleb128 0xc
+ 3500 0111 49        		.uleb128 0x49
+ 3501 0112 13        		.uleb128 0x13
+ 3502 0113 11        		.uleb128 0x11
+ 3503 0114 01        		.uleb128 0x1
+ 3504 0115 12        		.uleb128 0x12
+ 3505 0116 01        		.uleb128 0x1
+ 3506 0117 40        		.uleb128 0x40
+ 3507 0118 0A        		.uleb128 0xa
+ 3508 0119 00        		.byte	0x0
+ 3509 011a 00        		.byte	0x0
+ 3510 011b 12        		.uleb128 0x12
+ 3511 011c 34        		.uleb128 0x34
+ 3512 011d 00        		.byte	0x0
+ 3513 011e 03        		.uleb128 0x3
+ 3514 011f 08        		.uleb128 0x8
+ 3515 0120 3A        		.uleb128 0x3a
+ 3516 0121 0B        		.uleb128 0xb
+ 3517 0122 3B        		.uleb128 0x3b
+ 3518 0123 05        		.uleb128 0x5
+ 3519 0124 49        		.uleb128 0x49
+ 3520 0125 13        		.uleb128 0x13
+ 3521 0126 02        		.uleb128 0x2
+ 3522 0127 0A        		.uleb128 0xa
+ 3523 0128 00        		.byte	0x0
+ 3524 0129 00        		.byte	0x0
+ 3525 012a 13        		.uleb128 0x13
+ 3526 012b 0F        		.uleb128 0xf
+ 3527 012c 00        		.byte	0x0
+ 3528 012d 0B        		.uleb128 0xb
+ 3529 012e 0B        		.uleb128 0xb
+ 3530 012f 49        		.uleb128 0x49
+ 3531 0130 13        		.uleb128 0x13
+ 3532 0131 00        		.byte	0x0
+ 3533 0132 00        		.byte	0x0
+ 3534 0133 14        		.uleb128 0x14
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 63
+
+
+ 3535 0134 26        		.uleb128 0x26
+ 3536 0135 00        		.byte	0x0
+ 3537 0136 49        		.uleb128 0x49
+ 3538 0137 13        		.uleb128 0x13
+ 3539 0138 00        		.byte	0x0
+ 3540 0139 00        		.byte	0x0
+ 3541 013a 15        		.uleb128 0x15
+ 3542 013b 0B        		.uleb128 0xb
+ 3543 013c 01        		.byte	0x1
+ 3544 013d 11        		.uleb128 0x11
+ 3545 013e 01        		.uleb128 0x1
+ 3546 013f 12        		.uleb128 0x12
+ 3547 0140 01        		.uleb128 0x1
+ 3548 0141 00        		.byte	0x0
+ 3549 0142 00        		.byte	0x0
+ 3550 0143 16        		.uleb128 0x16
+ 3551 0144 34        		.uleb128 0x34
+ 3552 0145 00        		.byte	0x0
+ 3553 0146 03        		.uleb128 0x3
+ 3554 0147 0E        		.uleb128 0xe
+ 3555 0148 3A        		.uleb128 0x3a
+ 3556 0149 0B        		.uleb128 0xb
+ 3557 014a 3B        		.uleb128 0x3b
+ 3558 014b 05        		.uleb128 0x5
+ 3559 014c 49        		.uleb128 0x49
+ 3560 014d 13        		.uleb128 0x13
+ 3561 014e 02        		.uleb128 0x2
+ 3562 014f 0A        		.uleb128 0xa
+ 3563 0150 00        		.byte	0x0
+ 3564 0151 00        		.byte	0x0
+ 3565 0152 17        		.uleb128 0x17
+ 3566 0153 34        		.uleb128 0x34
+ 3567 0154 00        		.byte	0x0
+ 3568 0155 03        		.uleb128 0x3
+ 3569 0156 0E        		.uleb128 0xe
+ 3570 0157 3A        		.uleb128 0x3a
+ 3571 0158 0B        		.uleb128 0xb
+ 3572 0159 3B        		.uleb128 0x3b
+ 3573 015a 0B        		.uleb128 0xb
+ 3574 015b 49        		.uleb128 0x49
+ 3575 015c 13        		.uleb128 0x13
+ 3576 015d 3F        		.uleb128 0x3f
+ 3577 015e 0C        		.uleb128 0xc
+ 3578 015f 02        		.uleb128 0x2
+ 3579 0160 0A        		.uleb128 0xa
+ 3580 0161 00        		.byte	0x0
+ 3581 0162 00        		.byte	0x0
+ 3582 0163 18        		.uleb128 0x18
+ 3583 0164 35        		.uleb128 0x35
+ 3584 0165 00        		.byte	0x0
+ 3585 0166 49        		.uleb128 0x49
+ 3586 0167 13        		.uleb128 0x13
+ 3587 0168 00        		.byte	0x0
+ 3588 0169 00        		.byte	0x0
+ 3589 016a 00        		.byte	0x0
+ 3590               		.section	.debug_pubnames,"",@progbits
+ 3591 0000 4102 0000 		.long	0x241
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 64
+
+
+ 3592 0004 0200      		.word	0x2
+ 3593 0006 0000 0000 		.long	.Ldebug_info0
+ 3594 000a B605 0000 		.long	0x5b6
+ 3595 000e 4001 0000 		.long	0x140
+ 3596 0012 6C63 645F 		.string	"lcd_backlight_on"
+ 3596      6261 636B 
+ 3596      6C69 6768 
+ 3596      745F 6F6E 
+ 3596      00
+ 3597 0023 5501 0000 		.long	0x155
+ 3598 0027 6C63 645F 		.string	"lcd_backlight_off"
+ 3598      6261 636B 
+ 3598      6C69 6768 
+ 3598      745F 6F66 
+ 3598      6600 
+ 3599 0039 6A01 0000 		.long	0x16a
+ 3600 003d 6C63 645F 		.string	"lcd_command"
+ 3600      636F 6D6D 
+ 3600      616E 6400 
+ 3601 0049 9301 0000 		.long	0x193
+ 3602 004d 6C63 645F 		.string	"lcd_data"
+ 3602      6461 7461 
+ 3602      00
+ 3603 0056 BC01 0000 		.long	0x1bc
+ 3604 005a 6C63 645F 		.string	"lcd_gotoxy"
+ 3604      676F 746F 
+ 3604      7879 00
+ 3605 0065 F001 0000 		.long	0x1f0
+ 3606 0069 6C63 645F 		.string	"lcd_getxy"
+ 3606      6765 7478 
+ 3606      7900 
+ 3607 0073 0902 0000 		.long	0x209
+ 3608 0077 6C63 645F 		.string	"lcd_clrscr"
+ 3608      636C 7273 
+ 3608      6372 00
+ 3609 0082 1E02 0000 		.long	0x21e
+ 3610 0086 6C63 645F 		.string	"lcd_home"
+ 3610      686F 6D65 
+ 3610      00
+ 3611 008f 3302 0000 		.long	0x233
+ 3612 0093 6C63 645F 		.string	"lcd_putc"
+ 3612      7075 7463 
+ 3612      00
+ 3613 009c A402 0000 		.long	0x2a4
+ 3614 00a0 6C63 645F 		.string	"lcd_puts"
+ 3614      7075 7473 
+ 3614      00
+ 3615 00a9 E302 0000 		.long	0x2e3
+ 3616 00ad 6C63 645F 		.string	"lcd_puts_p"
+ 3616      7075 7473 
+ 3616      5F70 00
+ 3617 00b8 4103 0000 		.long	0x341
+ 3618 00bc 6C63 645F 		.string	"lcd_setup"
+ 3618      7365 7475 
+ 3618      7000 
+ 3619 00c6 D103 0000 		.long	0x3d1
+ 3620 00ca 6C63 645F 		.string	"lcd_init"
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 65
+
+
+ 3620      696E 6974 
+ 3620      00
+ 3621 00d3 FA03 0000 		.long	0x3fa
+ 3622 00d7 6C63 645F 		.string	"lcd_p_rs"
+ 3622      705F 7273 
+ 3622      00
+ 3623 00e0 1704 0000 		.long	0x417
+ 3624 00e4 6C63 645F 		.string	"lcd_p_rw"
+ 3624      705F 7277 
+ 3624      00
+ 3625 00ed 2904 0000 		.long	0x429
+ 3626 00f1 6C63 645F 		.string	"lcd_p_enable"
+ 3626      705F 656E 
+ 3626      6162 6C65 
+ 3626      00
+ 3627 00fe 3B04 0000 		.long	0x43b
+ 3628 0102 6C63 645F 		.string	"lcd_p_backlight"
+ 3628      705F 6261 
+ 3628      636B 6C69 
+ 3628      6768 7400 
+ 3629 0112 4D04 0000 		.long	0x44d
+ 3630 0116 6C63 645F 		.string	"lcd_p_db0"
+ 3630      705F 6462 
+ 3630      3000 
+ 3631 0120 5F04 0000 		.long	0x45f
+ 3632 0124 6C63 645F 		.string	"lcd_p_db1"
+ 3632      705F 6462 
+ 3632      3100 
+ 3633 012e 7104 0000 		.long	0x471
+ 3634 0132 6C63 645F 		.string	"lcd_p_db2"
+ 3634      705F 6462 
+ 3634      3200 
+ 3635 013c 8304 0000 		.long	0x483
+ 3636 0140 6C63 645F 		.string	"lcd_p_db3"
+ 3636      705F 6462 
+ 3636      3300 
+ 3637 014a 9504 0000 		.long	0x495
+ 3638 014e 6C63 645F 		.string	"lcd_pin_db0"
+ 3638      7069 6E5F 
+ 3638      6462 3000 
+ 3639 015a A704 0000 		.long	0x4a7
+ 3640 015e 6C63 645F 		.string	"lcd_pin_db1"
+ 3640      7069 6E5F 
+ 3640      6462 3100 
+ 3641 016a B904 0000 		.long	0x4b9
+ 3642 016e 6C63 645F 		.string	"lcd_pin_db2"
+ 3642      7069 6E5F 
+ 3642      6462 3200 
+ 3643 017a CB04 0000 		.long	0x4cb
+ 3644 017e 6C63 645F 		.string	"lcd_pin_db3"
+ 3644      7069 6E5F 
+ 3644      6462 3300 
+ 3645 018a DD04 0000 		.long	0x4dd
+ 3646 018e 6C63 645F 		.string	"lcd_ddr_db0"
+ 3646      6464 725F 
+ 3646      6462 3000 
+ 3647 019a EF04 0000 		.long	0x4ef
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 66
+
+
+ 3648 019e 6C63 645F 		.string	"lcd_ddr_db1"
+ 3648      6464 725F 
+ 3648      6462 3100 
+ 3649 01aa 0105 0000 		.long	0x501
+ 3650 01ae 6C63 645F 		.string	"lcd_ddr_db2"
+ 3650      6464 725F 
+ 3650      6462 3200 
+ 3651 01ba 1305 0000 		.long	0x513
+ 3652 01be 6C63 645F 		.string	"lcd_ddr_db3"
+ 3652      6464 725F 
+ 3652      6462 3300 
+ 3653 01ca 2505 0000 		.long	0x525
+ 3654 01ce 6C63 645F 		.string	"lcd_b_rs"
+ 3654      625F 7273 
+ 3654      00
+ 3655 01d7 3705 0000 		.long	0x537
+ 3656 01db 6C63 645F 		.string	"lcd_b_rw"
+ 3656      625F 7277 
+ 3656      00
+ 3657 01e4 4905 0000 		.long	0x549
+ 3658 01e8 6C63 645F 		.string	"lcd_b_enable"
+ 3658      625F 656E 
+ 3658      6162 6C65 
+ 3658      00
+ 3659 01f5 5B05 0000 		.long	0x55b
+ 3660 01f9 6C63 645F 		.string	"lcd_b_backlight"
+ 3660      625F 6261 
+ 3660      636B 6C69 
+ 3660      6768 7400 
+ 3661 0209 6D05 0000 		.long	0x56d
+ 3662 020d 6C63 645F 		.string	"lcd_b_db0"
+ 3662      625F 6462 
+ 3662      3000 
+ 3663 0217 7F05 0000 		.long	0x57f
+ 3664 021b 6C63 645F 		.string	"lcd_b_db1"
+ 3664      625F 6462 
+ 3664      3100 
+ 3665 0225 9105 0000 		.long	0x591
+ 3666 0229 6C63 645F 		.string	"lcd_b_db2"
+ 3666      625F 6462 
+ 3666      3200 
+ 3667 0233 A305 0000 		.long	0x5a3
+ 3668 0237 6C63 645F 		.string	"lcd_b_db3"
+ 3668      625F 6462 
+ 3668      3300 
+ 3669 0241 0000 0000 		.long	0x0
+ 3670               		.section	.debug_aranges,"",@progbits
+ 3671 0000 1C00 0000 		.long	0x1c
+ 3672 0004 0200      		.word	0x2
+ 3673 0006 0000 0000 		.long	.Ldebug_info0
+ 3674 000a 04        		.byte	0x4
+ 3675 000b 00        		.byte	0x0
+ 3676 000c 0000      		.word	0x0
+ 3677 000e 0000      		.word	0x0
+ 3678 0010 0000 0000 		.long	.Ltext0
+ 3679 0014 C811 0000 		.long	.Letext0-.Ltext0
+ 3680 0018 0000 0000 		.long	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 67
+
+
+ 3681 001c 0000 0000 		.long	0x0
+ 3682               		.section	.debug_line
+ 3683 0000 E806 0000 		.long	.LELT0-.LSLT0
+ 3684               	.LSLT0:
+ 3685 0004 0200      		.word	0x2
+ 3686 0006 5200 0000 		.long	.LELTP0-.LASLTP0
+ 3687               	.LASLTP0:
+ 3688 000a 01        		.byte	0x1
+ 3689 000b 01        		.byte	0x1
+ 3690 000c F6        		.byte	0xf6
+ 3691 000d F5        		.byte	0xf5
+ 3692 000e 0A        		.byte	0xa
+ 3693 000f 00        		.byte	0x0
+ 3694 0010 01        		.byte	0x1
+ 3695 0011 01        		.byte	0x1
+ 3696 0012 01        		.byte	0x1
+ 3697 0013 01        		.byte	0x1
+ 3698 0014 00        		.byte	0x0
+ 3699 0015 00        		.byte	0x0
+ 3700 0016 00        		.byte	0x0
+ 3701 0017 01        		.byte	0x1
+ 3702 0018 633A 2F77 		.ascii	"c:/winavr-20100110/lib/gcc/../../avr/include"
+ 3702      696E 6176 
+ 3702      722D 3230 
+ 3702      3130 3031 
+ 3702      3130 2F6C 
+ 3703 0044 00        		.byte	0
+ 3704 0045 00        		.byte	0x0
+ 3705 0046 6C63 642E 		.string	"lcd.c"
+ 3705      6300 
+ 3706 004c 00        		.uleb128 0x0
+ 3707 004d 00        		.uleb128 0x0
+ 3708 004e 00        		.uleb128 0x0
+ 3709 004f 7374 6469 		.string	"stdint.h"
+ 3709      6E74 2E68 
+ 3709      00
+ 3710 0058 01        		.uleb128 0x1
+ 3711 0059 00        		.uleb128 0x0
+ 3712 005a 00        		.uleb128 0x0
+ 3713 005b 00        		.byte	0x0
+ 3714               	.LELTP0:
+ 3715 005c 00        		.byte	0x0
+ 3716 005d 05        		.uleb128 0x5
+ 3717 005e 02        		.byte	0x2
+ 3718 005f 0000 0000 		.long	.LM1
+ 3719 0063 7A        		.byte	0x7a
+ 3720 0064 00        		.byte	0x0
+ 3721 0065 05        		.uleb128 0x5
+ 3722 0066 02        		.byte	0x2
+ 3723 0067 0000 0000 		.long	.LM2
+ 3724 006b 15        		.byte	0x15
+ 3725 006c 00        		.byte	0x0
+ 3726 006d 05        		.uleb128 0x5
+ 3727 006e 02        		.byte	0x2
+ 3728 006f 0000 0000 		.long	.LM3
+ 3729 0073 15        		.byte	0x15
+ 3730 0074 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 68
+
+
+ 3731 0075 05        		.uleb128 0x5
+ 3732 0076 02        		.byte	0x2
+ 3733 0077 0000 0000 		.long	.LM4
+ 3734 007b 15        		.byte	0x15
+ 3735 007c 00        		.byte	0x0
+ 3736 007d 05        		.uleb128 0x5
+ 3737 007e 02        		.byte	0x2
+ 3738 007f 0000 0000 		.long	.LM5
+ 3739 0083 15        		.byte	0x15
+ 3740 0084 00        		.byte	0x0
+ 3741 0085 05        		.uleb128 0x5
+ 3742 0086 02        		.byte	0x2
+ 3743 0087 0000 0000 		.long	.LM6
+ 3744 008b 15        		.byte	0x15
+ 3745 008c 00        		.byte	0x0
+ 3746 008d 05        		.uleb128 0x5
+ 3747 008e 02        		.byte	0x2
+ 3748 008f 0000 0000 		.long	.LM7
+ 3749 0093 15        		.byte	0x15
+ 3750 0094 00        		.byte	0x0
+ 3751 0095 05        		.uleb128 0x5
+ 3752 0096 02        		.byte	0x2
+ 3753 0097 0000 0000 		.long	.LM8
+ 3754 009b 21        		.byte	0x21
+ 3755 009c 00        		.byte	0x0
+ 3756 009d 05        		.uleb128 0x5
+ 3757 009e 02        		.byte	0x2
+ 3758 009f 0000 0000 		.long	.LM9
+ 3759 00a3 17        		.byte	0x17
+ 3760 00a4 00        		.byte	0x0
+ 3761 00a5 05        		.uleb128 0x5
+ 3762 00a6 02        		.byte	0x2
+ 3763 00a7 0000 0000 		.long	.LM10
+ 3764 00ab 15        		.byte	0x15
+ 3765 00ac 00        		.byte	0x0
+ 3766 00ad 05        		.uleb128 0x5
+ 3767 00ae 02        		.byte	0x2
+ 3768 00af 0000 0000 		.long	.LM11
+ 3769 00b3 16        		.byte	0x16
+ 3770 00b4 00        		.byte	0x0
+ 3771 00b5 05        		.uleb128 0x5
+ 3772 00b6 02        		.byte	0x2
+ 3773 00b7 0000 0000 		.long	.LM12
+ 3774 00bb 16        		.byte	0x16
+ 3775 00bc 00        		.byte	0x0
+ 3776 00bd 05        		.uleb128 0x5
+ 3777 00be 02        		.byte	0x2
+ 3778 00bf 0000 0000 		.long	.LM13
+ 3779 00c3 16        		.byte	0x16
+ 3780 00c4 00        		.byte	0x0
+ 3781 00c5 05        		.uleb128 0x5
+ 3782 00c6 02        		.byte	0x2
+ 3783 00c7 0000 0000 		.long	.LM14
+ 3784 00cb 15        		.byte	0x15
+ 3785 00cc 00        		.byte	0x0
+ 3786 00cd 05        		.uleb128 0x5
+ 3787 00ce 02        		.byte	0x2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 69
+
+
+ 3788 00cf 0000 0000 		.long	.LM15
+ 3789 00d3 15        		.byte	0x15
+ 3790 00d4 00        		.byte	0x0
+ 3791 00d5 05        		.uleb128 0x5
+ 3792 00d6 02        		.byte	0x2
+ 3793 00d7 0000 0000 		.long	.LM16
+ 3794 00db 15        		.byte	0x15
+ 3795 00dc 00        		.byte	0x0
+ 3796 00dd 05        		.uleb128 0x5
+ 3797 00de 02        		.byte	0x2
+ 3798 00df 0000 0000 		.long	.LM17
+ 3799 00e3 16        		.byte	0x16
+ 3800 00e4 00        		.byte	0x0
+ 3801 00e5 05        		.uleb128 0x5
+ 3802 00e6 02        		.byte	0x2
+ 3803 00e7 0000 0000 		.long	.LM18
+ 3804 00eb 15        		.byte	0x15
+ 3805 00ec 00        		.byte	0x0
+ 3806 00ed 05        		.uleb128 0x5
+ 3807 00ee 02        		.byte	0x2
+ 3808 00ef 0000 0000 		.long	.LM19
+ 3809 00f3 15        		.byte	0x15
+ 3810 00f4 00        		.byte	0x0
+ 3811 00f5 05        		.uleb128 0x5
+ 3812 00f6 02        		.byte	0x2
+ 3813 00f7 0000 0000 		.long	.LM20
+ 3814 00fb 15        		.byte	0x15
+ 3815 00fc 00        		.byte	0x0
+ 3816 00fd 05        		.uleb128 0x5
+ 3817 00fe 02        		.byte	0x2
+ 3818 00ff 0000 0000 		.long	.LM21
+ 3819 0103 15        		.byte	0x15
+ 3820 0104 00        		.byte	0x0
+ 3821 0105 05        		.uleb128 0x5
+ 3822 0106 02        		.byte	0x2
+ 3823 0107 0000 0000 		.long	.LM22
+ 3824 010b 15        		.byte	0x15
+ 3825 010c 00        		.byte	0x0
+ 3826 010d 05        		.uleb128 0x5
+ 3827 010e 02        		.byte	0x2
+ 3828 010f 0000 0000 		.long	.LM23
+ 3829 0113 15        		.byte	0x15
+ 3830 0114 00        		.byte	0x0
+ 3831 0115 05        		.uleb128 0x5
+ 3832 0116 02        		.byte	0x2
+ 3833 0117 0000 0000 		.long	.LM24
+ 3834 011b 15        		.byte	0x15
+ 3835 011c 00        		.byte	0x0
+ 3836 011d 05        		.uleb128 0x5
+ 3837 011e 02        		.byte	0x2
+ 3838 011f 0000 0000 		.long	.LM25
+ 3839 0123 15        		.byte	0x15
+ 3840 0124 00        		.byte	0x0
+ 3841 0125 05        		.uleb128 0x5
+ 3842 0126 02        		.byte	0x2
+ 3843 0127 0000 0000 		.long	.LM26
+ 3844 012b 17        		.byte	0x17
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 70
+
+
+ 3845 012c 00        		.byte	0x0
+ 3846 012d 05        		.uleb128 0x5
+ 3847 012e 02        		.byte	0x2
+ 3848 012f 0000 0000 		.long	.LM27
+ 3849 0133 15        		.byte	0x15
+ 3850 0134 00        		.byte	0x0
+ 3851 0135 05        		.uleb128 0x5
+ 3852 0136 02        		.byte	0x2
+ 3853 0137 0000 0000 		.long	.LM28
+ 3854 013b 15        		.byte	0x15
+ 3855 013c 00        		.byte	0x0
+ 3856 013d 05        		.uleb128 0x5
+ 3857 013e 02        		.byte	0x2
+ 3858 013f 0000 0000 		.long	.LM29
+ 3859 0143 15        		.byte	0x15
+ 3860 0144 00        		.byte	0x0
+ 3861 0145 05        		.uleb128 0x5
+ 3862 0146 02        		.byte	0x2
+ 3863 0147 0000 0000 		.long	.LM30
+ 3864 014b 15        		.byte	0x15
+ 3865 014c 00        		.byte	0x0
+ 3866 014d 05        		.uleb128 0x5
+ 3867 014e 02        		.byte	0x2
+ 3868 014f 0000 0000 		.long	.LM31
+ 3869 0153 15        		.byte	0x15
+ 3870 0154 00        		.byte	0x0
+ 3871 0155 05        		.uleb128 0x5
+ 3872 0156 02        		.byte	0x2
+ 3873 0157 0000 0000 		.long	.LM32
+ 3874 015b 15        		.byte	0x15
+ 3875 015c 00        		.byte	0x0
+ 3876 015d 05        		.uleb128 0x5
+ 3877 015e 02        		.byte	0x2
+ 3878 015f 0000 0000 		.long	.LM33
+ 3879 0163 15        		.byte	0x15
+ 3880 0164 00        		.byte	0x0
+ 3881 0165 05        		.uleb128 0x5
+ 3882 0166 02        		.byte	0x2
+ 3883 0167 0000 0000 		.long	.LM34
+ 3884 016b 15        		.byte	0x15
+ 3885 016c 00        		.byte	0x0
+ 3886 016d 05        		.uleb128 0x5
+ 3887 016e 02        		.byte	0x2
+ 3888 016f 0000 0000 		.long	.LM35
+ 3889 0173 17        		.byte	0x17
+ 3890 0174 00        		.byte	0x0
+ 3891 0175 05        		.uleb128 0x5
+ 3892 0176 02        		.byte	0x2
+ 3893 0177 0000 0000 		.long	.LM36
+ 3894 017b 15        		.byte	0x15
+ 3895 017c 00        		.byte	0x0
+ 3896 017d 05        		.uleb128 0x5
+ 3897 017e 02        		.byte	0x2
+ 3898 017f 0000 0000 		.long	.LM37
+ 3899 0183 15        		.byte	0x15
+ 3900 0184 00        		.byte	0x0
+ 3901 0185 05        		.uleb128 0x5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 71
+
+
+ 3902 0186 02        		.byte	0x2
+ 3903 0187 0000 0000 		.long	.LM38
+ 3904 018b 15        		.byte	0x15
+ 3905 018c 00        		.byte	0x0
+ 3906 018d 05        		.uleb128 0x5
+ 3907 018e 02        		.byte	0x2
+ 3908 018f 0000 0000 		.long	.LM39
+ 3909 0193 15        		.byte	0x15
+ 3910 0194 00        		.byte	0x0
+ 3911 0195 05        		.uleb128 0x5
+ 3912 0196 02        		.byte	0x2
+ 3913 0197 0000 0000 		.long	.LM40
+ 3914 019b 1F        		.byte	0x1f
+ 3915 019c 00        		.byte	0x0
+ 3916 019d 05        		.uleb128 0x5
+ 3917 019e 02        		.byte	0x2
+ 3918 019f 0000 0000 		.long	.LM41
+ 3919 01a3 17        		.byte	0x17
+ 3920 01a4 00        		.byte	0x0
+ 3921 01a5 05        		.uleb128 0x5
+ 3922 01a6 02        		.byte	0x2
+ 3923 01a7 0000 0000 		.long	.LM42
+ 3924 01ab 15        		.byte	0x15
+ 3925 01ac 00        		.byte	0x0
+ 3926 01ad 05        		.uleb128 0x5
+ 3927 01ae 02        		.byte	0x2
+ 3928 01af 0000 0000 		.long	.LM43
+ 3929 01b3 16        		.byte	0x16
+ 3930 01b4 00        		.byte	0x0
+ 3931 01b5 05        		.uleb128 0x5
+ 3932 01b6 02        		.byte	0x2
+ 3933 01b7 0000 0000 		.long	.LM44
+ 3934 01bb 15        		.byte	0x15
+ 3935 01bc 00        		.byte	0x0
+ 3936 01bd 05        		.uleb128 0x5
+ 3937 01be 02        		.byte	0x2
+ 3938 01bf 0000 0000 		.long	.LM45
+ 3939 01c3 17        		.byte	0x17
+ 3940 01c4 00        		.byte	0x0
+ 3941 01c5 05        		.uleb128 0x5
+ 3942 01c6 02        		.byte	0x2
+ 3943 01c7 0000 0000 		.long	.LM46
+ 3944 01cb 15        		.byte	0x15
+ 3945 01cc 00        		.byte	0x0
+ 3946 01cd 05        		.uleb128 0x5
+ 3947 01ce 02        		.byte	0x2
+ 3948 01cf 0000 0000 		.long	.LM47
+ 3949 01d3 15        		.byte	0x15
+ 3950 01d4 00        		.byte	0x0
+ 3951 01d5 05        		.uleb128 0x5
+ 3952 01d6 02        		.byte	0x2
+ 3953 01d7 0000 0000 		.long	.LM48
+ 3954 01db 15        		.byte	0x15
+ 3955 01dc 00        		.byte	0x0
+ 3956 01dd 05        		.uleb128 0x5
+ 3957 01de 02        		.byte	0x2
+ 3958 01df 0000 0000 		.long	.LM49
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 72
+
+
+ 3959 01e3 17        		.byte	0x17
+ 3960 01e4 00        		.byte	0x0
+ 3961 01e5 05        		.uleb128 0x5
+ 3962 01e6 02        		.byte	0x2
+ 3963 01e7 0000 0000 		.long	.LM50
+ 3964 01eb 15        		.byte	0x15
+ 3965 01ec 00        		.byte	0x0
+ 3966 01ed 05        		.uleb128 0x5
+ 3967 01ee 02        		.byte	0x2
+ 3968 01ef 0000 0000 		.long	.LM51
+ 3969 01f3 15        		.byte	0x15
+ 3970 01f4 00        		.byte	0x0
+ 3971 01f5 05        		.uleb128 0x5
+ 3972 01f6 02        		.byte	0x2
+ 3973 01f7 0000 0000 		.long	.LM52
+ 3974 01fb 15        		.byte	0x15
+ 3975 01fc 00        		.byte	0x0
+ 3976 01fd 05        		.uleb128 0x5
+ 3977 01fe 02        		.byte	0x2
+ 3978 01ff 0000 0000 		.long	.LM53
+ 3979 0203 15        		.byte	0x15
+ 3980 0204 00        		.byte	0x0
+ 3981 0205 05        		.uleb128 0x5
+ 3982 0206 02        		.byte	0x2
+ 3983 0207 0000 0000 		.long	.LM54
+ 3984 020b 15        		.byte	0x15
+ 3985 020c 00        		.byte	0x0
+ 3986 020d 05        		.uleb128 0x5
+ 3987 020e 02        		.byte	0x2
+ 3988 020f 0000 0000 		.long	.LM55
+ 3989 0213 15        		.byte	0x15
+ 3990 0214 00        		.byte	0x0
+ 3991 0215 05        		.uleb128 0x5
+ 3992 0216 02        		.byte	0x2
+ 3993 0217 0000 0000 		.long	.LM56
+ 3994 021b 15        		.byte	0x15
+ 3995 021c 00        		.byte	0x0
+ 3996 021d 05        		.uleb128 0x5
+ 3997 021e 02        		.byte	0x2
+ 3998 021f 0000 0000 		.long	.LM57
+ 3999 0223 16        		.byte	0x16
+ 4000 0224 00        		.byte	0x0
+ 4001 0225 05        		.uleb128 0x5
+ 4002 0226 02        		.byte	0x2
+ 4003 0227 0000 0000 		.long	.LM58
+ 4004 022b 15        		.byte	0x15
+ 4005 022c 00        		.byte	0x0
+ 4006 022d 05        		.uleb128 0x5
+ 4007 022e 02        		.byte	0x2
+ 4008 022f 0000 0000 		.long	.LM59
+ 4009 0233 15        		.byte	0x15
+ 4010 0234 00        		.byte	0x0
+ 4011 0235 05        		.uleb128 0x5
+ 4012 0236 02        		.byte	0x2
+ 4013 0237 0000 0000 		.long	.LM60
+ 4014 023b 17        		.byte	0x17
+ 4015 023c 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 73
+
+
+ 4016 023d 05        		.uleb128 0x5
+ 4017 023e 02        		.byte	0x2
+ 4018 023f 0000 0000 		.long	.LM61
+ 4019 0243 15        		.byte	0x15
+ 4020 0244 00        		.byte	0x0
+ 4021 0245 05        		.uleb128 0x5
+ 4022 0246 02        		.byte	0x2
+ 4023 0247 0000 0000 		.long	.LM62
+ 4024 024b 15        		.byte	0x15
+ 4025 024c 00        		.byte	0x0
+ 4026 024d 05        		.uleb128 0x5
+ 4027 024e 02        		.byte	0x2
+ 4028 024f 0000 0000 		.long	.LM63
+ 4029 0253 15        		.byte	0x15
+ 4030 0254 00        		.byte	0x0
+ 4031 0255 05        		.uleb128 0x5
+ 4032 0256 02        		.byte	0x2
+ 4033 0257 0000 0000 		.long	.LM64
+ 4034 025b 15        		.byte	0x15
+ 4035 025c 00        		.byte	0x0
+ 4036 025d 05        		.uleb128 0x5
+ 4037 025e 02        		.byte	0x2
+ 4038 025f 0000 0000 		.long	.LM65
+ 4039 0263 15        		.byte	0x15
+ 4040 0264 00        		.byte	0x0
+ 4041 0265 05        		.uleb128 0x5
+ 4042 0266 02        		.byte	0x2
+ 4043 0267 0000 0000 		.long	.LM66
+ 4044 026b 15        		.byte	0x15
+ 4045 026c 00        		.byte	0x0
+ 4046 026d 05        		.uleb128 0x5
+ 4047 026e 02        		.byte	0x2
+ 4048 026f 0000 0000 		.long	.LM67
+ 4049 0273 15        		.byte	0x15
+ 4050 0274 00        		.byte	0x0
+ 4051 0275 05        		.uleb128 0x5
+ 4052 0276 02        		.byte	0x2
+ 4053 0277 0000 0000 		.long	.LM68
+ 4054 027b 15        		.byte	0x15
+ 4055 027c 00        		.byte	0x0
+ 4056 027d 05        		.uleb128 0x5
+ 4057 027e 02        		.byte	0x2
+ 4058 027f 0000 0000 		.long	.LM69
+ 4059 0283 15        		.byte	0x15
+ 4060 0284 00        		.byte	0x0
+ 4061 0285 05        		.uleb128 0x5
+ 4062 0286 02        		.byte	0x2
+ 4063 0287 0000 0000 		.long	.LM70
+ 4064 028b 15        		.byte	0x15
+ 4065 028c 00        		.byte	0x0
+ 4066 028d 05        		.uleb128 0x5
+ 4067 028e 02        		.byte	0x2
+ 4068 028f 0000 0000 		.long	.LM71
+ 4069 0293 1C        		.byte	0x1c
+ 4070 0294 00        		.byte	0x0
+ 4071 0295 05        		.uleb128 0x5
+ 4072 0296 02        		.byte	0x2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 74
+
+
+ 4073 0297 0000 0000 		.long	.LM72
+ 4074 029b 18        		.byte	0x18
+ 4075 029c 00        		.byte	0x0
+ 4076 029d 05        		.uleb128 0x5
+ 4077 029e 02        		.byte	0x2
+ 4078 029f 0000 0000 		.long	.LM73
+ 4079 02a3 17        		.byte	0x17
+ 4080 02a4 00        		.byte	0x0
+ 4081 02a5 05        		.uleb128 0x5
+ 4082 02a6 02        		.byte	0x2
+ 4083 02a7 0000 0000 		.long	.LM74
+ 4084 02ab 17        		.byte	0x17
+ 4085 02ac 00        		.byte	0x0
+ 4086 02ad 05        		.uleb128 0x5
+ 4087 02ae 02        		.byte	0x2
+ 4088 02af 0000 0000 		.long	.LM75
+ 4089 02b3 16        		.byte	0x16
+ 4090 02b4 00        		.byte	0x0
+ 4091 02b5 05        		.uleb128 0x5
+ 4092 02b6 02        		.byte	0x2
+ 4093 02b7 0000 0000 		.long	.LM76
+ 4094 02bb 03        		.byte	0x3
+ 4095 02bc E67E      		.sleb128 -154
+ 4096 02be 01        		.byte	0x1
+ 4097 02bf 00        		.byte	0x0
+ 4098 02c0 05        		.uleb128 0x5
+ 4099 02c1 02        		.byte	0x2
+ 4100 02c2 0000 0000 		.long	.LM77
+ 4101 02c6 15        		.byte	0x15
+ 4102 02c7 00        		.byte	0x0
+ 4103 02c8 05        		.uleb128 0x5
+ 4104 02c9 02        		.byte	0x2
+ 4105 02ca 0000 0000 		.long	.LM78
+ 4106 02ce 15        		.byte	0x15
+ 4107 02cf 00        		.byte	0x0
+ 4108 02d0 05        		.uleb128 0x5
+ 4109 02d1 02        		.byte	0x2
+ 4110 02d2 0000 0000 		.long	.LM79
+ 4111 02d6 16        		.byte	0x16
+ 4112 02d7 00        		.byte	0x0
+ 4113 02d8 05        		.uleb128 0x5
+ 4114 02d9 02        		.byte	0x2
+ 4115 02da 0000 0000 		.long	.LM80
+ 4116 02de 1A        		.byte	0x1a
+ 4117 02df 00        		.byte	0x0
+ 4118 02e0 05        		.uleb128 0x5
+ 4119 02e1 02        		.byte	0x2
+ 4120 02e2 0000 0000 		.long	.LM81
+ 4121 02e6 E1        		.byte	0xe1
+ 4122 02e7 00        		.byte	0x0
+ 4123 02e8 05        		.uleb128 0x5
+ 4124 02e9 02        		.byte	0x2
+ 4125 02ea 0000 0000 		.long	.LM82
+ 4126 02ee 15        		.byte	0x15
+ 4127 02ef 00        		.byte	0x0
+ 4128 02f0 05        		.uleb128 0x5
+ 4129 02f1 02        		.byte	0x2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 75
+
+
+ 4130 02f2 0000 0000 		.long	.LM83
+ 4131 02f6 15        		.byte	0x15
+ 4132 02f7 00        		.byte	0x0
+ 4133 02f8 05        		.uleb128 0x5
+ 4134 02f9 02        		.byte	0x2
+ 4135 02fa 0000 0000 		.long	.LM84
+ 4136 02fe 18        		.byte	0x18
+ 4137 02ff 00        		.byte	0x0
+ 4138 0300 05        		.uleb128 0x5
+ 4139 0301 02        		.byte	0x2
+ 4140 0302 0000 0000 		.long	.LM85
+ 4141 0306 15        		.byte	0x15
+ 4142 0307 00        		.byte	0x0
+ 4143 0308 05        		.uleb128 0x5
+ 4144 0309 02        		.byte	0x2
+ 4145 030a 0000 0000 		.long	.LM86
+ 4146 030e 15        		.byte	0x15
+ 4147 030f 00        		.byte	0x0
+ 4148 0310 05        		.uleb128 0x5
+ 4149 0311 02        		.byte	0x2
+ 4150 0312 0000 0000 		.long	.LM87
+ 4151 0316 1D        		.byte	0x1d
+ 4152 0317 00        		.byte	0x0
+ 4153 0318 05        		.uleb128 0x5
+ 4154 0319 02        		.byte	0x2
+ 4155 031a 0000 0000 		.long	.LM88
+ 4156 031e 15        		.byte	0x15
+ 4157 031f 00        		.byte	0x0
+ 4158 0320 05        		.uleb128 0x5
+ 4159 0321 02        		.byte	0x2
+ 4160 0322 0000 0000 		.long	.LM89
+ 4161 0326 15        		.byte	0x15
+ 4162 0327 00        		.byte	0x0
+ 4163 0328 05        		.uleb128 0x5
+ 4164 0329 02        		.byte	0x2
+ 4165 032a 0000 0000 		.long	.LM90
+ 4166 032e 15        		.byte	0x15
+ 4167 032f 00        		.byte	0x0
+ 4168 0330 05        		.uleb128 0x5
+ 4169 0331 02        		.byte	0x2
+ 4170 0332 0000 0000 		.long	.LM91
+ 4171 0336 1D        		.byte	0x1d
+ 4172 0337 00        		.byte	0x0
+ 4173 0338 05        		.uleb128 0x5
+ 4174 0339 02        		.byte	0x2
+ 4175 033a 0000 0000 		.long	.LM92
+ 4176 033e 15        		.byte	0x15
+ 4177 033f 00        		.byte	0x0
+ 4178 0340 05        		.uleb128 0x5
+ 4179 0341 02        		.byte	0x2
+ 4180 0342 0000 0000 		.long	.LM93
+ 4181 0346 15        		.byte	0x15
+ 4182 0347 00        		.byte	0x0
+ 4183 0348 05        		.uleb128 0x5
+ 4184 0349 02        		.byte	0x2
+ 4185 034a 0000 0000 		.long	.LM94
+ 4186 034e 15        		.byte	0x15
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 76
+
+
+ 4187 034f 00        		.byte	0x0
+ 4188 0350 05        		.uleb128 0x5
+ 4189 0351 02        		.byte	0x2
+ 4190 0352 0000 0000 		.long	.LM95
+ 4191 0356 1F        		.byte	0x1f
+ 4192 0357 00        		.byte	0x0
+ 4193 0358 05        		.uleb128 0x5
+ 4194 0359 02        		.byte	0x2
+ 4195 035a 0000 0000 		.long	.LM96
+ 4196 035e 1F        		.byte	0x1f
+ 4197 035f 00        		.byte	0x0
+ 4198 0360 05        		.uleb128 0x5
+ 4199 0361 02        		.byte	0x2
+ 4200 0362 0000 0000 		.long	.LM97
+ 4201 0366 15        		.byte	0x15
+ 4202 0367 00        		.byte	0x0
+ 4203 0368 05        		.uleb128 0x5
+ 4204 0369 02        		.byte	0x2
+ 4205 036a 0000 0000 		.long	.LM98
+ 4206 036e 15        		.byte	0x15
+ 4207 036f 00        		.byte	0x0
+ 4208 0370 05        		.uleb128 0x5
+ 4209 0371 02        		.byte	0x2
+ 4210 0372 0000 0000 		.long	.LM99
+ 4211 0376 15        		.byte	0x15
+ 4212 0377 00        		.byte	0x0
+ 4213 0378 05        		.uleb128 0x5
+ 4214 0379 02        		.byte	0x2
+ 4215 037a 0000 0000 		.long	.LM100
+ 4216 037e 15        		.byte	0x15
+ 4217 037f 00        		.byte	0x0
+ 4218 0380 05        		.uleb128 0x5
+ 4219 0381 02        		.byte	0x2
+ 4220 0382 0000 0000 		.long	.LM101
+ 4221 0386 15        		.byte	0x15
+ 4222 0387 00        		.byte	0x0
+ 4223 0388 05        		.uleb128 0x5
+ 4224 0389 02        		.byte	0x2
+ 4225 038a 0000 0000 		.long	.LM102
+ 4226 038e 16        		.byte	0x16
+ 4227 038f 00        		.byte	0x0
+ 4228 0390 05        		.uleb128 0x5
+ 4229 0391 02        		.byte	0x2
+ 4230 0392 0000 0000 		.long	.LM103
+ 4231 0396 17        		.byte	0x17
+ 4232 0397 00        		.byte	0x0
+ 4233 0398 05        		.uleb128 0x5
+ 4234 0399 02        		.byte	0x2
+ 4235 039a 0000 0000 		.long	.LM104
+ 4236 039e 1A        		.byte	0x1a
+ 4237 039f 00        		.byte	0x0
+ 4238 03a0 05        		.uleb128 0x5
+ 4239 03a1 02        		.byte	0x2
+ 4240 03a2 0000 0000 		.long	.LM105
+ 4241 03a6 15        		.byte	0x15
+ 4242 03a7 00        		.byte	0x0
+ 4243 03a8 05        		.uleb128 0x5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 77
+
+
+ 4244 03a9 02        		.byte	0x2
+ 4245 03aa 0000 0000 		.long	.LM106
+ 4246 03ae 15        		.byte	0x15
+ 4247 03af 00        		.byte	0x0
+ 4248 03b0 05        		.uleb128 0x5
+ 4249 03b1 02        		.byte	0x2
+ 4250 03b2 0000 0000 		.long	.LM107
+ 4251 03b6 1B        		.byte	0x1b
+ 4252 03b7 00        		.byte	0x0
+ 4253 03b8 05        		.uleb128 0x5
+ 4254 03b9 02        		.byte	0x2
+ 4255 03ba 0000 0000 		.long	.LM108
+ 4256 03be 15        		.byte	0x15
+ 4257 03bf 00        		.byte	0x0
+ 4258 03c0 05        		.uleb128 0x5
+ 4259 03c1 02        		.byte	0x2
+ 4260 03c2 0000 0000 		.long	.LM109
+ 4261 03c6 15        		.byte	0x15
+ 4262 03c7 00        		.byte	0x0
+ 4263 03c8 05        		.uleb128 0x5
+ 4264 03c9 02        		.byte	0x2
+ 4265 03ca 0000 0000 		.long	.LM110
+ 4266 03ce 1B        		.byte	0x1b
+ 4267 03cf 00        		.byte	0x0
+ 4268 03d0 05        		.uleb128 0x5
+ 4269 03d1 02        		.byte	0x2
+ 4270 03d2 0000 0000 		.long	.LM111
+ 4271 03d6 15        		.byte	0x15
+ 4272 03d7 00        		.byte	0x0
+ 4273 03d8 05        		.uleb128 0x5
+ 4274 03d9 02        		.byte	0x2
+ 4275 03da 0000 0000 		.long	.LM112
+ 4276 03de 15        		.byte	0x15
+ 4277 03df 00        		.byte	0x0
+ 4278 03e0 05        		.uleb128 0x5
+ 4279 03e1 02        		.byte	0x2
+ 4280 03e2 0000 0000 		.long	.LM113
+ 4281 03e6 1D        		.byte	0x1d
+ 4282 03e7 00        		.byte	0x0
+ 4283 03e8 05        		.uleb128 0x5
+ 4284 03e9 02        		.byte	0x2
+ 4285 03ea 0000 0000 		.long	.LM114
+ 4286 03ee 18        		.byte	0x18
+ 4287 03ef 00        		.byte	0x0
+ 4288 03f0 05        		.uleb128 0x5
+ 4289 03f1 02        		.byte	0x2
+ 4290 03f2 0000 0000 		.long	.LM115
+ 4291 03f6 15        		.byte	0x15
+ 4292 03f7 00        		.byte	0x0
+ 4293 03f8 05        		.uleb128 0x5
+ 4294 03f9 02        		.byte	0x2
+ 4295 03fa 0000 0000 		.long	.LM116
+ 4296 03fe 16        		.byte	0x16
+ 4297 03ff 00        		.byte	0x0
+ 4298 0400 05        		.uleb128 0x5
+ 4299 0401 02        		.byte	0x2
+ 4300 0402 0000 0000 		.long	.LM117
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 78
+
+
+ 4301 0406 30        		.byte	0x30
+ 4302 0407 00        		.byte	0x0
+ 4303 0408 05        		.uleb128 0x5
+ 4304 0409 02        		.byte	0x2
+ 4305 040a 0000 0000 		.long	.LM118
+ 4306 040e 17        		.byte	0x17
+ 4307 040f 00        		.byte	0x0
+ 4308 0410 05        		.uleb128 0x5
+ 4309 0411 02        		.byte	0x2
+ 4310 0412 0000 0000 		.long	.LM119
+ 4311 0416 03        		.byte	0x3
+ 4312 0417 C27E      		.sleb128 -190
+ 4313 0419 01        		.byte	0x1
+ 4314 041a 00        		.byte	0x0
+ 4315 041b 05        		.uleb128 0x5
+ 4316 041c 02        		.byte	0x2
+ 4317 041d 0000 0000 		.long	.LM120
+ 4318 0421 2B        		.byte	0x2b
+ 4319 0422 00        		.byte	0x0
+ 4320 0423 05        		.uleb128 0x5
+ 4321 0424 02        		.byte	0x2
+ 4322 0425 0000 0000 		.long	.LM121
+ 4323 0429 15        		.byte	0x15
+ 4324 042a 00        		.byte	0x0
+ 4325 042b 05        		.uleb128 0x5
+ 4326 042c 02        		.byte	0x2
+ 4327 042d 0000 0000 		.long	.LM122
+ 4328 0431 15        		.byte	0x15
+ 4329 0432 00        		.byte	0x0
+ 4330 0433 05        		.uleb128 0x5
+ 4331 0434 02        		.byte	0x2
+ 4332 0435 0000 0000 		.long	.LM123
+ 4333 0439 15        		.byte	0x15
+ 4334 043a 00        		.byte	0x0
+ 4335 043b 05        		.uleb128 0x5
+ 4336 043c 02        		.byte	0x2
+ 4337 043d 0000 0000 		.long	.LM124
+ 4338 0441 15        		.byte	0x15
+ 4339 0442 00        		.byte	0x0
+ 4340 0443 05        		.uleb128 0x5
+ 4341 0444 02        		.byte	0x2
+ 4342 0445 0000 0000 		.long	.LM125
+ 4343 0449 15        		.byte	0x15
+ 4344 044a 00        		.byte	0x0
+ 4345 044b 05        		.uleb128 0x5
+ 4346 044c 02        		.byte	0x2
+ 4347 044d 0000 0000 		.long	.LM126
+ 4348 0451 16        		.byte	0x16
+ 4349 0452 00        		.byte	0x0
+ 4350 0453 05        		.uleb128 0x5
+ 4351 0454 02        		.byte	0x2
+ 4352 0455 0000 0000 		.long	.LM127
+ 4353 0459 17        		.byte	0x17
+ 4354 045a 00        		.byte	0x0
+ 4355 045b 05        		.uleb128 0x5
+ 4356 045c 02        		.byte	0x2
+ 4357 045d 0000 0000 		.long	.LM128
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 79
+
+
+ 4358 0461 16        		.byte	0x16
+ 4359 0462 00        		.byte	0x0
+ 4360 0463 05        		.uleb128 0x5
+ 4361 0464 02        		.byte	0x2
+ 4362 0465 0000 0000 		.long	.LM129
+ 4363 0469 B9        		.byte	0xb9
+ 4364 046a 00        		.byte	0x0
+ 4365 046b 05        		.uleb128 0x5
+ 4366 046c 02        		.byte	0x2
+ 4367 046d 0000 0000 		.long	.LM130
+ 4368 0471 18        		.byte	0x18
+ 4369 0472 00        		.byte	0x0
+ 4370 0473 05        		.uleb128 0x5
+ 4371 0474 02        		.byte	0x2
+ 4372 0475 0000 0000 		.long	.LM131
+ 4373 0479 13        		.byte	0x13
+ 4374 047a 00        		.byte	0x0
+ 4375 047b 05        		.uleb128 0x5
+ 4376 047c 02        		.byte	0x2
+ 4377 047d 0000 0000 		.long	.LM132
+ 4378 0481 18        		.byte	0x18
+ 4379 0482 00        		.byte	0x0
+ 4380 0483 05        		.uleb128 0x5
+ 4381 0484 02        		.byte	0x2
+ 4382 0485 0000 0000 		.long	.LM133
+ 4383 0489 1E        		.byte	0x1e
+ 4384 048a 00        		.byte	0x0
+ 4385 048b 05        		.uleb128 0x5
+ 4386 048c 02        		.byte	0x2
+ 4387 048d 0000 0000 		.long	.LM134
+ 4388 0491 18        		.byte	0x18
+ 4389 0492 00        		.byte	0x0
+ 4390 0493 05        		.uleb128 0x5
+ 4391 0494 02        		.byte	0x2
+ 4392 0495 0000 0000 		.long	.LM135
+ 4393 0499 13        		.byte	0x13
+ 4394 049a 00        		.byte	0x0
+ 4395 049b 05        		.uleb128 0x5
+ 4396 049c 02        		.byte	0x2
+ 4397 049d 0000 0000 		.long	.LM136
+ 4398 04a1 18        		.byte	0x18
+ 4399 04a2 00        		.byte	0x0
+ 4400 04a3 05        		.uleb128 0x5
+ 4401 04a4 02        		.byte	0x2
+ 4402 04a5 0000 0000 		.long	.LM137
+ 4403 04a9 24        		.byte	0x24
+ 4404 04aa 00        		.byte	0x0
+ 4405 04ab 05        		.uleb128 0x5
+ 4406 04ac 02        		.byte	0x2
+ 4407 04ad 0000 0000 		.long	.LM138
+ 4408 04b1 16        		.byte	0x16
+ 4409 04b2 00        		.byte	0x0
+ 4410 04b3 05        		.uleb128 0x5
+ 4411 04b4 02        		.byte	0x2
+ 4412 04b5 0000 0000 		.long	.LM139
+ 4413 04b9 15        		.byte	0x15
+ 4414 04ba 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 80
+
+
+ 4415 04bb 05        		.uleb128 0x5
+ 4416 04bc 02        		.byte	0x2
+ 4417 04bd 0000 0000 		.long	.LM140
+ 4418 04c1 15        		.byte	0x15
+ 4419 04c2 00        		.byte	0x0
+ 4420 04c3 05        		.uleb128 0x5
+ 4421 04c4 02        		.byte	0x2
+ 4422 04c5 0000 0000 		.long	.LM141
+ 4423 04c9 15        		.byte	0x15
+ 4424 04ca 00        		.byte	0x0
+ 4425 04cb 05        		.uleb128 0x5
+ 4426 04cc 02        		.byte	0x2
+ 4427 04cd 0000 0000 		.long	.LM142
+ 4428 04d1 15        		.byte	0x15
+ 4429 04d2 00        		.byte	0x0
+ 4430 04d3 05        		.uleb128 0x5
+ 4431 04d4 02        		.byte	0x2
+ 4432 04d5 0000 0000 		.long	.LM143
+ 4433 04d9 15        		.byte	0x15
+ 4434 04da 00        		.byte	0x0
+ 4435 04db 05        		.uleb128 0x5
+ 4436 04dc 02        		.byte	0x2
+ 4437 04dd 0000 0000 		.long	.LM144
+ 4438 04e1 15        		.byte	0x15
+ 4439 04e2 00        		.byte	0x0
+ 4440 04e3 05        		.uleb128 0x5
+ 4441 04e4 02        		.byte	0x2
+ 4442 04e5 0000 0000 		.long	.LM145
+ 4443 04e9 15        		.byte	0x15
+ 4444 04ea 00        		.byte	0x0
+ 4445 04eb 05        		.uleb128 0x5
+ 4446 04ec 02        		.byte	0x2
+ 4447 04ed 0000 0000 		.long	.LM146
+ 4448 04f1 16        		.byte	0x16
+ 4449 04f2 00        		.byte	0x0
+ 4450 04f3 05        		.uleb128 0x5
+ 4451 04f4 02        		.byte	0x2
+ 4452 04f5 0000 0000 		.long	.LM147
+ 4453 04f9 15        		.byte	0x15
+ 4454 04fa 00        		.byte	0x0
+ 4455 04fb 05        		.uleb128 0x5
+ 4456 04fc 02        		.byte	0x2
+ 4457 04fd 0000 0000 		.long	.LM148
+ 4458 0501 15        		.byte	0x15
+ 4459 0502 00        		.byte	0x0
+ 4460 0503 05        		.uleb128 0x5
+ 4461 0504 02        		.byte	0x2
+ 4462 0505 0000 0000 		.long	.LM149
+ 4463 0509 15        		.byte	0x15
+ 4464 050a 00        		.byte	0x0
+ 4465 050b 05        		.uleb128 0x5
+ 4466 050c 02        		.byte	0x2
+ 4467 050d 0000 0000 		.long	.LM150
+ 4468 0511 15        		.byte	0x15
+ 4469 0512 00        		.byte	0x0
+ 4470 0513 05        		.uleb128 0x5
+ 4471 0514 02        		.byte	0x2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 81
+
+
+ 4472 0515 0000 0000 		.long	.LM151
+ 4473 0519 16        		.byte	0x16
+ 4474 051a 00        		.byte	0x0
+ 4475 051b 05        		.uleb128 0x5
+ 4476 051c 02        		.byte	0x2
+ 4477 051d 0000 0000 		.long	.LM152
+ 4478 0521 15        		.byte	0x15
+ 4479 0522 00        		.byte	0x0
+ 4480 0523 05        		.uleb128 0x5
+ 4481 0524 02        		.byte	0x2
+ 4482 0525 0000 0000 		.long	.LM153
+ 4483 0529 15        		.byte	0x15
+ 4484 052a 00        		.byte	0x0
+ 4485 052b 05        		.uleb128 0x5
+ 4486 052c 02        		.byte	0x2
+ 4487 052d 0000 0000 		.long	.LM154
+ 4488 0531 15        		.byte	0x15
+ 4489 0532 00        		.byte	0x0
+ 4490 0533 05        		.uleb128 0x5
+ 4491 0534 02        		.byte	0x2
+ 4492 0535 0000 0000 		.long	.LM155
+ 4493 0539 15        		.byte	0x15
+ 4494 053a 00        		.byte	0x0
+ 4495 053b 05        		.uleb128 0x5
+ 4496 053c 02        		.byte	0x2
+ 4497 053d 0000 0000 		.long	.LM156
+ 4498 0541 16        		.byte	0x16
+ 4499 0542 00        		.byte	0x0
+ 4500 0543 05        		.uleb128 0x5
+ 4501 0544 02        		.byte	0x2
+ 4502 0545 0000 0000 		.long	.LM157
+ 4503 0549 15        		.byte	0x15
+ 4504 054a 00        		.byte	0x0
+ 4505 054b 05        		.uleb128 0x5
+ 4506 054c 02        		.byte	0x2
+ 4507 054d 0000 0000 		.long	.LM158
+ 4508 0551 15        		.byte	0x15
+ 4509 0552 00        		.byte	0x0
+ 4510 0553 05        		.uleb128 0x5
+ 4511 0554 02        		.byte	0x2
+ 4512 0555 0000 0000 		.long	.LM159
+ 4513 0559 15        		.byte	0x15
+ 4514 055a 00        		.byte	0x0
+ 4515 055b 05        		.uleb128 0x5
+ 4516 055c 02        		.byte	0x2
+ 4517 055d 0000 0000 		.long	.LM160
+ 4518 0561 15        		.byte	0x15
+ 4519 0562 00        		.byte	0x0
+ 4520 0563 05        		.uleb128 0x5
+ 4521 0564 02        		.byte	0x2
+ 4522 0565 0000 0000 		.long	.LM161
+ 4523 0569 16        		.byte	0x16
+ 4524 056a 00        		.byte	0x0
+ 4525 056b 05        		.uleb128 0x5
+ 4526 056c 02        		.byte	0x2
+ 4527 056d 0000 0000 		.long	.LM162
+ 4528 0571 15        		.byte	0x15
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 82
+
+
+ 4529 0572 00        		.byte	0x0
+ 4530 0573 05        		.uleb128 0x5
+ 4531 0574 02        		.byte	0x2
+ 4532 0575 0000 0000 		.long	.LM163
+ 4533 0579 15        		.byte	0x15
+ 4534 057a 00        		.byte	0x0
+ 4535 057b 05        		.uleb128 0x5
+ 4536 057c 02        		.byte	0x2
+ 4537 057d 0000 0000 		.long	.LM164
+ 4538 0581 15        		.byte	0x15
+ 4539 0582 00        		.byte	0x0
+ 4540 0583 05        		.uleb128 0x5
+ 4541 0584 02        		.byte	0x2
+ 4542 0585 0000 0000 		.long	.LM165
+ 4543 0589 15        		.byte	0x15
+ 4544 058a 00        		.byte	0x0
+ 4545 058b 05        		.uleb128 0x5
+ 4546 058c 02        		.byte	0x2
+ 4547 058d 0000 0000 		.long	.LM166
+ 4548 0591 16        		.byte	0x16
+ 4549 0592 00        		.byte	0x0
+ 4550 0593 05        		.uleb128 0x5
+ 4551 0594 02        		.byte	0x2
+ 4552 0595 0000 0000 		.long	.LM167
+ 4553 0599 15        		.byte	0x15
+ 4554 059a 00        		.byte	0x0
+ 4555 059b 05        		.uleb128 0x5
+ 4556 059c 02        		.byte	0x2
+ 4557 059d 0000 0000 		.long	.LM168
+ 4558 05a1 15        		.byte	0x15
+ 4559 05a2 00        		.byte	0x0
+ 4560 05a3 05        		.uleb128 0x5
+ 4561 05a4 02        		.byte	0x2
+ 4562 05a5 0000 0000 		.long	.LM169
+ 4563 05a9 15        		.byte	0x15
+ 4564 05aa 00        		.byte	0x0
+ 4565 05ab 05        		.uleb128 0x5
+ 4566 05ac 02        		.byte	0x2
+ 4567 05ad 0000 0000 		.long	.LM170
+ 4568 05b1 15        		.byte	0x15
+ 4569 05b2 00        		.byte	0x0
+ 4570 05b3 05        		.uleb128 0x5
+ 4571 05b4 02        		.byte	0x2
+ 4572 05b5 0000 0000 		.long	.LM171
+ 4573 05b9 16        		.byte	0x16
+ 4574 05ba 00        		.byte	0x0
+ 4575 05bb 05        		.uleb128 0x5
+ 4576 05bc 02        		.byte	0x2
+ 4577 05bd 0000 0000 		.long	.LM172
+ 4578 05c1 15        		.byte	0x15
+ 4579 05c2 00        		.byte	0x0
+ 4580 05c3 05        		.uleb128 0x5
+ 4581 05c4 02        		.byte	0x2
+ 4582 05c5 0000 0000 		.long	.LM173
+ 4583 05c9 15        		.byte	0x15
+ 4584 05ca 00        		.byte	0x0
+ 4585 05cb 05        		.uleb128 0x5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 83
+
+
+ 4586 05cc 02        		.byte	0x2
+ 4587 05cd 0000 0000 		.long	.LM174
+ 4588 05d1 15        		.byte	0x15
+ 4589 05d2 00        		.byte	0x0
+ 4590 05d3 05        		.uleb128 0x5
+ 4591 05d4 02        		.byte	0x2
+ 4592 05d5 0000 0000 		.long	.LM175
+ 4593 05d9 15        		.byte	0x15
+ 4594 05da 00        		.byte	0x0
+ 4595 05db 05        		.uleb128 0x5
+ 4596 05dc 02        		.byte	0x2
+ 4597 05dd 0000 0000 		.long	.LM176
+ 4598 05e1 16        		.byte	0x16
+ 4599 05e2 00        		.byte	0x0
+ 4600 05e3 05        		.uleb128 0x5
+ 4601 05e4 02        		.byte	0x2
+ 4602 05e5 0000 0000 		.long	.LM177
+ 4603 05e9 15        		.byte	0x15
+ 4604 05ea 00        		.byte	0x0
+ 4605 05eb 05        		.uleb128 0x5
+ 4606 05ec 02        		.byte	0x2
+ 4607 05ed 0000 0000 		.long	.LM178
+ 4608 05f1 15        		.byte	0x15
+ 4609 05f2 00        		.byte	0x0
+ 4610 05f3 05        		.uleb128 0x5
+ 4611 05f4 02        		.byte	0x2
+ 4612 05f5 0000 0000 		.long	.LM179
+ 4613 05f9 15        		.byte	0x15
+ 4614 05fa 00        		.byte	0x0
+ 4615 05fb 05        		.uleb128 0x5
+ 4616 05fc 02        		.byte	0x2
+ 4617 05fd 0000 0000 		.long	.LM180
+ 4618 0601 15        		.byte	0x15
+ 4619 0602 00        		.byte	0x0
+ 4620 0603 05        		.uleb128 0x5
+ 4621 0604 02        		.byte	0x2
+ 4622 0605 0000 0000 		.long	.LM181
+ 4623 0609 16        		.byte	0x16
+ 4624 060a 00        		.byte	0x0
+ 4625 060b 05        		.uleb128 0x5
+ 4626 060c 02        		.byte	0x2
+ 4627 060d 0000 0000 		.long	.LM182
+ 4628 0611 15        		.byte	0x15
+ 4629 0612 00        		.byte	0x0
+ 4630 0613 05        		.uleb128 0x5
+ 4631 0614 02        		.byte	0x2
+ 4632 0615 0000 0000 		.long	.LM183
+ 4633 0619 15        		.byte	0x15
+ 4634 061a 00        		.byte	0x0
+ 4635 061b 05        		.uleb128 0x5
+ 4636 061c 02        		.byte	0x2
+ 4637 061d 0000 0000 		.long	.LM184
+ 4638 0621 15        		.byte	0x15
+ 4639 0622 00        		.byte	0x0
+ 4640 0623 05        		.uleb128 0x5
+ 4641 0624 02        		.byte	0x2
+ 4642 0625 0000 0000 		.long	.LM185
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 84
+
+
+ 4643 0629 15        		.byte	0x15
+ 4644 062a 00        		.byte	0x0
+ 4645 062b 05        		.uleb128 0x5
+ 4646 062c 02        		.byte	0x2
+ 4647 062d 0000 0000 		.long	.LM186
+ 4648 0631 15        		.byte	0x15
+ 4649 0632 00        		.byte	0x0
+ 4650 0633 05        		.uleb128 0x5
+ 4651 0634 02        		.byte	0x2
+ 4652 0635 0000 0000 		.long	.LM187
+ 4653 0639 1A        		.byte	0x1a
+ 4654 063a 00        		.byte	0x0
+ 4655 063b 05        		.uleb128 0x5
+ 4656 063c 02        		.byte	0x2
+ 4657 063d 0000 0000 		.long	.LM188
+ 4658 0641 15        		.byte	0x15
+ 4659 0642 00        		.byte	0x0
+ 4660 0643 05        		.uleb128 0x5
+ 4661 0644 02        		.byte	0x2
+ 4662 0645 0000 0000 		.long	.LM189
+ 4663 0649 15        		.byte	0x15
+ 4664 064a 00        		.byte	0x0
+ 4665 064b 05        		.uleb128 0x5
+ 4666 064c 02        		.byte	0x2
+ 4667 064d 0000 0000 		.long	.LM190
+ 4668 0651 15        		.byte	0x15
+ 4669 0652 00        		.byte	0x0
+ 4670 0653 05        		.uleb128 0x5
+ 4671 0654 02        		.byte	0x2
+ 4672 0655 0000 0000 		.long	.LM191
+ 4673 0659 15        		.byte	0x15
+ 4674 065a 00        		.byte	0x0
+ 4675 065b 05        		.uleb128 0x5
+ 4676 065c 02        		.byte	0x2
+ 4677 065d 0000 0000 		.long	.LM192
+ 4678 0661 15        		.byte	0x15
+ 4679 0662 00        		.byte	0x0
+ 4680 0663 05        		.uleb128 0x5
+ 4681 0664 02        		.byte	0x2
+ 4682 0665 0000 0000 		.long	.LM193
+ 4683 0669 15        		.byte	0x15
+ 4684 066a 00        		.byte	0x0
+ 4685 066b 05        		.uleb128 0x5
+ 4686 066c 02        		.byte	0x2
+ 4687 066d 0000 0000 		.long	.LM194
+ 4688 0671 15        		.byte	0x15
+ 4689 0672 00        		.byte	0x0
+ 4690 0673 05        		.uleb128 0x5
+ 4691 0674 02        		.byte	0x2
+ 4692 0675 0000 0000 		.long	.LM195
+ 4693 0679 17        		.byte	0x17
+ 4694 067a 00        		.byte	0x0
+ 4695 067b 05        		.uleb128 0x5
+ 4696 067c 02        		.byte	0x2
+ 4697 067d 0000 0000 		.long	.LM196
+ 4698 0681 15        		.byte	0x15
+ 4699 0682 00        		.byte	0x0
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 85
+
+
+ 4700 0683 05        		.uleb128 0x5
+ 4701 0684 02        		.byte	0x2
+ 4702 0685 0000 0000 		.long	.LM197
+ 4703 0689 17        		.byte	0x17
+ 4704 068a 00        		.byte	0x0
+ 4705 068b 05        		.uleb128 0x5
+ 4706 068c 02        		.byte	0x2
+ 4707 068d 0000 0000 		.long	.LM198
+ 4708 0691 15        		.byte	0x15
+ 4709 0692 00        		.byte	0x0
+ 4710 0693 05        		.uleb128 0x5
+ 4711 0694 02        		.byte	0x2
+ 4712 0695 0000 0000 		.long	.LM199
+ 4713 0699 17        		.byte	0x17
+ 4714 069a 00        		.byte	0x0
+ 4715 069b 05        		.uleb128 0x5
+ 4716 069c 02        		.byte	0x2
+ 4717 069d 0000 0000 		.long	.LM200
+ 4718 06a1 16        		.byte	0x16
+ 4719 06a2 00        		.byte	0x0
+ 4720 06a3 05        		.uleb128 0x5
+ 4721 06a4 02        		.byte	0x2
+ 4722 06a5 0000 0000 		.long	.LM201
+ 4723 06a9 15        		.byte	0x15
+ 4724 06aa 00        		.byte	0x0
+ 4725 06ab 05        		.uleb128 0x5
+ 4726 06ac 02        		.byte	0x2
+ 4727 06ad 0000 0000 		.long	.LM202
+ 4728 06b1 16        		.byte	0x16
+ 4729 06b2 00        		.byte	0x0
+ 4730 06b3 05        		.uleb128 0x5
+ 4731 06b4 02        		.byte	0x2
+ 4732 06b5 0000 0000 		.long	.LM203
+ 4733 06b9 16        		.byte	0x16
+ 4734 06ba 00        		.byte	0x0
+ 4735 06bb 05        		.uleb128 0x5
+ 4736 06bc 02        		.byte	0x2
+ 4737 06bd 0000 0000 		.long	.LM204
+ 4738 06c1 15        		.byte	0x15
+ 4739 06c2 00        		.byte	0x0
+ 4740 06c3 05        		.uleb128 0x5
+ 4741 06c4 02        		.byte	0x2
+ 4742 06c5 0000 0000 		.long	.LM205
+ 4743 06c9 15        		.byte	0x15
+ 4744 06ca 00        		.byte	0x0
+ 4745 06cb 05        		.uleb128 0x5
+ 4746 06cc 02        		.byte	0x2
+ 4747 06cd 0000 0000 		.long	.LM206
+ 4748 06d1 15        		.byte	0x15
+ 4749 06d2 00        		.byte	0x0
+ 4750 06d3 05        		.uleb128 0x5
+ 4751 06d4 02        		.byte	0x2
+ 4752 06d5 0000 0000 		.long	.LM207
+ 4753 06d9 15        		.byte	0x15
+ 4754 06da 00        		.byte	0x0
+ 4755 06db 05        		.uleb128 0x5
+ 4756 06dc 02        		.byte	0x2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 86
+
+
+ 4757 06dd 0000 0000 		.long	.LM208
+ 4758 06e1 15        		.byte	0x15
+ 4759 06e2 00        		.byte	0x0
+ 4760 06e3 05        		.uleb128 0x5
+ 4761 06e4 02        		.byte	0x2
+ 4762 06e5 0000 0000 		.long	.Letext0
+ 4763 06e9 00        		.byte	0x0
+ 4764 06ea 01        		.uleb128 0x1
+ 4765 06eb 01        		.byte	0x1
+ 4766               	.LELT0:
+ 4767 06ec 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 4767      0200 1000 
+ 4767      0000 0101 
+ 4767      FB0E 0A00 
+ 4767      0101 0101 
+ 4768               	.LASF60:
+ 4769 0000 474E 5520 		.string	"GNU C 4.3.3"
+ 4769      4320 342E 
+ 4769      332E 3300 
+ 4770               	.LASF24:
+ 4771 000c 6C63 645F 		.string	"lcd_newline"
+ 4771      6E65 776C 
+ 4771      696E 6500 
+ 4772               	.LASF32:
+ 4773 0018 656E 6162 		.string	"enable"
+ 4773      6C65 00
+ 4774               	.LASF26:
+ 4775 001f 6C63 645F 		.string	"lcd_puts"
+ 4775      7075 7473 
+ 4775      00
+ 4776               	.LASF36:
+ 4777 0028 6C63 645F 		.string	"lcd_p_rs"
+ 4777      705F 7273 
+ 4777      00
+ 4778               	.LASF19:
+ 4779 0031 6C63 645F 		.string	"lcd_gotoxy"
+ 4779      676F 746F 
+ 4779      7879 00
+ 4780               	.LASF37:
+ 4781 003c 6C63 645F 		.string	"lcd_p_rw"
+ 4781      705F 7277 
+ 4781      00
+ 4782               	.LASF34:
+ 4783 0045 6C63 645F 		.string	"lcd_init"
+ 4783      696E 6974 
+ 4783      00
+ 4784               	.LASF54:
+ 4785 004e 6C63 645F 		.string	"lcd_b_enable"
+ 4785      625F 656E 
+ 4785      6162 6C65 
+ 4785      00
+ 4786               	.LASF14:
+ 4787 005b 5F5F 636F 		.string	"__count"
+ 4787      756E 7400 
+ 4788               	.LASF27:
+ 4789 0063 6C63 645F 		.string	"lcd_puts_p"
+ 4789      7075 7473 
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 87
+
+
+ 4789      5F70 00
+ 4790               	.LASF2:
+ 4791 006e 7569 6E74 		.string	"uint8_t"
+ 4791      385F 7400 
+ 4792               	.LASF45:
+ 4793 0076 6C63 645F 		.string	"lcd_pin_db1"
+ 4793      7069 6E5F 
+ 4793      6462 3100 
+ 4794               	.LASF46:
+ 4795 0082 6C63 645F 		.string	"lcd_pin_db2"
+ 4795      7069 6E5F 
+ 4795      6462 3200 
+ 4796               	.LASF47:
+ 4797 008e 6C63 645F 		.string	"lcd_pin_db3"
+ 4797      7069 6E5F 
+ 4797      6462 3300 
+ 4798               	.LASF55:
+ 4799 009a 6C63 645F 		.string	"lcd_b_backlight"
+ 4799      625F 6261 
+ 4799      636B 6C69 
+ 4799      6768 7400 
+ 4800               	.LASF10:
+ 4801 00aa 6C63 645F 		.string	"lcd_read"
+ 4801      7265 6164 
+ 4801      00
+ 4802               	.LASF29:
+ 4803 00b3 5F5F 6164 		.string	"__addr16"
+ 4803      6472 3136 
+ 4803      00
+ 4804               	.LASF17:
+ 4805 00bc 6C63 645F 		.string	"lcd_command"
+ 4805      636F 6D6D 
+ 4805      616E 6400 
+ 4806               	.LASF7:
+ 4807 00c8 6C6F 6E67 		.string	"long long int"
+ 4807      206C 6F6E 
+ 4807      6720 696E 
+ 4807      7400 
+ 4808               	.LASF50:
+ 4809 00d6 6C63 645F 		.string	"lcd_ddr_db2"
+ 4809      6464 725F 
+ 4809      6462 3200 
+ 4810               	.LASF5:
+ 4811 00e2 6C6F 6E67 		.string	"long int"
+ 4811      2069 6E74 
+ 4811      00
+ 4812               	.LASF44:
+ 4813 00eb 6C63 645F 		.string	"lcd_pin_db0"
+ 4813      7069 6E5F 
+ 4813      6462 3000 
+ 4814               	.LASF63:
+ 4815 00f7 6C63 645F 		.string	"lcd_e_toggle"
+ 4815      655F 746F 
+ 4815      6767 6C65 
+ 4815      00
+ 4816               	.LASF20:
+ 4817 0104 6C63 645F 		.string	"lcd_clrscr"
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 88
+
+
+ 4817      636C 7273 
+ 4817      6372 00
+ 4818               	.LASF18:
+ 4819 010f 6C63 645F 		.string	"lcd_data"
+ 4819      6461 7461 
+ 4819      00
+ 4820               	.LASF58:
+ 4821 0118 6C63 645F 		.string	"lcd_b_db2"
+ 4821      625F 6462 
+ 4821      3200 
+ 4822               	.LASF59:
+ 4823 0122 6C63 645F 		.string	"lcd_b_db3"
+ 4823      625F 6462 
+ 4823      3300 
+ 4824               	.LASF52:
+ 4825 012c 6C63 645F 		.string	"lcd_b_rs"
+ 4825      625F 7273 
+ 4825      00
+ 4826               	.LASF28:
+ 4827 0135 7072 6F67 		.string	"progmem_s"
+ 4827      6D65 6D5F 
+ 4827      7300 
+ 4828               	.LASF53:
+ 4829 013f 6C63 645F 		.string	"lcd_b_rw"
+ 4829      625F 7277 
+ 4829      00
+ 4830               	.LASF1:
+ 4831 0148 756E 7369 		.string	"unsigned char"
+ 4831      676E 6564 
+ 4831      2063 6861 
+ 4831      7200 
+ 4832               	.LASF64:
+ 4833 0156 6C63 645F 		.string	"lcd_getxy"
+ 4833      6765 7478 
+ 4833      7900 
+ 4834               	.LASF15:
+ 4835 0160 6C63 645F 		.string	"lcd_backlight_on"
+ 4835      6261 636B 
+ 4835      6C69 6768 
+ 4835      745F 6F6E 
+ 4835      00
+ 4836               	.LASF0:
+ 4837 0171 7369 676E 		.string	"signed char"
+ 4837      6564 2063 
+ 4837      6861 7200 
+ 4838               	.LASF11:
+ 4839 017d 6C63 645F 		.string	"lcd_waitbusy"
+ 4839      7761 6974 
+ 4839      6275 7379 
+ 4839      00
+ 4840               	.LASF8:
+ 4841 018a 6C6F 6E67 		.string	"long long unsigned int"
+ 4841      206C 6F6E 
+ 4841      6720 756E 
+ 4841      7369 676E 
+ 4841      6564 2069 
+ 4842               	.LASF4:
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 89
+
+
+ 4843 01a1 756E 7369 		.string	"unsigned int"
+ 4843      676E 6564 
+ 4843      2069 6E74 
+ 4843      00
+ 4844               	.LASF3:
+ 4845 01ae 7569 6E74 		.string	"uint16_t"
+ 4845      3136 5F74 
+ 4845      00
+ 4846               	.LASF16:
+ 4847 01b7 6C63 645F 		.string	"lcd_backlight_off"
+ 4847      6261 636B 
+ 4847      6C69 6768 
+ 4847      745F 6F66 
+ 4847      6600 
+ 4848               	.LASF12:
+ 4849 01c9 6C63 645F 		.string	"lcd_write"
+ 4849      7772 6974 
+ 4849      6500 
+ 4850               	.LASF23:
+ 4851 01d3 6368 6172 		.string	"char"
+ 4851      00
+ 4852               	.LASF48:
+ 4853 01d8 6C63 645F 		.string	"lcd_ddr_db0"
+ 4853      6464 725F 
+ 4853      6462 3000 
+ 4854               	.LASF49:
+ 4855 01e4 6C63 645F 		.string	"lcd_ddr_db1"
+ 4855      6464 725F 
+ 4855      6462 3100 
+ 4856               	.LASF61:
+ 4857 01f0 6C63 642E 		.string	"lcd.c"
+ 4857      6300 
+ 4858               	.LASF51:
+ 4859 01f6 6C63 645F 		.string	"lcd_ddr_db3"
+ 4859      6464 725F 
+ 4859      6462 3300 
+ 4860               	.LASF30:
+ 4861 0202 5F5F 7265 		.string	"__result"
+ 4861      7375 6C74 
+ 4861      00
+ 4862               	.LASF9:
+ 4863 020b 6461 7461 		.string	"data"
+ 4863      00
+ 4864               	.LASF13:
+ 4865 0210 5F64 656C 		.string	"_delayFourCycles"
+ 4865      6179 466F 
+ 4865      7572 4379 
+ 4865      636C 6573 
+ 4865      00
+ 4866               	.LASF21:
+ 4867 0221 6C63 645F 		.string	"lcd_home"
+ 4867      686F 6D65 
+ 4867      00
+ 4868               	.LASF6:
+ 4869 022a 6C6F 6E67 		.string	"long unsigned int"
+ 4869      2075 6E73 
+ 4869      6967 6E65 
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 90
+
+
+ 4869      6420 696E 
+ 4869      7400 
+ 4870               	.LASF40:
+ 4871 023c 6C63 645F 		.string	"lcd_p_db0"
+ 4871      705F 6462 
+ 4871      3000 
+ 4872               	.LASF41:
+ 4873 0246 6C63 645F 		.string	"lcd_p_db1"
+ 4873      705F 6462 
+ 4873      3100 
+ 4874               	.LASF42:
+ 4875 0250 6C63 645F 		.string	"lcd_p_db2"
+ 4875      705F 6462 
+ 4875      3200 
+ 4876               	.LASF43:
+ 4877 025a 6C63 645F 		.string	"lcd_p_db3"
+ 4877      705F 6462 
+ 4877      3300 
+ 4878               	.LASF33:
+ 4879 0264 6261 636B 		.string	"backlight"
+ 4879      6C69 6768 
+ 4879      7400 
+ 4880               	.LASF35:
+ 4881 026e 6469 7370 		.string	"dispAttr"
+ 4881      4174 7472 
+ 4881      00
+ 4882               	.LASF38:
+ 4883 0277 6C63 645F 		.string	"lcd_p_enable"
+ 4883      705F 656E 
+ 4883      6162 6C65 
+ 4883      00
+ 4884               	.LASF31:
+ 4885 0284 6C63 645F 		.string	"lcd_setup"
+ 4885      7365 7475 
+ 4885      7000 
+ 4886               	.LASF56:
+ 4887 028e 6C63 645F 		.string	"lcd_b_db0"
+ 4887      625F 6462 
+ 4887      3000 
+ 4888               	.LASF57:
+ 4889 0298 6C63 645F 		.string	"lcd_b_db1"
+ 4889      625F 6462 
+ 4889      3100 
+ 4890               	.LASF62:
+ 4891 02a2 453A 5C61 		.string	"E:\\avr\\counter"
+ 4891      7672 5C63 
+ 4891      6F75 6E74 
+ 4891      6572 00
+ 4892               	.LASF39:
+ 4893 02b1 6C63 645F 		.string	"lcd_p_backlight"
+ 4893      705F 6261 
+ 4893      636B 6C69 
+ 4893      6768 7400 
+ 4894               	.LASF25:
+ 4895 02c1 6164 6472 		.string	"addressCounter"
+ 4895      6573 7343 
+ 4895      6F75 6E74 
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 91
+
+
+ 4895      6572 00
+ 4896               	.LASF22:
+ 4897 02d0 6C63 645F 		.string	"lcd_putc"
+ 4897      7075 7463 
+ 4897      00
+ 4898               	.global __do_clear_bss
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s 			page 92
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lcd.c
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:17     .text:00000000 lcd_e_toggle
+                            *COM*:00000002 lcd_p_enable
+                            *COM*:00000001 lcd_b_enable
+                            *COM*:00000002 lcd_p_backlight
+                            *COM*:00000001 lcd_b_backlight
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:81     .text:00000080 lcd_write
+                            *COM*:00000002 lcd_p_rs
+                            *COM*:00000001 lcd_b_rs
+                            *COM*:00000002 lcd_p_rw
+                            *COM*:00000001 lcd_b_rw
+                            *COM*:00000002 lcd_ddr_db0
+                            *COM*:00000001 lcd_b_db0
+                            *COM*:00000002 lcd_ddr_db1
+                            *COM*:00000001 lcd_b_db1
+                            *COM*:00000002 lcd_ddr_db2
+                            *COM*:00000001 lcd_b_db2
+                            *COM*:00000002 lcd_ddr_db3
+                            *COM*:00000001 lcd_b_db3
+                            *COM*:00000002 lcd_p_db0
+                            *COM*:00000002 lcd_p_db1
+                            *COM*:00000002 lcd_p_db2
+                            *COM*:00000002 lcd_p_db3
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:437    .text:000003f6 lcd_read
+                            *COM*:00000002 lcd_pin_db0
+                            *COM*:00000002 lcd_pin_db1
+                            *COM*:00000002 lcd_pin_db2
+                            *COM*:00000002 lcd_pin_db3
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:739    .text:00000698 lcd_waitbusy
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:771    .text:000006c2 _delayFourCycles
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:833    .text:0000070c lcd_backlight_on
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:860    .text:00000734 lcd_backlight_off
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:889    .text:00000760 lcd_command
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:916    .text:00000780 lcd_data
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:943    .text:000007a0 lcd_gotoxy
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:1001   .text:000007f0 lcd_getxy
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:1023   .text:00000806 lcd_clrscr
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:1044   .text:0000081a lcd_home
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:1065   .text:0000082e lcd_putc
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:1103   .text:00000860 lcd_newline
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:1165   .text:000008b0 lcd_puts
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:1219   .text:000008fe lcd_puts_p
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:1280   .text:0000094e lcd_setup
+C:\Users\alex\AppData\Local\Temp/cc0qAbWj.s:2151   .text:000010b6 lcd_init
+
+UNDEFINED SYMBOLS
+__do_clear_bss

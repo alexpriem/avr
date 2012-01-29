@@ -1,0 +1,822 @@
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 1
+
+
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               	.global	numbers
+  17               		.data
+  18               		.type	numbers, @object
+  19               		.size	numbers, 11
+  20               	numbers:
+  21 0000 3F        		.byte	63
+  22 0001 21        		.byte	33
+  23 0002 5B        		.byte	91
+  24 0003 73        		.byte	115
+  25 0004 65        		.byte	101
+  26 0005 76        		.byte	118
+  27 0006 7E        		.byte	126
+  28 0007 23        		.byte	35
+  29 0008 7F        		.byte	127
+  30 0009 77        		.byte	119
+  31 000a 00        		.byte	0
+  32               	.global	hex_numbers
+  33               		.type	hex_numbers, @object
+  34               		.size	hex_numbers, 16
+  35               	hex_numbers:
+  36 000b 3F        		.byte	63
+  37 000c 21        		.byte	33
+  38 000d 5B        		.byte	91
+  39 000e 73        		.byte	115
+  40 000f 65        		.byte	101
+  41 0010 76        		.byte	118
+  42 0011 7E        		.byte	126
+  43 0012 23        		.byte	35
+  44 0013 7F        		.byte	127
+  45 0014 77        		.byte	119
+  46 0015 7B        		.byte	123
+  47 0016 7C        		.byte	124
+  48 0017 58        		.byte	88
+  49 0018 79        		.byte	121
+  50 0019 5F        		.byte	95
+  51 001a 4E        		.byte	78
+  52               	.global	letters
+  53               		.type	letters, @object
+  54               		.size	letters, 27
+  55               	letters:
+  56 001b 7B        		.byte	123
+  57 001c 7C        		.byte	124
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 2
+
+
+  58 001d 58        		.byte	88
+  59 001e 79        		.byte	121
+  60 001f 5F        		.byte	95
+  61 0020 4E        		.byte	78
+  62 0021 67        		.byte	103
+  63 0022 6C        		.byte	108
+  64 0023 21        		.byte	33
+  65 0024 31        		.byte	49
+  66 0025 6D        		.byte	109
+  67 0026 21        		.byte	33
+  68 0027 6A        		.byte	106
+  69 0028 68        		.byte	104
+  70 0029 78        		.byte	120
+  71 002a 4F        		.byte	79
+  72 002b 67        		.byte	103
+  73 002c 48        		.byte	72
+  74 002d 76        		.byte	118
+  75 002e 5C        		.byte	92
+  76 002f 3D        		.byte	61
+  77 0030 38        		.byte	56
+  78 0031 38        		.byte	56
+  79 0032 6D        		.byte	109
+  80 0033 75        		.byte	117
+  81 0034 5B        		.byte	91
+  82 0035 00        		.byte	0
+  83               	.global	special_up
+  84               		.type	special_up, @object
+  85               		.size	special_up, 27
+  86               	special_up:
+  87 0036 43        		.byte	67
+  88 0037 45        		.byte	69
+  89 0038 46        		.byte	70
+  90 0039 07        		.byte	7
+  91 003a 0000 0000 		.skip 23,0
+  91      0000 0000 
+  91      0000 0000 
+  91      0000 0000 
+  91      0000 0000 
+  92               	.global	special_down
+  93               		.type	special_down, @object
+  94               		.size	special_down, 27
+  95               	special_down:
+  96 0051 70        		.byte	112
+  97 0052 38        		.byte	56
+  98 0053 58        		.byte	88
+  99 0054 68        		.byte	104
+ 100 0055 0000 0000 		.skip 23,0
+ 100      0000 0000 
+ 100      0000 0000 
+ 100      0000 0000 
+ 100      0000 0000 
+ 101               	.global	special_updown
+ 102               		.type	special_updown, @object
+ 103               		.size	special_updown, 6
+ 104               	special_updown:
+ 105 006c 3E        		.byte	62
+ 106 006d 1F        		.byte	31
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 3
+
+
+ 107 006e 2F        		.byte	47
+ 108 006f 37        		.byte	55
+ 109 0070 3B        		.byte	59
+ 110 0071 3D        		.byte	61
+ 111               		.text
+ 112               	.global	main
+ 113               		.type	main, @function
+ 114               	main:
+ 115               	.LFB2:
+ 116               	.LM1:
+ 117 0000 DF93      		push r29
+ 118 0002 CF93      		push r28
+ 119 0004 00D0      		rcall .
+ 120 0006 00D0      		rcall .
+ 121 0008 00D0      		rcall .
+ 122 000a CDB7      		in r28,__SP_L__
+ 123 000c DEB7      		in r29,__SP_H__
+ 124               	/* prologue: function */
+ 125               	/* frame size = 6 */
+ 126               	.LM2:
+ 127 000e 1E82      		std Y+6,__zero_reg__
+ 128 0010 1D82      		std Y+5,__zero_reg__
+ 129               	.LM3:
+ 130 0012 E7E3      		ldi r30,lo8(55)
+ 131 0014 F0E0      		ldi r31,hi8(55)
+ 132 0016 1082      		st Z,__zero_reg__
+ 133               	.LM4:
+ 134 0018 E8E3      		ldi r30,lo8(56)
+ 135 001a F0E0      		ldi r31,hi8(56)
+ 136 001c 8FEF      		ldi r24,lo8(-1)
+ 137 001e 8083      		st Z,r24
+ 138               	.LM5:
+ 139 0020 EAE3      		ldi r30,lo8(58)
+ 140 0022 F0E0      		ldi r31,hi8(58)
+ 141 0024 8FEF      		ldi r24,lo8(-1)
+ 142 0026 8083      		st Z,r24
+ 143               	.LM6:
+ 144 0028 80E0      		ldi r24,lo8(0)
+ 145 002a 65E0      		ldi r22,lo8(5)
+ 146 002c 43E0      		ldi r20,lo8(3)
+ 147 002e 21E0      		ldi r18,lo8(1)
+ 148 0030 0E94 0000 		call init_74hc595
+ 149               	.LM7:
+ 150 0034 81E0      		ldi r24,lo8(1)
+ 151 0036 65E0      		ldi r22,lo8(5)
+ 152 0038 43E0      		ldi r20,lo8(3)
+ 153 003a 22E0      		ldi r18,lo8(2)
+ 154 003c 0E94 0000 		call init_74hc595
+ 155               	.LM8:
+ 156 0040 82E0      		ldi r24,lo8(2)
+ 157 0042 65E0      		ldi r22,lo8(5)
+ 158 0044 43E0      		ldi r20,lo8(3)
+ 159 0046 24E0      		ldi r18,lo8(4)
+ 160 0048 0E94 0000 		call init_74hc595
+ 161               	.LM9:
+ 162 004c 83E0      		ldi r24,lo8(3)
+ 163 004e 65E0      		ldi r22,lo8(5)
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 4
+
+
+ 164 0050 43E0      		ldi r20,lo8(3)
+ 165 0052 27E0      		ldi r18,lo8(7)
+ 166 0054 0E94 0000 		call init_74hc595
+ 167               	.L2:
+ 168               	.LM10:
+ 169 0058 0E94 0000 		call getc_3x4_keypad
+ 170 005c 882F      		mov r24,r24
+ 171 005e 90E0      		ldi r25,lo8(0)
+ 172 0060 9A83      		std Y+2,r25
+ 173 0062 8983      		std Y+1,r24
+ 174               	.LM11:
+ 175 0064 8981      		ldd r24,Y+1
+ 176 0066 9A81      		ldd r25,Y+2
+ 177 0068 9595      		asr r25
+ 178 006a 8795      		ror r24
+ 179 006c 9595      		asr r25
+ 180 006e 8795      		ror r24
+ 181 0070 9595      		asr r25
+ 182 0072 8795      		ror r24
+ 183 0074 9595      		asr r25
+ 184 0076 8795      		ror r24
+ 185 0078 FC01      		movw r30,r24
+ 186 007a E050      		subi r30,lo8(-(hex_numbers))
+ 187 007c F040      		sbci r31,hi8(-(hex_numbers))
+ 188 007e 9081      		ld r25,Z
+ 189 0080 81E0      		ldi r24,lo8(1)
+ 190 0082 692F      		mov r22,r25
+ 191 0084 0E94 0000 		call s595_putc
+ 192               	.LM12:
+ 193 0088 8981      		ldd r24,Y+1
+ 194 008a 9A81      		ldd r25,Y+2
+ 195 008c 8F70      		andi r24,lo8(15)
+ 196 008e 9070      		andi r25,hi8(15)
+ 197 0090 FC01      		movw r30,r24
+ 198 0092 E050      		subi r30,lo8(-(hex_numbers))
+ 199 0094 F040      		sbci r31,hi8(-(hex_numbers))
+ 200 0096 9081      		ld r25,Z
+ 201 0098 80E0      		ldi r24,lo8(0)
+ 202 009a 692F      		mov r22,r25
+ 203 009c 0E94 0000 		call s595_putc
+ 204 00a0 00C0      		rjmp .L2
+ 205               	.LFE2:
+ 206               		.size	main, .-main
+ 207               		.section	.debug_frame,"",@progbits
+ 208               	.Lframe0:
+ 209 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 210               	.LSCIE0:
+ 211 0004 FFFF FFFF 		.long	0xffffffff
+ 212 0008 01        		.byte	0x1
+ 213 0009 00        		.string	""
+ 214 000a 01        		.uleb128 0x1
+ 215 000b 7F        		.sleb128 -1
+ 216 000c 24        		.byte	0x24
+ 217 000d 0C        		.byte	0xc
+ 218 000e 20        		.uleb128 0x20
+ 219 000f 00        		.uleb128 0x0
+ 220               		.p2align	2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 5
+
+
+ 221               	.LECIE0:
+ 222               	.LSFDE0:
+ 223 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 224               	.LASFDE0:
+ 225 0014 0000 0000 		.long	.Lframe0
+ 226 0018 0000 0000 		.long	.LFB2
+ 227 001c A200 0000 		.long	.LFE2-.LFB2
+ 228               		.p2align	2
+ 229               	.LEFDE0:
+ 230               		.text
+ 231               	.Letext0:
+ 232               		.section	.debug_info
+ 233 0000 4C01 0000 		.long	0x14c
+ 234 0004 0200      		.word	0x2
+ 235 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 236 000a 04        		.byte	0x4
+ 237 000b 01        		.uleb128 0x1
+ 238 000c 0000 0000 		.long	.LASF13
+ 239 0010 01        		.byte	0x1
+ 240 0011 0000 0000 		.long	.LASF14
+ 241 0015 0000 0000 		.long	.LASF15
+ 242 0019 0000 0000 		.long	.Ltext0
+ 243 001d 0000 0000 		.long	.Letext0
+ 244 0021 0000 0000 		.long	.Ldebug_line0
+ 245 0025 02        		.uleb128 0x2
+ 246 0026 01        		.byte	0x1
+ 247 0027 06        		.byte	0x6
+ 248 0028 0000 0000 		.long	.LASF0
+ 249 002c 02        		.uleb128 0x2
+ 250 002d 01        		.byte	0x1
+ 251 002e 08        		.byte	0x8
+ 252 002f 0000 0000 		.long	.LASF1
+ 253 0033 03        		.uleb128 0x3
+ 254 0034 02        		.byte	0x2
+ 255 0035 05        		.byte	0x5
+ 256 0036 696E 7400 		.string	"int"
+ 257 003a 02        		.uleb128 0x2
+ 258 003b 02        		.byte	0x2
+ 259 003c 07        		.byte	0x7
+ 260 003d 0000 0000 		.long	.LASF2
+ 261 0041 02        		.uleb128 0x2
+ 262 0042 04        		.byte	0x4
+ 263 0043 05        		.byte	0x5
+ 264 0044 0000 0000 		.long	.LASF3
+ 265 0048 02        		.uleb128 0x2
+ 266 0049 04        		.byte	0x4
+ 267 004a 07        		.byte	0x7
+ 268 004b 0000 0000 		.long	.LASF4
+ 269 004f 02        		.uleb128 0x2
+ 270 0050 08        		.byte	0x8
+ 271 0051 05        		.byte	0x5
+ 272 0052 0000 0000 		.long	.LASF5
+ 273 0056 02        		.uleb128 0x2
+ 274 0057 08        		.byte	0x8
+ 275 0058 07        		.byte	0x7
+ 276 0059 0000 0000 		.long	.LASF6
+ 277 005d 04        		.uleb128 0x4
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 6
+
+
+ 278 005e 01        		.byte	0x1
+ 279 005f 0000 0000 		.long	.LASF16
+ 280 0063 01        		.byte	0x1
+ 281 0064 77        		.byte	0x77
+ 282 0065 01        		.byte	0x1
+ 283 0066 3300 0000 		.long	0x33
+ 284 006a 0000 0000 		.long	.LFB2
+ 285 006e 0000 0000 		.long	.LFE2
+ 286 0072 02        		.byte	0x2
+ 287 0073 90        		.byte	0x90
+ 288 0074 20        		.uleb128 0x20
+ 289 0075 A000 0000 		.long	0xa0
+ 290 0079 05        		.uleb128 0x5
+ 291 007a 7265 7600 		.string	"rev"
+ 292 007e 01        		.byte	0x1
+ 293 007f 78        		.byte	0x78
+ 294 0080 3300 0000 		.long	0x33
+ 295 0084 02        		.byte	0x2
+ 296 0085 8C        		.byte	0x8c
+ 297 0086 05        		.sleb128 5
+ 298 0087 05        		.uleb128 0x5
+ 299 0088 6900      		.string	"i"
+ 300 008a 01        		.byte	0x1
+ 301 008b 79        		.byte	0x79
+ 302 008c 3300 0000 		.long	0x33
+ 303 0090 02        		.byte	0x2
+ 304 0091 8C        		.byte	0x8c
+ 305 0092 03        		.sleb128 3
+ 306 0093 05        		.uleb128 0x5
+ 307 0094 6300      		.string	"c"
+ 308 0096 01        		.byte	0x1
+ 309 0097 79        		.byte	0x79
+ 310 0098 3300 0000 		.long	0x33
+ 311 009c 02        		.byte	0x2
+ 312 009d 8C        		.byte	0x8c
+ 313 009e 01        		.sleb128 1
+ 314 009f 00        		.byte	0x0
+ 315 00a0 06        		.uleb128 0x6
+ 316 00a1 2C00 0000 		.long	0x2c
+ 317 00a5 B000 0000 		.long	0xb0
+ 318 00a9 07        		.uleb128 0x7
+ 319 00aa B000 0000 		.long	0xb0
+ 320 00ae 0A        		.byte	0xa
+ 321 00af 00        		.byte	0x0
+ 322 00b0 08        		.uleb128 0x8
+ 323 00b1 02        		.byte	0x2
+ 324 00b2 07        		.byte	0x7
+ 325 00b3 09        		.uleb128 0x9
+ 326 00b4 0000 0000 		.long	.LASF7
+ 327 00b8 01        		.byte	0x1
+ 328 00b9 1D        		.byte	0x1d
+ 329 00ba A000 0000 		.long	0xa0
+ 330 00be 01        		.byte	0x1
+ 331 00bf 05        		.byte	0x5
+ 332 00c0 03        		.byte	0x3
+ 333 00c1 0000 0000 		.long	numbers
+ 334 00c5 06        		.uleb128 0x6
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 7
+
+
+ 335 00c6 2C00 0000 		.long	0x2c
+ 336 00ca D500 0000 		.long	0xd5
+ 337 00ce 07        		.uleb128 0x7
+ 338 00cf B000 0000 		.long	0xb0
+ 339 00d3 0F        		.byte	0xf
+ 340 00d4 00        		.byte	0x0
+ 341 00d5 09        		.uleb128 0x9
+ 342 00d6 0000 0000 		.long	.LASF8
+ 343 00da 01        		.byte	0x1
+ 344 00db 2B        		.byte	0x2b
+ 345 00dc C500 0000 		.long	0xc5
+ 346 00e0 01        		.byte	0x1
+ 347 00e1 05        		.byte	0x5
+ 348 00e2 03        		.byte	0x3
+ 349 00e3 0000 0000 		.long	hex_numbers
+ 350 00e7 06        		.uleb128 0x6
+ 351 00e8 2C00 0000 		.long	0x2c
+ 352 00ec F700 0000 		.long	0xf7
+ 353 00f0 07        		.uleb128 0x7
+ 354 00f1 B000 0000 		.long	0xb0
+ 355 00f5 1A        		.byte	0x1a
+ 356 00f6 00        		.byte	0x0
+ 357 00f7 09        		.uleb128 0x9
+ 358 00f8 0000 0000 		.long	.LASF9
+ 359 00fc 01        		.byte	0x1
+ 360 00fd 3F        		.byte	0x3f
+ 361 00fe E700 0000 		.long	0xe7
+ 362 0102 01        		.byte	0x1
+ 363 0103 05        		.byte	0x5
+ 364 0104 03        		.byte	0x3
+ 365 0105 0000 0000 		.long	letters
+ 366 0109 09        		.uleb128 0x9
+ 367 010a 0000 0000 		.long	.LASF10
+ 368 010e 01        		.byte	0x1
+ 369 010f 5E        		.byte	0x5e
+ 370 0110 E700 0000 		.long	0xe7
+ 371 0114 01        		.byte	0x1
+ 372 0115 05        		.byte	0x5
+ 373 0116 03        		.byte	0x3
+ 374 0117 0000 0000 		.long	special_up
+ 375 011b 09        		.uleb128 0x9
+ 376 011c 0000 0000 		.long	.LASF11
+ 377 0120 01        		.byte	0x1
+ 378 0121 65        		.byte	0x65
+ 379 0122 E700 0000 		.long	0xe7
+ 380 0126 01        		.byte	0x1
+ 381 0127 05        		.byte	0x5
+ 382 0128 03        		.byte	0x3
+ 383 0129 0000 0000 		.long	special_down
+ 384 012d 06        		.uleb128 0x6
+ 385 012e 2C00 0000 		.long	0x2c
+ 386 0132 3D01 0000 		.long	0x13d
+ 387 0136 07        		.uleb128 0x7
+ 388 0137 B000 0000 		.long	0xb0
+ 389 013b 05        		.byte	0x5
+ 390 013c 00        		.byte	0x0
+ 391 013d 09        		.uleb128 0x9
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 8
+
+
+ 392 013e 0000 0000 		.long	.LASF12
+ 393 0142 01        		.byte	0x1
+ 394 0143 6C        		.byte	0x6c
+ 395 0144 2D01 0000 		.long	0x12d
+ 396 0148 01        		.byte	0x1
+ 397 0149 05        		.byte	0x5
+ 398 014a 03        		.byte	0x3
+ 399 014b 0000 0000 		.long	special_updown
+ 400 014f 00        		.byte	0x0
+ 401               		.section	.debug_abbrev
+ 402 0000 01        		.uleb128 0x1
+ 403 0001 11        		.uleb128 0x11
+ 404 0002 01        		.byte	0x1
+ 405 0003 25        		.uleb128 0x25
+ 406 0004 0E        		.uleb128 0xe
+ 407 0005 13        		.uleb128 0x13
+ 408 0006 0B        		.uleb128 0xb
+ 409 0007 03        		.uleb128 0x3
+ 410 0008 0E        		.uleb128 0xe
+ 411 0009 1B        		.uleb128 0x1b
+ 412 000a 0E        		.uleb128 0xe
+ 413 000b 11        		.uleb128 0x11
+ 414 000c 01        		.uleb128 0x1
+ 415 000d 12        		.uleb128 0x12
+ 416 000e 01        		.uleb128 0x1
+ 417 000f 10        		.uleb128 0x10
+ 418 0010 06        		.uleb128 0x6
+ 419 0011 00        		.byte	0x0
+ 420 0012 00        		.byte	0x0
+ 421 0013 02        		.uleb128 0x2
+ 422 0014 24        		.uleb128 0x24
+ 423 0015 00        		.byte	0x0
+ 424 0016 0B        		.uleb128 0xb
+ 425 0017 0B        		.uleb128 0xb
+ 426 0018 3E        		.uleb128 0x3e
+ 427 0019 0B        		.uleb128 0xb
+ 428 001a 03        		.uleb128 0x3
+ 429 001b 0E        		.uleb128 0xe
+ 430 001c 00        		.byte	0x0
+ 431 001d 00        		.byte	0x0
+ 432 001e 03        		.uleb128 0x3
+ 433 001f 24        		.uleb128 0x24
+ 434 0020 00        		.byte	0x0
+ 435 0021 0B        		.uleb128 0xb
+ 436 0022 0B        		.uleb128 0xb
+ 437 0023 3E        		.uleb128 0x3e
+ 438 0024 0B        		.uleb128 0xb
+ 439 0025 03        		.uleb128 0x3
+ 440 0026 08        		.uleb128 0x8
+ 441 0027 00        		.byte	0x0
+ 442 0028 00        		.byte	0x0
+ 443 0029 04        		.uleb128 0x4
+ 444 002a 2E        		.uleb128 0x2e
+ 445 002b 01        		.byte	0x1
+ 446 002c 3F        		.uleb128 0x3f
+ 447 002d 0C        		.uleb128 0xc
+ 448 002e 03        		.uleb128 0x3
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 9
+
+
+ 449 002f 0E        		.uleb128 0xe
+ 450 0030 3A        		.uleb128 0x3a
+ 451 0031 0B        		.uleb128 0xb
+ 452 0032 3B        		.uleb128 0x3b
+ 453 0033 0B        		.uleb128 0xb
+ 454 0034 27        		.uleb128 0x27
+ 455 0035 0C        		.uleb128 0xc
+ 456 0036 49        		.uleb128 0x49
+ 457 0037 13        		.uleb128 0x13
+ 458 0038 11        		.uleb128 0x11
+ 459 0039 01        		.uleb128 0x1
+ 460 003a 12        		.uleb128 0x12
+ 461 003b 01        		.uleb128 0x1
+ 462 003c 40        		.uleb128 0x40
+ 463 003d 0A        		.uleb128 0xa
+ 464 003e 01        		.uleb128 0x1
+ 465 003f 13        		.uleb128 0x13
+ 466 0040 00        		.byte	0x0
+ 467 0041 00        		.byte	0x0
+ 468 0042 05        		.uleb128 0x5
+ 469 0043 34        		.uleb128 0x34
+ 470 0044 00        		.byte	0x0
+ 471 0045 03        		.uleb128 0x3
+ 472 0046 08        		.uleb128 0x8
+ 473 0047 3A        		.uleb128 0x3a
+ 474 0048 0B        		.uleb128 0xb
+ 475 0049 3B        		.uleb128 0x3b
+ 476 004a 0B        		.uleb128 0xb
+ 477 004b 49        		.uleb128 0x49
+ 478 004c 13        		.uleb128 0x13
+ 479 004d 02        		.uleb128 0x2
+ 480 004e 0A        		.uleb128 0xa
+ 481 004f 00        		.byte	0x0
+ 482 0050 00        		.byte	0x0
+ 483 0051 06        		.uleb128 0x6
+ 484 0052 01        		.uleb128 0x1
+ 485 0053 01        		.byte	0x1
+ 486 0054 49        		.uleb128 0x49
+ 487 0055 13        		.uleb128 0x13
+ 488 0056 01        		.uleb128 0x1
+ 489 0057 13        		.uleb128 0x13
+ 490 0058 00        		.byte	0x0
+ 491 0059 00        		.byte	0x0
+ 492 005a 07        		.uleb128 0x7
+ 493 005b 21        		.uleb128 0x21
+ 494 005c 00        		.byte	0x0
+ 495 005d 49        		.uleb128 0x49
+ 496 005e 13        		.uleb128 0x13
+ 497 005f 2F        		.uleb128 0x2f
+ 498 0060 0B        		.uleb128 0xb
+ 499 0061 00        		.byte	0x0
+ 500 0062 00        		.byte	0x0
+ 501 0063 08        		.uleb128 0x8
+ 502 0064 24        		.uleb128 0x24
+ 503 0065 00        		.byte	0x0
+ 504 0066 0B        		.uleb128 0xb
+ 505 0067 0B        		.uleb128 0xb
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 10
+
+
+ 506 0068 3E        		.uleb128 0x3e
+ 507 0069 0B        		.uleb128 0xb
+ 508 006a 00        		.byte	0x0
+ 509 006b 00        		.byte	0x0
+ 510 006c 09        		.uleb128 0x9
+ 511 006d 34        		.uleb128 0x34
+ 512 006e 00        		.byte	0x0
+ 513 006f 03        		.uleb128 0x3
+ 514 0070 0E        		.uleb128 0xe
+ 515 0071 3A        		.uleb128 0x3a
+ 516 0072 0B        		.uleb128 0xb
+ 517 0073 3B        		.uleb128 0x3b
+ 518 0074 0B        		.uleb128 0xb
+ 519 0075 49        		.uleb128 0x49
+ 520 0076 13        		.uleb128 0x13
+ 521 0077 3F        		.uleb128 0x3f
+ 522 0078 0C        		.uleb128 0xc
+ 523 0079 02        		.uleb128 0x2
+ 524 007a 0A        		.uleb128 0xa
+ 525 007b 00        		.byte	0x0
+ 526 007c 00        		.byte	0x0
+ 527 007d 00        		.byte	0x0
+ 528               		.section	.debug_pubnames,"",@progbits
+ 529 0000 7200 0000 		.long	0x72
+ 530 0004 0200      		.word	0x2
+ 531 0006 0000 0000 		.long	.Ldebug_info0
+ 532 000a 5001 0000 		.long	0x150
+ 533 000e 5D00 0000 		.long	0x5d
+ 534 0012 6D61 696E 		.string	"main"
+ 534      00
+ 535 0017 B300 0000 		.long	0xb3
+ 536 001b 6E75 6D62 		.string	"numbers"
+ 536      6572 7300 
+ 537 0023 D500 0000 		.long	0xd5
+ 538 0027 6865 785F 		.string	"hex_numbers"
+ 538      6E75 6D62 
+ 538      6572 7300 
+ 539 0033 F700 0000 		.long	0xf7
+ 540 0037 6C65 7474 		.string	"letters"
+ 540      6572 7300 
+ 541 003f 0901 0000 		.long	0x109
+ 542 0043 7370 6563 		.string	"special_up"
+ 542      6961 6C5F 
+ 542      7570 00
+ 543 004e 1B01 0000 		.long	0x11b
+ 544 0052 7370 6563 		.string	"special_down"
+ 544      6961 6C5F 
+ 544      646F 776E 
+ 544      00
+ 545 005f 3D01 0000 		.long	0x13d
+ 546 0063 7370 6563 		.string	"special_updown"
+ 546      6961 6C5F 
+ 546      7570 646F 
+ 546      776E 00
+ 547 0072 0000 0000 		.long	0x0
+ 548               		.section	.debug_aranges,"",@progbits
+ 549 0000 1C00 0000 		.long	0x1c
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 11
+
+
+ 550 0004 0200      		.word	0x2
+ 551 0006 0000 0000 		.long	.Ldebug_info0
+ 552 000a 04        		.byte	0x4
+ 553 000b 00        		.byte	0x0
+ 554 000c 0000      		.word	0x0
+ 555 000e 0000      		.word	0x0
+ 556 0010 0000 0000 		.long	.Ltext0
+ 557 0014 A200 0000 		.long	.Letext0-.Ltext0
+ 558 0018 0000 0000 		.long	0x0
+ 559 001c 0000 0000 		.long	0x0
+ 560               		.section	.debug_line
+ 561 0000 8A00 0000 		.long	.LELT0-.LSLT0
+ 562               	.LSLT0:
+ 563 0004 0200      		.word	0x2
+ 564 0006 1A00 0000 		.long	.LELTP0-.LASLTP0
+ 565               	.LASLTP0:
+ 566 000a 01        		.byte	0x1
+ 567 000b 01        		.byte	0x1
+ 568 000c F6        		.byte	0xf6
+ 569 000d F5        		.byte	0xf5
+ 570 000e 0A        		.byte	0xa
+ 571 000f 00        		.byte	0x0
+ 572 0010 01        		.byte	0x1
+ 573 0011 01        		.byte	0x1
+ 574 0012 01        		.byte	0x1
+ 575 0013 01        		.byte	0x1
+ 576 0014 00        		.byte	0x0
+ 577 0015 00        		.byte	0x0
+ 578 0016 00        		.byte	0x0
+ 579 0017 01        		.byte	0x1
+ 580 0018 00        		.byte	0x0
+ 581 0019 6D61 696E 		.string	"main.c"
+ 581      2E63 00
+ 582 0020 00        		.uleb128 0x0
+ 583 0021 00        		.uleb128 0x0
+ 584 0022 00        		.uleb128 0x0
+ 585 0023 00        		.byte	0x0
+ 586               	.LELTP0:
+ 587 0024 00        		.byte	0x0
+ 588 0025 05        		.uleb128 0x5
+ 589 0026 02        		.byte	0x2
+ 590 0027 0000 0000 		.long	.LM1
+ 591 002b 8A        		.byte	0x8a
+ 592 002c 00        		.byte	0x0
+ 593 002d 05        		.uleb128 0x5
+ 594 002e 02        		.byte	0x2
+ 595 002f 0000 0000 		.long	.LM2
+ 596 0033 15        		.byte	0x15
+ 597 0034 00        		.byte	0x0
+ 598 0035 05        		.uleb128 0x5
+ 599 0036 02        		.byte	0x2
+ 600 0037 0000 0000 		.long	.LM3
+ 601 003b 17        		.byte	0x17
+ 602 003c 00        		.byte	0x0
+ 603 003d 05        		.uleb128 0x5
+ 604 003e 02        		.byte	0x2
+ 605 003f 0000 0000 		.long	.LM4
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 12
+
+
+ 606 0043 15        		.byte	0x15
+ 607 0044 00        		.byte	0x0
+ 608 0045 05        		.uleb128 0x5
+ 609 0046 02        		.byte	0x2
+ 610 0047 0000 0000 		.long	.LM5
+ 611 004b 16        		.byte	0x16
+ 612 004c 00        		.byte	0x0
+ 613 004d 05        		.uleb128 0x5
+ 614 004e 02        		.byte	0x2
+ 615 004f 0000 0000 		.long	.LM6
+ 616 0053 16        		.byte	0x16
+ 617 0054 00        		.byte	0x0
+ 618 0055 05        		.uleb128 0x5
+ 619 0056 02        		.byte	0x2
+ 620 0057 0000 0000 		.long	.LM7
+ 621 005b 15        		.byte	0x15
+ 622 005c 00        		.byte	0x0
+ 623 005d 05        		.uleb128 0x5
+ 624 005e 02        		.byte	0x2
+ 625 005f 0000 0000 		.long	.LM8
+ 626 0063 15        		.byte	0x15
+ 627 0064 00        		.byte	0x0
+ 628 0065 05        		.uleb128 0x5
+ 629 0066 02        		.byte	0x2
+ 630 0067 0000 0000 		.long	.LM9
+ 631 006b 16        		.byte	0x16
+ 632 006c 00        		.byte	0x0
+ 633 006d 05        		.uleb128 0x5
+ 634 006e 02        		.byte	0x2
+ 635 006f 0000 0000 		.long	.LM10
+ 636 0073 1A        		.byte	0x1a
+ 637 0074 00        		.byte	0x0
+ 638 0075 05        		.uleb128 0x5
+ 639 0076 02        		.byte	0x2
+ 640 0077 0000 0000 		.long	.LM11
+ 641 007b 16        		.byte	0x16
+ 642 007c 00        		.byte	0x0
+ 643 007d 05        		.uleb128 0x5
+ 644 007e 02        		.byte	0x2
+ 645 007f 0000 0000 		.long	.LM12
+ 646 0083 15        		.byte	0x15
+ 647 0084 00        		.byte	0x0
+ 648 0085 05        		.uleb128 0x5
+ 649 0086 02        		.byte	0x2
+ 650 0087 0000 0000 		.long	.Letext0
+ 651 008b 00        		.byte	0x0
+ 652 008c 01        		.uleb128 0x1
+ 653 008d 01        		.byte	0x1
+ 654               	.LELT0:
+ 655 008e 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 655      0200 1000 
+ 655      0000 0101 
+ 655      FB0E 0A00 
+ 655      0101 0101 
+ 656               	.LASF7:
+ 657 0000 6E75 6D62 		.string	"numbers"
+ 657      6572 7300 
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 13
+
+
+ 658               	.LASF1:
+ 659 0008 756E 7369 		.string	"unsigned char"
+ 659      676E 6564 
+ 659      2063 6861 
+ 659      7200 
+ 660               	.LASF4:
+ 661 0016 6C6F 6E67 		.string	"long unsigned int"
+ 661      2075 6E73 
+ 661      6967 6E65 
+ 661      6420 696E 
+ 661      7400 
+ 662               	.LASF13:
+ 663 0028 474E 5520 		.string	"GNU C 4.3.3"
+ 663      4320 342E 
+ 663      332E 3300 
+ 664               	.LASF11:
+ 665 0034 7370 6563 		.string	"special_down"
+ 665      6961 6C5F 
+ 665      646F 776E 
+ 665      00
+ 666               	.LASF12:
+ 667 0041 7370 6563 		.string	"special_updown"
+ 667      6961 6C5F 
+ 667      7570 646F 
+ 667      776E 00
+ 668               	.LASF15:
+ 669 0050 453A 5C61 		.string	"E:\\avr\\counter"
+ 669      7672 5C63 
+ 669      6F75 6E74 
+ 669      6572 00
+ 670               	.LASF16:
+ 671 005f 6D61 696E 		.string	"main"
+ 671      00
+ 672               	.LASF2:
+ 673 0064 756E 7369 		.string	"unsigned int"
+ 673      676E 6564 
+ 673      2069 6E74 
+ 673      00
+ 674               	.LASF6:
+ 675 0071 6C6F 6E67 		.string	"long long unsigned int"
+ 675      206C 6F6E 
+ 675      6720 756E 
+ 675      7369 676E 
+ 675      6564 2069 
+ 676               	.LASF9:
+ 677 0088 6C65 7474 		.string	"letters"
+ 677      6572 7300 
+ 678               	.LASF5:
+ 679 0090 6C6F 6E67 		.string	"long long int"
+ 679      206C 6F6E 
+ 679      6720 696E 
+ 679      7400 
+ 680               	.LASF14:
+ 681 009e 6D61 696E 		.string	"main.c"
+ 681      2E63 00
+ 682               	.LASF8:
+ 683 00a5 6865 785F 		.string	"hex_numbers"
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 14
+
+
+ 683      6E75 6D62 
+ 683      6572 7300 
+ 684               	.LASF3:
+ 685 00b1 6C6F 6E67 		.string	"long int"
+ 685      2069 6E74 
+ 685      00
+ 686               	.LASF10:
+ 687 00ba 7370 6563 		.string	"special_up"
+ 687      6961 6C5F 
+ 687      7570 00
+ 688               	.LASF0:
+ 689 00c5 7369 676E 		.string	"signed char"
+ 689      6564 2063 
+ 689      6861 7200 
+ 690               	.global __do_copy_data
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:20     .data:00000000 numbers
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:35     .data:0000000b hex_numbers
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:55     .data:0000001b letters
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:86     .data:00000036 special_up
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:95     .data:00000051 special_down
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:104    .data:0000006c special_updown
+C:\Users\alex\AppData\Local\Temp/ccFA0oEl.s:114    .text:00000000 main
+
+UNDEFINED SYMBOLS
+init_74hc595
+getc_3x4_keypad
+s595_putc
+__do_copy_data

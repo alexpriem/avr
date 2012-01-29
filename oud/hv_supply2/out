@@ -1,0 +1,1 @@
+avr-gcc -Wl,-Map,lcd.out.map -mmcu=atmega32 -lm  -o lcd.out lcd.o uart.o encoder.o scpi.o scpi_cmds.o hv_supply.o main.o hv_supply2.o    
