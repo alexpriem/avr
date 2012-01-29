@@ -1,12 +1,12 @@
 /******************************************************************************
- Title:    adc_dac_uc2
+ Title:    ruff counter
  Author:   Alex Priem
- Date:     October 2008
+ Date:     October 2010
  Software: AVR-GCC 3.3 
  Hardware: ATMega32
            
  Description:
- 
+ t
   
 *******************************************************************************/
 #include <inttypes.h>
