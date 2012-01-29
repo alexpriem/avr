@@ -2,8 +2,8 @@
 #define _LEDS_
 
 
-void init_led(uint8_t led, uint8_t portbit);
-void init_leds(uint8_t led);
+void led_setup(uint8_t led, uint8_t portbit);
+void leds_setup(uint8_t led);
 
 void set_led (uint8_t led);
 void clr_led (uint8_t led);

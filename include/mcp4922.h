@@ -16,8 +16,8 @@
 #define CNTRL 0xF000
 
 
-void init_mcp4922(uint8_t chip, uint8_t cs, uint8_t clk,  uint8_t data,uint8_t ldac);
-void init_mcp4922_spi(uint8_t chip, uint8_t cs, uint8_t ldac);
+void mcp4922_setup (uint8_t chip, uint8_t cs, uint8_t clk,  uint8_t data,uint8_t ldac);
+void mcp4922_setup_spi (uint8_t chip, uint8_t cs, uint8_t ldac);
 void mcp4922_putw (uint8_t chip,  int16_t word, uint8_t dac);
 void mcp4922_spiw (uint8_t chip,  int16_t word, uint8_t dac);
 

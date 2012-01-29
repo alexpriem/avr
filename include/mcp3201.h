@@ -16,7 +16,7 @@
 #define CNTRL 0xF000
 
 
-void init_mcp3201(uint8_t chip, uint8_t cs, uint8_t clk,  uint8_t data);
+void mcp3201_setup(uint8_t chip, uint8_t cs, uint8_t clk,  uint8_t data);
 unsigned int mcp3201_getw (uint8_t chip);
 
 #endif
