@@ -5,28 +5,28 @@
 #include "bitops.h"
 #include "uart.h"
 #include "delay.h"
-#include "74hc595.h"
+#include "hc595.h"
 
-#define NUM_74HC595 20
+#define NUM_HC595 20
 
 
 // pin 14 is de data-ingang   (DS)
 // pin 11 is de clock ingang van het register  (SH_CP)
 // na het inklokken een puls geven op pin 12 (ST_CP) -> dan nemen de uitgangen de data uit het register over. 
 
-volatile uint8_t *hc595_p_cs[NUM_74HC595];         //  ST_CP -- 12
-volatile uint8_t *hc595_p_data[NUM_74HC595];       //  DS    -- 14
-volatile uint8_t *hc595_p_clk[NUM_74HC595];       //   SH_CP -- 11
+volatile uint8_t *hc595_p_cs[NUM_HC595];         //  ST_CP -- 12
+volatile uint8_t *hc595_p_data[NUM_HC595];       //  DS    -- 14
+volatile uint8_t *hc595_p_clk[NUM_HC595];       //   SH_CP -- 11
 
-uint8_t hc595_b_cs[NUM_74HC595];
-uint8_t hc595_b_data[NUM_74HC595];
-uint8_t hc595_b_clk[NUM_74HC595];
-unsigned char  hc595_c_data[NUM_74HC595];
-unsigned char  hc595_copy_data[NUM_74HC595];
+uint8_t hc595_b_cs[NUM_HC595];
+uint8_t hc595_b_data[NUM_HC595];
+uint8_t hc595_b_clk[NUM_HC595];
+unsigned char  hc595_c_data[NUM_HC595];
+unsigned char  hc595_copy_data[NUM_HC595];
 
 
 
-void s595_setup (uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
+void hc595_setup (uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
 
 { uint8_t bclk, bcs, bdata;
 
@@ -57,7 +57,7 @@ void s595_setup (uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
 }
 
 
-void s595_putc (uint8_t chip, unsigned char c)
+void hc595_putc (uint8_t chip, unsigned char c)
 
 {
  volatile uint8_t *pclk, *pcs, *pdata;
@@ -109,14 +109,14 @@ void s595_putc (uint8_t chip, unsigned char c)
 
 
 
-void s595_set_val (uint8_t chip, unsigned char val) {
+void hc595_set_val (uint8_t chip, unsigned char val) {
 
  hc595_c_data[chip]=val;
 }
 
 //  klok alle data uit voor numchips chips
 
-void s595_write (uint8_t numchips)
+void hc595_write (uint8_t numchips)
 
 {
  volatile uint8_t *pclk, *pcs, *pdata;

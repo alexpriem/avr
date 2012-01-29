@@ -1,4 +1,4 @@
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 1
 
 
    1               		.file	"delay.c"
@@ -58,7 +58,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
   55               	/* epilogue start */
   56               	.LM3:
   57 0044 0F90      		pop __tmp_reg__
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 2
 
 
   58 0046 0F90      		pop __tmp_reg__
@@ -118,7 +118,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  112               	.global	delay
  113               		.type	delay, @function
  114               	delay:
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 3
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 3
 
 
  115               	.LFB4:
@@ -178,7 +178,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  169 00c8 00D0      		rcall .
  170 00ca CDB7      		in r28,__SP_L__
  171 00cc DEB7      		in r29,__SP_H__
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 4
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 4
 
 
  172               	/* prologue: function */
@@ -238,7 +238,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  226 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
  227               	.LASFDE0:
  228 0014 0000 0000 		.long	.Lframe0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 5
 
 
  229 0018 0000 0000 		.long	.LFB3
@@ -298,7 +298,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  283 0036 696E 7400 		.string	"int"
  284 003a 02        		.uleb128 0x2
  285 003b 02        		.byte	0x2
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 6
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 6
 
 
  286 003c 07        		.byte	0x7
@@ -358,7 +358,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  340 00a1 3A00 0000 		.long	0x3a
  341 00a5 02        		.byte	0x2
  342 00a6 8C        		.byte	0x8c
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 7
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 7
 
 
  343 00a7 01        		.sleb128 1
@@ -418,7 +418,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  397 0100 3300 0000 		.long	0x33
  398 0104 02        		.byte	0x2
  399 0105 8C        		.byte	0x8c
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 8
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 8
 
 
  400 0106 01        		.sleb128 1
@@ -478,7 +478,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  454 0032 3B        		.uleb128 0x3b
  455 0033 0B        		.uleb128 0xb
  456 0034 27        		.uleb128 0x27
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 9
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 9
 
 
  457 0035 0C        		.uleb128 0xc
@@ -538,7 +538,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  511 006b 3B        		.uleb128 0x3b
  512 006c 0B        		.uleb128 0xb
  513 006d 49        		.uleb128 0x49
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 10
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 10
 
 
  514 006e 13        		.uleb128 0x13
@@ -598,7 +598,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  566 0027 736C 6565 		.string	"sleep"
  566      7000 
  567 002d 0000 0000 		.long	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 11
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 11
 
 
  568               		.section	.debug_aranges,"",@progbits
@@ -658,7 +658,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  621 003c 15        		.byte	0x15
  622 003d 00        		.byte	0x0
  623 003e 05        		.uleb128 0x5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 12
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 12
 
 
  624 003f 02        		.byte	0x2
@@ -718,7 +718,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  678 0096 19        		.byte	0x19
  679 0097 00        		.byte	0x0
  680 0098 05        		.uleb128 0x5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 13
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 13
 
 
  681 0099 02        		.byte	0x2
@@ -778,7 +778,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  717      00
  718               	.LASF8:
  719 0043 7564 656C 		.string	"udelay"
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 14
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 14
 
 
  719      6179 00
@@ -819,21 +819,21 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 1
  736               	.LASF14:
  737 00ac 736C 6565 		.string	"sleep"
  737      7000 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s 			page 15
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 delay.c
-C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s:2      *ABS*:0000003f __SREG__
-C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s:3      *ABS*:0000003e __SP_H__
-C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s:4      *ABS*:0000003d __SP_L__
-C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s:5      *ABS*:00000034 __CCP__
-C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s:18     .text:00000000 udelay
-C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s:65     .text:0000004e _delayFourCycles
-C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s:114    .text:0000007e delay
-C:\Users\alex\AppData\Local\Temp/cc4KuKvO.s:163    .text:000000c2 sleep
+C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s:18     .text:00000000 udelay
+C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s:65     .text:0000004e _delayFourCycles
+C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s:114    .text:0000007e delay
+C:\Users\alex\AppData\Local\Temp/ccKhf1xm.s:163    .text:000000c2 sleep
 
 UNDEFINED SYMBOLS
 __mulsi3

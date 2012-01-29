@@ -35,7 +35,7 @@ PROGRAMMER_MCU=m32
 
 # Name of our project
 # (use a single word, e.g. 'myproject')
-PROJECTNAME=adc_dac_uc2
+PROJECTNAME=lib
 
 # Source files
 # List C/C++/Assembly source files:
@@ -44,7 +44,7 @@ PROJECTNAME=adc_dac_uc2
 # (NOT .s !!!) for assembly source code files.
 #PRJSRC=main.c uart.c delay.c leds.c  bitops.c mcp3202.c mcp4922.c \
 #		scpi.c scpi_cmds.c hv_supply.c
-PRJSRC=bitops.c delay.c  lcd.c leds.c mcp3201.c mcp3202.c mcp3204.c mcp4922.c uart.c  xy.c
+PRJSRC=bitops.c delay.c  lcd.c leds.c mcp3201.c mcp3202.c mcp3204.c mcp4922.c uart.c  
 		 
 		
 
@@ -184,7 +184,7 @@ GENASMFILES=$(filter %.s, $(OBJDEPS:.o=.s))
 #lib: uart.a uart.o
 	
 
-all: 74hc595 uart delay mcp3201 mcp3202 mcp3204 mcp4922 xy leds lcd bitops
+all: hc595 uart delay mcp3201 mcp3202 mcp3204 mcp4922 leds lcd bitops
 
 disasm: $(DUMPTRG) stats
 
@@ -193,8 +193,8 @@ stats: $(TRG)
 	$(SIZE) $(TRG) 
 	
 
-74hc595:74hc595.o
-	avr-ar rcs libhc595.a 74hc595.o
+hc595:hc595.o
+	avr-ar rcs libhc595.a hc595.o
 	
 uart: uart.o
 	avr-ar rcs libuart.a uart.o
@@ -213,9 +213,6 @@ mcp3204: mcp3204.o
 
 mcp4922: mcp4922.o
 	avr-ar rcs libmcp4922.a mcp4922.o
-
-xy: xy.o
-	avr-ar rcs libxy.a xy.o
 
 bitops: bitops.o
 	avr-ar rcs libbitops.a bitops.o
@@ -284,11 +281,10 @@ $(GDBINITFILE): $(TRG)
 
 #### Cleanup ####
 clean:
-	$(REMOVE) $(TRG) $(TRG).map $(DUMPTRG)
+#$(REMOVE) $(TRG) $(TRG).map $(DUMPTRG)
 	$(REMOVE) $(OBJDEPS)
 	$(REMOVE) $(LST) $(GDBINITFILE)
 	$(REMOVE) $(GENASMFILES)
-	$(REMOVE) $(HEXTRG)
 	
 
 

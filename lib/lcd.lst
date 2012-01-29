@@ -1,4 +1,4 @@
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 1
 
 
    1               		.file	"lcd.c"
@@ -58,7 +58,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
   55 0042 CF91      		pop r28
   56 0044 DF91      		pop r29
   57 0046 0895      		ret
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 2
 
 
   58               	.LFE3:
@@ -118,7 +118,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  112 00b4 A091 0000 		lds r26,lcd_ddr_db0
  113 00b8 B091 0000 		lds r27,(lcd_ddr_db0)+1
  114 00bc E091 0000 		lds r30,lcd_ddr_db0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 3
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 3
 
 
  115 00c0 F091 0000 		lds r31,(lcd_ddr_db0)+1
@@ -178,7 +178,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  169               	.LM17:
  170 0158 A091 0000 		lds r26,lcd_p_db2
  171 015c B091 0000 		lds r27,(lcd_p_db2)+1
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 4
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 4
 
 
  172 0160 E091 0000 		lds r30,lcd_p_db2
@@ -238,7 +238,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  226 01e4 9070      		andi r25,hi8(32)
  227 01e6 0097      		sbiw r24,0
  228 01e8 01F0      		breq .L8
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 5
 
 
  229 01ea A091 0000 		lds r26,lcd_p_db1
@@ -298,7 +298,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  283 0278 F091 0000 		lds r31,(lcd_p_db2)+1
  284 027c 8081      		ld r24,Z
  285 027e 982F      		mov r25,r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 6
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 6
 
 
  286 0280 8091 0000 		lds r24,lcd_b_db2
@@ -358,7 +358,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  340 0300 9070      		andi r25,hi8(2)
  341 0302 0097      		sbiw r24,0
  342 0304 01F0      		breq .L12
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 7
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 7
 
 
  343 0306 A091 0000 		lds r26,lcd_p_db1
@@ -418,7 +418,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  397 0398 8C93      		st X,r24
  398               	.LM36:
  399 039a A091 0000 		lds r26,lcd_p_db3
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 8
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 8
 
 
  400 039e B091 0000 		lds r27,(lcd_p_db3)+1
@@ -478,7 +478,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  454               	.L17:
  455               	.LM42:
  456 040a A091 0000 		lds r26,lcd_p_rw
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 9
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 9
 
 
  457 040e B091 0000 		lds r27,(lcd_p_rw)+1
@@ -538,7 +538,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  511 04a4 E091 0000 		lds r30,lcd_p_enable
  512 04a8 F091 0000 		lds r31,(lcd_p_enable)+1
  513 04ac 9081      		ld r25,Z
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 10
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 10
 
 
  514 04ae 8091 0000 		lds r24,lcd_b_enable
@@ -598,7 +598,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  568 0518 8823      		tst r24
  569 051a 01F0      		breq .L21
  570 051c 8981      		ldd r24,Y+1
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 11
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 11
 
 
  571 051e 8068      		ori r24,lo8(-128)
@@ -658,7 +658,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  625 0586 8923      		and r24,r25
  626 0588 8823      		tst r24
  627 058a 01F0      		breq .L23
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 12
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 12
 
 
  628 058c 8981      		ldd r24,Y+1
@@ -718,7 +718,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  682 05f0 DF93      		push r29
  683 05f2 CF93      		push r28
  684 05f4 CDB7      		in r28,__SP_L__
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 13
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 13
 
 
  685 05f6 DEB7      		in r29,__SP_H__
@@ -778,7 +778,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  739               	 1:
  740               	 ;  0 "" 2
  741               	/* #NOAPP */
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 14
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 14
 
 
  742 0640 00C0      		rjmp .L33
@@ -838,7 +838,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  796               	.LFE8:
  797               		.size	lcd_backlight_on, .-lcd_backlight_on
  798               	.global	lcd_backlight_off
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 15
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 15
 
 
  799               		.type	lcd_backlight_off, @function
@@ -898,7 +898,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  853               		.size	lcd_command, .-lcd_command
  854               	.global	lcd_data
  855               		.type	lcd_data, @function
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 16
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 16
 
 
  856               	lcd_data:
@@ -958,7 +958,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  910 071c 8981      		ldd r24,Y+1
  911 071e 8054      		subi r24,lo8(-(-64))
  912 0720 0E94 0000 		call lcd_command
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 17
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 17
 
 
  913 0724 00C0      		rjmp .L47
@@ -1018,7 +1018,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  967 0760 CF93      		push r28
  968 0762 CDB7      		in r28,__SP_L__
  969 0764 DEB7      		in r29,__SP_H__
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 18
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 18
 
 
  970               	/* prologue: function */
@@ -1078,7 +1078,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1024 079e 8981      		ldd r24,Y+1
  1025 07a0 0E94 0000 		call lcd_newline
  1026 07a4 00C0      		rjmp .L57
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 19
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 19
 
 
  1027               	.L55:
@@ -1138,7 +1138,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1081 07ec 00F4      		brsh .L62
  1082               	.LM119:
  1083 07ee 84E5      		ldi r24,lo8(84)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 20
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 20
 
 
  1084 07f0 8A83      		std Y+2,r24
@@ -1198,7 +1198,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1138 0838 2981      		ldd r18,Y+1
  1139 083a 3A81      		ldd r19,Y+2
  1140 083c 2F5F      		subi r18,lo8(-(1))
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 21
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 21
 
 
  1141 083e 3F4F      		sbci r19,hi8(-(1))
@@ -1258,7 +1258,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1195               		
  1196               	 ;  0 "" 2
  1197               	/* #NOAPP */
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 22
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 22
 
 
  1198 0888 8983      		std Y+1,r24
@@ -1318,7 +1318,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1252 08da 2F70      		andi r18,lo8(15)
  1253 08dc 3070      		andi r19,hi8(15)
  1254 08de 81E0      		ldi r24,lo8(1)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 23
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 23
 
 
  1255 08e0 90E0      		ldi r25,hi8(1)
@@ -1378,7 +1378,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1309 094c 882F      		mov r24,r24
  1310 094e 90E0      		ldi r25,lo8(0)
  1311 0950 9C01      		movw r18,r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 24
 
 
  1312 0952 2F70      		andi r18,lo8(15)
@@ -1438,7 +1438,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1366 09be 02F4      		brpl 1b
  1367 09c0 8093 0000 		sts lcd_b_db3,r24
  1368               	.LM140:
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 25
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 25
 
 
  1369 09c4 8981      		ldd r24,Y+1
@@ -1498,7 +1498,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1423               	.LM144:
  1424 0a36 8981      		ldd r24,Y+1
  1425 0a38 8033      		cpi r24,lo8(48)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 26
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 26
 
 
  1426 0a3a 01F4      		brne .L77
@@ -1558,7 +1558,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1480 0aaa 8032      		cpi r24,lo8(32)
  1481 0aac 01F4      		brne .L80
  1482 0aae 85E3      		ldi r24,lo8(53)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 27
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 27
 
 
  1483 0ab0 90E0      		ldi r25,hi8(53)
@@ -1618,7 +1618,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1537 0b20 88E3      		ldi r24,lo8(56)
  1538 0b22 90E0      		ldi r25,hi8(56)
  1539 0b24 9093 0000 		sts (lcd_p_enable)+1,r25
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 28
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 28
 
 
  1540 0b28 8093 0000 		sts lcd_p_enable,r24
@@ -1678,7 +1678,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1594 0b96 9093 0000 		sts (lcd_p_backlight)+1,r25
  1595 0b9a 8093 0000 		sts lcd_p_backlight,r24
  1596 0b9e AAE3      		ldi r26,lo8(58)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 29
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 29
 
 
  1597 0ba0 B0E0      		ldi r27,hi8(58)
@@ -1738,7 +1738,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1651 0c12 9081      		ld r25,Z
  1652 0c14 8091 0000 		lds r24,lcd_b_backlight
  1653 0c18 892B      		or r24,r25
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 30
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 30
 
 
  1654 0c1a 8C93      		st X,r24
@@ -1798,7 +1798,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1708 0c98 8C93      		st X,r24
  1709               	.L91:
  1710               	.LM163:
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 31
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 31
 
 
  1711 0c9a 8D81      		ldd r24,Y+5
@@ -1858,7 +1858,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1765 0d18 8E81      		ldd r24,Y+6
  1766 0d1a 8823      		tst r24
  1767 0d1c 01F4      		brne .L94
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 32
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 32
 
 
  1768 0d1e 8BE3      		ldi r24,lo8(59)
@@ -1918,7 +1918,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1822 0da2 83E3      		ldi r24,lo8(51)
  1823 0da4 90E0      		ldi r25,hi8(51)
  1824 0da6 9093 0000 		sts (lcd_pin_db1)+1,r25
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 33
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 33
 
 
  1825 0daa 8093 0000 		sts lcd_pin_db1,r24
@@ -1978,7 +1978,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1879 0e28 8093 0000 		sts lcd_pin_db2,r24
  1880 0e2c 8AE3      		ldi r24,lo8(58)
  1881 0e2e 90E0      		ldi r25,hi8(58)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 34
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 34
 
 
  1882 0e30 9093 0000 		sts (lcd_ddr_db2)+1,r25
@@ -2038,7 +2038,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1936 0eb4 E4E3      		ldi r30,lo8(52)
  1937 0eb6 F0E0      		ldi r31,hi8(52)
  1938 0eb8 9081      		ld r25,Z
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 35
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 35
 
 
  1939 0eba 8091 0000 		lds r24,lcd_b_db2
@@ -2098,7 +2098,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  1993 0f38 8091 0000 		lds r24,lcd_b_db3
  1994 0f3c 892B      		or r24,r25
  1995 0f3e 8C93      		st X,r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 36
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 36
 
 
  1996               	.L102:
@@ -2158,7 +2158,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2050 0fbc 01F4      		brne .L106
  2051 0fbe 82E3      		ldi r24,lo8(50)
  2052 0fc0 90E0      		ldi r25,hi8(50)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 37
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 37
 
 
  2053 0fc2 9093 0000 		sts (lcd_p_db3)+1,r25
@@ -2218,7 +2218,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2107 102a 9081      		ld r25,Z
  2108 102c 8091 0000 		lds r24,lcd_b_db0
  2109 1030 892B      		or r24,r25
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 38
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 38
 
 
  2110 1032 8C93      		st X,r24
@@ -2278,7 +2278,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2164 10ac 8FE0      		ldi r24,lo8(15)
  2165 10ae 0E94 0000 		call lcd_command
  2166               	.LM194:
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 39
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 39
 
 
  2167 10b2 88E2      		ldi r24,lo8(40)
@@ -2338,7 +2338,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2221 000d 0C        		.byte	0xc
  2222 000e 20        		.uleb128 0x20
  2223 000f 00        		.uleb128 0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 40
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 40
 
 
  2224               		.p2align	2
@@ -2398,7 +2398,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2278 0078 0000 0000 		.long	.LFB9
  2279 007c 2C00 0000 		.long	.LFE9-.LFB9
  2280               		.p2align	2
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 41
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 41
 
 
  2281               	.LEFDE12:
@@ -2458,7 +2458,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2335 00ec 3200 0000 		.long	.LFE16-.LFB16
  2336               		.p2align	2
  2337               	.LEFDE26:
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 42
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 42
 
 
  2338               	.LSFDE28:
@@ -2518,7 +2518,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2392 0021 0000 0000 		.long	.Ldebug_line0
  2393 0025 02        		.uleb128 0x2
  2394 0026 01        		.byte	0x1
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 43
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 43
 
 
  2395 0027 06        		.byte	0x6
@@ -2578,7 +2578,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2449 008a 0000 0000 		.long	.LASF12
  2450 008e 01        		.byte	0x1
  2451 008f 78        		.byte	0x78
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 44
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 44
 
 
  2452 0090 01        		.byte	0x1
@@ -2638,7 +2638,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2506 00f4 0000 0000 		.long	.LASF11
  2507 00f8 01        		.byte	0x1
  2508 00f9 D9        		.byte	0xd9
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 45
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 45
 
 
  2509 00fa 01        		.byte	0x1
@@ -2698,7 +2698,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2563 0163 0000 0000 		.long	.LFE9
  2564 0167 02        		.byte	0x2
  2565 0168 90        		.byte	0x90
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 46
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 46
 
 
  2566 0169 20        		.uleb128 0x20
@@ -2758,7 +2758,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2620 01d1 F001 0000 		.long	0x1f0
  2621 01d5 0F        		.uleb128 0xf
  2622 01d6 7800      		.string	"x"
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 47
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 47
 
 
  2623 01d8 01        		.byte	0x1
@@ -2818,7 +2818,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2677 023c 01        		.byte	0x1
  2678 023d 0000 0000 		.long	.LFB16
  2679 0241 0000 0000 		.long	.LFE16
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 48
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 48
 
 
  2680 0245 02        		.byte	0x2
@@ -2878,7 +2878,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2734 02a5 01        		.byte	0x1
  2735 02a6 0000 0000 		.long	.LASF26
  2736 02aa 01        		.byte	0x1
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 49
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 49
 
 
  2737 02ab B501      		.word	0x1b5
@@ -2938,7 +2938,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2791 0311 6902 0000 		.long	0x269
  2792 0315 02        		.byte	0x2
  2793 0316 8C        		.byte	0x8c
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 50
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 50
 
 
  2794 0317 06        		.sleb128 6
@@ -2998,7 +2998,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2848 037e 2C00 0000 		.long	0x2c
  2849 0382 02        		.byte	0x2
  2850 0383 8C        		.byte	0x8c
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 51
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 51
 
 
  2851 0384 03        		.sleb128 3
@@ -3058,7 +3058,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2905 03ea 10        		.uleb128 0x10
  2906 03eb 0000 0000 		.long	.LASF35
  2907 03ef 01        		.byte	0x1
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 52
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 52
 
 
  2908 03f0 1C02      		.word	0x21c
@@ -3118,7 +3118,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  2962 045a 03        		.byte	0x3
  2963 045b 0000 0000 		.long	lcd_p_db0
  2964 045f 17        		.uleb128 0x17
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 53
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 53
 
 
  2965 0460 0000 0000 		.long	.LASF41
@@ -3178,7 +3178,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3019 04cc 0000 0000 		.long	.LASF47
  3020 04d0 01        		.byte	0x1
  3021 04d1 2C        		.byte	0x2c
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 54
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 54
 
 
  3022 04d2 0C04 0000 		.long	0x40c
@@ -3238,7 +3238,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3076 053e 2C00 0000 		.long	0x2c
  3077 0542 01        		.byte	0x1
  3078 0543 05        		.byte	0x5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 55
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 55
 
 
  3079 0544 03        		.byte	0x3
@@ -3298,7 +3298,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3133 05b0 03        		.byte	0x3
  3134 05b1 0000 0000 		.long	lcd_b_db3
  3135 05b5 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 56
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 56
 
 
  3136               		.section	.debug_abbrev
@@ -3358,7 +3358,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3190 0035 00        		.byte	0x0
  3191 0036 05        		.uleb128 0x5
  3192 0037 24        		.uleb128 0x24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 57
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 57
 
 
  3193 0038 00        		.byte	0x0
@@ -3418,7 +3418,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3247 006e 3B        		.uleb128 0x3b
  3248 006f 0B        		.uleb128 0xb
  3249 0070 49        		.uleb128 0x49
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 58
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 58
 
 
  3250 0071 13        		.uleb128 0x13
@@ -3478,7 +3478,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3304 00a7 02        		.uleb128 0x2
  3305 00a8 0A        		.uleb128 0xa
  3306 00a9 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 59
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 59
 
 
  3307 00aa 00        		.byte	0x0
@@ -3538,7 +3538,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3361 00e0 40        		.uleb128 0x40
  3362 00e1 0A        		.uleb128 0xa
  3363 00e2 01        		.uleb128 0x1
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 60
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 60
 
 
  3364 00e3 13        		.uleb128 0x13
@@ -3598,7 +3598,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3418 0119 00        		.byte	0x0
  3419 011a 00        		.byte	0x0
  3420 011b 12        		.uleb128 0x12
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 61
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 61
 
 
  3421 011c 34        		.uleb128 0x34
@@ -3658,7 +3658,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3475 0152 17        		.uleb128 0x17
  3476 0153 34        		.uleb128 0x34
  3477 0154 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 62
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 62
 
 
  3478 0155 03        		.uleb128 0x3
@@ -3718,7 +3718,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3516      7900 
  3517 0073 0902 0000 		.long	0x209
  3518 0077 6C63 645F 		.string	"lcd_clrscr"
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 63
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 63
 
 
  3518      636C 7273 
@@ -3778,7 +3778,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3544      705F 6462 
  3544      3200 
  3545 013c 8304 0000 		.long	0x483
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 64
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 64
 
 
  3546 0140 6C63 645F 		.string	"lcd_p_db3"
@@ -3838,7 +3838,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3572 020d 6C63 645F 		.string	"lcd_b_db0"
  3572      625F 6462 
  3572      3000 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 65
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 65
 
 
  3573 0217 7F05 0000 		.long	0x57f
@@ -3898,7 +3898,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3616 004c 00        		.uleb128 0x0
  3617 004d 00        		.uleb128 0x0
  3618 004e 00        		.uleb128 0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 66
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 66
 
 
  3619 004f 7374 6469 		.string	"stdint.h"
@@ -3958,7 +3958,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3671 00a5 05        		.uleb128 0x5
  3672 00a6 02        		.byte	0x2
  3673 00a7 0000 0000 		.long	.LM10
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 67
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 67
 
 
  3674 00ab 16        		.byte	0x16
@@ -4018,7 +4018,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3728 00ff 0000 0000 		.long	.LM21
  3729 0103 15        		.byte	0x15
  3730 0104 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 68
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 68
 
 
  3731 0105 05        		.uleb128 0x5
@@ -4078,7 +4078,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3785 015c 00        		.byte	0x0
  3786 015d 05        		.uleb128 0x5
  3787 015e 02        		.byte	0x2
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 69
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 69
 
 
  3788 015f 0000 0000 		.long	.LM33
@@ -4138,7 +4138,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3842 01b6 02        		.byte	0x2
  3843 01b7 0000 0000 		.long	.LM44
  3844 01bb 15        		.byte	0x15
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 70
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 70
 
 
  3845 01bc 00        		.byte	0x0
@@ -4198,7 +4198,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3899 0213 15        		.byte	0x15
  3900 0214 00        		.byte	0x0
  3901 0215 05        		.uleb128 0x5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 71
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 71
 
 
  3902 0216 02        		.byte	0x2
@@ -4258,7 +4258,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  3956 026d 05        		.uleb128 0x5
  3957 026e 02        		.byte	0x2
  3958 026f 0000 0000 		.long	.LM67
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 72
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 72
 
 
  3959 0273 17        		.byte	0x17
@@ -4318,7 +4318,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4013 02c8 05        		.uleb128 0x5
  4014 02c9 02        		.byte	0x2
  4015 02ca 0000 0000 		.long	.LM78
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 73
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 73
 
 
  4016 02ce 18        		.byte	0x18
@@ -4378,7 +4378,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4070 0322 0000 0000 		.long	.LM89
  4071 0326 1F        		.byte	0x1f
  4072 0327 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 74
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 74
 
 
  4073 0328 05        		.uleb128 0x5
@@ -4438,7 +4438,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4127 037f 00        		.byte	0x0
  4128 0380 05        		.uleb128 0x5
  4129 0381 02        		.byte	0x2
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 75
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 75
 
 
  4130 0382 0000 0000 		.long	.LM101
@@ -4498,7 +4498,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4184 03d9 02        		.byte	0x2
  4185 03da 0000 0000 		.long	.LM112
  4186 03de 17        		.byte	0x17
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 76
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 76
 
 
  4187 03df 00        		.byte	0x0
@@ -4558,7 +4558,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4241 0434 02        		.byte	0x2
  4242 0435 0000 0000 		.long	.LM123
  4243 0439 B9        		.byte	0xb9
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 77
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 77
 
 
  4244 043a 00        		.byte	0x0
@@ -4618,7 +4618,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4298 0491 15        		.byte	0x15
  4299 0492 00        		.byte	0x0
  4300 0493 05        		.uleb128 0x5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 78
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 78
 
 
  4301 0494 02        		.byte	0x2
@@ -4678,7 +4678,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4355 04eb 05        		.uleb128 0x5
  4356 04ec 02        		.byte	0x2
  4357 04ed 0000 0000 		.long	.LM146
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 79
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 79
 
 
  4358 04f1 15        		.byte	0x15
@@ -4738,7 +4738,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4412 0545 0000 0000 		.long	.LM157
  4413 0549 15        		.byte	0x15
  4414 054a 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 80
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 80
 
 
  4415 054b 05        		.uleb128 0x5
@@ -4798,7 +4798,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4469 05a2 00        		.byte	0x0
  4470 05a3 05        		.uleb128 0x5
  4471 05a4 02        		.byte	0x2
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 81
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 81
 
 
  4472 05a5 0000 0000 		.long	.LM169
@@ -4858,7 +4858,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4526 05fc 02        		.byte	0x2
  4527 05fd 0000 0000 		.long	.LM180
  4528 0601 15        		.byte	0x15
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 82
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 82
 
 
  4529 0602 00        		.byte	0x0
@@ -4918,7 +4918,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4583 0659 16        		.byte	0x16
  4584 065a 00        		.byte	0x0
  4585 065b 05        		.uleb128 0x5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 83
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 83
 
 
  4586 065c 02        		.byte	0x2
@@ -4978,7 +4978,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4634      332E 3300 
  4635               	.LASF24:
  4636 000c 6C63 645F 		.string	"lcd_newline"
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 84
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 84
 
 
  4636      6E65 776C 
@@ -5038,7 +5038,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4664      625F 6261 
  4664      636B 6C69 
  4664      6768 7400 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 85
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 85
 
 
  4665               	.LASF10:
@@ -5098,7 +5098,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4691               	.LASF53:
  4692 0135 6C63 645F 		.string	"lcd_b_rw"
  4692      625F 7277 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 86
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 86
 
 
  4692      00
@@ -5158,7 +5158,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4716 01ce 6C63 645F 		.string	"lcd_ddr_db0"
  4716      6464 725F 
  4716      6462 3000 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 87
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 87
 
 
  4717               	.LASF49:
@@ -5218,7 +5218,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4743               	.LASF33:
  4744 0265 6261 636B 		.string	"backlight"
  4744      6C69 6768 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 88
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 88
 
 
  4744      7400 
@@ -5262,21 +5262,21 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 1
  4762      7075 7463 
  4762      00
  4763               	.global __do_clear_bss
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIonMZR.s 			page 89
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccGD6z63.s 			page 89
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lcd.c
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:2      *ABS*:0000003f __SREG__
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:3      *ABS*:0000003e __SP_H__
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:4      *ABS*:0000003d __SP_L__
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:5      *ABS*:00000034 __CCP__
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:17     .text:00000000 lcd_e_toggle
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:17     .text:00000000 lcd_e_toggle
                             *COM*:00000002 lcd_p_enable
                             *COM*:00000001 lcd_b_enable
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:61     .text:00000048 lcd_write
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:61     .text:00000048 lcd_write
                             *COM*:00000002 lcd_p_rs
                             *COM*:00000001 lcd_b_rs
                             *COM*:00000002 lcd_p_rw
@@ -5293,29 +5293,29 @@ C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:61     .text:00000048 lcd_write
                             *COM*:00000002 lcd_p_db1
                             *COM*:00000002 lcd_p_db2
                             *COM*:00000002 lcd_p_db3
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:417    .text:000003be lcd_read
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:417    .text:000003be lcd_read
                             *COM*:00000002 lcd_pin_db0
                             *COM*:00000002 lcd_pin_db1
                             *COM*:00000002 lcd_pin_db2
                             *COM*:00000002 lcd_pin_db3
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:679    .text:000005f0 lcd_waitbusy
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:711    .text:0000061a _delayFourCycles
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:773    .text:00000664 lcd_backlight_on
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:679    .text:000005f0 lcd_waitbusy
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:711    .text:0000061a _delayFourCycles
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:773    .text:00000664 lcd_backlight_on
                             *COM*:00000002 lcd_p_backlight
                             *COM*:00000001 lcd_b_backlight
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:800    .text:0000068c lcd_backlight_off
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:829    .text:000006b8 lcd_command
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:856    .text:000006d8 lcd_data
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:883    .text:000006f8 lcd_gotoxy
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:941    .text:00000748 lcd_getxy
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:963    .text:0000075e lcd_clrscr
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:984    .text:00000772 lcd_home
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:1005   .text:00000786 lcd_putc
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:1043   .text:000007b8 lcd_newline
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:1105   .text:00000808 lcd_puts
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:1159   .text:00000856 lcd_puts_p
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:1220   .text:000008a6 lcd_setup
-C:\Users\alex\AppData\Local\Temp/ccIonMZR.s:2091   .text:0000100e lcd_init
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:800    .text:0000068c lcd_backlight_off
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:829    .text:000006b8 lcd_command
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:856    .text:000006d8 lcd_data
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:883    .text:000006f8 lcd_gotoxy
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:941    .text:00000748 lcd_getxy
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:963    .text:0000075e lcd_clrscr
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:984    .text:00000772 lcd_home
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:1005   .text:00000786 lcd_putc
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:1043   .text:000007b8 lcd_newline
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:1105   .text:00000808 lcd_puts
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:1159   .text:00000856 lcd_puts_p
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:1220   .text:000008a6 lcd_setup
+C:\Users\alex\AppData\Local\Temp/ccGD6z63.s:2091   .text:0000100e lcd_init
 
 UNDEFINED SYMBOLS
 __do_clear_bss

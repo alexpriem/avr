@@ -1,4 +1,4 @@
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 1
 
 
    1               		.file	"bitops.c"
@@ -58,7 +58,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
   55 003c 9D81      		ldd r25,Y+5
   56 003e 8130      		cpi r24,1
   57 0040 9105      		cpc r25,__zero_reg__
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 2
 
 
   58 0042 01F0      		breq .L4
@@ -118,7 +118,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  112               	.LM7:
  113 009e E0E3      		ldi r30,lo8(48)
  114 00a0 F0E0      		ldi r31,hi8(48)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 3
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 3
 
 
  115 00a2 9081      		ld r25,Z
@@ -178,7 +178,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  169 00ee 8295      		swap r24
  170 00f0 8F70      		andi r24,lo8(15)
  171 00f2 282F      		mov r18,r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 4
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 4
 
 
  172 00f4 30E0      		ldi r19,lo8(0)
@@ -238,7 +238,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  226 0152 A5E3      		ldi r26,lo8(53)
  227 0154 B0E0      		ldi r27,hi8(53)
  228 0156 E5E3      		ldi r30,lo8(53)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 5
 
 
  229 0158 F0E0      		ldi r31,hi8(53)
@@ -298,7 +298,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  283 01a4 880F      	1:	lsl r24
  284 01a6 991F      		rol r25
  285 01a8 2A95      	2:	dec r18
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 6
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 6
 
 
  286 01aa 02F4      		brpl 1b
@@ -358,7 +358,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  340 020a E8E3      		ldi r30,lo8(56)
  341 020c F0E0      		ldi r31,hi8(56)
  342 020e 8081      		ld r24,Z
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 7
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 7
 
 
  343 0210 982F      		mov r25,r24
@@ -418,7 +418,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  397 000c 24        		.byte	0x24
  398 000d 0C        		.byte	0xc
  399 000e 20        		.uleb128 0x20
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 8
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 8
 
 
  400 000f 00        		.uleb128 0x0
@@ -478,7 +478,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  454 003a 0000 0000 		.long	.LASF1
  455 003e 04        		.uleb128 0x4
  456 003f 02        		.byte	0x2
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 9
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 9
 
 
  457 0040 05        		.byte	0x5
@@ -538,7 +538,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  511 00a3 0000 0000 		.long	.LASF8
  512 00a7 01        		.byte	0x1
  513 00a8 22        		.byte	0x22
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 10
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 10
 
 
  514 00a9 01        		.byte	0x1
@@ -598,7 +598,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  568 010f 00        		.byte	0x0
  569               		.section	.debug_abbrev
  570 0000 01        		.uleb128 0x1
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 11
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 11
 
 
  571 0001 11        		.uleb128 0x11
@@ -658,7 +658,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  625 0037 2E        		.uleb128 0x2e
  626 0038 01        		.byte	0x1
  627 0039 3F        		.uleb128 0x3f
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 12
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 12
 
 
  628 003a 0C        		.uleb128 0xc
@@ -718,7 +718,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  682 0070 3F        		.uleb128 0x3f
  683 0071 0C        		.uleb128 0xc
  684 0072 03        		.uleb128 0x3
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 13
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 13
 
 
  685 0073 0E        		.uleb128 0xe
@@ -778,7 +778,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  733 000a 01        		.byte	0x1
  734 000b 01        		.byte	0x1
  735 000c F6        		.byte	0xf6
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 14
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 14
 
 
  736 000d F5        		.byte	0xf5
@@ -792,7 +792,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  744 0015 00        		.byte	0x0
  745 0016 00        		.byte	0x0
  746 0017 01        		.byte	0x1
- 747 0018 643A 2F77 		.ascii	"d:/winavr-20100110/lib/gcc/../../avr/include"
+ 747 0018 633A 2F77 		.ascii	"c:/winavr-20100110/lib/gcc/../../avr/include"
  747      696E 6176 
  747      722D 3230 
  747      3130 3031 
@@ -838,7 +838,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  782 0081 02        		.byte	0x2
  783 0082 0000 0000 		.long	.LM5
  784 0086 15        		.byte	0x15
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 15
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 15
 
 
  785 0087 00        		.byte	0x0
@@ -898,7 +898,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  839 00de 15        		.byte	0x15
  840 00df 00        		.byte	0x0
  841 00e0 05        		.uleb128 0x5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 16
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 16
 
 
  842 00e1 02        		.byte	0x2
@@ -958,7 +958,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  896 0138 05        		.uleb128 0x5
  897 0139 02        		.byte	0x2
  898 013a 0000 0000 		.long	.Letext0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 17
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 17
 
 
  899 013e 00        		.byte	0x0
@@ -1018,7 +1018,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  923      7400 
  924               	.LASF9:
  925 0081 706F 7274 		.string	"portbit"
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 18
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 18
 
 
  925      6269 7400 
@@ -1038,19 +1038,19 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 1
  933 00a6 7369 676E 		.string	"signed char"
  933      6564 2063 
  933      6861 7200 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s 			page 19
+GAS LISTING C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 bitops.c
-C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s:2      *ABS*:0000003f __SREG__
-C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s:3      *ABS*:0000003e __SP_H__
-C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s:4      *ABS*:0000003d __SP_L__
-C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s:5      *ABS*:00000034 __CCP__
-C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s:18     .text:00000000 pbit_get
-C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s:140    .text:000000c2 pbit_set
-C:\Users\alex\AppData\Local\Temp/ccu4kqwR.s:261    .text:00000184 pbit_clr
+C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s:18     .text:00000000 pbit_get
+C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s:140    .text:000000c2 pbit_set
+C:\Users\alex\AppData\Local\Temp/cc8Xv1P7.s:261    .text:00000184 pbit_clr
 
 NO UNDEFINED SYMBOLS
