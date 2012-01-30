@@ -145,7 +145,7 @@
 
 
 
-extern void lcd_backlight(uint8_t cmd);
+extern void lcd_backlight(uint8_t chip, uint8_t cmd);
 
 /**
  @brief    Initialize display and select type of cursor
@@ -155,7 +155,7 @@ extern void lcd_backlight(uint8_t cmd);
                     \b LCD_DISP_ON_CURSOR_BLINK display on, cursor on flashing             
  @return  none
 */
-extern void lcd_init(uint8_t dispAttr);
+extern void lcd_init(uint8_t chip, uint8_t dispAttr);
 
 
 /**
@@ -163,7 +163,7 @@ extern void lcd_init(uint8_t dispAttr);
  @param    void                                        
  @return   none
 */
-extern void lcd_clrscr(void);
+extern void lcd_clrscr(uint8_t chip);
 
 
 /**
@@ -171,7 +171,7 @@ extern void lcd_clrscr(void);
  @param    void                                        
  @return   none
 */
-extern void lcd_home(void);
+extern void lcd_home(uint8_t chip);
 
 
 /**
@@ -181,7 +181,7 @@ extern void lcd_home(void);
  @param    y vertical position\n   (0: first line)
  @return   none
 */
-extern void lcd_gotoxy(uint8_t x, uint8_t y);
+extern void lcd_gotoxy(uint8_t chip, uint8_t x, uint8_t y);
 
 
 /**
@@ -189,7 +189,7 @@ extern void lcd_gotoxy(uint8_t x, uint8_t y);
  @param    c character to be displayed                                       
  @return   none
 */
-extern void lcd_putc(char c);
+extern void lcd_putc(uint8_t chip, char c);
 
 
 /**
@@ -197,7 +197,7 @@ extern void lcd_putc(char c);
  @param    s string to be displayed                                        
  @return   none
 */
-extern void lcd_puts(const char *s);
+extern void lcd_puts(uint8_t chip, const char *s);
 
 
 /**
@@ -206,7 +206,7 @@ extern void lcd_puts(const char *s);
  @return   none
  @see      lcd_puts_P
 */
-extern void lcd_puts_p(const char *progmem_s);
+extern void lcd_puts_p(uint8_t chip, const char *progmem_s);
 
 
 /**
@@ -214,7 +214,7 @@ extern void lcd_puts_p(const char *progmem_s);
  @param    cmd instruction to send to LCD controller, see HD44780 data sheet
  @return   none
 */
-extern void lcd_command(uint8_t cmd);
+extern void lcd_command(uint8_t chip, uint8_t cmd);
 
 
 /**
@@ -224,7 +224,7 @@ extern void lcd_command(uint8_t cmd);
  @param    data byte to send to LCD controller, see HD44780 data sheet
  @return   none
 */
-extern void lcd_data(uint8_t data);
+extern void lcd_data(uint8_t chip, uint8_t data);
 
 
 /**
@@ -233,7 +233,7 @@ extern void lcd_data(uint8_t data);
 #define lcd_puts_P(__s)         lcd_puts_p(PSTR(__s))
 
 
-extern void lcd_setup (uint8_t rs, uint8_t rw, uint8_t enable, uint8_t backlight,
+extern void lcd_setup (uint8_t chip, uint8_t rs, uint8_t rw, uint8_t enable, 
 				uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 );
 				
 /*@}*/
