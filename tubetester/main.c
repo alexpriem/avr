@@ -41,16 +41,16 @@ int main(void)
 //  int a,b,c,d;
     uart_init ();
 	
-	//init_74hc595(uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
+	//s595_setup(uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
     DDRC  = 0xff;  // C output            
     DDRA  = 0xff;  // A output              
     DDRB  = 0xff;   // B output
 
 	uart_printf ("rev:%d\n", rev);
 	
-	init_74hc595(0, P_PC0, P_PC1, P_PA1);
-	init_74hc595(1, P_PC0, P_PC1, P_PA0);
-	init_74hc595(2, P_PC0, P_PC1, P_PB0);	
+	s595_setup(0, P_PC0, P_PC1, P_PA1);
+	s595_setup(1, P_PC0, P_PC1, P_PA0);
+	s595_setup(2, P_PC0, P_PC1, P_PB0);	
 	
     //PORTA = 0xff;                   // pullups.
     //PORTB = 0xff;
