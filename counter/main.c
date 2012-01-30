@@ -1,7 +1,7 @@
 /******************************************************************************
  Title:    ruff counter
  Author:   Alex Priem
- Date:     October 2010
+ Date:     February 2012
  Software: AVR-GCC 3.3 
  Hardware: ATMega32
            
@@ -167,9 +167,10 @@ int main(void)
 	init_cat4016 (2, P_PD7, P_PD1,  P_PD5, PD3);
 	init_cat4016 (3, P_PD6, P_PD0,  P_PD4, PD2);	
 	
-	
+     //										sh_cp    st_cp       ds
 	//hc595_setup(uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
-	hc595_setup(0, P_PE7, P_PE6, P_PE5);
+	
+	hc595_setup(0, P_PC0, P_PC2, P_PC4);
 	
 	
 	keypad_4x4_setup (P_PA0, P_PA1, P_PA2, P_PA3,
