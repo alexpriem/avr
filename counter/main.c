@@ -147,19 +147,24 @@ int main(void)
 	DDRC  = 0xff;  // C output   LEDS 1+2	
 	DDRD  = 0xff;  // DE output   LEDS 3+4 
 	
-	//void lcd_setup (uint8_t rs, uint8_t rw, uint8_t enable, uint8_t backlight,
+	//void lcd_setup (uint8_t chip, uint8_t rs, uint8_t rw, uint8_t enable, 
 	//			uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 ) 
-	lcd_setup (P_PB5, P_PB6, P_PB7, P_PB4, 
-			  P_PB3, P_PB2, P_PB1, P_PB0);	
+	//lcd_setup (0, P_PB5, P_PB6, P_PB7, 
+	//		  P_PB3, P_PB2, P_PB1, P_PB0);	
 	
-	lcd_setup (P_PB5, P_PB6, P_PB7, P_PB4, 
-			  P_PB0, P_PB1, P_PB2, P_PB3);	
+	//lcd_setup (1, P_PB5, P_PB6, P_PB7, 
+	//		  P_PB0, P_PB1, P_PB2, P_PB3);	
 	
 	
-	lcd_init (LCD_DISP_ON_CURSOR_BLINK);
-	lcd_gotoxy (0,0);	
-	lcd_puts ("nog een testtekst");
+	lcd_setup (0, P_PC2, P_PC4, P_PC6, 
+			  P_PC1, P_PC3, P_PC5, P_PC7);			
 	
+	uart_puts("\r\nsetup done\r\n");	
+	lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
+	uart_puts("\r\nlcd init done\r\n");	
+	lcd_gotoxy (0, 0,0);	
+	lcd_puts (0, "nog een testtekst");
+	uart_puts("\r\ndone\r\n");	
 	
 	
   // init_cat4016(uint8_t chip, uint8_t clk, uint8_t latch, uint8_t data, uint8_t blank)
@@ -167,7 +172,8 @@ int main(void)
 	init_cat4016 (2, P_PD7, P_PD1,  P_PD5, PD3);
 	init_cat4016 (3, P_PD6, P_PD0,  P_PD4, PD2);	
 	
-     //										sh_cp    st_cp       ds
+    uart_puts("\r\ndone cat4016\r\n");	
+	//										sh_cp    st_cp       ds
 	//hc595_setup(uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
 	
 	hc595_setup(0, P_PC0, P_PC2, P_PC4);
@@ -176,7 +182,7 @@ int main(void)
 	keypad_4x4_setup (P_PA0, P_PA1, P_PA2, P_PA3,
 	                 P_PA4, P_PA5, P_PA6, P_PA7);					 
 	
-	
+	uart_puts("\r\nall done\r\n");	
 	
 	j=0;
 	//PORTA=0x00;

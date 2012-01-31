@@ -23,6 +23,7 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include "lcd.h"
+#include "uart.h" 
 
 #include "bitops.h"
 
@@ -266,7 +267,14 @@ static uint8_t lcd_waitbusy(uint8_t chip)
 {
     register uint8_t c;
     
+	uart_printf ("waitbusy\r\n" ,c);
     /* wait until busy flag is cleared */
+	c=lcd_read(chip, 0);
+	uart_printf ("%b\r\n" ,c);
+	c=lcd_read(chip, 0);
+	uart_printf ("%b\r\n" ,c);
+	c=lcd_read(chip, 0);
+	uart_printf ("%b\r\n" ,c);
     while ( (c=lcd_read(chip, 0)) & (1<<LCD_BUSY)) {}
     
     /* the address counter is updated 4us after the busy flag is cleared */
@@ -550,7 +558,6 @@ void lcd_setup (uint8_t chip,
  if (enable==P_PORTD) {lcd_p_enable[chip]=&PORTD; DDRD|=b_enable;}
 
  db0=db0 & P_PORTMASK;
- 
  if (db0==P_PORTA) {lcd_p_db0[chip]=&PORTA; lcd_pin_db0[chip]=&PINA; lcd_ddr_db0[chip]=&DDRA; DDRA|=b_db0; }
  if (db0==P_PORTB) {lcd_p_db0[chip]=&PORTB; lcd_pin_db0[chip]=&PINB; lcd_ddr_db0[chip]=&DDRB; DDRB|=b_db0;}
  if (db0==P_PORTC) {lcd_p_db0[chip]=&PORTC; lcd_pin_db0[chip]=&PINC; lcd_ddr_db0[chip]=&DDRC; DDRC|=b_db0;}
@@ -593,7 +600,7 @@ void lcd_init (uint8_t chip, uint8_t dispAttr)
     b_db2=lcd_b_db2[chip];
     b_db3=lcd_b_db3[chip];
 
-  
+    uart_puts("ok");
     delay(50000);   // 40 ms wait
 	bit_set (*p_db0, b_db0);
 	bit_set (*p_db1, b_db1);
@@ -601,7 +608,7 @@ void lcd_init (uint8_t chip, uint8_t dispAttr)
 	bit_clr (*p_db3, b_db3);
     lcd_e_toggle(chip);
     delay(5000);         /* 5 msdelay, busy flag can't be checked here */
-   
+    uart_puts("ok2");
     /* repeat last command */ 
     lcd_e_toggle(chip);      
     delay(150);           /* delay, busy flag can't be checked here */
@@ -616,8 +623,9 @@ void lcd_init (uint8_t chip, uint8_t dispAttr)
 	lcd_e_toggle(chip);
     delay(150);           /* some displays need this additional delay */
 
+	uart_puts("ok3");
 	lcd_command (chip, LCD_DISP_ON_CURSOR_BLINK);	
-	
+	uart_puts("ok4");
     lcd_command (chip, LCD_FUNCTION_DEFAULT);      /* function set: display lines  */    
 	lcd_command (chip, 1<<LCD_CLR);				/* display clear                */ 
     lcd_command (chip, LCD_MODE_DEFAULT);          /* set entry mode               */
