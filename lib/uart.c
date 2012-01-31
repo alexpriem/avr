@@ -71,11 +71,12 @@ void uart_printf(char *fmt, ...)
 {
     va_list ap;
     char *p, *sval;
+
     int ival;
 	long int lval;
 	long long int llval;
     unsigned int uval;
-    char buf[32];
+    char buf[40];
 
 
     va_start(ap, fmt);    /* make ap point to the first unnamed arg */
@@ -85,6 +86,11 @@ void uart_printf(char *fmt, ...)
             continue;
         }
         switch (*++p) {
+		case 'b':
+		    ival = va_arg(ap, int);
+		    itoa(ival & 255, buf,2);    
+            uart_puts(buf);
+            break;
         case 'd':
         case 'i':
             ival = va_arg(ap, int);
