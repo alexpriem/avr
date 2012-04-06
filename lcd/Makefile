@@ -45,7 +45,7 @@ PROJECTNAME=lcd
 # (NOT .s !!!) for assembly source code files.
 #PRJSRC=main.c uart.c delay.c leds.c  bitops.c mcp3202.c mcp4922.c \
 #		scpi.c scpi_cmds.c hv_supply.c
-PRJSRC=main.c lcd.c rot_encoder.c pga2311.c
+PRJSRC=main.c lcd_4.c rot_encoder.c pga2311.c
 
 		 
 		
