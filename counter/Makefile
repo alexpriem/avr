@@ -23,7 +23,7 @@
 # Name of target controller 
 # (e.g. 'at90s8515', see the available avr-gcc mmcu 
 # options for possible values)
-MCU=atmega32
+MCU=atmega128
 
 # id to use with programmer
 # default: PROGRAMMER_MCU=$(MCU)
@@ -31,7 +31,7 @@ MCU=atmega32
 # accept the same MCU name as avr-gcc (for example
 # for ATmega8s, avr-gcc expects 'atmega8' and 
 # avrdude requires 'm8')
-PROGRAMMER_MCU=m32
+PROGRAMMER_MCU=m128
 
 # Name of our project
 # (use a single word, e.g. 'myproject')

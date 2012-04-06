@@ -156,15 +156,15 @@ int main(void)
 	//		  P_PB0, P_PB1, P_PB2, P_PB3);	
 	
 	
-	lcd_setup (0, P_PC2, P_PC4, P_PC6, 
-			  P_PC1, P_PC3, P_PC5, P_PC7);			
+	lcd_setup (P_PC2, P_PC4, P_PC6, 0,
+			  P_PC7, P_PC5, P_PC3, P_PC1);			
 	
-	uart_puts("\r\nsetup done\r\n");	
-	lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
-	uart_puts("\r\nlcd init done\r\n");	
-	lcd_gotoxy (0, 0,0);	
-	lcd_puts (0, "nog een testtekst");
-	uart_puts("\r\ndone\r\n");	
+//	uart_puts("\r\nsetup done\r\n");	
+	lcd_init ( LCD_DISP_ON_CURSOR_BLINK);
+//	uart_puts("\r\nlcd init done\r\n");	
+	lcd_gotoxy ( 0,0);	
+	lcd_puts ( "testtekst");
+//	uart_puts("\r\ndone\r\n");	
 	
 	
   // init_cat4016(uint8_t chip, uint8_t clk, uint8_t latch, uint8_t data, uint8_t blank)
