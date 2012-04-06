@@ -32,13 +32,13 @@ int main(void)
 	uart_puts ("\r\nreset -- init\r\n");
 	//void lcd_setup (uint8_t rs, uint8_t rw, uint8_t enable, uint8_t backlight,
 	//			uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 ) 
-	lcd_setup (P_PA4, P_PA5, P_PA6, P_PA7, 
-			  P_PA0, P_PA1, P_PA2, P_PA3);	
+	lcd_setup (P_PC2, P_PC4, P_PC6, P_PC0, 
+			  P_PC1, P_PC3, P_PC5, P_PC7);	
 	
 
 	//a2311_setup (uint8_t chip, uint8_t zcen, uint8_t cs, uint8_t sdi, uint8_t clk, uint8_t mute)	
-	pga2311_setup (0, P_PA0, P_PA1, P_PA2, P_PA3, P_PA4);
-	pga2311_init (0);
+	//pga2311_setup (0, P_PC0, P_PC1, P_PC2, P_PC3, P_PC4);
+	//pga2311_init (0);
 	lcd_init (LCD_DISP_ON_CURSOR_BLINK);
 	lcd_puts ("txsttekst");
 	lcd_puts ("\nextra regel");
@@ -47,8 +47,8 @@ int main(void)
 	
 	vol_l=128;
 	vol_r=128;
-	encoder_setup (0,P_PC2, P_PC3);
-	encoder_setup (1,P_PC4, P_PC5);
+	encoder_setup (0,P_PD2, P_PD3);
+	encoder_setup (1,P_PD4, P_PD5);
 	
 	for (;;) {
 		d=encoder_poll (0);

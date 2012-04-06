@@ -1,4 +1,4 @@
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 1
 
 
    1               		.file	"pga2311.c"
@@ -58,7 +58,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
   55 003e 8987      		std Y+9,r24
   56               	.LM3:
   57 0040 8A85      		ldd r24,Y+10
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 2
 
 
   58 0042 882F      		mov r24,r24
@@ -118,7 +118,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  112 00a6 8083      		st Z,r24
  113               	.LM8:
  114 00a8 8E85      		ldd r24,Y+14
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 3
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 3
 
 
  115 00aa 882F      		mov r24,r24
@@ -178,7 +178,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  169 010c 01F4      		brne .L2
  170 010e 8A85      		ldd r24,Y+10
  171 0110 882F      		mov r24,r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 4
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 4
 
 
  172 0112 90E0      		ldi r25,lo8(0)
@@ -238,7 +238,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  226 0176 E050      		subi r30,lo8(-(pga2311_p_zcen))
  227 0178 F040      		sbci r31,hi8(-(pga2311_p_zcen))
  228 017a 85E3      		ldi r24,lo8(53)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 5
 
 
  229 017c 90E0      		ldi r25,hi8(53)
@@ -298,7 +298,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  283               	.LM19:
  284 01de 8C85      		ldd r24,Y+12
  285 01e0 8823      		tst r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 6
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 6
 
 
  286 01e2 01F4      		brne .L6
@@ -358,7 +358,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  340 0246 880F      		lsl r24
  341 0248 991F      		rol r25
  342 024a FC01      		movw r30,r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 7
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 7
 
 
  343 024c E050      		subi r30,lo8(-(pga2311_p_cs))
@@ -418,7 +418,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  397 02ae E050      		subi r30,lo8(-(pga2311_p_sdi))
  398 02b0 F040      		sbci r31,hi8(-(pga2311_p_sdi))
  399 02b2 8BE3      		ldi r24,lo8(59)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 8
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 8
 
 
  400 02b4 90E0      		ldi r25,hi8(59)
@@ -478,7 +478,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  454 0318 B0E0      		ldi r27,hi8(52)
  455 031a E4E3      		ldi r30,lo8(52)
  456 031c F0E0      		ldi r31,hi8(52)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 9
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 9
 
 
  457 031e 9081      		ld r25,Z
@@ -538,7 +538,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  511 0380 9081      		ld r25,Z
  512 0382 8E81      		ldd r24,Y+6
  513 0384 892B      		or r24,r25
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 10
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 10
 
 
  514 0386 8C93      		st X,r24
@@ -598,7 +598,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  568 03e6 8033      		cpi r24,lo8(48)
  569 03e8 01F4      		brne .L17
  570 03ea 8A85      		ldd r24,Y+10
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 11
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 11
 
 
  571 03ec 882F      		mov r24,r24
@@ -658,7 +658,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  625 044e 882F      		mov r24,r24
  626 0450 90E0      		ldi r25,lo8(0)
  627 0452 880F      		lsl r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 12
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 12
 
 
  628 0454 991F      		rol r25
@@ -718,7 +718,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  682 04b8 82E3      		ldi r24,lo8(50)
  683 04ba 90E0      		ldi r25,hi8(50)
  684 04bc 9183      		std Z+1,r25
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 13
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 13
 
 
  685 04be 8083      		st Z,r24
@@ -778,7 +778,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  739               	/* frame size = 7 */
  740 0512 8F83      		std Y+7,r24
  741               	.LM41:
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 14
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 14
 
 
  742 0514 8F81      		ldd r24,Y+7
@@ -838,7 +838,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  796 0576 FA81      		ldd r31,Y+2
  797 0578 9081      		ld r25,Z
  798 057a 8D81      		ldd r24,Y+5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 15
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 15
 
 
  799 057c 892B      		or r24,r25
@@ -898,7 +898,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  853 05ce 8983      		std Y+1,r24
  854               	.LM51:
  855 05d0 8D81      		ldd r24,Y+5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 16
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 16
 
 
  856 05d2 8823      		tst r24
@@ -958,7 +958,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  910 0622 6C87      		std Y+12,r22
  911 0624 4D87      		std Y+13,r20
  912               	.LM55:
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 17
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 17
 
 
  913 0626 8B85      		ldd r24,Y+11
@@ -1018,7 +1018,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  967 068a 8081      		ld r24,Z
  968 068c 8987      		std Y+9,r24
  969               	.LM60:
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 18
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 18
 
 
  970 068e 8B85      		ldd r24,Y+11
@@ -1078,7 +1078,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1024 06ec 892B      		or r24,r25
  1025 06ee ED81      		ldd r30,Y+5
  1026 06f0 FE81      		ldd r31,Y+6
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 19
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 19
 
 
  1027 06f2 8083      		st Z,r24
@@ -1138,7 +1138,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1081               		.comm pga2311_b_clk,10,1
  1082               		.comm pga2311_b_mute,10,1
  1083               		.section	.debug_frame,"",@progbits
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 20
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 20
 
 
  1084               	.Lframe0:
@@ -1198,7 +1198,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1138 000c 0000 0000 		.long	.LASF36
  1139 0010 01        		.byte	0x1
  1140 0011 0000 0000 		.long	.LASF37
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 21
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 21
 
 
  1141 0015 0000 0000 		.long	.LASF38
@@ -1258,7 +1258,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1195 007e 01        		.byte	0x1
  1196 007f 0000 0000 		.long	.LFB2
  1197 0083 0000 0000 		.long	.LFE2
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 22
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 22
 
 
  1198 0087 02        		.byte	0x2
@@ -1318,7 +1318,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1252 00e6 01        		.byte	0x1
  1253 00e7 1D        		.byte	0x1d
  1254 00e8 3700 0000 		.long	0x37
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 23
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 23
 
 
  1255 00ec 02        		.byte	0x2
@@ -1378,7 +1378,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1309 0146 4A01 0000 		.long	0x14a
  1310 014a 0C        		.uleb128 0xc
  1311 014b 3700 0000 		.long	0x37
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 24
 
 
  1312 014f 06        		.uleb128 0x6
@@ -1438,7 +1438,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1366 01af 01        		.byte	0x1
  1367 01b0 0000 0000 		.long	.LASF20
  1368 01b4 01        		.byte	0x1
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 25
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 25
 
 
  1369 01b5 5E        		.byte	0x5e
@@ -1498,7 +1498,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1423 0218 0000 0000 		.long	.LASF9
  1424 021c 01        		.byte	0x1
  1425 021d 6A        		.byte	0x6a
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 26
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 26
 
 
  1426 021e 3700 0000 		.long	0x37
@@ -1558,7 +1558,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1480 027c 01        		.byte	0x1
  1481 027d 6E        		.byte	0x6e
  1482 027e 4401 0000 		.long	0x144
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 27
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 27
 
 
  1483 0282 02        		.byte	0x2
@@ -1618,7 +1618,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1537 02e5 05        		.byte	0x5
  1538 02e6 03        		.byte	0x3
  1539 02e7 0000 0000 		.long	pga2311_p_sdi
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 28
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 28
 
 
  1540 02eb 0F        		.uleb128 0xf
@@ -1678,7 +1678,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1594 035a 01        		.byte	0x1
  1595 035b 14        		.byte	0x14
  1596 035c 0F03 0000 		.long	0x30f
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 29
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 29
 
 
  1597 0360 01        		.byte	0x1
@@ -1738,7 +1738,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1651 0027 03        		.uleb128 0x3
  1652 0028 0E        		.uleb128 0xe
  1653 0029 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 30
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 30
 
 
  1654 002a 00        		.byte	0x0
@@ -1798,7 +1798,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1708 0060 13        		.uleb128 0x13
  1709 0061 02        		.uleb128 0x2
  1710 0062 0A        		.uleb128 0xa
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 31
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 31
 
 
  1711 0063 00        		.byte	0x0
@@ -1858,7 +1858,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1765 0099 00        		.byte	0x0
  1766 009a 00        		.byte	0x0
  1767 009b 0C        		.uleb128 0xc
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 32
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 32
 
 
  1768 009c 35        		.uleb128 0x35
@@ -1918,7 +1918,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1818      3331 315F 
  1818      696E 6974 
  1818      00
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 33
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 33
 
 
  1819 0031 AE01 0000 		.long	0x1ae
@@ -1978,7 +1978,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1840      625F 636C 
  1840      6B00 
  1841 00fa 6703 0000 		.long	0x367
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 34
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 34
 
 
  1842 00fe 7067 6132 		.string	"pga2311_b_mute"
@@ -2038,7 +2038,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1885 005d 00        		.uleb128 0x0
  1886 005e 00        		.uleb128 0x0
  1887 005f 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 35
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 35
 
 
  1888               	.LELTP0:
@@ -2098,7 +2098,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1942 00b3 0000 0000 		.long	.LM11
  1943 00b7 15        		.byte	0x15
  1944 00b8 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 36
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 36
 
 
  1945 00b9 05        		.uleb128 0x5
@@ -2158,7 +2158,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  1999 0110 00        		.byte	0x0
  2000 0111 05        		.uleb128 0x5
  2001 0112 02        		.byte	0x2
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 37
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 37
 
 
  2002 0113 0000 0000 		.long	.LM23
@@ -2218,7 +2218,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  2056 016a 02        		.byte	0x2
  2057 016b 0000 0000 		.long	.LM34
  2058 016f 15        		.byte	0x15
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 38
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 38
 
 
  2059 0170 00        		.byte	0x0
@@ -2278,7 +2278,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  2113 01c7 16        		.byte	0x16
  2114 01c8 00        		.byte	0x0
  2115 01c9 05        		.uleb128 0x5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 39
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 39
 
 
  2116 01ca 02        		.byte	0x2
@@ -2338,7 +2338,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  2170 0221 05        		.uleb128 0x5
  2171 0222 02        		.byte	0x2
  2172 0223 0000 0000 		.long	.LM57
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 40
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 40
 
 
  2173 0227 15        		.byte	0x15
@@ -2398,7 +2398,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  2227 027b 0000 0000 		.long	.LM68
  2228 027f 16        		.byte	0x16
  2229 0280 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 41
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 41
 
 
  2230 0281 05        		.uleb128 0x5
@@ -2458,7 +2458,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  2268 0040 7067 6132 		.string	"pga2311_p_sdi"
  2268      3331 315F 
  2268      705F 7364 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 42
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 42
 
 
  2268      6900 
@@ -2518,7 +2518,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  2293               	.LASF34:
  2294 00d5 7067 6132 		.string	"pga2311_b_clk"
  2294      3331 315F 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 43
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 43
 
 
  2294      625F 636C 
@@ -2578,7 +2578,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  2320      6900 
  2321               	.LASF5:
  2322 016e 6C6F 6E67 		.string	"long int"
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 44
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 44
 
 
  2322      2069 6E74 
@@ -2601,18 +2601,18 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 1
  2330      705F 636C 
  2330      6B00 
  2331               	.global __do_clear_bss
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccIUBb77.s 			page 45
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s 			page 45
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 pga2311.c
-C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:2      *ABS*:0000003f __SREG__
-C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:3      *ABS*:0000003e __SP_H__
-C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:4      *ABS*:0000003d __SP_L__
-C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:5      *ABS*:00000034 __CCP__
-C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:18     .text:00000000 pga2311_setup
+C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s:18     .text:00000000 pga2311_setup
                             *COM*:0000000a pga2311_b_zcen
                             *COM*:0000000a pga2311_b_cs
                             *COM*:0000000a pga2311_b_sdi
@@ -2623,9 +2623,9 @@ C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:18     .text:00000000 pga2311_setup
                             *COM*:00000014 pga2311_p_sdi
                             *COM*:00000014 pga2311_p_clk
                             *COM*:00000014 pga2311_p_mute
-C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:725    .text:000004fe pga2311_init
-C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:818    .text:00000596 pga2311_mute
-C:\Users\alex\AppData\Local\Temp/ccIUBb77.s:894    .text:0000060c pga2311_set_gain
+C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s:725    .text:000004fe pga2311_init
+C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s:818    .text:00000596 pga2311_mute
+C:\Users\alex\AppData\Local\Temp/ccz8HDSg.s:894    .text:0000060c pga2311_set_gain
 
 UNDEFINED SYMBOLS
 __do_clear_bss

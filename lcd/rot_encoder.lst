@@ -1,4 +1,4 @@
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 1
 
 
    1               		.file	"rot_encoder.c"
@@ -58,7 +58,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
   55               	.LM2:
   56 0014 8C81      		ldd r24,Y+4
   57 0016 882F      		mov r24,r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 2
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 2
 
 
   58 0018 90E0      		ldi r25,lo8(0)
@@ -118,7 +118,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  112 007a 8B81      		ldd r24,Y+3
  113 007c 882F      		mov r24,r24
  114 007e 90E0      		ldi r25,lo8(0)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 3
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 3
 
 
  115 0080 880F      		lsl r24
@@ -178,7 +178,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  169 00e8 A8E3      		ldi r26,lo8(56)
  170 00ea B0E0      		ldi r27,hi8(56)
  171 00ec E8E3      		ldi r30,lo8(56)
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 4
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 4
 
 
  172 00ee F0E0      		ldi r31,hi8(56)
@@ -238,7 +238,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  226 0152 90E0      		ldi r25,hi8(48)
  227 0154 9183      		std Z+1,r25
  228 0156 8083      		st Z,r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 5
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 5
 
 
  229 0158 A1E3      		ldi r26,lo8(49)
@@ -298,7 +298,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  283 01be 8981      		ldd r24,Y+1
  284 01c0 892B      		or r24,r25
  285 01c2 8C93      		st X,r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 6
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 6
 
 
  286               	.L6:
@@ -358,7 +358,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  340 0228 E4E3      		ldi r30,lo8(52)
  341 022a F0E0      		ldi r31,hi8(52)
  342 022c 8081      		ld r24,Z
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 7
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 7
 
 
  343 022e 982F      		mov r25,r24
@@ -418,7 +418,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  397 0292 E050      		subi r30,lo8(-(encoder_prev_bit0))
  398 0294 F040      		sbci r31,hi8(-(encoder_prev_bit0))
  399 0296 8A81      		ldd r24,Y+2
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 8
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 8
 
 
  400 0298 8083      		st Z,r24
@@ -478,7 +478,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  453 02de E02D      		mov r30,__tmp_reg__
  454 02e0 2081      		ld r18,Z
  455 02e2 8D81      		ldd r24,Y+5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 9
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 9
 
 
  456 02e4 882F      		mov r24,r24
@@ -538,7 +538,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  510 0344 880F      		lsl r24
  511 0346 991F      		rol r25
  512 0348 880F      		lsl r24
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 10
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 10
 
 
  513 034a 991F      		rol r25
@@ -598,7 +598,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  567 03b0 0F90      		pop __tmp_reg__
  568 03b2 CF91      		pop r28
  569 03b4 DF91      		pop r29
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 11
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 11
 
 
  570 03b6 0895      		ret
@@ -658,7 +658,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  624 040a 3181      		ldd r19,Z+1
  625 040c 8A85      		ldd r24,Y+10
  626 040e 9B85      		ldd r25,Y+11
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 12
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 12
 
 
  627 0410 820F      		add r24,r18
@@ -718,7 +718,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  681 0470 8083      		st Z,r24
  682               	.LM41:
  683 0472 EC81      		ldd r30,Y+4
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 13
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 13
 
 
  684 0474 FD81      		ldd r31,Y+5
@@ -778,7 +778,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  738 000f 00        		.uleb128 0x0
  739               		.p2align	2
  740               	.LECIE0:
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 14
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 14
 
 
  741               	.LSFDE0:
@@ -838,7 +838,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  795 0040 79        		.byte	0x79
  796 0041 4500 0000 		.long	0x45
  797 0045 02        		.uleb128 0x2
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 15
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 15
 
 
  798 0046 01        		.byte	0x1
@@ -898,7 +898,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  852 00a9 04        		.sleb128 4
  853 00aa 07        		.uleb128 0x7
  854 00ab 0000 0000 		.long	.LASF11
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 16
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 16
 
 
  855 00af 01        		.byte	0x1
@@ -958,7 +958,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  909 0110 01        		.byte	0x1
  910 0111 3B        		.byte	0x3b
  911 0112 4C00 0000 		.long	0x4c
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 17
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 17
 
 
  912 0116 02        		.byte	0x2
@@ -1018,7 +1018,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  966 017b 02        		.byte	0x2
  967 017c 8C        		.byte	0x8c
  968 017d 04        		.sleb128 4
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 18
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 18
 
 
  969 017e 0B        		.uleb128 0xb
@@ -1078,7 +1078,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1023 01de 0C        		.uleb128 0xc
  1024 01df 02        		.byte	0x2
  1025 01e0 E401 0000 		.long	0x1e4
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 19
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 19
 
 
  1026 01e4 0F        		.uleb128 0xf
@@ -1138,7 +1138,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1080 0253 10        		.uleb128 0x10
  1081 0254 0000 0000 		.long	.LASF26
  1082 0258 01        		.byte	0x1
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 20
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 20
 
 
  1083 0259 19        		.byte	0x19
@@ -1198,7 +1198,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1137 001e 03        		.uleb128 0x3
  1138 001f 24        		.uleb128 0x24
  1139 0020 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 21
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 21
 
 
  1140 0021 0B        		.uleb128 0xb
@@ -1258,7 +1258,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1194 0057 05        		.uleb128 0x5
  1195 0058 00        		.byte	0x0
  1196 0059 03        		.uleb128 0x3
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 22
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 22
 
 
  1197 005a 0E        		.uleb128 0xe
@@ -1318,7 +1318,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1251 0090 03        		.uleb128 0x3
  1252 0091 08        		.uleb128 0x8
  1253 0092 3A        		.uleb128 0x3a
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 23
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 23
 
 
  1254 0093 0B        		.uleb128 0xb
@@ -1378,7 +1378,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1308 00c9 49        		.uleb128 0x49
  1309 00ca 13        		.uleb128 0x13
  1310 00cb 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 24
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 24
 
 
  1311 00cc 00        		.byte	0x0
@@ -1438,7 +1438,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1346      7430 00
  1347 0081 2F02 0000 		.long	0x22f
  1348 0085 656E 636F 		.string	"encoder_b_bit1"
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 25
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 25
 
 
  1348      6465 725F 
@@ -1498,7 +1498,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1388      722D 3230 
  1388      3130 3031 
  1388      3130 2F6C 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 26
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 26
 
 
  1389 0044 00        		.byte	0
@@ -1558,7 +1558,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1438 009e 02        		.byte	0x2
  1439 009f 0000 0000 		.long	.LM8
  1440 00a3 15        		.byte	0x15
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 27
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 27
 
 
  1441 00a4 00        		.byte	0x0
@@ -1618,7 +1618,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1495 00fb 18        		.byte	0x18
  1496 00fc 00        		.byte	0x0
  1497 00fd 05        		.uleb128 0x5
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 28
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 28
 
 
  1498 00fe 02        		.byte	0x2
@@ -1678,7 +1678,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1552 0155 05        		.uleb128 0x5
  1553 0156 02        		.byte	0x2
  1554 0157 0000 0000 		.long	.LM31
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 29
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 29
 
 
  1555 015b 15        		.byte	0x15
@@ -1738,7 +1738,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1609 01af 0000 0000 		.long	.LM42
  1610 01b3 15        		.byte	0x15
  1611 01b4 00        		.byte	0x0
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 30
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 30
 
 
  1612 01b5 05        		.uleb128 0x5
@@ -1798,7 +1798,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1647      00
  1648               	.LASF5:
  1649 004f 756E 7369 		.string	"unsigned char"
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 31
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 31
 
 
  1649      676E 6564 
@@ -1858,7 +1858,7 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1675 00eb 656E 636F 		.string	"encoder_poll"
  1675      6465 725F 
  1675      706F 6C6C 
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 32
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 32
 
 
  1675      00
@@ -1907,19 +1907,19 @@ GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 1
  1693      6765 00
  1694               	.global __do_copy_data
  1695               	.global __do_clear_bss
-GAS LISTING C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s 			page 33
+GAS LISTING C:\Users\alex\AppData\Local\Temp/ccXkY75e.s 			page 33
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 rot_encoder.c
-C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:2      *ABS*:0000003f __SREG__
-C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:3      *ABS*:0000003e __SP_H__
-C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:4      *ABS*:0000003d __SP_L__
-C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:5      *ABS*:00000034 __CCP__
-C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:20     .data:00000000 enc_states
-C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:40     .text:00000000 encoder_setup
+C:\Users\alex\AppData\Local\Temp/ccXkY75e.s:2      *ABS*:0000003f __SREG__
+C:\Users\alex\AppData\Local\Temp/ccXkY75e.s:3      *ABS*:0000003e __SP_H__
+C:\Users\alex\AppData\Local\Temp/ccXkY75e.s:4      *ABS*:0000003d __SP_L__
+C:\Users\alex\AppData\Local\Temp/ccXkY75e.s:5      *ABS*:00000034 __CCP__
+C:\Users\alex\AppData\Local\Temp/ccXkY75e.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\alex\AppData\Local\Temp/ccXkY75e.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\alex\AppData\Local\Temp/ccXkY75e.s:20     .data:00000000 enc_states
+C:\Users\alex\AppData\Local\Temp/ccXkY75e.s:40     .text:00000000 encoder_setup
                             *COM*:0000000a encoder_b_bit0
                             *COM*:0000000a encoder_b_bit1
                             *COM*:00000014 encoder_p_bit0
@@ -1927,8 +1927,8 @@ C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:40     .text:00000000 encoder_setup
                             *COM*:0000000a encoder_prev_bit0
                             *COM*:0000000a encoder_prev_bit1
                              .bss:00000000 old_AB.1626
-C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:429    .text:000002ba encoder_poll
-C:\Users\alex\AppData\Local\Temp/ccf1ebDB.s:575    .text:000003b8 encoder_poll_range
+C:\Users\alex\AppData\Local\Temp/ccXkY75e.s:429    .text:000002ba encoder_poll
+C:\Users\alex\AppData\Local\Temp/ccXkY75e.s:575    .text:000003b8 encoder_poll_range
 
 UNDEFINED SYMBOLS
 uart_printf
