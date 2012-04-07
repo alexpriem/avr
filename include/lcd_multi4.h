@@ -144,9 +144,26 @@
  */
 
 
+#define lcd_puts_P(__s)         lcd_puts_p(PSTR(__s))
+
+
 
 extern void lcd_backlight(uint8_t chip, uint8_t cmd);
+extern void lcd_init(uint8_t chip, uint8_t dispAttr);
+extern void lcd_clrscr(uint8_t chip);
+extern void lcd_home(uint8_t chip);
+extern void lcd_gotoxy(uint8_t chip, uint8_t x, uint8_t y);
+extern void lcd_putc(uint8_t chip, char c);
+extern void lcd_puts(uint8_t chip, const char *s);
+extern void lcd_puts_p(uint8_t chip, const char *progmem_s);
+extern void lcd_command(uint8_t chip, uint8_t cmd);
+extern void lcd_data(uint8_t chip, uint8_t data);
+extern void lcd_setup (uint8_t chip, 
+				uint8_t rs, uint8_t rw, uint8_t enable, uint8_t  backlight,
+				uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 );
 
+
+				
 /**
  @brief    Initialize display and select type of cursor
  @param    dispAttr \b LCD_DISP_OFF display off\n
@@ -155,66 +172,24 @@ extern void lcd_backlight(uint8_t chip, uint8_t cmd);
                     \b LCD_DISP_ON_CURSOR_BLINK display on, cursor on flashing             
  @return  none
 */
-extern void lcd_init(uint8_t chip, uint8_t dispAttr);
-
 
 /**
- @brief    Clear display and set cursor to home position
- @param    void                                        
- @return   none
-*/
-extern void lcd_clrscr(uint8_t chip);
-
-
-/**
- @brief    Set cursor to home position
- @param    void                                        
- @return   none
-*/
-extern void lcd_home(uint8_t chip);
-
-
-/**
- @brief    Set cursor to specified position
- 
- @param    x horizontal position\n (0: left most position)
- @param    y vertical position\n   (0: first line)
- @return   none
-*/
-extern void lcd_gotoxy(uint8_t chip, uint8_t x, uint8_t y);
-
-
-/**
- @brief    Display character at current cursor position
- @param    c character to be displayed                                       
- @return   none
-*/
-extern void lcd_putc(uint8_t chip, char c);
-
-
-/**
- @brief    Display string without auto linefeed
- @param    s string to be displayed                                        
- @return   none
-*/
-extern void lcd_puts(uint8_t chip, const char *s);
-
-
-/**
+ extern void lcd_puts_p(uint8_t chip, const char *progmem_s);
  @brief    Display string from program memory without auto linefeed
  @param    s string from program memory be be displayed                                        
  @return   none
  @see      lcd_puts_P
 */
-extern void lcd_puts_p(uint8_t chip, const char *progmem_s);
+
 
 
 /**
+extern void lcd_command(uint8_t chip, uint8_t cmd);
  @brief    Send LCD controller instruction command
  @param    cmd instruction to send to LCD controller, see HD44780 data sheet
  @return   none
 */
-extern void lcd_command(uint8_t chip, uint8_t cmd);
+
 
 
 /**
@@ -224,17 +199,15 @@ extern void lcd_command(uint8_t chip, uint8_t cmd);
  @param    data byte to send to LCD controller, see HD44780 data sheet
  @return   none
 */
-extern void lcd_data(uint8_t chip, uint8_t data);
+
 
 
 /**
  @brief macros for automatically storing string constant in program memory
 */
-#define lcd_puts_P(__s)         lcd_puts_p(PSTR(__s))
 
 
-extern void lcd_setup (uint8_t chip, uint8_t rs, uint8_t rw, uint8_t enable, 
-				uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 );
+
 				
 /*@}*/
 #endif //LCD_H
