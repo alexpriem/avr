@@ -47,6 +47,12 @@
  */
 #define LCD_CONTROLLER_KS0073 0  /**< Use 0 for HD44780 controller, 1 for KS0073 controller */
 
+
+
+#define HD44780 2
+#define KS0073  4
+
+
 /** 
  *  @name  Definitions for Display Size 
  *  Change these definitions to adapt setting to your display
@@ -161,7 +167,7 @@ extern void lcd_data(uint8_t chip, uint8_t data);
 extern void lcd_setup (uint8_t chip, 
 				uint8_t rs, uint8_t rw, uint8_t enable, uint8_t  backlight,
 				uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 );
-
+extern void lcd_setup_info (uint8_t chip, uint8_t display_type, uint8_t width, uint8_t height);
 
 				
 /**

@@ -51,6 +51,11 @@
  *  @name  Definitions for Display Size 
  *  Change these definitions to adapt setting to your display
  */
+ 
+
+#define HD44780 2
+#define KS0073  4
+ 
 #define LCD_LINES           4     /**< number of visible lines of the display */
 #define LCD_DISP_LENGTH    20     /**< visibles characters per line of the display */
 #define LCD_LINE_LENGTH  0x40     /**< internal line length of the display    */

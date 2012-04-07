@@ -34,15 +34,20 @@ int main(void)
 	//			uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 ) 
 	lcd_setup (0, P_PC2, P_PC4, P_PC6, P_PC0,
 			  P_PC1, P_PC3, P_PC5, P_PC7);	
+	lcd_setup_info (0, HD44780, 20, 4);
 	
 
 	//a2311_setup (uint8_t chip, uint8_t zcen, uint8_t cs, uint8_t sdi, uint8_t clk, uint8_t mute)	
 	pga2311_setup (0, P_PA0, P_PA1, P_PA2, P_PA3, P_PA4);
 	pga2311_init (0);
 	lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
-	lcd_puts (0, "txsttekst");
-	lcd_puts (0, "\nextra regel");
-	lcd_puts (0, "\nnog een extra regel");
+	lcd_puts (0, "regel 1");
+	lcd_puts (0, "\nregel 2");
+	lcd_puts (0, "\nnr 3");
+	lcd_puts (0, "\n#4, done");
+	lcd_puts (0, "\n#5");
+	lcd_puts (0, "\n#6");
+	lcd_puts (0, "\n#7");
 	j=0;
 	
 	vol_l=128;
