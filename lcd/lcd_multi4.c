@@ -38,10 +38,10 @@ volatile uint8_t *lcd_p_db1[MAX_LCD];         //
 volatile uint8_t *lcd_p_db2[MAX_LCD];         //  
 volatile uint8_t *lcd_p_db3[MAX_LCD];         //  
 
-volatile uint8_t *lcd_pin_db0;         //  
-volatile uint8_t *lcd_pin_db1;         //  
-volatile uint8_t *lcd_pin_db2;         //  
-volatile uint8_t *lcd_pin_db3;         //  
+volatile uint8_t *lcd_pin_db0[MAX_LCD];         //  
+volatile uint8_t *lcd_pin_db1[MAX_LCD];         //  
+volatile uint8_t *lcd_pin_db2[MAX_LCD];         //  
+volatile uint8_t *lcd_pin_db3[MAX_LCD];         //  
 
 volatile uint8_t *lcd_ddr_db0[MAX_LCD];         //  
 volatile uint8_t *lcd_ddr_db1[MAX_LCD];         //  
@@ -202,7 +202,7 @@ Returns:  byte read from LCD controller
 static uint8_t lcd_read(uint8_t chip, uint8_t rs) 
 {
 	volatile uint8_t *p_db0, *p_db1, *p_db2, *p_db3, *p_rs, *p_rw, *p_enable;	
-	//volatile uint8_t *pin_db0, *pin_db1, *pin_db2, *pin_db3;
+	volatile uint8_t *pin_db0, *pin_db1, *pin_db2, *pin_db3;
     volatile uint8_t *ddr_db0, *ddr_db1, *ddr_db2, *ddr_db3;
     uint8_t b_db0, b_db1, b_db2, b_db3;
 	uint8_t b_rs, b_rw, b_enable, data;	
@@ -221,6 +221,12 @@ static uint8_t lcd_read(uint8_t chip, uint8_t rs)
     ddr_db1=lcd_ddr_db1[chip];
     ddr_db2=lcd_ddr_db2[chip];
     ddr_db3=lcd_ddr_db3[chip];
+	
+	pin_db0=lcd_pin_db0[chip];
+    pin_db1=lcd_pin_db1[chip];
+    pin_db2=lcd_pin_db2[chip];
+    pin_db3=lcd_pin_db3[chip];
+
     
     p_enable=lcd_p_enable[chip];	
     b_enable=lcd_b_enable[chip];
@@ -245,10 +251,10 @@ static uint8_t lcd_read(uint8_t chip, uint8_t rs)
 	bit_set (*p_enable, b_enable);
 	lcd_e_delay();        
 	data = 0;
-	if ( bit_get(*lcd_pin_db0, b_db0) ) data |= 0x10;
-	if ( bit_get(*lcd_pin_db1, b_db1) ) data |= 0x20;
-	if ( bit_get(*lcd_pin_db2, b_db2) ) data |= 0x40;
-	if ( bit_get(*lcd_pin_db3, b_db3) ) data |= 0x80;		
+	if ( bit_get(*pin_db0, b_db0) ) data |= 0x10;
+	if ( bit_get(*pin_db1, b_db1) ) data |= 0x20;
+	if ( bit_get(*pin_db2, b_db2) ) data |= 0x40;
+	if ( bit_get(*pin_db3, b_db3) ) data |= 0x80;		
 
 	bit_clr (*p_enable, b_enable);
 	lcd_e_delay();                       /* Enable 500ns low       */
@@ -256,10 +262,10 @@ static uint8_t lcd_read(uint8_t chip, uint8_t rs)
 	/* read low nibble */    
 	bit_set (*p_enable, b_enable);
 	lcd_e_delay();
-	if ( bit_get(*lcd_pin_db0, b_db0) ) data |= 0x01;
-	if ( bit_get(*lcd_pin_db1, b_db1) ) data |= 0x02;
-	if ( bit_get(*lcd_pin_db2, b_db2) ) data |= 0x04;
-	if ( bit_get(*lcd_pin_db3, b_db3) ) data |= 0x08;		
+	if ( bit_get(*pin_db0, b_db0) ) data |= 0x01;
+	if ( bit_get(*pin_db1, b_db1) ) data |= 0x02;
+	if ( bit_get(*pin_db2, b_db2) ) data |= 0x04;
+	if ( bit_get(*pin_db3, b_db3) ) data |= 0x08;		
 	bit_clr (*p_enable, b_enable);
     
     return data;
@@ -589,28 +595,44 @@ void lcd_setup (uint8_t chip, uint8_t rs, uint8_t rw, uint8_t enable, uint8_t ba
  if (backlight==P_PORTD) {lcd_p_backlight[chip]=&PORTD; DDRD|=b_backlight;}
 
  db0=db0 & P_PORTMASK;
- if (db0==P_PORTA) {lcd_p_db0[chip]=&PORTA; lcd_pin_db0=&PINA; lcd_ddr_db0[chip]=&DDRA; DDRA|=b_db0; }
- if (db0==P_PORTB) {lcd_p_db0[chip]=&PORTB; lcd_pin_db0=&PINB; lcd_ddr_db0[chip]=&DDRB; DDRB|=b_db0;}
- if (db0==P_PORTC) {lcd_p_db0[chip]=&PORTC; lcd_pin_db0=&PINC; lcd_ddr_db0[chip]=&DDRC; DDRC|=b_db0;}
- if (db0==P_PORTD) {lcd_p_db0[chip]=&PORTD; lcd_pin_db0=&PIND; lcd_ddr_db0[chip]=&DDRD; DDRD|=b_db0;}
+ if (db0==P_PORTA) {lcd_p_db0[chip]=&PORTA; lcd_pin_db0[chip]=&PINA; 
+					lcd_ddr_db0[chip]=&DDRA; DDRA|=b_db0; }
+ if (db0==P_PORTB) {lcd_p_db0[chip]=&PORTB; lcd_pin_db0[chip]=&PINB; 
+					lcd_ddr_db0[chip]=&DDRB; DDRB|=b_db0;}
+ if (db0==P_PORTC) {lcd_p_db0[chip]=&PORTC; lcd_pin_db0[chip]=&PINC;
+					lcd_ddr_db0[chip]=&DDRC; DDRC|=b_db0;}
+ if (db0==P_PORTD) {lcd_p_db0[chip]=&PORTD; lcd_pin_db0[chip]=&PIND; 
+					lcd_ddr_db0[chip]=&DDRD; DDRD|=b_db0;}
 
  db1=db1 & P_PORTMASK;
- if (db1==P_PORTA) {lcd_p_db1[chip]=&PORTA; lcd_pin_db1=&PINA; lcd_ddr_db1[chip]=&DDRA; DDRA|=b_db1;}
- if (db1==P_PORTB) {lcd_p_db1[chip]=&PORTB; lcd_pin_db1=&PINB; lcd_ddr_db1[chip]=&DDRB; DDRB|=b_db1;}
- if (db1==P_PORTC) {lcd_p_db1[chip]=&PORTC; lcd_pin_db1=&PINC; lcd_ddr_db1[chip]=&DDRC; DDRC|=b_db1;}
- if (db1==P_PORTD) {lcd_p_db1[chip]=&PORTD; lcd_pin_db1=&PIND; lcd_ddr_db1[chip]=&DDRD; DDRD|=b_db1;}
+ if (db1==P_PORTA) {lcd_p_db1[chip]=&PORTA; lcd_pin_db1[chip]=&PINA; 
+					lcd_ddr_db1[chip]=&DDRA; DDRA|=b_db1;}
+ if (db1==P_PORTB) {lcd_p_db1[chip]=&PORTB; lcd_pin_db1[chip]=&PINB; 
+					lcd_ddr_db1[chip]=&DDRB; DDRB|=b_db1;}
+ if (db1==P_PORTC) {lcd_p_db1[chip]=&PORTC; lcd_pin_db1[chip]=&PINC; 
+					lcd_ddr_db1[chip]=&DDRC; DDRC|=b_db1;}
+ if (db1==P_PORTD) {lcd_p_db1[chip]=&PORTD; lcd_pin_db1[chip]=&PIND; 
+					lcd_ddr_db1[chip]=&DDRD; DDRD|=b_db1;}
 
  db2=db2 & P_PORTMASK;
- if (db2==P_PORTA) {lcd_p_db2[chip]=&PORTA; lcd_pin_db2=&PINA; lcd_ddr_db2[chip]=&DDRA; DDRA|=b_db2;}
- if (db2==P_PORTB) {lcd_p_db2[chip]=&PORTB; lcd_pin_db2=&PINB; lcd_ddr_db2[chip]=&DDRB; DDRB|=b_db2;}
- if (db2==P_PORTC) {lcd_p_db2[chip]=&PORTC; lcd_pin_db2=&PINC; lcd_ddr_db2[chip]=&DDRC; DDRC|=b_db2;}
- if (db2==P_PORTD) {lcd_p_db2[chip]=&PORTD; lcd_pin_db2=&PIND; lcd_ddr_db2[chip]=&DDRD; DDRD|=b_db2;}
+ if (db2==P_PORTA) {lcd_p_db2[chip]=&PORTA; lcd_pin_db2[chip]=&PINA; 
+					lcd_ddr_db2[chip]=&DDRA; DDRA|=b_db2;}
+ if (db2==P_PORTB) {lcd_p_db2[chip]=&PORTB; lcd_pin_db2[chip]=&PINB; 
+					lcd_ddr_db2[chip]=&DDRB; DDRB|=b_db2;}
+ if (db2==P_PORTC) {lcd_p_db2[chip]=&PORTC; lcd_pin_db2[chip]=&PINC; 
+					lcd_ddr_db2[chip]=&DDRC; DDRC|=b_db2;}
+ if (db2==P_PORTD) {lcd_p_db2[chip]=&PORTD; lcd_pin_db2[chip]=&PIND; 
+					lcd_ddr_db2[chip]=&DDRD; DDRD|=b_db2;}
 
  db3=db3 & P_PORTMASK;
- if (db3==P_PORTA) {lcd_p_db3[chip]=&PORTA; lcd_pin_db3=&PINA; lcd_ddr_db3[chip]=&DDRA; DDRA|=b_db3;}
- if (db3==P_PORTB) {lcd_p_db3[chip]=&PORTB; lcd_pin_db3=&PINB; lcd_ddr_db3[chip]=&DDRB; DDRB|=b_db3;}
- if (db3==P_PORTC) {lcd_p_db3[chip]=&PORTC; lcd_pin_db3=&PINC; lcd_ddr_db3[chip]=&DDRC; DDRC|=b_db3;}
- if (db3==P_PORTD) {lcd_p_db3[chip]=&PORTD; lcd_pin_db3=&PIND; lcd_ddr_db3[chip]=&DDRD; DDRD|=b_db3;}
+ if (db3==P_PORTA) {lcd_p_db3[chip]=&PORTA; lcd_pin_db3[chip]=&PINA; 
+					lcd_ddr_db3[chip]=&DDRA; DDRA|=b_db3;}
+ if (db3==P_PORTB) {lcd_p_db3[chip]=&PORTB; lcd_pin_db3[chip]=&PINB; 
+					lcd_ddr_db3[chip]=&DDRB; DDRB|=b_db3;}
+ if (db3==P_PORTC) {lcd_p_db3[chip]=&PORTC; lcd_pin_db3[chip]=&PINC; 
+					lcd_ddr_db3[chip]=&DDRC; DDRC|=b_db3;}
+ if (db3==P_PORTD) {lcd_p_db3[chip]=&PORTD; lcd_pin_db3[chip]=&PIND; 
+					lcd_ddr_db3[chip]=&DDRD; DDRD|=b_db3;}
 }
 
     /* initial write to lcd is 8bit */
