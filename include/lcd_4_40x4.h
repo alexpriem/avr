@@ -157,8 +157,8 @@ extern void lcd_gotoxy(uint8_t chip, uint8_t x, uint8_t y);
 extern void lcd_putc(uint8_t chip, char c);
 extern void lcd_puts(uint8_t chip, const char *s);
 extern void lcd_puts_p(uint8_t chip, const char *progmem_s);
-extern void lcd_command(uint8_t chip, uint8_t cmd);
-extern void lcd_data(uint8_t chip, uint8_t data);
+extern void lcd_command(uint8_t chip, uint8_t lcd, uint8_t cmd);
+extern void lcd_data(uint8_t chip, uint8_t lcd, uint8_t data);
 extern void lcd_setup (uint8_t chip, 
 				uint8_t rs, uint8_t rw, uint8_t enable, uint8_t  backlight,
 				uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3);

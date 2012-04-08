@@ -139,7 +139,7 @@ Input:    data   byte to write to LCD
 Returns:  none
 *************************************************************************/
 
-static void lcd_write(uint8_t chip, uint8_t data, uint8_t rs) 
+static void lcd_write(uint8_t chip, uint8_t lcd, uint8_t data, uint8_t rs) 
 {
     volatile uint8_t *p_db0, *p_db1, *p_db2, *p_db3, *p_rs, *p_rw;
     volatile uint8_t *ddr_db0, *ddr_db1, *ddr_db2, *ddr_db3;
@@ -215,7 +215,7 @@ Input:    rs     1: read data
 Returns:  byte read from LCD controller
 *************************************************************************/
 
-static uint8_t lcd_read(uint8_t chip, uint8_t rs) 
+static uint8_t lcd_read(uint8_t chip, uint8_t lcd, uint8_t rs) 
 {
 	volatile uint8_t *p_db0, *p_db1, *p_db2, *p_db3, *p_rs, *p_rw, *p_enable;	
 	volatile uint8_t *pin_db0, *pin_db1, *pin_db2, *pin_db3;
@@ -295,19 +295,19 @@ static uint8_t lcd_read(uint8_t chip, uint8_t rs)
 /*************************************************************************
 loops while lcd is busy, returns address counter
 *************************************************************************/
-static uint8_t lcd_waitbusy(uint8_t chip)
+static uint8_t lcd_waitbusy(uint8_t chip, uint8_t lcd)
 
 {
     register uint8_t c;
     
     /* wait until busy flag is cleared */
-    while ( (c=lcd_read(chip, 0)) & (1<<LCD_BUSY)) {}
+    while ( (c=lcd_read(chip,lcd, 0)) & (1<<LCD_BUSY)) {}
     
     /* the address counter is updated 4us after the busy flag is cleared */
     delay(2);
 
     /* now read the address counter */
-    return (lcd_read(chip, 0));  // return address counter
+    return (lcd_read(chip,lcd, 0));  // return address counter
     
 }/* lcd_waitbusy */
 
@@ -332,25 +332,18 @@ static inline void lcd_newline(uint8_t chip, uint8_t pos)
 	start_line3=l->start_line3;
 	start_line4=l->start_line4;
 	
-	if (lines==1) addressCounter = start_line1;
-	
-	if (lines==2) {
-		addressCounter=start_line1;
-		if ((pos>start_line1) && (pos <= start_line1+disp_length)) 
-			addressCounter=start_line2;		
-	}
-	if (lines==4) {
-		addressCounter=start_line1;
-		if ((pos>start_line1) && (pos <= start_line1+disp_length)) 
-			addressCounter=start_line2;
-		if ((pos>start_line2) && (pos <= start_line2+disp_length)) 
-			addressCounter=start_line3;
-		if ((pos>start_line3) && (pos <= start_line3+disp_length)) 
-			addressCounter=start_line4;			
-		if ((pos>start_line4) && (pos <= start_line4+disp_length)) 
-			addressCounter=start_line1;			
-	}
-    lcd_command(chip, (1<<LCD_DDRAM)+addressCounter);
+
+	addressCounter=start_line1;
+	if ((pos>start_line1) && (pos <= start_line1+disp_length)) 
+		addressCounter=start_line2;
+	if ((pos>start_line2) && (pos <= start_line2+disp_length)) 
+		addressCounter=start_line3;
+	if ((pos>start_line3) && (pos <= start_line3+disp_length)) 
+		addressCounter=start_line4;			
+	if ((pos>start_line4) && (pos <= start_line4+disp_length)) 
+		addressCounter=start_line1;			
+
+    lcd_command(chip, 1, (1<<LCD_DDRAM)+addressCounter);
 
 }/* lcd_newline */
 
@@ -374,10 +367,10 @@ Send LCD controller instruction command
 Input:   instruction to send to LCD controller, see HD44780 data sheet
 Returns: none
 *************************************************************************/
-void lcd_command(uint8_t chip, uint8_t cmd)
+void lcd_command(uint8_t chip,uint8_t lcd, uint8_t cmd)
 {
-    lcd_waitbusy(chip);
-    lcd_write(chip,cmd,0);
+    lcd_waitbusy(chip, lcd);
+    lcd_write(chip,lcd, cmd,0);
 }
 
 
@@ -386,10 +379,10 @@ Send data byte to LCD controller
 Input:   data to send to LCD controller, see HD44780 data sheet
 Returns: none
 *************************************************************************/
-void lcd_data(uint8_t chip, uint8_t data)
+void lcd_data(uint8_t chip, uint8_t lcd, uint8_t data)
 {
-    lcd_waitbusy(chip);
-    lcd_write(chip,data,1);
+    lcd_waitbusy(chip, lcd);
+    lcd_write(chip,lcd, data,1);
 }
 
 
@@ -409,25 +402,16 @@ void lcd_gotoxy(uint8_t chip, uint8_t x, uint8_t y)
 	l=&lcdinfos[chip];	
 	lines=l->lines;
 	start_line1=l->start_line1;
-	if (lines==1) lcd_command(chip, (1<<LCD_DDRAM)+start_line1+x);
-	if (lines==2) {
-		if ( y==0 ) 
-			lcd_command(chip, (1<<LCD_DDRAM)+l->start_line1+x);
-		else
-			lcd_command(chip, (1<<LCD_DDRAM)+l->start_line2+x);
-		}
-	
-	if (lines==4) {	
-		if ( y==0 )
-			lcd_command(chip, (1<<LCD_DDRAM)+l->start_line1+x);
-		else if ( y==1)
-			lcd_command(chip, (1<<LCD_DDRAM)+l->start_line2+x);
-		else if ( y==2)
-			lcd_command(chip, (1<<LCD_DDRAM)+l->start_line3+x);
-		else /* y==3 */
-			lcd_command(chip, (1<<LCD_DDRAM)+l->start_line4+x);
-	}
+	if ( y==0 )
+		lcd_command(chip,1, (1<<LCD_DDRAM)+l->start_line1+x);
+	else if ( y==1)
+		lcd_command(chip,1, (1<<LCD_DDRAM)+l->start_line2+x);
+	else if ( y==2)
+		lcd_command(chip,1, (1<<LCD_DDRAM)+l->start_line3+x);
+	else /* y==3 */
+		lcd_command(chip,1, (1<<LCD_DDRAM)+l->start_line4+x);
 
+			
 }/* lcd_gotoxy */
 
 
@@ -435,7 +419,7 @@ void lcd_gotoxy(uint8_t chip, uint8_t x, uint8_t y)
 *************************************************************************/
 int lcd_getxy(uint8_t chip)
 {
-    return lcd_waitbusy(chip);
+    return lcd_waitbusy(chip, 1);
 }
 
 
@@ -444,7 +428,8 @@ Clear display and set cursor to home position
 *************************************************************************/
 void lcd_clrscr(uint8_t chip)
 {
-    lcd_command(chip, 1<<LCD_CLR);
+    lcd_command(chip,1, 1<<LCD_CLR);
+	lcd_command(chip,2, 1<<LCD_CLR);
 }
 
 
@@ -453,7 +438,7 @@ Set cursor to home position
 *************************************************************************/
 void lcd_home(uint8_t chip)
 {
-    lcd_command(chip, 1<<LCD_HOME);
+    lcd_command(chip,1, 1<<LCD_HOME);
 }
 
 
@@ -464,60 +449,43 @@ Returns:  none
 *************************************************************************/
 void lcd_putc(uint8_t chip, char c)
 {
-    uint8_t pos, disp_length, start_line1, lines;
+    uint8_t pos, disp_length;
+	uint8_t  start_line1, start_line2, start_line3, start_line4;
+
 	struct lcdinfo *l;
 
 	l=&lcdinfos[chip];
-    pos = lcd_waitbusy(chip);   // read busy-flag and address counter
+    pos = lcd_waitbusy(chip, 1);   // read busy-flag and address counter
     if (c=='\n')
     {
         lcd_newline(chip, pos);
 		return;
     }
     
-    disp_length=l->disp_length;
-	start_line1=l->start_line1;
-	
 	if (l->wrap_lines==0) {
-		lcd_write(chip, c, 1);
+		lcd_write(chip,1, c, 1);
 		return;
 	}
 	
-	if (lines==1) {
-		if ( pos == start_line1+disp_length ) {
-			lcd_write(chip, (1<<LCD_DDRAM)+start_line1,0);
-		}
-	}
-	if (lines==2) {
-		uint8_t  start_line2;
-						
-		start_line2=l->start_line2;
+	
+    disp_length=l->disp_length;
+	start_line1=l->start_line1;
+	start_line2=l->start_line2;
+	start_line3=l->start_line3;
+	start_line4=l->start_line4;
 
-		if ( pos == start_line1+disp_length ) 
-			lcd_write(chip, (1<<LCD_DDRAM)+start_line2,0);    
-		else if ( pos == start_line2+disp_length )
-			lcd_write(chip, (1<<LCD_DDRAM)+start_line1,0);		
-	}
-	if (lines==4) {
-		uint8_t  start_line2, start_line3, start_line4;
 			
-		start_line2=l->start_line2;
-		start_line3=l->start_line3;
-		start_line4=l->start_line4;
-
-		if ( pos == start_line1+disp_length ) 
-			lcd_write(chip, (1<<LCD_DDRAM)+start_line2,0);    
-		else if ( pos == start_line2+disp_length ) 
-			lcd_write(chip, (1<<LCD_DDRAM)+start_line3,0);
-		else if ( pos == start_line3+disp_length ) 
-			lcd_write(chip, (1<<LCD_DDRAM)+start_line4,0);
-		else if ( pos == start_line4+disp_length ) 
-			lcd_write(chip, (1<<LCD_DDRAM)+start_line1,0);		
+	if ( pos == start_line1+disp_length ) 
+		lcd_write(chip, 1,(1<<LCD_DDRAM)+start_line2,0);    
+	else if ( pos == start_line2+disp_length ) 
+		lcd_write(chip, 1,(1<<LCD_DDRAM)+start_line3,0);
+	else if ( pos == start_line3+disp_length ) 
+		lcd_write(chip, 1,(1<<LCD_DDRAM)+start_line4,0);
+	else if ( pos == start_line4+disp_length ) 
+		lcd_write(chip, 1,(1<<LCD_DDRAM)+start_line1,0);		
 	
-	}
-	
-    lcd_waitbusy(chip);	
-	lcd_write(chip, c, 1);
+    lcd_waitbusy(chip,1);	
+	lcd_write(chip,1, c, 1);
     
 }/* lcd_putc */
 
@@ -715,10 +683,14 @@ void lcd_init (uint8_t chip, uint8_t dispAttr)
 	lcd_e_toggle(chip, 2);
     delay(64);           /* some displays need this additional delay */
 
-	lcd_command (chip, LCD_DISP_ON_CURSOR_BLINK);	
+	lcd_command (chip, 1, LCD_DISP_ON_CURSOR_BLINK);	
+	lcd_command (chip, 2, LCD_DISP_ON_CURSOR_BLINK);	
 	
-    lcd_command (chip, LCD_FUNCTION_4BIT_2LINES);      /* function set: display lines  */    
+    lcd_command (chip, 1, LCD_FUNCTION_4BIT_2LINES);         
+	lcd_command (chip, 2, LCD_FUNCTION_4BIT_2LINES);      /* function set: display lines  */    	
     lcd_clrscr (chip);                           /* display clear                */ 
-    lcd_command (chip,LCD_MODE_DEFAULT);          /* set entry mode               */	
-	lcd_command (chip, dispAttr);
+    lcd_command (chip, 1, LCD_MODE_DEFAULT);          /* set entry mode               */	
+	lcd_command (chip, 2, LCD_MODE_DEFAULT);          /* set entry mode               */		
+	lcd_command (chip, 1, dispAttr);
+	lcd_command (chip, 2, dispAttr);
 }
