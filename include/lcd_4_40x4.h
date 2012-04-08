@@ -145,11 +145,6 @@
 
 
 
-/** 
- *  @name Functions
- */
-
-
 #define lcd_puts_P(__s)         lcd_puts_p(PSTR(__s))
 
 
@@ -162,8 +157,8 @@ extern void lcd_gotoxy(uint8_t chip, uint8_t x, uint8_t y);
 extern void lcd_putc(uint8_t chip, char c);
 extern void lcd_puts(uint8_t chip, const char *s);
 extern void lcd_puts_p(uint8_t chip, const char *progmem_s);
-extern void lcd_command(uint8_t chip, uint8_t cmd);
-extern void lcd_data(uint8_t chip, uint8_t data);
+extern void lcd_command(uint8_t chip, uint8_t lcd, uint8_t cmd);
+extern void lcd_data(uint8_t chip, uint8_t lcd, uint8_t data);
 extern void lcd_setup (uint8_t chip, 
 				uint8_t rs, uint8_t rw, uint8_t enable, uint8_t  backlight,
 				uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3);
@@ -173,50 +168,4 @@ extern void lcd_setup_8bit (uint8_t chip,
 extern void lcd_setup_info (uint8_t chip, uint8_t display_type, uint8_t width, uint8_t height);
 
 				
-/**
- @brief    Initialize display and select type of cursor
- @param    dispAttr \b LCD_DISP_OFF display off\n
-                    \b LCD_DISP_ON display on, cursor off\n
-                    \b LCD_DISP_ON_CURSOR display on, cursor on\n
-                    \b LCD_DISP_ON_CURSOR_BLINK display on, cursor on flashing             
- @return  none
-*/
-
-/**
- extern void lcd_puts_p(uint8_t chip, const char *progmem_s);
- @brief    Display string from program memory without auto linefeed
- @param    s string from program memory be be displayed                                        
- @return   none
- @see      lcd_puts_P
-*/
-
-
-
-/**
-extern void lcd_command(uint8_t chip, uint8_t cmd);
- @brief    Send LCD controller instruction command
- @param    cmd instruction to send to LCD controller, see HD44780 data sheet
- @return   none
-*/
-
-
-
-/**
- @brief    Send data byte to LCD controller 
- 
- Similar to lcd_putc(), but without interpreting LF
- @param    data byte to send to LCD controller, see HD44780 data sheet
- @return   none
-*/
-
-
-
-/**
- @brief macros for automatically storing string constant in program memory
-*/
-
-
-
-				
-/*@}*/
 #endif //LCD_H
