@@ -63,6 +63,8 @@ uint8_t lcd_b_db3[MAX_LCD];
 
 
 struct lcdinfo {
+	uint8_t x;   // x-pos
+	uint8_t y;   // y-pos
 	uint8_t width;   // aantal tekens op 1 regel
 	uint8_t lines;  // aantal regels
 	uint8_t setup; 	// bit 0: 0: 4bit, 1: 8bit
@@ -74,7 +76,6 @@ struct lcdinfo {
 	uint8_t start_line2; /** DDRAM address of first char of line 1 */	
 	uint8_t start_line3; /** DDRAM address of first char of line 1 */
 	uint8_t start_line4; /** DDRAM address of first char of line 1 */
-	uint8_t wrap_lines;  /** 0: no wrap, 1: wrap at end of visibile line */
 };
 
 struct lcdinfo lcdinfos[MAX_LCD];
@@ -312,41 +313,6 @@ static uint8_t lcd_waitbusy(uint8_t chip, uint8_t lcd)
 }/* lcd_waitbusy */
 
 
-/*************************************************************************
-Move cursor to the start of next line or to the first line if the cursor 
-is already on the last line.
-*************************************************************************/
-static inline void lcd_newline(uint8_t chip, uint8_t pos)
-{
-    register uint8_t addressCounter;
-	struct lcdinfo *l;
-	uint8_t lines, disp_length;
-	uint8_t  start_line1, start_line2, start_line3, start_line4;
-	
-	l=&lcdinfos[chip];
-
-	lines=l->lines;
-	disp_length=l->disp_length;
-	start_line1=l->start_line1;		
-	start_line2=l->start_line2;
-	start_line3=l->start_line3;
-	start_line4=l->start_line4;
-	
-
-	addressCounter=start_line1;
-	if ((pos>start_line1) && (pos <= start_line1+disp_length)) 
-		addressCounter=start_line2;
-	if ((pos>start_line2) && (pos <= start_line2+disp_length)) 
-		addressCounter=start_line3;
-	if ((pos>start_line3) && (pos <= start_line3+disp_length)) 
-		addressCounter=start_line4;			
-	if ((pos>start_line4) && (pos <= start_line4+disp_length)) 
-		addressCounter=start_line1;			
-
-    lcd_command(chip, 1, (1<<LCD_DDRAM)+addressCounter);
-
-}/* lcd_newline */
-
 
 /*
 ** PUBLIC FUNCTIONS 
@@ -449,43 +415,50 @@ Returns:  none
 *************************************************************************/
 void lcd_putc(uint8_t chip, char c)
 {
-    uint8_t pos, disp_length;
+    uint8_t pos, disp_length, lcd, y;
 	uint8_t  start_line1, start_line2, start_line3, start_line4;
-
 	struct lcdinfo *l;
 
-	l=&lcdinfos[chip];
-    pos = lcd_waitbusy(chip, 1);   // read busy-flag and address counter
-    if (c=='\n')
-    {
-        lcd_newline(chip, pos);
-		return;
-    }
-    
-	if (l->wrap_lines==0) {
-		lcd_write(chip,1, c, 1);
-		return;
-	}
-	
-	
-    disp_length=l->disp_length;
-	start_line1=l->start_line1;
+	l=&lcdinfos[chip];	
+	y=l->y;
+	lcd=1;
+	if (y>1) lcd=2;
+		
+	disp_length=l->disp_length;
+	start_line1=l->start_line1;		
 	start_line2=l->start_line2;
 	start_line3=l->start_line3;
 	start_line4=l->start_line4;
+	
+    pos = lcd_waitbusy(chip, lcd);   // read busy-flag and address counter
+    if (c=='\n') {
+		register uint8_t addressCounter;
 
+		addressCounter=start_line1;
+		if ((pos>start_line1) && (pos <= start_line1+disp_length)) 
+			{addressCounter=start_line2; y++;}
+		if ((pos>start_line2) && (pos <= start_line2+disp_length)) 
+			{addressCounter=start_line3; y++;}
+		if ((pos>start_line3) && (pos <= start_line3+disp_length)) 
+			{addressCounter=start_line4; y++;}	
+		if ((pos>start_line4) && (pos <= start_line4+disp_length)) 
+			{addressCounter=start_line1; y++;}	
+
+		lcd_command(chip, lcd, (1<<LCD_DDRAM)+addressCounter);
+		return;
+    }	
 			
 	if ( pos == start_line1+disp_length ) 
-		lcd_write(chip, 1,(1<<LCD_DDRAM)+start_line2,0);    
+		lcd_write(chip, lcd,(1<<LCD_DDRAM)+start_line2,0);    
 	else if ( pos == start_line2+disp_length ) 
-		lcd_write(chip, 1,(1<<LCD_DDRAM)+start_line3,0);
+		lcd_write(chip, lcd,(1<<LCD_DDRAM)+start_line3,0);
 	else if ( pos == start_line3+disp_length ) 
-		lcd_write(chip, 1,(1<<LCD_DDRAM)+start_line4,0);
+		lcd_write(chip, lcd,(1<<LCD_DDRAM)+start_line4,0);
 	else if ( pos == start_line4+disp_length ) 
-		lcd_write(chip, 1,(1<<LCD_DDRAM)+start_line1,0);		
+		lcd_write(chip, lcd,(1<<LCD_DDRAM)+start_line1,0);		
 	
-    lcd_waitbusy(chip,1);	
-	lcd_write(chip,1, c, 1);
+    lcd_waitbusy(chip,lcd);	
+	lcd_write(chip,lcd, c, 1);
     
 }/* lcd_putc */
 
@@ -634,7 +607,8 @@ void lcd_setup_info (uint8_t chip, uint8_t display_type, uint8_t width, uint8_t 
  struct lcdinfo *l;
  
  l=&lcdinfos[chip]; 
- 
+ l->x=0;
+ l->y=0;
  l->setup=display_type| 0;     // 4bit
  l->width=width;
  l->lines=height;
