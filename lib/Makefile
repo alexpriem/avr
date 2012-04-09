@@ -44,7 +44,8 @@ PROJECTNAME=lib
 # (NOT .s !!!) for assembly source code files.
 #PRJSRC=main.c uart.c delay.c leds.c  bitops.c mcp3202.c mcp4922.c \
 #		scpi.c scpi_cmds.c hv_supply.c
-PRJSRC=bitops.c delay.c  lcd.c leds.c mcp3201.c mcp3202.c mcp3204.c mcp4922.c uart.c  
+PRJSRC=bitops.c delay.c  lcd.c leds.c mcp3201.c mcp3202.c mcp3204.c mcp4922.c uart.c  \
+		keypad.c
 		 
 		
 
@@ -184,24 +185,32 @@ GENASMFILES=$(filter %.s, $(OBJDEPS:.o=.s))
 #lib: uart.a uart.o
 	
 
-all: hc595 uart delay mcp3201 mcp3202 mcp3204 mcp4922 leds lcd bitops
+all: bitops delay hc595 keypad leds lcd mcp3201 mcp3202 mcp3204 mcp4922  uart
 
 disasm: $(DUMPTRG) stats
 
 stats: $(TRG)
 	$(OBJDUMP) -h $(TRG)
 	$(SIZE) $(TRG) 
-	
 
-hc595:hc595.o
-	avr-ar rcs libhc595.a hc595.o
-	
-uart: uart.o
-	avr-ar rcs libuart.a uart.o
+bitops: bitops.o
+	avr-ar rcs libbitops.a bitops.o
 	
 delay: delay.o
 	avr-ar rcs libdelay.a delay.o
 	
+hc595:hc595.o
+	avr-ar rcs libhc595.a hc595.o
+
+keypad: keypad.o
+	avr-ar rcs libkeypad.a keypad.o
+	
+lcd: lcd.o
+	avr-ar rcs liblcd.a lcd.o
+
+leds: leds.o
+	avr-ar rcs libleds.a leds.o
+
 mcp3201: mcp3201.o
 	avr-ar rcs libmcp3201.a mcp3201.o
 
@@ -213,15 +222,10 @@ mcp3204: mcp3204.o
 
 mcp4922: mcp4922.o
 	avr-ar rcs libmcp4922.a mcp4922.o
+	
+uart: uart.o
+	avr-ar rcs libuart.a uart.o
 
-bitops: bitops.o
-	avr-ar rcs libbitops.a bitops.o
-
-lcd: lcd.o
-	avr-ar rcs liblcd.a lcd.o
-
-leds: leds.o
-	avr-ar rcs libleds.a leds.o
 	
 
 
