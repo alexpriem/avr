@@ -376,10 +376,9 @@ void lcd_putc(uint8_t chip, char c)
 	if (lines==2) {
 		uint8_t  start_line2;
 						
-		start_line2=l->start_line2;
-		uart_printf ("pos:%x,%x\r\n",pos,start_line1+disp_length);
+		start_line2=l->start_line2;		
 		if ( pos == start_line1+disp_length ) 
-			{ lcd_write(chip, (1<<LCD_DDRAM)+start_line2,0);    uart_puts("brk");}
+			lcd_write(chip, (1<<LCD_DDRAM)+start_line2,0);    
 		else if ( pos == start_line2+disp_length )
 			lcd_write(chip, (1<<LCD_DDRAM)+start_line1,0);		
 	}
@@ -509,13 +508,7 @@ void lcd_setup_info (uint8_t chip, uint8_t display_type, uint8_t width, uint8_t 
 	
 
 void lcd_init (uint8_t chip, uint8_t dispAttr) 
-{
-	//lcd_command (chip, LCD_DISP_ON_CURSOR_BLINK);	
-	    
-    //lcd_clrscr (chip);                           /* display clear                */ 
-   // lcd_command (chip,LCD_MODE_DEFAULT);          /* set entry mode               */
-   
-    uart_puts("lcd_init\r\n");
+{	    
 	lcd_clrscr(chip);
 	lcd_command (chip, dispAttr);	
 }
