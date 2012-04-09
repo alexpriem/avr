@@ -34,14 +34,15 @@ int main(void)
 	//			uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 ) 
 	/* lcd_setup (0, P_PC2, P_PC4, P_PC6, P_PC0,
 			  P_PC1, P_PC3, P_PC5, P_PC7);	 */
-	lcd_setup (0, P_PA0, P_PA2, P_PA4);
+	// lcd_setup  (uint8_t chip,  uint8_t strobe, uint8_t clock, uint8_t io)
+	lcd_setup (0, P_PA2, P_PA4, P_PA0);
 	lcd_setup_info (0, HD44780, 20, 2);
 
 	//a2311_setup (uint8_t chip, uint8_t zcen, uint8_t cs, uint8_t sdi, uint8_t clk, uint8_t mute)	
 	/* pga2311_setup (0, P_PA0, P_PA1, P_PA2, P_PA3, P_PA4);
 	pga2311_init (0); */
 	lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
-	lcd_puts (0,"test");
+	lcd_puts (0,"test\n1234");
 	/*
 	lcd_puts (0, "abcde 1");
 	lcd_puts (0, "\nfghij 2");

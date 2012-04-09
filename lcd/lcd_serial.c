@@ -23,6 +23,7 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include "lcd_serial.h"
+#include "uart.h" 
 
 #include "bitops.h"
 
@@ -119,32 +120,28 @@ static void lcd_write(uint8_t chip, uint8_t data, uint8_t rs)
 	
 	bit_clr	(*p_strobe, b_strobe);
 	
-	uart_puts("\r\nrs:\r\n");
 	startbyte=0xf8 | rs<<1 ;	
 	for (i=0; i<8; i++) {
 		bit_clr	(*p_clock, b_clock);
-		bit_set	(*p_clock, b_clock);
+
 		if ((startbyte & 0x80)==0x80) 
 			bit_set (*p_io, b_io);
 		else 
 			bit_clr (*p_io, b_io);
-		uart_printf("%d:%d\r\n",i,(startbyte&0x80)>>6);
+		bit_set	(*p_clock, b_clock);	
 		startbyte=startbyte<<1;			
 		}
 
-	uart_puts("\r\ndata:\r\n");
 	
 	for (i=0; i<8; i++) {		
-		bit_clr	(*p_clock, b_clock);
-		bit_set	(*p_clock, b_clock);
+		bit_clr	(*p_clock, b_clock);		
 		if ((data & 0x80)==0x80) 
 			bit_set (*p_io, b_io);
 		else 
 			bit_clr (*p_io, b_io);
+		bit_set	(*p_clock, b_clock);
 		data=data<<1;		
 		}
-
-		
 	
 	bit_set	(*p_strobe, b_strobe);
 }
@@ -175,12 +172,12 @@ static uint8_t lcd_read(uint8_t chip, uint8_t rs)
 	b_io=lcd_b_io[chip];    
 	startbyte=0xfc | rs<<1 ;	
 	for (i=0; i<8; i++) {
-		bit_clr	(*p_clock, b_clock);
-		bit_set	(*p_clock, b_clock);
+		bit_clr	(*p_clock, b_clock);		
 		if ((startbyte & 0x80)==0x80) 
 			bit_set (*p_io, b_io);
 		else 
 			bit_clr (*p_io, b_io);
+		bit_set	(*p_clock, b_clock);
 		startbyte=startbyte<<1;		
 		}
 
@@ -353,6 +350,7 @@ Clear display and set cursor to home position
 void lcd_clrscr(uint8_t chip)
 {
     lcd_command(chip, 1<<LCD_CLR);
+	delay(1000);
 }
 
 
@@ -524,5 +522,7 @@ void lcd_init (uint8_t chip, uint8_t dispAttr)
 	    
     //lcd_clrscr (chip);                           /* display clear                */ 
    // lcd_command (chip,LCD_MODE_DEFAULT);          /* set entry mode               */
+   
+    uart_puts("lcd_init\r\n");
 	lcd_command (chip, dispAttr);
 }
