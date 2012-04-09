@@ -42,7 +42,11 @@ int main(void)
 	/* pga2311_setup (0, P_PA0, P_PA1, P_PA2, P_PA3, P_PA4);
 	pga2311_init (0); */
 	lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
-	lcd_puts (0,"test\n1234");
+	
+//	lcd_puts (0,"abcdef\n1234");
+	//lcd_clrscr(0);
+	lcd_puts (0,"abcdefghijklmnopqrstuvwxyz");
+	lcd_puts (0,"\nok");
 	/*
 	lcd_puts (0, "abcde 1");
 	lcd_puts (0, "\nfghij 2");

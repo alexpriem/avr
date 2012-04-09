@@ -55,7 +55,6 @@ struct lcdinfo {
 					// bit 1: 1: HD47780
 					// bit 2: 1: KS0073
 	uint8_t disp_length; /** number of visible lines of the display */
-	uint8_t line_length; /** visibles characters per line of the display */
 	uint8_t start_line1; /** DDRAM address of first char of line 1 */
 	uint8_t start_line2; /** DDRAM address of first char of line 1 */	
 	uint8_t start_line3; /** DDRAM address of first char of line 1 */
@@ -123,7 +122,6 @@ static void lcd_write(uint8_t chip, uint8_t data, uint8_t rs)
 	startbyte=0xf8 | rs<<1 ;	
 	for (i=0; i<8; i++) {
 		bit_clr	(*p_clock, b_clock);
-
 		if ((startbyte & 0x80)==0x80) 
 			bit_set (*p_io, b_io);
 		else 
@@ -170,6 +168,8 @@ static uint8_t lcd_read(uint8_t chip, uint8_t rs)
     b_strobe=lcd_b_strobe[chip];
     b_clock=lcd_b_clock[chip];    
 	b_io=lcd_b_io[chip];    
+	
+	bit_clr	(*p_strobe, b_strobe);
 	startbyte=0xfc | rs<<1 ;	
 	for (i=0; i<8; i++) {
 		bit_clr	(*p_clock, b_clock);		
@@ -182,38 +182,22 @@ static uint8_t lcd_read(uint8_t chip, uint8_t rs)
 		}
 
 	*ddr_io&=~b_io;	
-	delay(2);
-	
+	bit_clr (*p_io, b_io);
+	delay(10);
+    
+	data=0;
 	for (i=0; i<8; i++) {		
 		bit_clr	(*p_clock, b_clock);
 		bit_set	(*p_clock, b_clock);
-		if ( bit_get(*pin_io, b_io) ) data=data|1;		
 		data=data<<1;		
+		if ( bit_get(*pin_io, b_io) ) data=data|1;						
 		}
 	
 	*ddr_io|=b_io;
+	bit_set	(*p_strobe, b_strobe);
     return data;
 }
 
-
-/**************************************
-loops while lcd is busy, returns address counter
-*************************************************************************/
-static uint8_t lcd_waitbusy(uint8_t chip)
-
-{
-    register uint8_t c;
-    
-    /* wait until busy flag is cleared */
-    while ( (c=lcd_read(chip, 0)) & (1<<LCD_BUSY)) {}
-    
-    /* the address counter is updated 4us after the busy flag is cleared */
-    delay(2);
-
-    /* now read the address counter */
-    return (lcd_read(chip, 0));  // return address counter
-    
-}/* lcd_waitbusy */
 
 
 /*************************************************************************
@@ -308,8 +292,7 @@ void lcd_gotoxy(uint8_t chip, uint8_t x, uint8_t y)
 {
 	struct lcdinfo *l;
 	uint8_t lines, start_line1;
-	
-	
+		
 	l=&lcdinfos[chip];	
 	lines=l->lines;
 	start_line1=l->start_line1;
@@ -374,6 +357,17 @@ void lcd_putc(uint8_t chip, char c)
 	struct lcdinfo *l;
 
 	
+	pos=lcd_read(chip, 0);
+	
+	if (c=='\n') {
+		lcd_newline(chip,pos);
+		return;
+	}
+	
+	l=&lcdinfos[chip];	
+	start_line1=l->start_line1;
+	lines=l->lines;
+	disp_length=l->disp_length;
 	if (lines==1) {
 		if ( pos == start_line1+disp_length ) {
 			lcd_write(chip, (1<<LCD_DDRAM)+start_line1,0);
@@ -383,9 +377,9 @@ void lcd_putc(uint8_t chip, char c)
 		uint8_t  start_line2;
 						
 		start_line2=l->start_line2;
-
+		uart_printf ("pos:%x,%x\r\n",pos,start_line1+disp_length);
 		if ( pos == start_line1+disp_length ) 
-			lcd_write(chip, (1<<LCD_DDRAM)+start_line2,0);    
+			{ lcd_write(chip, (1<<LCD_DDRAM)+start_line2,0);    uart_puts("brk");}
 		else if ( pos == start_line2+disp_length )
 			lcd_write(chip, (1<<LCD_DDRAM)+start_line1,0);		
 	}
@@ -406,8 +400,7 @@ void lcd_putc(uint8_t chip, char c)
 			lcd_write(chip, (1<<LCD_DDRAM)+start_line1,0);		
 	
 	}
-	
-    //lcd_waitbusy(chip);	
+	    
 	lcd_write(chip, c, 1);
     
 }/* lcd_putc */
@@ -488,7 +481,7 @@ void lcd_setup (uint8_t chip,  uint8_t strobe, uint8_t clock, uint8_t io)
  if (io==P_PORTB) {lcd_p_io[chip]=&PORTB; DDRB|=b_io; 
 					lcd_pin_io[chip]=&PINB; lcd_ddr_io[chip]=&DDRB;}
  if (io==P_PORTC) {lcd_p_io[chip]=&PORTC; DDRC|=b_io; 
-					lcd_pin_io[chip]=&PINB; lcd_ddr_io[chip]=&DDRC;}
+					lcd_pin_io[chip]=&PINC; lcd_ddr_io[chip]=&DDRC;}
  if (io==P_PORTD) {lcd_p_io[chip]=&PORTD; DDRD|=b_io; 
 					lcd_pin_io[chip]=&PIND; lcd_ddr_io[chip]=&DDRD;}
 
@@ -503,12 +496,11 @@ void lcd_setup_info (uint8_t chip, uint8_t display_type, uint8_t width, uint8_t 
  
  l=&lcdinfos[chip]; 
  
- l->setup=display_type| 0;     // 4bit
+ l->setup=display_type;     // 4bit
  l->width=width;
  l->lines=height;
 
  l->disp_length=20;
- l->line_length=0x40;
  l->start_line1=0x00;
  l->start_line2=0x40;
  l->start_line3=0x14;
@@ -524,5 +516,6 @@ void lcd_init (uint8_t chip, uint8_t dispAttr)
    // lcd_command (chip,LCD_MODE_DEFAULT);          /* set entry mode               */
    
     uart_puts("lcd_init\r\n");
-	lcd_command (chip, dispAttr);
+	lcd_clrscr(chip);
+	lcd_command (chip, dispAttr);	
 }
