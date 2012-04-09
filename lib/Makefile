@@ -44,8 +44,8 @@ PROJECTNAME=lib
 # (NOT .s !!!) for assembly source code files.
 #PRJSRC=main.c uart.c delay.c leds.c  bitops.c mcp3202.c mcp4922.c \
 #		scpi.c scpi_cmds.c hv_supply.c
-PRJSRC=bitops.c delay.c  lcd.c leds.c mcp3201.c mcp3202.c mcp3204.c mcp4922.c uart.c  \
-		keypad.c
+PRJSRC=bitops.c cat4016 delay.c keypad.c leds.c \
+		mcp3201.c mcp3202.c mcp3204.c mcp4922.c keypad.c  uart.c  
 		 
 		
 
@@ -185,7 +185,7 @@ GENASMFILES=$(filter %.s, $(OBJDEPS:.o=.s))
 #lib: uart.a uart.o
 	
 
-all: bitops delay hc595 keypad leds lcd mcp3201 mcp3202 mcp3204 mcp4922  uart
+all: bitops cat4016 delay hc595 keypad leds mcp3201 mcp3202 mcp3204 mcp4922  uart
 
 disasm: $(DUMPTRG) stats
 
@@ -195,6 +195,9 @@ stats: $(TRG)
 
 bitops: bitops.o
 	avr-ar rcs libbitops.a bitops.o
+
+cat4016: cat4016.o
+	avr-ar rcs libcat4016.a cat4016.o
 	
 delay: delay.o
 	avr-ar rcs libdelay.a delay.o
