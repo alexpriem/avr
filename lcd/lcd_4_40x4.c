@@ -420,7 +420,7 @@ Returns:  none
 *************************************************************************/
 void lcd_putc(uint8_t chip, char c)
 {
-    uint8_t pos, disp_length, lcd, y, skip;
+    uint8_t pos, disp_length, lcd, i,y, skip;
 	uint8_t  start_line1, start_line2, start_line3, start_line4;
 	register uint8_t addressCounter;
 	struct lcdinfo *l;
@@ -440,7 +440,7 @@ void lcd_putc(uint8_t chip, char c)
     pos = lcd_waitbusy(chip, lcd);   // read busy-flag and address counter
     if (c=='\n') {		
 		addressCounter=start_line1;	
-		for (i=x; i<40; i++) {txtbuf[i+y*40]=' ';}
+		for (i=l->x; i<40; i++) {txtbuf[i+y*40]=' ';}
 		
 		if ((pos>start_line1) && (pos <= start_line1+disp_length)) 
 			{addressCounter=start_line2; y++;}
@@ -474,7 +474,7 @@ void lcd_putc(uint8_t chip, char c)
 		l->y=y;
 		l->x=0;
 	}
-	buf[x+y*40]=c;
+	txtbuf[l->x+y*40]=c;
 	(l->x)++;	
     lcd_waitbusy(chip, lcd);	
 	lcd_write(chip, lcd, c, 1);
