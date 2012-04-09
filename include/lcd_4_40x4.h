@@ -160,11 +160,9 @@ extern void lcd_puts_p(uint8_t chip, const char *progmem_s);
 extern void lcd_command(uint8_t chip, uint8_t lcd, uint8_t cmd);
 extern void lcd_data(uint8_t chip, uint8_t lcd, uint8_t data);
 extern void lcd_setup (uint8_t chip, 
-				uint8_t rs, uint8_t rw, uint8_t enable, uint8_t  backlight,
+				uint8_t rs, uint8_t rw, uint8_t enable1, uint8_t  enable2,
 				uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3);
- 
-extern void lcd_setup_8bit (uint8_t chip, 			
-				uint8_t db4, uint8_t db5, uint8_t db6, uint8_t db7 );				
+				
 extern void lcd_setup_info (uint8_t chip, uint8_t display_type, uint8_t width, uint8_t height);
 
 				
