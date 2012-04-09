@@ -35,8 +35,8 @@ int main(void)
 	lcd_setup (0, P_PC2, P_PC4, P_PC6, P_PC0,
 			  P_PC1, P_PC3, P_PC5, P_PC7);	
 	lcd_setup_info (0, HD44780, 20, 4);
-	lcd_setup (1, P_PC2, P_PC4, P_PC6, P_PC0,
-			  P_PA0, P_PA2, P_PA4, P_PA6);	
+	//lcd_setup (1, P_PC2, P_PC4, P_PC6, P_PC0,
+	//		  P_PA0, P_PA2, P_PA4, P_PA6);	
 			  
    // lcd_setup_8bit (1, P_PC1, P_PC3, P_PC5, P_PC7);
 	
@@ -45,22 +45,32 @@ int main(void)
 	pga2311_setup (0, P_PA0, P_PA1, P_PA2, P_PA3, P_PA4);
 	pga2311_init (0);
 	lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
-	lcd_puts (0, "regel 1");
-	lcd_puts (0, "\nregel 2");
-	lcd_puts (0, "\nnr 3");
-	lcd_puts (0, "\n#4, done");
-	lcd_puts (0, "\n#5");
-	lcd_puts (0, "\n#6");
-	lcd_puts (0, "\n#7");
+	/*
+	lcd_puts (0, "abcde 1");
+	lcd_puts (0, "\nfghij 2");
+	lcd_puts (0, "\nklmno 3");
+	lcd_puts (0, "\npqrst 4");
+	lcd_puts (0, "\nuvw 5");
+	lcd_puts (0, "\nzAB 6");
+	lcd_puts (0, "\nEFG 7");
+	lcd_puts (0, "\nKLM 8");
+	lcd_puts (0, "\n# 9"); */
+	lcd_puts (0, "##234567890abcdefghijklmno##rstuvwxyz\n");
+	lcd_puts (0, "12##$567890abcdefghijklmnopq##tuvwxyz\n");
+	lcd_puts (0, "12345##7890abcdefghijklmnopqs##vwxyz\n");
+	lcd_puts (0, "1234567##90abcdefghijklmnopqrstu##yz\n");
 	
+	
+	/*
 	lcd_init (1, LCD_DISP_ON_CURSOR_BLINK);
 	lcd_puts (1, "regel 1");
 	lcd_puts (1, "\nregel 2");
-	lcd_puts (1, "\nnr 3");
-	lcd_puts (1, "\n#4, done");
-	lcd_puts (1, "\n#5");
-	lcd_puts (1, "\n#6");
-	lcd_puts (1, "\n#7");
+	lcd_puts (1, "\nregel 3");
+	lcd_puts (1, "\nregel 4");
+	lcd_puts (1, "\nregel 5");
+	lcd_puts (1, "\nregel 6");
+	lcd_puts (1, "\nregel 7");
+	*/
 	j=0;
 	
 	vol_l=128;
