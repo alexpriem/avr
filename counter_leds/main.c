@@ -26,32 +26,27 @@
   uint8_t display;
   unsigned int  num;
   
-//  uart_printf ("\r\n\r\n\rn\rnhandle:[%s]\r\n",buf);
   display=buf[0]-'a';
   if (display>3) {
 	uart_printf("\r\nunknown display:%d\r\n",display);
 	return;
   }
   num=buf[1]-'0';
-//  uart_printf ("num1:%d, %d\r\n",buf[1]-'0',num);
   if (!buf[2]) {
 	cat4016_put_unumber (display,num); 	
 	return;
   }
   num=num*10+(buf[2]-'0');
-//  uart_printf ("num2:%d, %d\r\n",buf[2]-'0',num);  
   if (!buf[3]) {    
 	cat4016_put_unumber (display,num); 	
 	return;
   }
   num=num*10+(buf[3]-'0');
-//  uart_printf ("num3:%d, %d\r\n",buf[3]-'0',num);  
   if (!buf[4]) {    
 	cat4016_put_unumber (display,num); 	
 	return;
   }
   num=num*10+(buf[4]-'0');
-//  uart_printf ("num4:%d, %d\r\n",buf[4]-'0',num);  
   if (!buf[5]) {
 	cat4016_put_unumber (display,num); 	
 	return;
@@ -70,8 +65,6 @@ int main(void)
 	uart_init();
 	uart_puts("\r\ncounter init\r\n");	
 	
-	//PORTC= 0x00;  // pullups uit
-	
 	DDRA  = 0xff;  // A output   
 	DDRC  = 0xff;  // C output   LEDS 1+2	
 	DDRD  = 0xff;  // DE output   LEDS 3+4 
@@ -84,17 +77,12 @@ int main(void)
     uart_puts("\r\ndone cat4016\r\n");	
 	
 	j=0;
-	//PORTA=0x00;
 	
 	cat4016_put_unumber (0,1111);
 	cat4016_put_unumber (1,2222);
 	cat4016_put_unumber (2,3333);
 	uart_printf ("inits done\r\n");
 	
-	
-	
-	
-		
 	uart_echo=FALSE;
     
     while (1) {	
