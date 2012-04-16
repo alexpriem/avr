@@ -47,6 +47,8 @@ void command_loop(void)
 		if (uart_done!=0) {
 			uart_done=0;
 			uart_printf ("\r\n");
+			/* print line */
+			
 			for (i=0; i<UART_BUFLEN; i++) {
 				b=uart_buf[i];
 				switch (b) {
@@ -58,6 +60,7 @@ void command_loop(void)
 					}
 				}
 			
+			/* copy line to buf */
 			
 			uart_printf ("\r\ncopypos:%d\r\n", copypos);
 			//uart_printf ("in loop:%d %d %d [%s]\r\n", uart_len, uart_pos, uart_done, uart_buf);						
@@ -73,7 +76,7 @@ void command_loop(void)
 					// uart_printf ("%d %d %c %c %d\r\n", i, copypos, buf[i], uart_buf[copypos]);
 					 if (buf[i]=='\n') break;
 				}
-			copypos++;
+			
 			buf[i]=0;		
 			uart_printf ("\r\n\r\nmain:got [%s], len %d\r\n", buf, i);
 			if (i>0)
