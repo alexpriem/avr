@@ -9,9 +9,7 @@ Title:    output data to a serial port.
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 #include "uart.h"
-#ifdef _DEBUG_
-#include "lcd.h"
-#endif 
+#include "constants.h"
 
  
 #define F_OSC 16000000		           /* uc-oscillator-frequency in Hz */
@@ -20,8 +18,9 @@ Title:    output data to a serial port.
 
 
 
-char uart_buf[UART_BUFLEN];
+char uart_buf[UART_BUFLEN+2];
 uint8_t uart_pos, uart_done;
+uint8_t uart_echo=TRUE;
 
 
 /* Initialize UART */
@@ -165,8 +164,7 @@ ISR (SIG_UART_RECV)
    uart_pos++;
    if (uart_pos>=UART_BUFLEN) uart_pos=0;   
    if ((c==13) || (c==10)) uart_done=1;   
-   uart_putc(c);
-   
+   if (uart_echo) uart_putc(c);
 }
 
 

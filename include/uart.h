@@ -10,8 +10,8 @@ extern void uart_puts (char *s);
 extern unsigned char uart_getc (void);
 extern void uart_printf(char *fmt, ...);
 
-extern uint8_t uart_pos, uart_done;
-extern char uart_buf[UART_BUFLEN];
+extern uint8_t uart_pos, uart_done, uart_echo;
+extern char uart_buf[UART_BUFLEN+2];
 
 
 
