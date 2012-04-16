@@ -15,35 +15,66 @@
 #include "uart.h"
 #include "cat4016.h"
 #include "bitops.h"
+#include "constants.h"
 
 #include "delay.h"
 
-#define TRUE 1
-#define FALSE 0
-					
-   
+
+ void handle_txt (char *buf)
+ 
+ {
+  uint8_t display;
+  unsigned int  num;
+  
+//  uart_printf ("\r\n\r\n\rn\rnhandle:[%s]\r\n",buf);
+  display=buf[0]-'a';
+  if (display>3) {
+	uart_printf("\r\nunknown display:%d\r\n",display);
+	return;
+  }
+  num=buf[1]-'0';
+//  uart_printf ("num1:%d, %d\r\n",buf[1]-'0',num);
+  if (!buf[2]) {
+	cat4016_put_unumber (display,num); 	
+	return;
+  }
+  num=num*10+(buf[2]-'0');
+//  uart_printf ("num2:%d, %d\r\n",buf[2]-'0',num);  
+  if (!buf[3]) {    
+	cat4016_put_unumber (display,num); 	
+	return;
+  }
+  num=num*10+(buf[3]-'0');
+//  uart_printf ("num3:%d, %d\r\n",buf[3]-'0',num);  
+  if (!buf[4]) {    
+	cat4016_put_unumber (display,num); 	
+	return;
+  }
+  num=num*10+(buf[4]-'0');
+//  uart_printf ("num4:%d, %d\r\n",buf[4]-'0',num);  
+  if (!buf[5]) {
+	cat4016_put_unumber (display,num); 	
+	return;
+  }
+  cat4016_put_txt (display,"oflo"); 	
+  uart_printf("\r\ndisplay overflow:%d [%s]\r\n",display,buf);    
+ }
  
 int main(void)
 {
- //   int rev=0;
-	int j;	
+ 	char c;
+	uint8_t i,j,done,b, copypos=0;
+	char buf[UART_BUFLEN<<2];
 	
 	
 	uart_init();
 	uart_puts("\r\ncounter init\r\n");	
 	
-	DDRA = 0x0f;  // E inputs + outputs voor keypad
-	PORTA= 0xf0;  // pullups aan
 	//PORTC= 0x00;  // pullups uit
 	
 	DDRA  = 0xff;  // A output   
 	DDRC  = 0xff;  // C output   LEDS 1+2	
 	DDRD  = 0xff;  // DE output   LEDS 3+4 
-	
-//	uart_puts("\r\nsetup done\r\n");	
-//	uart_puts("\r\nlcd init done\r\n");	
-//	uart_puts("\r\ndone\r\n");	
-	
 	
   // init_cat4016(uint8_t chip, uint8_t clk, uint8_t latch, uint8_t data, uint8_t blank)
 	init_cat4016 (2, P_PC6, P_PC0,  P_PC4, PC2);
@@ -59,6 +90,63 @@ int main(void)
 	cat4016_put_unumber (1,2222);
 	cat4016_put_unumber (2,3333);
 	uart_printf ("inits done\r\n");
+	
+	
+	
+	
+		
+	uart_echo=FALSE;
+    
+    while (1) {	
+		if (uart_done!=0) {
+			uart_done=0;
+/*			
+			uart_printf ("\r\n");
+			for (i=0; i<UART_BUFLEN; i++) {
+				b=uart_buf[i];
+				switch (b) {
+					case 0: uart_putc('~');
+							break;
+					case '\n':uart_putc('*');					
+							break;
+					case '\r':uart_putc('+');					
+							break;							
+					default: uart_putc(uart_buf[i]);
+					}
+				}
+	*/		
+
+			j=0;
+			for (i=0; i<UART_BUFLEN; i++) buf[i]=0;
+			for (i=0; i<UART_BUFLEN; i++) {					
+                    if (copypos>=UART_BUFLEN) {
+//					    uart_printf ("OV\r\n");	
+						copypos=0;
+					}
+					c=uart_buf[copypos];
+					if (c=='\n') 
+						break;
+					if (c!=0) {						
+					    uart_buf[copypos]=0;
+						copypos++;
+						if ((c!='\r') && (c!='\n')) {
+							buf[j]=c;													
+							j++;
+							}
+					}
+//					uart_printf ("%d %d %d %c %c [%s]\r\n", 
+//									i,j, copypos, buf[j], uart_buf[copypos],buf);
+					
+				}
+//			uart_printf ("\r\n\r\nmain:got [%s], len %d, pos %d\r\n", buf, j, copypos);
+			if (j>0)
+				handle_txt (buf);
+		}
+    }
+
+		
+		
+		
 	
 	
 
