@@ -23,93 +23,18 @@
 #include "keypad.h"
 #include "hc595.h"
 	
-#include "softuart.h"
 
-	/*
-	lcd_puts (0, "\nklmno 3");
-	lcd_puts (0, "\npqrst 4");
-	lcd_puts (0, "\nuvw 5");
-	lcd_puts (0, "\nzAB 6");
-	lcd_puts (0, "\nEFG 7");
-	lcd_puts (0, "\nKLM 8");
-	lcd_puts (0, "\n# 9"); 
-	*/
-	
-	
-	/*
-	lcd_puts (0, "##234567890abcdefghijklmno##rstuvwxyz\n");
-	lcd_puts (0, "12##$567890abcdefghijklmnopq##tuvwxyz\n");
-	lcd_puts (0, "12345##7890abcdefghijklmnopqs##vwxyz\n");
-	lcd_puts (0, "1234567##90abcdefghijklmnopqrstu##yz\n");
-	*/
-	
-//uint8_t mapping[17]={12,13,15,14,  11,9,7,6,   0,8,2,5,   10,7,1,4, 255};
-          //keycode:   0 1 2  3      4 5 6  7    8 9 10 11  12 13 14 15  16				
-			
-uint8_t	mapping[16]={0xbb, 0x5f, 0x5d, 0x57,    //  0 1 2 3     
-				 0x75, 0x77, 0x7d, 0xbe,    //  4 5 6 7
-				 0xae, 0xba, 0xab, 0xaf,     //  8 9 a b
-				 0xbf, 0xaa, 0x7f, 0x55};   //  c d e f 
-				 
-				 
-uint8_t keypad_bits[16];
-volatile uint8_t *keypad_port;
-
-void init_keypad_4x4s (uint8_t port)
-						
-{
-   
-	if (port==P_PORTA) {keypad_port=&PINA; DDRA=0; PORTA=0xff;}
-	if (port==P_PORTB) {keypad_port=&PINB; DDRB=0; PORTB=0xff;}
-	if (port==P_PORTC) {keypad_port=&PINC; DDRC=0; PORTC=0xff;}
-	if (port==P_PORTD) {keypad_port=&PIND; DDRD=0; PORTD=0xff;}
-}					
-
-uint8_t keypad_getch (void) {
- uint8_t c,i;
- 
-  c=*keypad_port;  
-  if (c==0xff) return 0xff;
-  for (i=0; i<16; i++) {
-    if (mapping[i]==c) return i;
-  }
-  uart_printf ("[%x]",c);
-  return 0xfe;
-}		  
-
-uint8_t keypad_w_getch (void) {
- uint8_t c,i;
- 
- 
-  c=0xff;
-  while (c==0xff) {
-	 c=*keypad_port;
-	 }  
-  for (i=0; i<16; i++) {
-    if (mapping[i]==c) return i;
-  }
-  uart_printf ("[%x]",c);
-  return 0xfe;
-}		  
-	  
 		  
 int main(void)
 {
-    unsigned int  num, count;
-	uint8_t a;
 	int c, prevc;
 	
 		  
 	
-	//softuart_init();
 	uart_init();
 	uart_puts ("\r\nreset -- init\r\n");
-	//softuart_puts("\r\nsoftuart reset -- init\r\n");
-	//init_keypad_4x4_s (ports);	
 	
-	init_keypad_4x4s (P_PORTC);
-
-
+	/*
 	hc595_setup(0, P_PD7, P_PD3, P_PD5);
 	hc595_putc (0,0x01);
 	delay(500);
@@ -126,6 +51,7 @@ int main(void)
 	hc595_putc (0,0x40);
 	delay(500);
 	hc595_putc (0,0x80);
+	*/
 
 	//void lcd_setup (uint8_t rs, uint8_t rw, uint8_t enable1, uint8_t enable2,
 	//			uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 ) 
@@ -146,26 +72,6 @@ int main(void)
 	uart_printf ("start loop \r\n",c);
 	c=0;
 	prevc=0;
-	for (;;) {
-		c=keypad_4x4_getc();	
-		a=PINA;
-		uart_printf ("%x\r\n",a);
-		num=mapping[c];		
-		
-		if (c!=prevc) {
-			uart_printf (":%d reps omitted\r\n", count);
-			uart_printf ("%d %d\r\n", c, num);
-			prevc=c;
-			count=0;
-			} 
-		else {
-		  count++;
-		  if (count>65534) {
-			uart_printf ("*%d %d\r\n", c, num);
-			count=0;
-			}
-		  }
-	}
 	
  return 0;
 }

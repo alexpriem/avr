@@ -47,7 +47,7 @@ PROJECTNAME=lcd
 #		scpi.c scpi_cmds.c hv_supply.c
 #PRJSRC=main.c lcd_4_40x4.c rot_encoder.c pga2311.c
 #PRJSRC=main.c lcd_serial.c  rot_encoder.c pga2311.c 
-PRJSRC=main_k.c lcd_4_40x4.c  softuart.c
+PRJSRC=main.c 
 		 
 		
 
@@ -57,7 +57,7 @@ INC=-Ie:\avr\include
 
 # libraries to link in (e.g. -lmylib)
 #LIBS=-Le:\avr\lib -ldelay -luart
-LIBS=-Le:\avr\lib -ldelay -luart -lkeypad -lhc595
+LIBS=-Le:\avr\lib -ldelay -luart -lhc595 -llcd_serial
 
 # Optimization level, 
 # use s (size opt), 1, 2, 3 or 0 (off)
