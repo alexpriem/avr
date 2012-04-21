@@ -1,4 +1,5 @@
 ##### Customize the values as indicated below and :
+##### Customize the values as indicated below and :
 ##### make
 ##### make disasm 
 ##### make stats 
@@ -35,7 +36,7 @@ PROGRAMMER_MCU=m32
 
 # Name of our project
 # (use a single word, e.g. 'myproject')
-PROJECTNAME=lib
+PROJECTNAME=lcd
 
 # Source files
 # List C/C++/Assembly source files:
@@ -44,17 +45,19 @@ PROJECTNAME=lib
 # (NOT .s !!!) for assembly source code files.
 #PRJSRC=main.c uart.c delay.c leds.c  bitops.c mcp3202.c mcp4922.c \
 #		scpi.c scpi_cmds.c hv_supply.c
-PRJSRC=bitops.c cat4016 delay.c keypad.c leds.c \
-		mcp3201.c mcp3202.c mcp3204.c mcp4922.c keypad.c  uart.c  
+#PRJSRC=main.c lcd_4_40x4.c rot_encoder.c pga2311.c
+#PRJSRC=main.c lcd_serial.c  rot_encoder.c pga2311.c 
+PRJSRC=main_k.c lcd_4_40x4.c  softuart.c
 		 
 		
 
 		
 # additional includes (e.g. -I/path/to/mydir)
-INC=-Ie:\avr\include -Ie:\avr\lib
+INC=-Ie:\avr\include
 
 # libraries to link in (e.g. -lmylib)
-LIBS=-Le:\avr\lib 
+#LIBS=-Le:\avr\lib -ldelay -luart
+LIBS=-Le:\avr\lib -ldelay -luart -lkeypad -lhc595
 
 # Optimization level, 
 # use s (size opt), 1, 2, 3 or 0 (off)
@@ -162,8 +165,6 @@ OBJDEPS=$(CFILES:.c=.o)    \
 	$(BIGCFILES:.C=.o) \
 	$(CCFILES:.cc=.o)  \
 	$(ASMFILES:.S=.o)
-	
-LIBDEPS=$(CFILES:.c=.a) 
 
 # Define all lst files.
 LST=$(filter %.lst, $(OBJDEPS:.o=.lst))
@@ -181,71 +182,30 @@ GENASMFILES=$(filter %.s, $(OBJDEPS:.o=.s))
 
 # Make targets:
 # all, disasm, stats, hex, writeflash/install, clean
+all: $(TRG)
 
-#lib: uart.a uart.o
-	
-
-all: bitops cat4016 delay hc595 keypad leds mcp3201 mcp3202 mcp3204 mcp4922  uart \
-	lcd_serial lcd_4_40x4
-
-#disasm: $(DUMPTRG) stats
+disasm: $(DUMPTRG) stats
 
 stats: $(TRG)
 	$(OBJDUMP) -h $(TRG)
 	$(SIZE) $(TRG) 
 
-bitops: bitops.o
-	avr-ar rcs libbitops.a bitops.o
+hex: $(HEXTRG)
 
-cat4016: cat4016.o
-	avr-ar rcs libcat4016.a cat4016.o
-	
-delay: delay.o
-	avr-ar rcs libdelay.a delay.o
-	
-hc595:hc595.o
-	avr-ar rcs libhc595.a hc595.o
 
-keypad: keypad.o
-	avr-ar rcs libkeypad.a keypad.o
-	
-lcd: lcd.o
-	avr-ar rcs liblcd.a lcd.o
+writeflash: 
+	$(AVRDUDE) -V -b 115200 -c $(AVRDUDE_PROGRAMMERID)   \
+	 -p $(PROGRAMMER_MCU) -P $(AVRDUDE_PORT) -e        \
+	 -U flash:w:$(HEXROMTRG)
 
-lcd_serial: lcd_serial.o
-	avr-ar rcs liblcd_serial.a lcd_serial.o
-
-lcd_4_40x4: lcd_4_40x4.o
-	avr-ar rcs liblcd_4_40x4.a lcd_4_40x4.o
-	
-leds: leds.o
-	avr-ar rcs libleds.a leds.o
-
-mcp3201: mcp3201.o
-	avr-ar rcs libmcp3201.a mcp3201.o
-
-mcp3202: mcp3202.o
-	avr-ar rcs libmcp3202.a mcp3202.o
-
-mcp3204: mcp3204.o
-	avr-ar rcs libmcp3204.a mcp3204.o
-
-mcp4922: mcp4922.o
-	avr-ar rcs libmcp4922.a mcp4922.o
-	
-uart: uart.o
-	avr-ar rcs libuart.a uart.o
-
-	
-
+install: writeflash
 
 $(DUMPTRG): $(TRG) 
 	$(OBJDUMP) -S  $< > $@
 
 
 $(TRG): $(OBJDEPS) 
-	$(CC) $(LDFLAGS) -o $(TRG) $(OBJDEPS)
-	$(AR) rcs $(LIBDEPS) $(OBJDEPS)
+	$(CC)  -o $(TRG) $(OBJDEPS) $(LDFLAGS)
 
 
 #### Generating assembly ####
@@ -270,9 +230,27 @@ $(TRG): $(OBJDEPS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
+# object from C++ (.cc, .cpp, .C files)
+.cc.o .cpp.o .C.o :
+	$(CC) $(CFLAGS) -c $< -o $@
+
 # object from asm
 .S.o :
 	$(CC) $(ASMFLAGS) -c $< -o $@
+
+
+#### Generating hex files ####
+# hex files from elf
+#####  Generating a gdb initialisation file    #####
+.out.hex:
+	$(OBJCOPY) -j .text                    \
+		-j .data                       \
+		-O $(HEXFORMAT) $< $@
+
+.out.ee.hex:
+	$(OBJCOPY) -j .eeprom                  \
+		--change-section-lma .eeprom=0 \
+		-O $(HEXFORMAT) $< $@
 
 
 #####  Generating a gdb initialisation file    #####
@@ -295,10 +273,11 @@ $(GDBINITFILE): $(TRG)
 
 #### Cleanup ####
 clean:
-#$(REMOVE) $(TRG) $(TRG).map $(DUMPTRG)
+	$(REMOVE) $(TRG) $(TRG).map $(DUMPTRG)
 	$(REMOVE) $(OBJDEPS)
 	$(REMOVE) $(LST) $(GDBINITFILE)
 	$(REMOVE) $(GENASMFILES)
+	$(REMOVE) $(HEXTRG)
 	
 
 
