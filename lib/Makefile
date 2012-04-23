@@ -234,7 +234,7 @@ mcp4922: mcp4922.o
 	avr-ar rcs libmcp4922.a mcp4922.o
 
 rot_encoder: rot_encoder.o
-	avr-ar rcs libmrot_encoder.a rot_encoder.o
+	avr-ar rcs librot_encoder.a rot_encoder.o
 	
 uart: uart.o
 	avr-ar rcs libuart.a uart.o

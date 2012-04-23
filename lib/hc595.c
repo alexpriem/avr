@@ -26,6 +26,9 @@ unsigned char  hc595_copy_data[NUM_HC595];
 
 
 
+
+
+			//							sh_cp    st_cp    ds
 void hc595_setup (uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
 
 { uint8_t bclk, bcs, bdata;

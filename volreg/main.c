@@ -11,13 +11,14 @@
 *******************************************************************************/
 #include <inttypes.h>
 #include <avr/io.h>
+#include <stdlib.h>
  
 #include "uart.h"
 #include "cat4016.h"
 #include "bitops.h"
 
 #include "delay.h"
-#include "lcd_4_40x4.h"
+#include "lcd_serial.h"
 #include "constants.h"
 #include "rot_encoder.h"
 #include "keypad.h"
@@ -26,16 +27,15 @@
 
 		  
 int main(void)
-{
-	int c, prevc;
-	
-		  
+{	
+	int8_t vol, changed;
+	char buf[10];
 	
 	uart_init();
 	uart_puts ("\r\nreset -- init\r\n");
-	
-	/*
-	hc595_setup(0, P_PD7, P_PD3, P_PD5);
+	//				sh_cp    st_cp    ds
+	hc595_setup (0, P_PC5, P_PC3, P_PC1);
+	//hc595_setup (0, P_PC5, P_PC1, P_PC3);
 	hc595_putc (0,0x01);
 	delay(500);
 	hc595_putc (0,0x02);
@@ -51,27 +51,42 @@ int main(void)
 	hc595_putc (0,0x40);
 	delay(500);
 	hc595_putc (0,0x80);
-	*/
+	
 
 	//void lcd_setup (uint8_t rs, uint8_t rw, uint8_t enable1, uint8_t enable2,
 	//			uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 ) 
-	 lcd_setup (0, P_PC2, P_PC4, P_PC6, P_PC0,
-			  P_PC1, P_PC3, P_PC5, P_PC7);	 
-	 lcd_setup (0, P_PA2, P_PA4, P_PA6, P_PA0,
-			  P_PA1, P_PA3, P_PA5, P_PA7);	 
-
+	 lcd_setup (0, P_PA2, P_PA4, P_PA0);			  
+	 
 			  //lcd_setup  (uint8_t chip,  uint8_t strobe, uint8_t clock, uint8_t io)
 	lcd_setup_info (0, HD44780, 20, 2);
 	
 	lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
 	
+	encoder_setup (0, P_PC0, P_PC2);
 	
-	lcd_puts (0, "abcde 1");
-	lcd_puts (0, "\nfghij 2");
 	
-	uart_printf ("start loop \r\n",c);
-	c=0;
-	prevc=0;
+	vol=25;
+	hc595_putc (0,0x7f);
+	lcd_clrscr (0);
+	itoa(vol, buf,10);         
+	lcd_puts (0, "vol: ");
+	lcd_puts (0, buf);
 	
+	
+	
+	uart_printf ("start loop \r\n");
+	
+	for (;;) {
+		changed=encoder_poll_range (0, &vol, 0,100,1);
+		//uart_printf ("%d %d\r\n",vol, changed);
+		
+		if (changed==TRUE) {
+			lcd_clrscr (0);
+			lcd_puts (0, "vol: ");
+			itoa(vol, buf,10);    
+			lcd_puts (0, buf);
+			hc595_putc (0,vol);
+			}		
+	}
  return 0;
 }

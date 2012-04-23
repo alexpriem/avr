@@ -71,29 +71,34 @@ int8_t encoder_poll (uint8_t encoder)
  //uart_printf ("%d %d %d %d\r\n", prevb0, prevb1, b0, b1);
  
  state=enc_states[( old_AB & 0x0f )];
- if (state!=0)
-	uart_printf ("%d\r\n", state);
- 
- return 1;
+ if (state!=0) {
+	uart_printf ("s:%d\r\n", state);
+	return state;
+}
+ return FALSE;
 }
 
 
-int8_t encoder_poll_range (uint8_t encoder, int *var, int min, int max, int step)
+int8_t encoder_poll_range (uint8_t encoder, int8_t *var, int8_t min, int8_t max, int8_t step)
 
 {
  int8_t status, changed;
  
  changed=FALSE;
  status=encoder_poll (encoder);
+ uart_printf ("%d %d %d %d %d\r\n",status, *var, min, max, step);
  if ((status==1) && (*var<max)) {
-	*var+=step;
-	if (*var>max) *var=max;
-	changed=TRUE;
+    uart_printf ("+");	
+	*var+=step;	
+	if (*var>max) *var=max;	
+	return TRUE;
 	}
- if ((status==1) && (*var>min)) {
+ if ((status==-1) && (*var>min)) {
+	uart_printf ("-");
 	*var-=step;
 	if (*var<min) *var=min;
-	changed=TRUE;
+	changed=TRUE;	
 	}
+ uart_printf ("%d %d %d %d %d %d\r\n",status, changed, *var, min, max, step);
  return changed;
 }
