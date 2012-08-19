@@ -44,7 +44,7 @@ PROJECTNAME=counter
 # (NOT .s !!!) for assembly source code files.
 #PRJSRC=main.c uart.c delay.c leds.c  bitops.c mcp3202.c mcp4922.c \
 #		scpi.c scpi_cmds.c hv_supply.c
-PRJSRC=main.c 
+PRJSRC= led595p.c main.c
 		
 
 		
@@ -52,7 +52,8 @@ PRJSRC=main.c
 INC=-Ie:\avr\include
 
 # libraries to link in (e.g. -lmylib)
-LIBS=-Le:\avr\lib   -luart -ldelay -lcat4016
+LIBS=-Le:\avr\lib   -lhc595p -luart -ldelay 
+#-lled595
 
 # Optimization level, 
 # use s (size opt), 1, 2, 3 or 0 (off)

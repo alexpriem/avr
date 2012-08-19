@@ -13,12 +13,14 @@
 #include <avr/io.h>
  
 #include "uart.h"
-#include "cat4016.h"
+#include "hc595p.h"
+#include "led595p.h"
 #include "bitops.h"
 #include "constants.h"
 
 #include "delay.h"
 
+	    
 
  void handle_txt (char *buf)
  
@@ -33,25 +35,25 @@
   }
   num=buf[1]-'0';
   if (!buf[2]) {
-	cat4016_put_unumber (display,num); 	
+	led595p_put_unumber (display,num); 	
 	return;
   }
   num=num*10+(buf[2]-'0');
   if (!buf[3]) {    
-	cat4016_put_unumber (display,num); 	
+	led595p_put_unumber (display,num); 	
 	return;
   }
   num=num*10+(buf[3]-'0');
   if (!buf[4]) {    
-	cat4016_put_unumber (display,num); 	
+	led595p_put_unumber (display,num); 	
 	return;
   }
   num=num*10+(buf[4]-'0');
   if (!buf[5]) {
-	cat4016_put_unumber (display,num); 	
+	led595p_put_unumber (display,num); 	
 	return;
   }
-  cat4016_put_txt (display,"oflo"); 	
+  led595p_put_txt (display,"oflo"); 	
   uart_printf("\r\ndisplay overflow:%d [%s]\r\n",display,buf);    
  }
  
@@ -60,6 +62,7 @@ int main(void)
  	char c;
 	uint8_t i,j,done,b, copypos=0;
 	char buf[UART_BUFLEN<<2];
+	int k;
 	
 	
 	uart_init();
@@ -69,21 +72,52 @@ int main(void)
 	DDRC  = 0xff;  // C output   LEDS 1+2	
 	DDRD  = 0xff;  // DE output   LEDS 3+4 
 	
-  // init_cat4016(uint8_t chip, uint8_t clk, uint8_t latch, uint8_t data, uint8_t blank)
-	init_cat4016 (2, P_PC6, P_PC0,  P_PC4, PC2);
-	init_cat4016 (1, P_PA7, P_PA1,  P_PA5, PA3);
-	init_cat4016 (0, P_PA6, P_PA0,  P_PA4, PA2);	
 	
-    uart_puts("\r\ndone cat4016\r\n");	
 	
-	j=0;
+  // init_led595(uint8_t chip, uint8_t clk, uint8_t latch, uint8_t data, uint8_t blank)
+//	init_led595 (2, P_PC6, P_PC0,  P_PC4, PC2);
+//	init_led595 (1, P_PA7, P_PA1,  P_PA5, PA3);
+//	init_led595 (0, P_PA6, P_PA0,  P_PA4, PA2);	
+	 		//							sh_cp    st_cp    ds
+//void hc595_setup (uint8_t chip, uint8_t clk, uint8_t cs, uint8_t d0, d1, d2, d3)	
+	hc595p_setup(0, P_PA0, P_PA1, P_PA3, P_PA5, P_PA7, P_PA4);
+	hc595p_setup(1, P_PC0, P_PC1, P_PC3, P_PC5, P_PC7, P_PC4);
+	hc595p_setup(2, P_PB0, P_PB1, P_PB3, P_PB5, P_PB7, P_PB2);
+	//hc595p_setup(2, P_PB0, P_PB1, P_PD3, P_PD5, P_PD7, P_PD4);
+	hc595p_setup(3, P_PD2, P_PD6, P_PD3, P_PD5, P_PD7, P_PD4);
+    uart_puts("\r\ndone hc595\r\n");	
 	
-	cat4016_put_unumber (0,1111);
-	cat4016_put_unumber (1,2222);
-	cat4016_put_unumber (2,3333);
+	//hc595p_putc(0,0xbb, 0xa0, 0x37, 0xb5);
+	hc595p_putc(0,0xff, 0xff, 0xff, 0xff);
+	hc595p_putc(1,0xff, 0xff, 0xff, 0xff);
+	hc595p_putc(2,0xff, 0xff, 0xff, 0xff);
+	hc595p_putc(3,0xff, 0xff, 0xff, 0xff);
+	
+		  
+		
+	led595p_put_unumber (0,0123);
+	led595p_put_unumber (1,4567);
+	led595p_put_unumber (2,8901);
+	led595p_put_unumber (3,2345);
 	uart_printf ("inits done\r\n");
 	
 	uart_echo=FALSE;
+	
+	k=0;
+	for(k=0;k<9999;k++) { 	
+		delay (500);
+		led595p_put_unumber (0,k);
+		led595p_put_unumber (1,k);
+		led595p_put_unumber (2,k);
+		led595p_put_unumber (3,k);
+	}
+
+	for(k=0;k<9999;k++) { 		
+		led595p_put_unumber (0,k);
+		led595p_put_unumber (1,k);
+		led595p_put_unumber (2,k);
+		led595p_put_unumber (3,k);
+	}
     
     while (1) {	
 		if (uart_done!=0) {
