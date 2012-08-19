@@ -37,19 +37,19 @@ int main(void)
 	hc595_setup (0, P_PC5, P_PC3, P_PC1);
 	//hc595_setup (0, P_PC5, P_PC1, P_PC3);
 	hc595_putc (0,0x01);
-	delay(500);
+	delay(5000);
 	hc595_putc (0,0x02);
-	delay(500);
+	delay(5000);
 	hc595_putc (0,0x04);
-	delay(500);
+	delay(5000);
 	hc595_putc (0,0x08);
-	delay(500);
+	delay(5000);
 	hc595_putc (0,0x10);
-	delay(500);
+	delay(5000);
 	hc595_putc (0,0x20);
-	delay(500);
+	delay(5000);
 	hc595_putc (0,0x40);
-	delay(500);
+	delay(5000);
 	hc595_putc (0,0x80);
 	
 
@@ -60,18 +60,13 @@ int main(void)
 			  //lcd_setup  (uint8_t chip,  uint8_t strobe, uint8_t clock, uint8_t io)
 	lcd_setup_info (0, HD44780, 20, 2);
 	
-	lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
+	//lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
+	lcd_init (0, LCD_DISP_ON);
 	
 	encoder_setup (0, P_PC0, P_PC2);
 	
 	
-	vol=25;
-	hc595_putc (0,0x7f);
-	lcd_clrscr (0);
-	itoa(vol, buf,10);         
-	lcd_puts (0, "vol: ");
-	lcd_puts (0, buf);
-	
+
 	
 	
 	uart_printf ("start loop \r\n");
@@ -82,7 +77,7 @@ int main(void)
 		
 		if (changed==TRUE) {
 			lcd_clrscr (0);
-			lcd_puts (0, "vol: ");
+			lcd_puts (0, "volume: ");
 			itoa(vol, buf,10);    
 			lcd_puts (0, buf);
 			hc595_putc (0,vol);
