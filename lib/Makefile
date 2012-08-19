@@ -185,7 +185,7 @@ GENASMFILES=$(filter %.s, $(OBJDEPS:.o=.s))
 #lib: uart.a uart.o
 	
 
-all: bitops cat4016 delay hc595 keypad leds mcp3201 mcp3202 mcp3204 mcp4922  uart \
+all: bitops cat4016 delay hc595 hc595p keypad leds mcp3201 mcp3202 mcp3204 mcp4922  uart \
 	lcd_serial lcd_4_40x4 rot_encoder
 
 #disasm: $(DUMPTRG) stats
@@ -206,6 +206,9 @@ delay: delay.o
 hc595:hc595.o
 	avr-ar rcs libhc595.a hc595.o
 
+hc595p:hc595p.o
+	avr-ar rcs libhc595p.a hc595p.o
+	
 keypad: keypad.o
 	avr-ar rcs libkeypad.a keypad.o
 	
