@@ -1,5 +1,5 @@
-#ifndef _S74HC595_H_
-#define _S74HC595_H_
+#ifndef _CAT4016_H_
+#define _CAT4016_H_
 
 void init_cat4016(uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data, uint8_t blank);
 void  cat4016_putc (uint8_t chip, unsigned char c);
