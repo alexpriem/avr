@@ -102,41 +102,44 @@ int main(void)
 	uart_printf ("inits done\r\n");
 	
 	uart_echo=FALSE;
-	
-	k=0;
-	for(k=0;k<9999;k++) { 	
-		delay (500);
-		led595p_put_unumber (0,k);
-		led595p_put_unumber (1,k);
-		led595p_put_unumber (2,k);
-		led595p_put_unumber (3,k);
-	}
 
-	for(k=0;k<9999;k++) { 		
+
+/*	
+	k=0;
+	for(k=0;k<9999;k++) {
+		if (k<10) {
+			delay (450);}
+		if (k<100) {
+			delay (50);}
+			
 		led595p_put_unumber (0,k);
 		led595p_put_unumber (1,k);
 		led595p_put_unumber (2,k);
 		led595p_put_unumber (3,k);
 	}
+*/
     
     while (1) {	
 		if (uart_done!=0) {
 			uart_done=0;
-/*			
+			
 			uart_printf ("\r\n");
 			for (i=0; i<UART_BUFLEN; i++) {
 				b=uart_buf[i];
-				switch (b) {
+				
+				switch (b) { /*
 					case 0: uart_putc('~');
 							break;
 					case '\n':uart_putc('*');					
 							break;
 					case '\r':uart_putc('+');					
-							break;							
+							break;	
+							*/
 					default: uart_putc(uart_buf[i]);
 					}
+				
 				}
-	*/		
+			
 
 			j=0;
 			for (i=0; i<UART_BUFLEN; i++) buf[i]=0;
