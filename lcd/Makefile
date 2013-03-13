@@ -57,7 +57,7 @@ INC=-Ie:\avr\include
 
 # libraries to link in (e.g. -lmylib)
 #LIBS=-Le:\avr\lib -ldelay -luart
-LIBS=-Le:\avr\lib -ldelay -luart -lkeypad -lhc595
+LIBS=-Le:\avr\lib -ldelay -luart  -lhc595
 
 # Optimization level, 
 # use s (size opt), 1, 2, 3 or 0 (off)

@@ -29,7 +29,7 @@ int main(void)
 	
 	
 	uart_init();
-	uart_puts ("\r\nreset -- init\r\n");
+	uart_puts ("\r\nreset -- init2\r\n");
 	//void lcd_setup (uint8_t rs, uint8_t rw, uint8_t enable,
 	//			uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 ) 
 	/* lcd_setup (0, P_PC2, P_PC4, P_PC6, P_PC0,
@@ -48,7 +48,7 @@ int main(void)
 	lcd_puts (0,"abcdefghijklmnopqrstuvwxyz");
 	lcd_puts (0,"\nok");
 	/*
-	lcd_puts (0, "abcde 1");
+	lcd_puts (0, "xbcde 1");
 	lcd_puts (0, "\nfghij 2");
 	lcd_puts (0, "\nklmno 3");
 	lcd_puts (0, "\npqrst 4");

@@ -47,9 +47,9 @@
           //keycode:   0 1 2  3      4 5 6  7    8 9 10 11  12 13 14 15  16				
 			
 uint8_t	mapping[16]={0xbb, 0x5f, 0x5d, 0x57,    //  0 1 2 3     
-				 0x75, 0x77, 0x7d, 0xbe,    //  4 5 6 7
+				 0xd5, 0xd7, 0xdd, 0xbe,    //  4 5 6 7
 				 0xae, 0xba, 0xab, 0xaf,     //  8 9 a b
-				 0xbf, 0xaa, 0x7f, 0x55};   //  c d e f 
+				 0xbf, 0xaa, 0xdf, 0x55};   //  c d e f 
 				 
 				 
 uint8_t keypad_bits[16];
@@ -109,7 +109,7 @@ int main(void)
 	
 	init_keypad_4x4s (P_PORTC);
 
-
+/*  // relays
 	hc595_setup(0, P_PD7, P_PD3, P_PD5);
 	hc595_putc (0,0x01);
 	delay(500);
@@ -126,11 +126,13 @@ int main(void)
 	hc595_putc (0,0x40);
 	delay(500);
 	hc595_putc (0,0x80);
+*/
+
 
 	//void lcd_setup (uint8_t rs, uint8_t rw, uint8_t enable1, uint8_t enable2,
 	//			uint8_t db0, uint8_t db1, uint8_t db2, uint8_t db3 ) 
-	 lcd_setup (0, P_PC2, P_PC4, P_PC6, P_PC0,
-			  P_PC1, P_PC3, P_PC5, P_PC7);	 
+	 //lcd_setup (0, P_PC2, P_PC4, P_PC6, P_PC0,
+//			  P_PC1, P_PC3, P_PC5, P_PC7);	 
 	 lcd_setup (0, P_PA2, P_PA4, P_PA6, P_PA0,
 			  P_PA1, P_PA3, P_PA5, P_PA7);	 
 
@@ -140,16 +142,16 @@ int main(void)
 	lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
 	
 	
-	lcd_puts (0, "abcde 1");
-	lcd_puts (0, "\nfghij 2");
+	lcd_puts (0, "axbcde x");
+	lcd_puts (0, "\nfghij y");
 	
 	uart_printf ("start loop \r\n",c);
 	c=0;
 	prevc=0;
 	for (;;) {
-		c=keypad_4x4_getc();	
-		a=PINA;
-		uart_printf ("%x\r\n",a);
+		c=keypad_getch();
+		a=PINC;
+		uart_printf ("%x %x\r\n",a,c);
 		num=mapping[c];		
 		
 		if (c!=prevc) {
