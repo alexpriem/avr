@@ -1,5 +1,4 @@
 ##### Customize the values as indicated below and :
-##### Customize the values as indicated below and :
 ##### make
 ##### make disasm 
 ##### make stats 
@@ -32,11 +31,11 @@ MCU=atmega324pa
 # accept the same MCU name as avr-gcc (for example
 # for ATmega8s, avr-gcc expects 'atmega8' and 
 # avrdude requires 'm8')
-PROGRAMMER_MCU=m324pa
+PROGRAMMER_MCU=m324p
 
 # Name of our project
 # (use a single word, e.g. 'myproject')
-PROJECTNAME=lcd
+PROJECTNAME=lib
 
 # Source files
 # List C/C++/Assembly source files:
@@ -45,19 +44,16 @@ PROJECTNAME=lcd
 # (NOT .s !!!) for assembly source code files.
 #PRJSRC=main.c uart.c delay.c leds.c  bitops.c mcp3202.c mcp4922.c \
 #		scpi.c scpi_cmds.c hv_supply.c
-#PRJSRC=main.c lcd_4_40x4.c rot_encoder.c pga2311.c
-#PRJSRC=main.c lcd_serial.c  rot_encoder.c pga2311.c 
-PRJSRC=main_k.c lcd_4_40x4.c # softuart.c
+PRJSRC=uart0.c  uart1.c
 		 
 		
 
 		
 # additional includes (e.g. -I/path/to/mydir)
-INC=-Ie:\avr\include 
+INC=-Ie:\avr\include -Ie:\avr\lib324
 
 # libraries to link in (e.g. -lmylib)
-#LIBS=-Le:\avr\lib -ldelay -luart
-LIBS=-Le:\avr\lib -Le:\avr\lib324 -ldelay -luart0  -luart1 -lhc595
+LIBS=-Le:\avr\lib324
 
 # Optimization level, 
 # use s (size opt), 1, 2, 3 or 0 (off)
@@ -165,6 +161,8 @@ OBJDEPS=$(CFILES:.c=.o)    \
 	$(BIGCFILES:.C=.o) \
 	$(CCFILES:.cc=.o)  \
 	$(ASMFILES:.S=.o)
+	
+LIBDEPS=$(CFILES:.c=.a) 
 
 # Define all lst files.
 LST=$(filter %.lst, $(OBJDEPS:.o=.lst))
@@ -182,30 +180,35 @@ GENASMFILES=$(filter %.s, $(OBJDEPS:.o=.s))
 
 # Make targets:
 # all, disasm, stats, hex, writeflash/install, clean
-all: $(TRG)
 
-disasm: $(DUMPTRG) stats
+#lib: uart.a uart.o
+	
+
+all:   uart0 uart1
+
+#disasm: $(DUMPTRG) stats
 
 stats: $(TRG)
 	$(OBJDUMP) -h $(TRG)
 	$(SIZE) $(TRG) 
 
-hex: $(HEXTRG)
+	
+uart0: uart0.o
+	avr-ar rcs libuart0.a uart0.o
 
+uart1: uart1.o
+	avr-ar rcs libuart1.a uart1.o
 
-writeflash: 
-	$(AVRDUDE) -V -b 115200 -c $(AVRDUDE_PROGRAMMERID)   \
-	 -p $(PROGRAMMER_MCU) -P $(AVRDUDE_PORT) -e        \
-	 -U flash:w:$(HEXROMTRG)
+	
 
-install: writeflash
 
 $(DUMPTRG): $(TRG) 
 	$(OBJDUMP) -S  $< > $@
 
 
 $(TRG): $(OBJDEPS) 
-	$(CC)  -o $(TRG) $(OBJDEPS) $(LDFLAGS)
+	$(CC) $(LDFLAGS) -o $(TRG) $(OBJDEPS)
+	$(AR) rcs $(LIBDEPS) $(OBJDEPS)
 
 
 #### Generating assembly ####
@@ -230,27 +233,9 @@ $(TRG): $(OBJDEPS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
-# object from C++ (.cc, .cpp, .C files)
-.cc.o .cpp.o .C.o :
-	$(CC) $(CFLAGS) -c $< -o $@
-
 # object from asm
 .S.o :
 	$(CC) $(ASMFLAGS) -c $< -o $@
-
-
-#### Generating hex files ####
-# hex files from elf
-#####  Generating a gdb initialisation file    #####
-.out.hex:
-	$(OBJCOPY) -j .text                    \
-		-j .data                       \
-		-O $(HEXFORMAT) $< $@
-
-.out.ee.hex:
-	$(OBJCOPY) -j .eeprom                  \
-		--change-section-lma .eeprom=0 \
-		-O $(HEXFORMAT) $< $@
 
 
 #####  Generating a gdb initialisation file    #####
@@ -273,11 +258,10 @@ $(GDBINITFILE): $(TRG)
 
 #### Cleanup ####
 clean:
-	$(REMOVE) $(TRG) $(TRG).map $(DUMPTRG)
+#$(REMOVE) $(TRG) $(TRG).map $(DUMPTRG)
 	$(REMOVE) $(OBJDEPS)
 	$(REMOVE) $(LST) $(GDBINITFILE)
 	$(REMOVE) $(GENASMFILES)
-	$(REMOVE) $(HEXTRG)
 	
 
 
