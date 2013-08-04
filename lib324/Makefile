@@ -44,7 +44,7 @@ PROJECTNAME=lib
 # (NOT .s !!!) for assembly source code files.
 #PRJSRC=main.c uart.c delay.c leds.c  bitops.c mcp3202.c mcp4922.c \
 #		scpi.c scpi_cmds.c hv_supply.c
-PRJSRC=uart0.c  uart1.c
+PRJSRC=uart324_0.c  uart324_1.c
 		 
 		
 
@@ -184,7 +184,7 @@ GENASMFILES=$(filter %.s, $(OBJDEPS:.o=.s))
 #lib: uart.a uart.o
 	
 
-all:   uart0 uart1
+all:   uart324_0 uart324_1
 
 #disasm: $(DUMPTRG) stats
 
@@ -193,11 +193,11 @@ stats: $(TRG)
 	$(SIZE) $(TRG) 
 
 	
-uart0: uart0.o
-	avr-ar rcs libuart0.a uart0.o
+uart324_0: uart324_0.o
+	avr-ar rcs libuart324_0.a uart324_0.o
 
-uart1: uart1.o
-	avr-ar rcs libuart1.a uart1.o
+uart324_1: uart324_1.o
+	avr-ar rcs libuart324_1.a uart324_1.o
 
 	
 

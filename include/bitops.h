@@ -33,14 +33,14 @@ uint8_t pbit_write(uint8_t portbit);
 #define P_PORTH 0x70
 
 
-#define P_BIT0 0x00
-#define P_BIT1 0x01
-#define P_BIT2 0x02
-#define P_BIT3 0x03
-#define P_BIT4 0x04
-#define P_BIT5 0x05
-#define P_BIT6 0x06
-#define P_BIT7 0x07
+#define P_BIT0 0x01
+#define P_BIT1 0x02
+#define P_BIT2 0x04
+#define P_BIT3 0x08
+#define P_BIT4 0x10
+#define P_BIT5 0x20
+#define P_BIT6 0x40
+#define P_BIT7 0x80
 
 
 #define P_PA0 0x00
@@ -98,6 +98,25 @@ uint8_t pbit_write(uint8_t portbit);
 #define P_PF6 0x56
 #define P_PF7 0x57
 
+
+#define P_PG0 0x60
+#define P_PG1 0x61
+#define P_PG2 0x62
+#define P_PG3 0x63
+#define P_PG4 0x64
+#define P_PG5 0x65
+#define P_PG6 0x66
+#define P_PG7 0x67
+
+
+#define P_PH0 0x70
+#define P_PH1 0x71
+#define P_PH2 0x72
+#define P_PH3 0x73
+#define P_PH4 0x74
+#define P_PH5 0x75
+#define P_PH6 0x76
+#define P_PH7 0x77
 
 
 #endif /* _BITOPS_H_ */

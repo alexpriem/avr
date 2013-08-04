@@ -22,10 +22,15 @@
 #include "constants.h"
 #include "rot_encoder.h"
 #include "keypad.h"
-#include "hc595.h"
+
 	
 #include "softuart.h"
 
+
+#define WIND_CLOCK 0x80
+#define FILL_WIND 0x40
+#define MOTOR 0x20
+#define WIND_ANTICLOCK 0x10
 
 
 uint8_t relaystate=0x0;
@@ -82,7 +87,7 @@ uint8_t keypad_getch (void) {
   for (i=0; i<16; i++) {
     if (mapping[i]==c) return i;
   }
-  uart_printf ("[%x]",c);
+  uart1_printf ("[%x]",c);
   return 0xfe;
 }		  
 
@@ -109,68 +114,72 @@ uint8_t keypad_w_getch (void) {
   }
   
 
-  uart_printf ("not in mapping:%x\r\n",c);
+  uart1_printf ("not in mapping:%x\r\n",c);
   return 0xfe;
 }		  
 	  
 
 void set_wind_dir_none (void) {
-	uart_printf ("left\r\n");	
-	relaystate=(relaystate & 0x5f);  // of | 0xa0
-	hc595_putc (0,relaystate);
+	uart1_printf ("left\r\n");	
+	
+	relaystate=(relaystate & ~(WIND_CLOCK | WIND_ANTICLOCK));
+	bit_clr (PORTD, WIND_CLOCK );
+	bit_clr (PORTD, WIND_ANTICLOCK );
 }
 
 
 void set_wind_dir_left (void) {
-	uart_printf ("left\r\n");	
-	relaystate=(relaystate & 0xdf) | 0x80;
-	hc595_putc (0,relaystate);
+	uart1_printf ("left\r\n");	
+	relaystate=(relaystate & ~(WIND_CLOCK | WIND_ANTICLOCK)) | WIND_CLOCK;
+	bit_clr (PORTD, WIND_CLOCK );
+	bit_set (PORTD, WIND_ANTICLOCK );	
 }
 
 void set_wind_dir_right (void) {
-	uart_printf ("right\r\n");
-	relaystate=(relaystate & 0x7f) | 0x20;
-	hc595_putc (0,relaystate);
+	uart1_printf ("right\r\n");
+	relaystate=(relaystate & ~(WIND_CLOCK | WIND_ANTICLOCK)) | WIND_ANTICLOCK;
+	bit_clr (PORTD, WIND_CLOCK );
+	bit_set (PORTD, WIND_ANTICLOCK );	
 }
 
 void set_fill (void) {
-	relaystate=relaystate & 0xf7;
-	hc595_putc (0,relaystate);
+	
+	relaystate=(relaystate & ~FILL_WIND);
+	bit_clr (PORTD, FILL_WIND );
 }
 
 void set_wind (void){
-	relaystate=relaystate | 0x08;
-	hc595_putc (0,relaystate);
+	relaystate=(relaystate | FILL_WIND);
+	bit_set (PORTD, FILL_WIND );	
 }
 
 void stop_motor (void){
-	relaystate=relaystate | 0x40;
-	hc595_putc (0,relaystate);
+	relaystate=(relaystate & ~MOTOR);
+	bit_clr (PORTD, MOTOR );
 }
 
 void start_motor (void){
-	relaystate=relaystate & 0xbf;
-	hc595_putc (0,relaystate);
+	relaystate=(relaystate | MOTOR);
+	bit_set (PORTD, MOTOR );
 }
 
 void fill (unsigned int num) {	
-	uart_printf ("fill:%d\r\n",num);
+	uart1_printf ("fill:%d\r\n",num);
 	set_fill();
 	sleep(100);
 	start_motor();
-
 }
 
 
 void wind (unsigned int num) {	
-	uart_printf ("wind:%d\r\n",num);
+	uart1_printf ("wind:%d\r\n",num);
 	set_wind();
 	sleep(100);
 	start_motor();
 }
 
 void wind_left (unsigned int num) {	
-	uart_printf ("wind_right:%d\r\n",num);
+	uart1_printf ("wind_right:%d\r\n",num);
 	set_wind_dir_left ();
 	set_wind();
 	sleep(100);
@@ -180,7 +189,7 @@ void wind_left (unsigned int num) {
 
 void wind_right (unsigned int num) {
 	
-	uart_printf ("wind_left:%d\r\n",num);
+	uart1_printf ("wind_left:%d\r\n",num);
 	set_wind_dir_right ();
 	set_wind();
 	sleep(100);
@@ -191,11 +200,11 @@ void wind_right (unsigned int num) {
 
 void update_num (unsigned int num) {
 
-	uart_printf ("num: %d\r\n",num);
+	uart1_printf ("num: %d\r\n",num);
 }
 
 void special (void) {
-	uart_printf ("special\r\n");
+	uart1_printf ("special\r\n");
 }
 		  
 
@@ -220,10 +229,30 @@ void dump_uart1 (void) {
 }
 
 
+void dump_uart0 (void) {
+	char buf[40];
+	uint8_t i;
+
+
+	uart1_printf("%d",dumps);
+
+	for (i=0; i<32; i++) {
+		buf[i]=uart1_buf[i];		
+	}
+	buf[32]=13;
+	buf[33]=10;
+	buf[34]=0;
+	uart1_puts(buf);
+	dumps++;
+	uart1_puts("ok\r\n");
+}
+
+
+
 int main(void)
 {
     unsigned int  num, prevnum;
-	uint8_t a;
+	uint8_t a,p;
 	int c, prevc;
 	
 		  
@@ -231,16 +260,20 @@ int main(void)
 	//softuart_init();
 	uart_init();
 	uart1_init();
-	delay(3000);
+	//delay(1000);
 	uart1_puts ("\r\nreset -- init port 1\r\n");	
+	
 	//dump_uart1();
-	uart_puts ("b555\n");
+	uart_puts ("a123\n");
+	uart_puts ("b456\n");
+	uart_puts ("c789\n");
+	uart_puts ("d20\n");
 	//dump_uart1();
-	uart_puts ("b222\n");
+	//uart_puts ("b222\n");
 	//dump_uart1();
-	uart_puts ("c333\n");
+	//uart_puts ("c333\n");
 	//dump_uart1();
-	uart_puts ("d444\n");
+//	uart_puts ("d444\n");
 	//dump_uart1();
 	//softuart_puts("\r\nsoftuart reset -- init\r\n");
 	//init_keypad_4x4_s (ports);	
@@ -256,54 +289,36 @@ int main(void)
 	lcd_init (0, LCD_DISP_ON_CURSOR_BLINK);
 
   // relays
-	hc595_setup(0, P_PD7, P_PD4, P_PD5);
-	hc595_putc (0,0x01);
 
-	/*
-	uart_puts ("0x01\r\n");
-	delay(500);
-	hc595_putc (0,0x02);
-	uart_puts ("0x02\r\n");
-	delay(500);
-	hc595_putc (0,0x04);
-	uart_puts ("0x04\r\n");
-	delay(500); */
 
-	hc595_putc (0,0x08);
-	uart1_puts ("0x08\n");
-	lcd_puts (0, "0xf");
-	delay(1000);
+			//							sh_cp:11 (geel)    st_cp:12(paars)    ds:14(wit)
+	//void hc595_setup (uint8_t chip, uint8_t clk, uint8_t cs, uint8_t data)
 
-	hc595_putc (0,0x00);
-	uart1_puts ("0x00\r\n");
-	lcd_puts (0, "0x00");
-	delay(1000);
+	DDRD|=P_BIT7 | P_BIT6 | P_BIT5 | P_BIT4;
 
-	hc595_putc (0,0x08);
+	
+	p=P_BIT4;
+
+	bit_set(PORTD, P_BIT4);
 	uart1_puts ("0xff\r\n");
 	lcd_puts (0, "0xff");
 	delay(1000);
 
-	hc595_putc (0,0x00);
+	bit_set(PORTD, P_BIT5);	
 	uart1_puts ("0x00\r\n");
 	lcd_puts (0, "0x00");
 	delay(1000);
 
-	hc595_putc (0,0x08);
-	uart1_puts ("0x08\r\n");
-	lcd_puts (0, "0x08");
+	bit_set(PORTD, P_BIT6);
+	uart1_puts ("0xff\r\n");
+	lcd_puts (0, "0xff");
 	delay(1000);
-	hc595_putc (0,0x20);
-	uart1_puts ("0x20\r\n");
-	lcd_puts (0, "0x20");
+
+	bit_set(PORTD, P_BIT7);
+	uart1_puts ("0x00\r\n");
+	lcd_puts (0, "0x00");
 	delay(1000);
-	hc595_putc (0,0x40);
-	uart1_puts ("0x40\r\n");
-	lcd_puts (0, "0x40");
-	delay(1000);
-	hc595_putc (0,0x80);
-	uart1_puts ("0x80\r\n");
-	lcd_puts (0, "0x80");
+
 
 
 	//void lcd_setup (uint8_t rs, uint8_t rw, uint8_t enable1, uint8_t enable2,
@@ -315,7 +330,7 @@ int main(void)
 	lcd_puts (0, "axbcde x");
 	lcd_puts (0, "\nfghij y");
 	
-	uart_printf ("start loop \r\n",c);
+	uart1_printf ("start loop \r\n",c);
 	c=0;
 	prevc=0;
 	num=0;
@@ -327,7 +342,7 @@ int main(void)
 
 		if (c!=prevc)  {
 			a=PINC;
-			uart_printf ("%x %x %d\r\n",a,c,num);
+			uart1_printf ("%x %x %d\r\n",a,c,num);
 			prevc=c;
 			switch (c) {
 				case 0x0f: wind(num);
@@ -366,23 +381,6 @@ int main(void)
 			}
 		
 
-
-
-
-/*		
-		if (c!=prevc) {
-			uart_printf (":%d reps omitted\r\n", count);
-			uart_printf ("%d %d\r\n", c, num);
-			prevc=c;
-			count=0;
-			} 
-		else {
-		  count++;
-		  if (count>65534) {
-			uart_printf ("*%d %d\r\n", c, num);
-			count=0;
-			}
-		  } */
 	}
 	
  return 0;
