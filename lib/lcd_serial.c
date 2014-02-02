@@ -20,10 +20,12 @@
        
 *****************************************************************************/
 #include <inttypes.h>
+#include <stdlib.h>
+#include <stdarg.h>
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include "lcd_serial.h"
-#include "uart.h" 
+#include "delay.h" 
 
 #include "bitops.h"
 
@@ -126,7 +128,9 @@ static void lcd_write(uint8_t chip, uint8_t data, uint8_t rs)
 			bit_set (*p_io, b_io);
 		else 
 			bit_clr (*p_io, b_io);
+		udelay(1);
 		bit_set	(*p_clock, b_clock);	
+		udelay(1);
 		startbyte=startbyte<<1;			
 		}
 
@@ -137,7 +141,9 @@ static void lcd_write(uint8_t chip, uint8_t data, uint8_t rs)
 			bit_set (*p_io, b_io);
 		else 
 			bit_clr (*p_io, b_io);
+		udelay(1);
 		bit_set	(*p_clock, b_clock);
+		udelay(1);
 		data=data<<1;		
 		}
 	
@@ -439,6 +445,94 @@ void lcd_puts_p(uint8_t chip, const char *progmem_s)
 }/* lcd_puts_p */
 
 
+
+void lcd_printf(uint8_t chip, char *fmt, ...)
+{
+    va_list ap;
+    char *p, *sval;
+
+    int ival;
+	long int lval;
+	long long int llval;
+    unsigned int uval;
+    char buf[40];
+
+
+    va_start(ap, fmt);    /* make ap point to the first unnamed arg */
+    for (p = fmt; *p; p++) {
+        if (*p != '%') {
+            lcd_putc(chip, *p);
+            continue;
+        }
+        switch (*++p) {
+		case 'b':
+		    ival = va_arg(ap, int);
+		    itoa(ival & 255, buf,2);    
+            lcd_puts(chip, buf);
+            break;
+        case 'd':
+        case 'i':
+            ival = va_arg(ap, int);
+            itoa(ival, buf,10);    
+            lcd_puts(chip, buf);
+            break;
+        case 'u':
+            uval = va_arg(ap, unsigned int);
+            utoa(uval, buf,10);    
+            lcd_puts(chip, buf);
+            break;
+		case 'U':
+            uval = va_arg(ap, unsigned long int);
+            ultoa(uval, buf,10);    
+            lcd_puts(chip, buf);
+            break;   		
+		case 'l':
+			lval = va_arg(ap, long int);
+            ltoa(lval, buf,10);    
+            lcd_puts(chip, buf);
+			break;			
+		case 'L':
+			llval = va_arg(ap, long long int);
+            ltoa(llval, buf,10);    
+            lcd_puts(chip, buf);
+			break;
+        case 'x':
+            ival = va_arg(ap, int);
+            itoa(ival, buf,16);    
+            lcd_puts(chip, buf);
+            break;
+        case 'c':
+            ival = va_arg(ap, int);
+            lcd_putc(chip, ival);
+            break;
+        case 's':
+            sval= va_arg(ap, char *);
+			if (sval==NULL) 
+				lcd_puts(chip, "NULL");
+			else 
+				lcd_puts(chip, sval);
+            break;
+		case 'p':
+		    sval= va_arg(ap, char *);
+			if (sval==NULL) 
+				lcd_puts(chip, "NULL");
+			else {				
+				itoa((int) sval, buf, 16);
+				lcd_puts(chip, buf);
+			}
+            break;
+        default:
+            lcd_putc(chip, *p);
+            break;
+        }
+    }
+    va_end(ap);
+}
+
+
+
+
+
 /*************************************************************************
 Initialize display and select type of cursor 
 Input:    dispAttr LCD_DISP_OFF            display off
@@ -510,5 +604,6 @@ void lcd_setup_info (uint8_t chip, uint8_t display_type, uint8_t width, uint8_t 
 void lcd_init (uint8_t chip, uint8_t dispAttr) 
 {	    
 	lcd_clrscr(chip);
-	lcd_command (chip, dispAttr);	
+	lcd_command (chip, 0x38);		
+	lcd_command (chip, LCD_DISP_ON);	
 }

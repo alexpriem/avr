@@ -32,6 +32,7 @@
 #endif
 
 #include <inttypes.h>
+#include <stdarg.h>
 #include <avr/pgmspace.h>
 
 /** 
@@ -164,7 +165,9 @@ extern void lcd_puts(uint8_t chip, const char *s);
 extern void lcd_puts_p(uint8_t chip, const char *progmem_s);
 extern void lcd_command(uint8_t chip, uint8_t cmd);
 extern void lcd_data(uint8_t chip, uint8_t data);
+extern void lcd_printf(uint8_t chip, char *fmt, ...);
 extern void lcd_setup (uint8_t chip,  uint8_t strobe, uint8_t clock, uint8_t io);
+
  		
 extern void lcd_setup_info (uint8_t chip, uint8_t display_type, uint8_t width, uint8_t height);
 
