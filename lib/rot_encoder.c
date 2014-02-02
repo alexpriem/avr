@@ -23,6 +23,7 @@ uint8_t encoder_b_bit0[NUM_ENCODERS];
 uint8_t encoder_b_bit1[NUM_ENCODERS];
 uint8_t encoder_prev_bit0[NUM_ENCODERS];
 uint8_t encoder_prev_bit1[NUM_ENCODERS];
+int8_t prevstate[NUM_ENCODERS];
 
 
 int8_t enc_states[] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};
@@ -30,7 +31,7 @@ int8_t enc_states[] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};
 
 void encoder_setup(uint8_t encoder, uint8_t bit0, uint8_t bit1)
 
-{ uint8_t bbit0, bbit1;
+{ uint8_t bbit0, bbit1,i;
 
  bbit0=1<< (bit0  & P_BITMASK);
  encoder_b_bit0[encoder] = bbit0;
@@ -51,17 +52,19 @@ void encoder_setup(uint8_t encoder, uint8_t bit0, uint8_t bit1)
 
  encoder_prev_bit0[encoder]=bbit0;
  encoder_prev_bit1[encoder]=bbit1;
+ for (i=0; i<NUM_ENCODERS; i++) prevstate[NUM_ENCODERS]=0;
 }
 
 int8_t encoder_poll (uint8_t encoder)
 
 {
  uint8_t b0,b1, ab, state;
- static int8_t old_AB = 0;
+ int8_t old_AB;
  
  //old_ab=encoder_prev_bit0[encoder]+encoder_prev_bit1[encoder];
  b0=bit_get(*encoder_p_bit0[encoder], encoder_b_bit0[encoder]); 
  b1=bit_get(*encoder_p_bit1[encoder], encoder_b_bit1[encoder]); 
+ old_AB=prevstate[encoder];
  if (b0) b0=1;
  if (b1) b1=2;
  ab=b0+b1;
@@ -70,6 +73,7 @@ int8_t encoder_poll (uint8_t encoder)
  //if ((b0==prevb0) && (b1==prevb1)) return 0;
  //uart_printf ("%d %d %d %d\r\n", prevb0, prevb1, b0, b1);
  
+ prevstate[encoder]=old_AB;
  state=enc_states[( old_AB & 0x0f )];
  if (state!=0) {
 	uart_printf ("s:%d\r\n", state);
@@ -86,19 +90,19 @@ int8_t encoder_poll_range (uint8_t encoder, int8_t *var, int8_t min, int8_t max,
  
  changed=FALSE;
  status=encoder_poll (encoder);
- uart_printf ("%d %d %d %d %d\r\n",status, *var, min, max, step);
+ //uart_printf ("%d %d %d %d %d\r\n",status, *var, min, max, step);
  if ((status==1) && (*var<max)) {
-    uart_printf ("+");	
+    //uart_printf ("+");	
 	*var+=step;	
 	if (*var>max) *var=max;	
 	return TRUE;
 	}
  if ((status==-1) && (*var>min)) {
-	uart_printf ("-");
+	//uart_printf ("-");
 	*var-=step;
 	if (*var<min) *var=min;
 	changed=TRUE;	
 	}
- uart_printf ("%d %d %d %d %d %d\r\n",status, changed, *var, min, max, step);
+ //uart_printf ("%d %d %d %d %d %d\r\n",status, changed, *var, min, max, step);
  return changed;
 }
