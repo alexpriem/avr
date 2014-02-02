@@ -169,6 +169,7 @@ ISR (USART1_RX_vect)
    if (uart1_pos>=UART1_BUFLEN) uart1_pos=0;   
    if ((c==13) || (c==10)) uart1_done=1;   
    if (uart1_echo) uart1_putc(c);
+//   uart_putc(c);
 }
 
 
