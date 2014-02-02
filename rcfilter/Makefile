@@ -36,7 +36,7 @@ PROGRAMMER_MCU=m32
 
 # Name of our project
 # (use a single word, e.g. 'myproject')
-PROJECTNAME=lcd
+PROJECTNAME=rcfilter
 
 # Source files
 # List C/C++/Assembly source files:
@@ -57,7 +57,7 @@ INC=-Ie:\avr\include
 
 # libraries to link in (e.g. -lmylib)
 #LIBS=-Le:\avr\lib -ldelay -luart
-LIBS=-Le:\avr\lib -ldelay -luart -lhc595 -llcd_serial -lrot_encoder
+LIBS=-Le:\avr\lib  -luart -lhc595 -ldelay -llcd_serial -lrot_encoder
 
 # Optimization level, 
 # use s (size opt), 1, 2, 3 or 0 (off)
