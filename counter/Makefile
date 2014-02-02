@@ -1,4 +1,5 @@
 ##### Customize the values as indicated below and :
+##### Customize the values as indicated below and :
 ##### make
 ##### make disasm 
 ##### make stats 
@@ -23,7 +24,7 @@
 # Name of target controller 
 # (e.g. 'at90s8515', see the available avr-gcc mmcu 
 # options for possible values)
-MCU=atmega128
+MCU=atmega324pa
 
 # id to use with programmer
 # default: PROGRAMMER_MCU=$(MCU)
@@ -31,11 +32,11 @@ MCU=atmega128
 # accept the same MCU name as avr-gcc (for example
 # for ATmega8s, avr-gcc expects 'atmega8' and 
 # avrdude requires 'm8')
-PROGRAMMER_MCU=m128
+PROGRAMMER_MCU=m324pa
 
 # Name of our project
 # (use a single word, e.g. 'myproject')
-PROJECTNAME=counter
+PROJECTNAME=lcd
 
 # Source files
 # List C/C++/Assembly source files:
@@ -44,15 +45,21 @@ PROJECTNAME=counter
 # (NOT .s !!!) for assembly source code files.
 #PRJSRC=main.c uart.c delay.c leds.c  bitops.c mcp3202.c mcp4922.c \
 #		scpi.c scpi_cmds.c hv_supply.c
-PRJSRC=main.c keypad.c cat4016.c lcd.c 
+#PRJSRC=main.c lcd_4_40x4.c rot_encoder.c pga2311.c
+#PRJSRC=main.c lcd_serial.c  rot_encoder.c pga2311.c 
+PRJSRC=main.c 
+		 
 		
 
 		
 # additional includes (e.g. -I/path/to/mydir)
-INC=-Ie:\avr\include
+INC=-I../include 
 
 # libraries to link in (e.g. -lmylib)
-LIBS=-Le:\avr\lib   -luart -lhc595 -ldelay
+#LIBS=-L../lib -ldelay -luart
+LIBS=-L../lib324 -L../lib  -ldelay -luart324_0 -llcd_4_40x4
+LIBS=-L../lib324 -L../lib  -ldelay -luart_dummy -llcd_4_40x4
+LIBS=-L../lib324 -L../lib  -ldelay -llcd_4_40x4
 
 # Optimization level, 
 # use s (size opt), 1, 2, 3 or 0 (off)
@@ -74,12 +81,14 @@ OPTLEVEL=0
 # described in the avrdude info page.
 # 
 AVRDUDE_PROGRAMMERID=stk500v2
+#AVRDUDE_PROGRAMMERID=dragon_isp
 
 # port--serial or parallel port to which your 
 # hardware programmer is attached
 #
 #AVRDUDE_PORT=/dev/ttyS0
-AVRDUDE_PORT= com4
+AVRDUDE_PORT= /dev/ttyS7
+#AVRDUDE_PORT= usb
 
 # PROG is com2
 
@@ -100,15 +109,13 @@ AVRDUDE_PORT= com4
 # HEXFORMAT -- format for .hex file output
 HEXFORMAT=ihex
 
-DEFINES=_DEBUG_
-
 # compiler
-CFLAGS=-I. $(INC) -g -mmcu=$(MCU) -O$(OPTLEVEL)  -D$(DEFINES)\
+CFLAGS=-I. $(INC) -g -mmcu=$(MCU) -O$(OPTLEVEL) \
 	-fpack-struct -fshort-enums             \
 	-funsigned-bitfields -funsigned-char    \
 	-Wall -Wstrict-prototypes               \
 	-Wa,-ahlms=$(firstword                  \
-	$(filter %.lst, $(<:.c=.lst))) 
+	$(filter %.lst, $(<:.c=.lst)))
 
 # c++ specific flags
 CPPFLAGS=-fno-exceptions               \
@@ -191,7 +198,7 @@ hex: $(HEXTRG)
 
 
 writeflash: 
-	$(AVRDUDE) -V -b 115200  -B 1 -i 1 -c $(AVRDUDE_PROGRAMMERID)   \
+	$(AVRDUDE) -V -b 115200 -c $(AVRDUDE_PROGRAMMERID)   \
 	 -p $(PROGRAMMER_MCU) -P $(AVRDUDE_PORT) -e        \
 	 -U flash:w:$(HEXROMTRG)
 
@@ -223,11 +230,13 @@ $(TRG): $(OBJDEPS)
 
 #### Generating object files ####
 # object from C
-# object from C++ (.cc, .cpp, .C files)
-.c.o .cc.o .cpp.o:
+.c.o: 
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
+# object from C++ (.cc, .cpp, .C files)
+.cc.o .cpp.o .C.o :
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # object from asm
 .S.o :

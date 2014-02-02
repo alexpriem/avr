@@ -20,9 +20,16 @@
        
 *****************************************************************************/
 #include <inttypes.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdarg.h>
+
+
 #include <avr/io.h>
 #include <avr/pgmspace.h>
+#include <avr/power.h>       
 #include "lcd_4_40x4.h"
+
 
 #include "bitops.h"
 
@@ -131,8 +138,6 @@ static void lcd_e_toggle(uint8_t chip, uint8_t lcd)
 	bit_set (*p_enable, b_enable);
 	lcd_e_delay();
 	bit_clr (*p_enable, b_enable);
-	
-	
 }
 
 
@@ -152,7 +157,7 @@ static void lcd_write(uint8_t chip, uint8_t lcd, uint8_t data, uint8_t rs)
 	uint8_t b_db0, b_db1, b_db2, b_db3;
     uint8_t b_rs, b_rw; 
     	
-	p_db0=lcd_p_db0[chip];
+    p_db0=lcd_p_db0[chip];
     p_db1=lcd_p_db1[chip];
     p_db2=lcd_p_db2[chip];
     p_db3=lcd_p_db3[chip];
@@ -167,7 +172,7 @@ static void lcd_write(uint8_t chip, uint8_t lcd, uint8_t data, uint8_t rs)
     ddr_db2=lcd_ddr_db2[chip];
     ddr_db3=lcd_ddr_db3[chip];
 	
-	p_rs=lcd_p_rs[chip];
+    p_rs=lcd_p_rs[chip];
     p_rw=lcd_p_rw[chip];
 	
     b_rs=lcd_b_rs[chip];
@@ -223,17 +228,18 @@ Returns:  byte read from LCD controller
 
 static uint8_t lcd_read(uint8_t chip, uint8_t lcd, uint8_t rs) 
 {
-	volatile uint8_t *p_db0, *p_db1, *p_db2, *p_db3, *p_rs, *p_rw, *p_enable;	
+//	volatile uint8_t *p_db0, *p_db1, *p_db2, *p_db3;
+    volatile uint8_t  *p_rs, *p_rw, *p_enable;	
 	volatile uint8_t *pin_db0, *pin_db1, *pin_db2, *pin_db3;
     volatile uint8_t *ddr_db0, *ddr_db1, *ddr_db2, *ddr_db3;
     uint8_t b_db0, b_db1, b_db2, b_db3;
 	uint8_t b_rs, b_rw, b_enable, data;	
 
-	p_db0=lcd_p_db0[chip];
+/*	p_db0=lcd_p_db0[chip];
     p_db1=lcd_p_db1[chip];
     p_db2=lcd_p_db2[chip];
     p_db3=lcd_p_db3[chip];
-
+*/
     b_db0=lcd_b_db0[chip];
     b_db1=lcd_b_db1[chip];
     b_db2=lcd_b_db2[chip];
@@ -353,7 +359,7 @@ Returns: none
 void lcd_data(uint8_t chip, uint8_t lcd, uint8_t data)
 {
     lcd_waitbusy(chip, lcd);
-    lcd_write(chip,lcd, data,1);
+    lcd_write(chip, lcd, data, 1);
 }
 
 
@@ -367,12 +373,10 @@ Returns:  none
 void lcd_gotoxy(uint8_t chip, uint8_t x, uint8_t y)
 {
 	struct lcdinfo *l;
-	uint8_t lines, start_line1;
-	
 	
 	l=&lcdinfos[chip];	
-	lines=l->lines;
-	start_line1=l->start_line1;
+	l->x=x;
+	l->y=y;
 	if ( y==0 )
 		lcd_command(chip,1, (1<<LCD_DDRAM)+l->start_line1+x);
 	else if ( y==1)
@@ -453,6 +457,7 @@ void lcd_putc(uint8_t chip, char c)
 		
 		//if (lcd==3) {lcd=1; y=0; }		
 		l->y=y;
+		l->x=0;
 		lcd_command(chip, lcd, (1<<LCD_DDRAM)+addressCounter);						
 		return;
     }	
@@ -514,6 +519,109 @@ void lcd_puts_p(uint8_t chip, const char *progmem_s)
     }
 
 }/* lcd_puts_p */
+
+
+
+void lcd_printf(uint8_t chip,char *fmt, ...)
+{
+    va_list ap;
+    char *p, *sval;
+
+    int ival;
+	long int lval;
+	long long int llval;
+    unsigned int uval;
+    char buf[40];
+
+
+    va_start(ap, fmt);    /* make ap point to the first unnamed arg */
+    for (p = fmt; *p; p++) {
+        if (*p != '%') {
+            lcd_putc(chip,*p);
+            continue;
+        }
+        switch (*++p) {
+		case 'b':
+		    ival = va_arg(ap, int);
+		    itoa(ival & 255, buf,2);    
+            lcd_puts(chip,buf);
+            break;
+        case 'd':
+        case 'i':
+            ival = va_arg(ap, int);
+            itoa(ival, buf,10);    
+            lcd_puts(chip,buf);
+            break;
+        case 'u':
+            uval = va_arg(ap, unsigned int);
+            utoa(uval, buf,10);    
+            lcd_puts(chip,buf);
+            break;
+		case 'U':
+            uval = va_arg(ap, unsigned long int);
+            ultoa(uval, buf,10);    
+            lcd_puts(chip,buf);
+            break;   		
+		case 'l':
+			lval = va_arg(ap, long int);
+            ltoa(lval, buf,10);    
+            lcd_puts(chip,buf);
+			break;			
+		case 'L':
+			llval = va_arg(ap, long long int);
+            ltoa(llval, buf,10);    
+            lcd_puts(chip,buf);
+			break;
+        case 'x':
+            ival = va_arg(ap, int);
+            itoa(ival, buf,16);    
+            lcd_puts(chip,buf);
+            break;
+        case 'c':
+            ival = va_arg(ap, int);
+            lcd_putc(chip,ival);
+            break;
+        case 's':
+            sval= va_arg(ap, char *);
+			if (sval==NULL) 
+				lcd_puts(chip,"NULL");
+			else 
+				lcd_puts(chip,sval);
+            break;
+		case 'p':
+		    sval= va_arg(ap, char *);
+			if (sval==NULL) 
+				lcd_puts(chip,"NULL");
+			else {				
+				itoa((int) sval, buf, 16);
+				lcd_puts(chip,buf);
+			}
+            break;
+        default:
+            lcd_putc(chip,*p);
+            break;
+        }
+    }
+    va_end(ap);
+}
+
+
+/* hack for printing digits up to 1000 left-aligned */
+
+void lcd_printval(uint8_t chip, unsigned int val) {
+
+  if (val<10) 
+	lcd_putc(chip,' ');
+  if (val<100) 
+	lcd_putc(chip,' ');
+  if (val<1000) 
+	lcd_putc(chip,' ');
+  lcd_printf (chip,"%d",val);
+}
+
+
+
+
 
 
 /*************************************************************************
@@ -676,8 +784,8 @@ void lcd_init (uint8_t chip, uint8_t dispAttr)
 	lcd_e_toggle(chip, 2);
     delay(64);           /* some displays need this additional delay */
 
-	lcd_command (chip, 1, LCD_DISP_ON_CURSOR_BLINK);	
-	lcd_command (chip, 2, LCD_DISP_ON_CURSOR_BLINK);	
+	lcd_command (chip, 1, LCD_DISP_ON);	
+	lcd_command (chip, 2, LCD_DISP_ON);	
 	
     lcd_command (chip, 1, LCD_FUNCTION_4BIT_2LINES);         
 	lcd_command (chip, 2, LCD_FUNCTION_4BIT_2LINES);      /* function set: display lines  */    	
